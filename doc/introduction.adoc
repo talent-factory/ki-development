@@ -1,0 +1,8 @@
+== Einführung
+include::locale/attributes-de.adoc[]
+:imagesdir: images/
+
+Beim Kopieren einer Prüfung können 0-n Prozeduren resp. deren Inhalt
+(erledigte Messungen) mitkopiert werden. Bei diesem Kopiervorgang
+kann entweder die bestehende oder eine aktualisierte Version des
+Modells verwendet werden.

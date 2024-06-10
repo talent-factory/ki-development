@@ -1,0 +1,15 @@
+= KI Professional – Fachrichtung Development
+:doctype: book
+Daniel Senften <daniel.senften@talent-factory.ch>
+include::locale/attributes-de.adoc[]
+:toc: left
+:sectnums:
+:quick-uri: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+Dieses Dokument wurde mit dem System {quick-uri}[AsciiDoc] erstellt.
+
+// Hinzufügen aller Dokumente
+include::introduction.adoc[]
+
+[bibliography]
+include::references.adoc[]
