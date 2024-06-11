@@ -6,7 +6,6 @@ include::locale/attributes-de.adoc[]
 :sectnums:
 :quick-uri: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
 
-Dieses Dokument wurde mit dem System {quick-uri}[AsciiDoc] erstellt.
 
 // Hinzufügen aller Dokumente
 include::introduction.adoc[]

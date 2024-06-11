@@ -2,7 +2,86 @@
 include::locale/attributes-de.adoc[]
 :imagesdir: images/
 
-Beim Kopieren einer Prüfung können 0-n Prozeduren resp. deren Inhalt
-(erledigte Messungen) mitkopiert werden. Bei diesem Kopiervorgang
-kann entweder die bestehende oder eine aktualisierte Version des
-Modells verwendet werden.
+:SimpleML: https://simplemlforsheets.com/
+
+=== Begriffe
+
+.AI Begriffswelt
+image::AI-Begriffswelt.png[width=100%]
+
+Begriffe, die alle unter den Oberbegriff künstliche Intelligenz (KI, englisch Artificial Intelligence, AI) fallen. KI ist ein breites Feld der Informatik, das sich mit der Schaffung von Maschinen oder Programmen beschäftigt, die Arbeitsweisen des menschlichen Gehirns nachahmen können, um Probleme zu lösen oder bestimmte Aufgaben durchzuführen.
+
+Viele dieser Begriffe sind im Buch von Benny Botsch <<botsch23>> beschrieben.
+
+*Artificial Intelligence (Künstliche Intelligenz)*
+Künstliche Intelligenz bezieht sich auf Systeme oder Maschinen, die menschenähnliche Fähigkeiten wie Lernen, Denken, Planen, Kreativität und Problemlösung aufweisen. Ziel der KI ist es, Maschinen zu entwickeln, die selbstständig Aufgaben durchführen können, für die normalerweise menschliche Intelligenz erforderlich ist.
+
+
+*Cybernetics (Kybernetik)*
+Kybernetik ist die Wissenschaft von der Steuerung und der Kommunikation in Organismen, Maschinen und Organisationen. Sie untersucht vor allem, wie Systeme sich selbst regulieren und Informationen verarbeiten, um ihre Ziele zu erreichen. Kybernetik ist eng mit der KI verbunden, da sie die theoretischen Grundlagen für das Verständnis von Feedbackschleifen und adaptiven Systemen bietet, die in der KI-Entwicklung verwendet werden.
+
+*Problem Solving (Problemlösung)*
+Problemlösung ist ein Kernaspekt der künstlichen Intelligenz. Es geht darum, Algorithmen zu entwickeln, die komplexe Probleme identifizieren und effektive Lösungen generieren können. In der KI bezieht sich Problemlösung oft auf die Fähigkeit eines Systems, mit neuen, unbekannten Herausforderungen umzugehen und eigenständige Lösungen zu finden.
+
+*Deep Learning (Tiefes Lernen)*
+Deep Learning ist ein Teilbereich des maschinellen Lernens und bezieht sich auf Netzwerke, die aus vielen Schichten bestehen, die Daten verarbeiten können. Diese Netzwerke, bekannt als tiefe neuronale Netze, ahmen die Arbeitsweise des menschlichen Gehirns nach und können grosse Mengen an Daten für Aufgaben wie Bild- und Spracherkennung interpretieren. Deep Learning hat bedeutende Fortschritte in der KI ermöglicht, insbesondere in der Verarbeitung natürlicher Sprache und der Bilderkennung.
+
+*Machine Learning (Maschinelles Lernen)*
+Maschinelles Lernen ist ein Kernbereich der KI, der Algorithmen verwendet, um Daten zu analysieren, daraus zu lernen und Vorhersagen oder Entscheidungen zu treffen, ohne explizit für jede spezifische Aufgabe programmiert zu werden. Durch das Lernen aus Erfahrungen kann maschinelles Lernen seine Leistung bei bestimmten Aufgaben im Laufe der Zeit verbessern.
+
+*Robotics (Robotik)*
+Robotik ist ein interdisziplinäres Feld, das sich mit dem Design, dem Bau und dem Betrieb von Robotern beschäftigt. Obwohl nicht alle Roboter KI nutzen, ist die Integration von KI in die Robotik ein wachsendes Forschungsfeld. KI ermöglicht es Robotern, komplexe Aufgaben durchzuführen, autonom zu agieren und aus ihren Interaktionen mit der Umwelt zu lernen.
+
+*Neural Networks (Neuronale Netze)*
+Neuronale Netze sind Algorithmen, die von der Struktur und Funktionsweise des menschlichen Gehirns inspiriert sind. Sie sind ein grundlegendes Werkzeug im maschinellen Lernen und bestehen aus Knoten (Neuronen), die über Schichten hinweg miteinander verbunden sind. Diese Netze können komplexe Muster in Daten erkennen und werden für eine Vielzahl von Aufgaben eingesetzt, darunter Sprach- und Bilderkennung.
+
+Zusammengefasst bilden diese Konzepte die Grundlage für die Entwicklung und den Einsatz von KI-Technologien und -Anwendungen, die zunehmend unseren Alltag und verschiedene Industriezweige prägen.
+
+.Machine- und Deep Learning
+image::ml_01.png[width=60%]
+
+==== Machine Learning
+
+Alan Turings Arbeit "Computing Machinery and Intelligence" markierte einen Wendepunkt in den Konzepten der Künstlichen Intelligenz. Eine zentrale These in Turings Arbeit ist die sogenannte "Lady Lovelace Objection". Diese basiert auf einer Aussage von Lady Ada Lovelace aus dem Jahr 1843 über die Analytical Engine von Charles Babbage. Lovelace behauptete, die Maschine könne nichts Neues erschaffen. Turing widersprach dem und argumentierte, dass Allzweckcomputer in der Lage seien, selbst zu lernen.
+
+Dies führte zur grundlegenden Frage des Machine Learning: Kann ein Computer nicht nur auf Basis vorgegebener Regeln Entscheidungen treffen, sondern auch eigenständig aus Daten lernen?
+
+Es gibt wesentliche Unterschiede zwischen dem klassischen Programmierparadigma und dem des Machine Learning: Im klassischen Ansatz werden Daten und Regeln als Input vorgegeben, aus denen dann Antworten generiert werden. Beim Machine Learning hingegen werden Daten und zugehörige Antworten bereitgestellt, damit der Computer die Regeln, die zu diesen Antworten führen, selbstständig erkennt. Diese erlernten Regeln können dann auf neue Daten angewendet werden.
+
+.Unterschiedliche Programmierparadigma
+image::ml_02.png[width=60%]
+
+Im Vergleich zum klassischen Programmieren handelt es sich bei Machine Learning mehr um einen Trainingsvorgang. ML ist auch eng mit der mathematischen Statistik verwandt. Ein wesentlicher Unterschied ist, dass ML eine sehr grosse Datenmenge verarbeiten muss.
+
+==== Repräsentationen
+
+Während des Lernvorgangs eines ML-Algorithmus müssen verschiedene Transformationen vorgenommen werden, um eine geeignete Repräsentation der Daten zu wählen. Diese Repräsentationen ermöglichen das Finden besserer Regeln. Vereinfacht gesagt, ist ML eine Suche nach der besten Repräsentation der eingegebenen Daten.
+
+.Repräsentationen
+image::ml_05.png[width=60%]
+
+In diesem Beispiel ermöglicht die veränderte Repräsentation den Schluss, dass alle Punkte, die kleiner als Null sind, die Farbe Grün haben. Bei den Rohdaten wäre eine solche Aussage schwer zu definieren gewesen.
+
+
+==== Deep Learning
+
+Deep Learning ist ein Ansatz des Machine Learning. Grundsätzlich sind drei Bestandteile notwendig: Eingabedaten, Ergebnisse und ein Verfahren zur Überprüfung der Resultate. Dabei sollen durch den ML-Algorithmus über mehrere Schichten hinweg passende Repräsentationen der Daten gefunden werden. "Deep" bezieht sich auf die Vielzahl dieser Repräsentationsschichten und beschreibt die Tiefe des Modells. Beim Deep Learning werden diese verschiedenen Repräsentationen durch ein neuronales Netz gelernt. Ein niedriger Wert der Verlustfunktion zeigt an, dass die Ergebnisse näher an den Zielwerten liegen, was bedeutet, dass das neuronale Netz gut trainiert ist. Der Verlustwert misst die Abweichung zwischen dem Output und dem gewünschten Ergebnis.
+
+*Anwendungsbeispiele:*
+
+* Bildekennung
+* Spracherkennung
+* Handschrifterkennung
+* Übersetzung
+* Digitale Assistenten
+
+
+=== Simple ML for Sheets
+
+image::simple_ml_logo.png[width=40%]
+
+{SimpleML}[Simple ML] für Sheets ermöglicht es jedem, maschinelles Lernen (ML) in Google Sheets zu nutzen, ohne Vorkenntnisse in ML oder Programmierung zu haben oder Daten mit Dritten teilen zu müssen.
+
+Simple ML ist ein Add-on für Google Sheets, das die gängigsten ML-Aufgaben löst. Zu seinen Hauptaufgaben gehören stark automatisierte ML-Funktionen, die keine ML-Kenntnisse der Benutzer erfordern: Vorhersage fehlender Werte, Erkennung ungewöhnlicher Werte und Prognose zukünftiger Werte.
+
+Simple ML ist auch nützlich für ML-Experten, die schnell iterieren oder Prototypen mit kleinen tabellarischen Datensätzen (z. B. <1 Million Beispiele) erstellen möchten. Simple ML bietet klassische Funktionen wie das Training, die Bewertung, das Ausführen oder die Analyse eines Modells. Benutzer können ein Modell nach TensorFlow, Colab, TF Serving exportieren oder das Modell einfach in C++, Go und JavaScript aufrufen. Das Training dauert in der Regel nur wenige Sekunden, was sich hervorragend für schnelle Iterationen eignet.

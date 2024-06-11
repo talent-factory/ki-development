@@ -2,7 +2,6 @@
 include::locale/attributes-de.adoc[]
 :imagesdir: images/
 
-* [[[pp]]] Andy Hunt & Dave Thomas. The Pragmatic Programmer:
-From Journeyman to Master. Addison-Wesley. 1999.
-* [[[gof]]] Erich Gamma, Richard Helm, Ralph Johnson & John Vlissides.
-Design Patterns: Elements of Reusable Object-Oriented Software. Addison-Wesley. 1994.
+:botsch23: https://ipfs.talent-factory.xyz/ipfs/QmbbQXmBKHmKdveJeejTXQbqjCyjoFeqfFruqbXQzAL3kb
+
+* [[[botsch23]]] Benny Botsch. {botsch23}[Maschinelles Lernen, Grundlagen und Anwendungen]. Springer-Verlag. 2023
