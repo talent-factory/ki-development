@@ -1,0 +1,24 @@
+=== Hugging Face
+include::locale/attributes-de.adoc[]
+:imagesdir: images/
+
+:url: https://huggingface.co/
+
+
+Hugging Face ist ein Unternehmen und eine Open-Source-Community, die sich auf maschinelles Lernen und natürliche Sprachverarbeitung (NLP) spezialisiert hat. Es bietet verschiedene Tools und Bibliotheken an, die es Entwicklern ermöglichen, fortschrittliche NLP-Modelle zu erstellen, zu trainieren und einzusetzen. Hier sind einige der wichtigsten Aspekte und Angebote von Hugging Face:
+
+1. **Transformers Bibliothek**: Eine der bekanntesten Bibliotheken von Hugging Face, die vortrainierte Modelle für NLP-Aufgaben wie Textklassifizierung, Übersetzung, Fragebeantwortung und mehr bietet. Diese Bibliothek unterstützt viele populäre Modelle wie BERT, GPT-3, RoBERTa und T5.
+
+2. **Datasets Bibliothek**: Eine Bibliothek zur einfachen Handhabung und Nutzung von Datensätzen für maschinelles Lernen. Sie bietet Zugang zu einer Vielzahl von Datensätzen, die für das Training und die Evaluierung von Modellen verwendet werden können.
+
+3. **Tokenizers Bibliothek**: Eine spezialisierte Bibliothek zur schnellen und effizienten Tokenisierung von Text, die in NLP-Projekten häufig notwendig ist.
+
+4. **Model Hub**: Eine Plattform, auf der Entwickler vortrainierte Modelle teilen und wiederverwenden können. Dies erleichtert die Nutzung fortschrittlicher Modelle, ohne sie von Grund auf neu trainieren zu müssen.
+
+5. **Inferenz API**: Ein Dienst, der es ermöglicht, Modelle direkt in Anwendungen zu integrieren und Inferenz in Echtzeit durchzuführen, ohne dass eine eigene Infrastruktur erforderlich ist.
+
+6. **Optimum**: Eine Bibliothek, die darauf abzielt, die Effizienz von Modellen zu maximieren, insbesondere auf spezialisierter Hardware wie GPUs und TPUs.
+
+7. **Hugging Face Hub**: Eine Plattform für die Zusammenarbeit und das Teilen von Modellen, Datensätzen und Metriken. Sie dient als soziales Netzwerk für maschinelles Lernen, das den Austausch und die Wiederverwendung von Ressourcen fördert.
+
+Hugging Face hat sich zu einem zentralen Akteur im Bereich der NLP und des maschinellen Lernens entwickelt und wird von vielen Forschern und Entwicklern weltweit genutzt, um fortschrittliche Anwendungen zu erstellen und ihre Forschung voranzutreiben.

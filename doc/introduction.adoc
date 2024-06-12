@@ -3,6 +3,8 @@ include::locale/attributes-de.adoc[]
 :imagesdir: images/
 
 :SimpleML: https://simplemlforsheets.com/
+:account: https://accounts.google.com/
+:youtube: https://www.youtube.com/watch?v=SKpu2G2q1Fk
 
 === Begriffe
 
@@ -85,3 +87,10 @@ image::simple_ml_logo.png[width=40%]
 Simple ML ist ein Add-on für Google Sheets, das die gängigsten ML-Aufgaben löst. Zu seinen Hauptaufgaben gehören stark automatisierte ML-Funktionen, die keine ML-Kenntnisse der Benutzer erfordern: Vorhersage fehlender Werte, Erkennung ungewöhnlicher Werte und Prognose zukünftiger Werte.
 
 Simple ML ist auch nützlich für ML-Experten, die schnell iterieren oder Prototypen mit kleinen tabellarischen Datensätzen (z. B. <1 Million Beispiele) erstellen möchten. Simple ML bietet klassische Funktionen wie das Training, die Bewertung, das Ausführen oder die Analyse eines Modells. Benutzer können ein Modell nach TensorFlow, Colab, TF Serving exportieren oder das Modell einfach in C++, Go und JavaScript aufrufen. Das Training dauert in der Regel nur wenige Sekunden, was sich hervorragend für schnelle Iterationen eignet.
+
+==== Aufgabe
+
+Installiere in deiner Umgebung {SimpleML}[Simple ML]. Falls du noch keinen {account}[Google Account] hast, dann muss vorgängig ein entsprechender _Account_ erstellt werden.
+Sobald Simple ML installiert ist, können die einzelnen _Tutorial_ durchgespielt werden.
+
+Falls du nicht weiter kommst, dann steht {youtube}[hier] ein weiteres YouTube Video zu diesem Thema zur Verfügung.
