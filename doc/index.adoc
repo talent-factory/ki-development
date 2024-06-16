@@ -10,5 +10,8 @@ include::locale/attributes-de.adoc[]
 // Hinzufügen aller Dokumente
 include::introduction.adoc[]
 
+// Verwendete Software
+include::software.adoc[]
+
 [bibliography]
 include::references.adoc[]

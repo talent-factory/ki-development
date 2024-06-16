@@ -1,0 +1,146 @@
+== Software
+include::locale/attributes-de.adoc[]
+:imagesdir: images/
+
+:python: https://www.python.org/
+:pypi: https://pypi.org/
+
+Künstliche Intelligenz (AI) und maschinelles Lernen (ML) sind Technologien,
+die darauf abzielen, Maschinen menschenähnliche Fähigkeiten zu verleihen, indem
+sie grosse Datenmengen analysieren, Muster erkennen und darauf basierend
+Entscheidungen treffen. Diese Aufgaben erfordern spezialisierte Software,
+um effizient und genau durchgeführt werden zu können.
+
+Ohne den Einsatz spezialisierter Software wäre die Entwicklung und Anwendung
+von AI und ML nahezu unmöglich. Softwaretools ermöglichen es, die komplexen
+Prozesse der Datenverarbeitung und Modellentwicklung effizient und effektiv
+durchzuführen. Sie bieten die notwendige Rechenleistung, Automatisierung,
+Reproduzierbarkeit und Skalierbarkeit, um AI in der Praxis erfolgreich
+einzusetzen. Daher ist die Installation und Nutzung von Software ein
+nverzichtbarer Bestandteil jedes AI-Kurses.
+
+=== Python
+
+Python ist eine der am häufigsten verwendeten Programmiersprachen in der Welt
+der künstlichen Intelligenz (KI) und des maschinellen Lernens (ML). Es zeichnet
+sich durch seine einfache Syntax, umfangreiche Bibliotheken und grosse Community
+aus, die eine Vielzahl von Ressourcen und Unterstützung bietet. In diesem
+Abschnitt werden wir die Grundlagen von Python, die Installation der Sprache
+sowie die Nutzung von zusätzlichen Modulen aus dem Python Package Index (PyPi)
+behandeln.
+
+==== Warum Python?
+
+1. *Einfachheit und Lesbarkeit*: Python hat eine klare und leicht lesbare Syntax,
+    die es auch Anfängern ermöglicht, schnell produktiv zu werden.
+
+2. *Umfangreiche Bibliotheken*: Python bietet eine Vielzahl von Bibliotheken für
+    Datenanalyse, ML, Webentwicklung und vieles mehr.
+
+3. *Grosse Community*: Die grosse und aktive Community bietet umfangreiche Ressourcen,
+    Tutorials und Foren für Unterstützung.
+
+4. *Interdisziplinäre Nutzung*: Python wird in verschiedenen Bereichen wie Wissenschaft,
+    Finanzen, Webentwicklung und Automatisierung verwendet.
+
+==== Installation von Python
+
+Um mit Python zu beginnen, müssen Sie Python zunächst auf Ihrem Computer installieren.
+Hier sind die Schritte zur Installation von Python:
+
+1. *Herunterladen von Python*:
+    * Gehen Sie zur offiziellen Python-Website: {python}[python.org]
+    * Laden Sie die neueste Version von Python für Ihr Betriebssystem herunter.
+
+2. *Installation*:
+    * Führen Sie das Installationsprogramm aus und folgen Sie den Anweisungen.
+    * Stellen Sie sicher, dass die Option "Add Python to PATH" aktiviert ist.
+
+3. Überprüfung der Installation:
+    * Öffnen Sie die Eingabeaufforderung (`cmd`) oder das Terminal.
+    * Geben Sie `python --version` ein, um zu überprüfen, ob Python korrekt installiert wurde.
+
+
+=== PyPi und pip
+
+Der Python Package Index ({pypi}[PyPi]) ist ein _Repository_ von Software-Paketen für Python.
+Mit PyPi können Sie zusätzliche Module und Bibliotheken installieren, die nicht in der
+Standardbibliothek enthalten sind. `pip` ist das Paketverwaltungswerkzeug von Python,
+mit dem Sie diese Pakete installieren und verwalten können.
+
+==== Installation von pip
+
+Falls `pip` nicht automatisch mit Python installiert wurde, können Sie es wie
+folgt installieren:
+
+* Öffnen Sie die Eingabeaufforderung oder das Terminal.
+
+* Geben Sie `python -m ensurepip --upgrade` ein, um pip zu installieren.
+
+==== Nutzung von pip
+
+Mit `pip` können Sie ganz einfach Module von PyPi installieren. Hier sind
+einige grundlegende Befehle:
+
+* Installation eines Moduls:
+[source,sh]
+----
+pip install modulname
+----
+
+* Aktualisierung eines Moduls:
+[source,sh]
+----
+pip install --upgrade modulname
+----
+
+* Deinstallation eines Moduls:
+[source,sh]
+----
+pip uninstall modulname
+----
+
+* Liste der installierten Module anzeigen:
+[source,sh]
+----
+pip list
+----
+
+
+==== Beispiel: Installation und Verwendung eines Moduls
+
+Nehmen wir an, Sie möchten das Modul `numpy` installieren, das häufig für numerische
+Berechnungen in Python verwendet wird.
+
+1. *Installation von numpy*:
+    * Öffnen Sie die Eingabeaufforderung oder das Terminal.
+    * Geben Sie den folgenden Befehl ein: `pip install numpy`
+
+2. *Verwendung von `numpy`*:
+    * Erstellen Sie eine neue Python-Datei (z.B. `example.py`).
+    * Fügen Sie den folgenden Code ein, um numpy zu verwenden:
++
+[,python]
+----
+include::../example.py[]
+----
+
+3. Ausführen des Python-Skripts:
+    * Speichern Sie die Datei und öffnen Sie die Eingabeaufforderung oder das Terminal.
+    * Navigieren Sie zu dem Verzeichnis, in dem die Datei gespeichert ist.
+    * Geben Sie `python example.py` ein, um das Skript auszuführen.
+
+
+==== Häufig verwendete Module
+
+Hier sind einige weitere häufig verwendete Module und Bibliotheken, die für
+verschiedene Aufgaben nützlich sind:
+
+* *`pandas`*: Datenanalyse und -manipulation
+
+* *`matplotlib`*: Datenvisualisierung
+
+* *`scikit-learn`*: Machine Learning
+
+* *`tensorflow`*: Deep Learning
+
