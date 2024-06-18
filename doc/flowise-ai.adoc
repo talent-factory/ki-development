@@ -89,3 +89,18 @@ FlowiseAI hat das Potenzial, die Art und Weise, wie KI und ML in verschiedenen
 Branchen eingesetzt werden, grundlegend zu verändern. Durch die kontinuierliche
 Weiterentwicklung und Integration neuer Technologien wird FlowiseAI voraussichtlich
 eine zentrale Rolle in der zukünftigen KI-Landschaft spielen.
+
+Installation der Software wird unter xref:software.adoc#_flowise[Flowise AI] erläutert.
+
+
+==== YouTube Tutorials
+
+:tutorial-1: https://youtu.be/nqAK_L66sIQ?list=PL4HikwTaYE0H7wBxhvQqxYcKOkZ4O3zXh
+:tutorial-2: https://youtu.be/kAyKOsm8L5Y?list=PL4HikwTaYE0H7wBxhvQqxYcKOkZ4O3zXh
+:tutorial-3: https://youtu.be/yLfiNnK4NOM?list=PL4HikwTaYE0H7wBxhvQqxYcKOkZ4O3zXh
+:tutorial-4: https://youtu.be/bT308854-Qw?list=PL4HikwTaYE0H7wBxhvQqxYcKOkZ4O3zXh
+
+* {tutorial-1}[Build AI Apps WITHOUT Coding]
+* {tutorial-2}[Creating Chatflows & LLM Chains]
+* {tutorial-3}[Combining Multiple Chains (Prompt Chaining)]
+// * {tutorial-4}[Output Parsers & IfElse Function]

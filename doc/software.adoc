@@ -1,3 +1,4 @@
+[#_software]
 == Software
 include::locale/attributes-de.adoc[]
 :imagesdir: images/
@@ -5,11 +6,13 @@ include::locale/attributes-de.adoc[]
 :python: https://www.python.org/
 :pypi: https://pypi.org/
 :nbviewer: https://nbviewer.org/github/talent-factory/pyt-introduction/blob/develop/01-Introduction-to-Python.ipynb
+:nodejs: https://nodejs.org/
+:nvm: https://github.com/nvm-sh/nvm
 
 Künstliche Intelligenz (AI) und maschinelles Lernen (ML) sind Technologien,
 die darauf abzielen, Maschinen menschenähnliche Fähigkeiten zu verleihen, indem
 sie grosse Datenmengen analysieren, Muster erkennen und darauf basierend
-Entscheidungen treffen. Diese Aufgaben erfordern spezialisierte Software,
+Entscheidungen treffen.Diese Aufgaben erfordern spezialisierte Software,
 um effizient und genau durchgeführt werden zu können.
 
 Ohne den Einsatz spezialisierter Software wäre die Entwicklung und Anwendung
@@ -149,3 +152,40 @@ verschiedene Aufgaben nützlich sind:
 
 * *`tensorflow`*: Deep Learning
 
+
+=== Flowise
+
+Erfahren Sie, wie Sie Flowise lokal einsetzen können. Bevor wir
+beginnen können, müssen wir sicherstellen, dass {nodejs}[NodeJS]
+auf dem Computer installiert haben. Node `v18.15.0` oder `v20+` wird unterstützt.
+Mit dem {nvm}[Node Version Manager] kann, falls notwendig, die richtive Version
+von NodeJS bereitgestellt werden.
+
+[,shell]
+----
+nvm install 22
+----
+
+.Flowise _Drag & Drop_-UI
+image::flowise.gif[width=80%]
+
+
+==== Lokale Installation mit NPM
+
+[,shell]
+----
+npm install -g flowise
+npx flowise start
+----
+
+==== Erstellen eines Docker Containers
+
+[,shell]
+----
+docker run -d --name flowise -p 3000:3000 flowise
+----
+
+Die Docker-Variante ist üblicherweise mein bevorzugter Weg,
+Software in meiner Umgebung zur Verfügung zu stellen.
+
+<http://localhost:3000>
