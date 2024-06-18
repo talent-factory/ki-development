@@ -10,6 +10,10 @@ include::locale/attributes-de.adoc[]
 // Hinzufügen aller Dokumente
 include::introduction.adoc[]
 
+// Generative KI ohne Codierung
+include::no-code.adoc[]
+include::flowise-ai.adoc[]
+
 // Verwendete Software
 include::software.adoc[]
 

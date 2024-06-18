@@ -1,0 +1,57 @@
+== Generative KI ohne Code
+include::locale/attributes-de.adoc[]
+:imagesdir: images/
+
+:flowise: https://flowiseai.com/
+:langflow: https://www.langflow.org/
+:ReactFlow: https://reactflow.dev/
+:langchain: https://www.langchain.com/
+:deeplearning: https://www.deeplearning.ai/
+
+// Referenz: https://ai-rockstars.de/flowise-langflow/
+
+{flowise}[Flowise] und {langflow}[Langflow] sind Tools, mit denen generative KI-Anwendungen per _Drag & Drop_
+erstellt werden können, ohne dass Entwicklerkenntnisse erforderlich sind.
+Diese Tools erleichtern das schnelle Prototyping und das einfache Ausprobieren von Ideen.
+Im Folgenden stellen wir die angesagtesten kostenlosen KI-Prototyping-Tools vor.
+
+=== Flowise und Langflow
+
+Flowise und Langflow sind kostenlose Low-Code-Tools zur Erstellung von generativen KI-Anwendungen
+(_GenAI_). Sie sind direkt im Browser nutzbar und bieten einen _Drag & Drop_-Editor, mit dem
+man die typischen Komponenten von GenAI-Anwendungen visuell zusammenstellen und sofort ausprobieren
+kann. So kann man beispielsweise in kurzer Zeit einen OpenAI-GPT-basierten Chatbot erstellen.
+
+Flowise und Langflow ermöglichen die schnelle Erstellung von Prototypen für KI-Anwendungen,
+was besonders bei der Entwicklung generativer KI-Anwendungen hilfreich ist. Diese iterative
+und ergebnisorientierte Vorgehensweise erleichtert die Zusammenarbeit zwischen Developern,
+KI- und Sprachspezialisten sowie Fachanwendern. Mit den Tools lassen sich komplexe Abläufe
+kombinieren, um nützliche Anwendungen wie Content-Generatoren zu erstellen, die Texte,
+Bilder, Tabellen und mehr automatisch generieren. Der Drag & Drop-Editor, der auf dem
+visuellen OpenSource-Editor {ReactFlow}[ReactFlow] basiert, ist leicht zu bedienen und gleichzeitig
+leistungsstark.
+
+.Flowise AI
+image::generative-ai-tool-flowise.png[width=80%]
+
+Ein grosser Vorteil der Prototyping-Lösungen ist, dass sie viele nützliche Komponenten und
+Integrationen bieten, wie Vektor-Datenbank-Integration, Crawler- und Google-Search-APIs,
+Text-Splitter und Document Loader für PDFs und Texte. Dies ermöglicht die Entwicklung
+neuartiger Use-Cases und spart Zeit und Entwickler-Ressourcen.
+
+
+=== Unterschiede
+
+Flowise bietet die meisten Integrationen und zahlreiche Zusatz-Tools, wodurch es sich
+ideal zur Erstellung beliebiger GenAI-Anwendungs-Prototypen eignet. Namhafte Unternehmen
+wie AWS, Alibaba, Hitachi, ByteDance, Microsoft, InsightSoftware, Google und Accenture
+nutzen Flowise.
+
+Langflow bietet weniger Integrationen, da es speziell für das Prototyping von
+{langchain}[Langchain]-Anwendungen konzipiert ist. Langchain ist ein beliebtes Framework zur
+Entwicklung von GenAI-Anwendungen. Langflow hat wahrscheinlich eine grössere Verbreitung
+bei vielen Nutzern, da Langchain häufig in den Online-Kursen von {deeplearning}[deeplearning.ai]
+verwendet wird, die von vielen LLM-Einsteigern besucht werden.
+
+Wir werden Langchain zu einem späteren Zeitpunkt auch betrachten.
+

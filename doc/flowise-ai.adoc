@@ -1,0 +1,91 @@
+=== Flowise AI
+include::locale/attributes-de.adoc[]
+:imagesdir: images/
+
+:flowiseai: https://docs.flowiseai.com/
+
+==== Einleitung
+
+FlowiseAI ist eine innovative Plattform für den Entwurf, die Entwicklung und
+die Verwaltung von künstlicher Intelligenz (KI) und maschinellem Lernen (ML).
+Sie bietet eine benutzerfreundliche Umgebung, in der Entwickler und
+Datenwissenschaftler Workflows für KI und ML erstellen können, ohne
+tiefgreifende Programmierkenntnisse zu benötigen. FlowiseAI integriert
+verschiedene Tools und Dienste, um den gesamten Entwicklungsprozess von
+der Datenvorbereitung bis zur Bereitstellung von Modellen zu unterstützen.
+
+
+==== Hauptmerkmale von FlowiseAI
+
+1. *Visuelle Workflow-Erstellung*: FlowiseAI ermöglicht die visuelle Erstellung von
+    Workflows durch ein _Drag-and-Drop_-Interface. Dies vereinfacht den Prozess
+    der Modellentwicklung und macht ihn zugänglicher für Nicht-Programmierer.
+
+2. *Integration mit verschiedenen Datenquellen*: FlowiseAI kann Daten aus
+    unterschiedlichen Quellen wie Datenbanken, Cloud-Speichern und APIs integrieren,
+    was die Datenvorbereitung und -verarbeitung erleichtert.
+
+3. *Automatisiertes Machine Learning (AutoML)*: Die Plattform bietet AutoML-Funktionen,
+    die es ermöglichen, automatisch die besten ML-Modelle für spezifische Aufgaben
+    zu finden und zu optimieren.
+
+4. *Echtzeit-Datenverarbeitung*: FlowiseAI unterstützt Echtzeit-Datenströme, was
+    besonders für Anwendungen in den Bereichen IoT und Finanzdienstleistungen
+    von Vorteil ist.
+
+5. *Skalierbarkeit*: Durch die Nutzung von Cloud-Infrastrukturen kann FlowiseAI
+    skalieren, um große Datenmengen und komplexe Modelle effizient zu verarbeiten.
+
+
+==== Einsatzmöglichkeiten
+
+FlowiseAI kann in verschiedenen Bereichen eingesetzt werden, darunter:
+
+* *Finanzwesen*: Betrugserkennung, Risikomanagement und algorithmischer Handel.
+
+* *Gesundheitswesen*: Diagnoseunterstützung, personalisierte Medizin und Verwaltung
+    von Patientendaten.
+
+* *Industrie 4.0*: Vorausschauende Wartung, Qualitätskontrolle und Automatisierung.
+
+* *Marketing*: Kundensegmentierung, Vorhersage von Kundenverhalten und Optimierung
+    von Marketingkampagnen.
+
+
+==== Vorteile von FlowiseAI
+
+1. *Benutzerfreundlichkeit*: Durch das visuelle Interface und die
+    _Drag-and-Drop_-Funktionalität ist FlowiseAI auch für Benutzer ohne
+    tiefgehende Programmierkenntnisse geeignet.
+
+2. *Zeitersparnis*: Automatisierte Workflows und AutoML reduzieren den Zeitaufwand
+    für die Entwicklung und Optimierung von Modellen.
+
+3. *Flexibilität*: Die Plattform unterstützt verschiedene ML-Frameworks und kann
+    mit unterschiedlichen Datenquellen integriert werden.
+
+4. *Kostenreduktion*: Durch die Optimierung von Workflows und die Automatisierung
+    von Prozessen können Unternehmen Kosten einsparen.
+
+
+==== Herausforderungen und Einschränkungen
+
+Trotz der vielen Vorteile gibt es auch einige Herausforderungen bei der Nutzung
+von FlowiseAI:
+
+* *Anfangsinvestition*: Die Implementierung und Schulung können initial kosten-
+    und zeitaufwendig sein.
+
+* *Datenqualität*: Die Qualität der Ergebnisse hängt stark von der Qualität der
+    Eingabedaten ab. Schlechte Datenqualität kann zu ungenauen Modellen führen.
+
+* *Komplexe Szenarien*: Für sehr komplexe Anwendungsfälle kann es erforderlich sein,
+    tiefergehendes technisches Wissen und manuelle Anpassungen vorzunehmen.
+
+
+==== Zukunftsperspektiven
+
+FlowiseAI hat das Potenzial, die Art und Weise, wie KI und ML in verschiedenen
+Branchen eingesetzt werden, grundlegend zu verändern. Durch die kontinuierliche
+Weiterentwicklung und Integration neuer Technologien wird FlowiseAI voraussichtlich
+eine zentrale Rolle in der zukünftigen KI-Landschaft spielen.

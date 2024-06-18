@@ -4,6 +4,7 @@ include::locale/attributes-de.adoc[]
 
 :python: https://www.python.org/
 :pypi: https://pypi.org/
+:nbviewer: https://nbviewer.org/github/talent-factory/pyt-introduction/blob/develop/01-Introduction-to-Python.ipynb
 
 Künstliche Intelligenz (AI) und maschinelles Lernen (ML) sind Technologien,
 die darauf abzielen, Maschinen menschenähnliche Fähigkeiten zu verleihen, indem
@@ -60,6 +61,10 @@ Hier sind die Schritte zur Installation von Python:
     * Öffnen Sie die Eingabeaufforderung (`cmd`) oder das Terminal.
     * Geben Sie `python --version` ein, um zu überprüfen, ob Python korrekt installiert wurde.
 
+
+Jupyter Notebooks sind insbesondere im Data Science-Umfeld und in Schulungen weit
+verbreitet. Auf {nbviewer}[NBViewer] ist eine Einführung in die Python-Programmierung
+verfügbar, falls dies benötigt wird.
 
 === PyPi und pip
 
