@@ -1,0 +1,40 @@
+=== Aufgabe 2: Einsatz von Flowise AI
+:imagesdir: images/
+
+:flowise-ai: https://flowiseai.com/
+
+Am letzen Kurstag (18.06.2024) haben wir {flowise-ai}[FlowiseAI] kennengelernt. Bitte schaut euch die
+folgenden Videos an und verschafft euch einen guten Überblick über die Möglichkeiten mit dieser Umgebung.
+
+==== YouTube Tutorials
+
+:tutorial-1: https://youtu.be/nqAK_L66sIQ?list=PL4HikwTaYE0H7wBxhvQqxYcKOkZ4O3zXh
+:tutorial-2: https://youtu.be/kAyKOsm8L5Y?list=PL4HikwTaYE0H7wBxhvQqxYcKOkZ4O3zXh
+:tutorial-3: https://youtu.be/yLfiNnK4NOM?list=PL4HikwTaYE0H7wBxhvQqxYcKOkZ4O3zXh
+
+* {tutorial-1}[Build AI Apps WITHOUT Coding]
+* {tutorial-2}[Creating Chatflows & LLM Chains]
+* {tutorial-3}[Combining Multiple Chains (Prompt Chaining)]
+
+
+==== Aufgabe
+
+.FlowiseAI Nodes
+image::flowise-nodes.png[Linux,150,150,float="left"]
+
+Bei der Erstellung eines neuen ChatFlows stehen euch ein grosse Anzahl von
+sog. _Nodes_ zur Verfügung, welche in den Ablauf integriert werden können.
+
+Erstellt euren **eigenen** ChatFlow, setzt eure eigene Idee um und stellt
+diese Idee am kommenden Kurstabend vor.
+
+:tip-caption: Abgabe
+[TIP]
+====
+1. **Eigene ChatFlow Idee mit FlowiseAI umsetzen**:
+    - Erstellen eines eigenen ChatFlows
+    - Exportieren dieses Ablaufs und Abgabe am kommenden Kursabend
+
+2. **Kurzpräsentation dieser Idee**:
+    - Präsentiere diese Idee, diesen Ablauf am nächsten Kursabend
+====

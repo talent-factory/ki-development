@@ -103,4 +103,4 @@ Installation der Software wird unter xref:software.adoc#_flowise[Flowise AI] erl
 * {tutorial-1}[Build AI Apps WITHOUT Coding]
 * {tutorial-2}[Creating Chatflows & LLM Chains]
 * {tutorial-3}[Combining Multiple Chains (Prompt Chaining)]
-// * {tutorial-4}[Output Parsers & IfElse Function]
+* {tutorial-4}[Output Parsers & IfElse Function]

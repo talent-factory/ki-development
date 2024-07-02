@@ -1,0 +1,8 @@
+[#_exercises]
+== Aufgaben
+include::locale/attributes-de.adoc[]
+:imagesdir: images/
+
+
+include::exercises/ex-01.adoc[]
+include::exercises/ex-02.adoc[]

@@ -17,5 +17,8 @@ include::flowise-ai.adoc[]
 // Verwendete Software
 include::software.adoc[]
 
+// Aufgaben
+include::exercises.adoc[]
+
 [bibliography]
 include::references.adoc[]
