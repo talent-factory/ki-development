@@ -14,6 +14,10 @@ include::introduction.adoc[]
 include::no-code.adoc[]
 include::flowise-ai.adoc[]
 
+// Verwenden von LangChain
+include::langchain.adoc[]
+
+
 // Verwendete Software
 include::software.adoc[]
 
