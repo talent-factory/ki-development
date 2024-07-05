@@ -3,8 +3,11 @@ include::locale/attributes-de.adoc[]
 :imagesdir: images/
 
 :botsch23: https://ipfs.talent-factory.xyz/ipfs/QmbbQXmBKHmKdveJeejTXQbqjCyjoFeqfFruqbXQzAL3kb
+:faiss: https://faiss.ai/index.html
 :wuttke24: https://datasolut.com/was-ist-machine-learning/
 
 * [[[botsch23]]] Benny Botsch. {botsch23}[Maschinelles Lernen, Grundlagen und Anwendungen]. Springer-Verlag. 2023
+
+* [[[faiss]]] Copyright Facebook, Inc. {faiss}[FAISS Documentation]
 
 * [[[wuttke24]]] Laurenz Wuttke. {wuttke24}[Machine Learning: Definition, Algorithmen, Methoden und Beispiele]. 2024
