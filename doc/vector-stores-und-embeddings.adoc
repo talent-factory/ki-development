@@ -714,10 +714,113 @@ Anforderungen und dem Anwendungsfall ab.
 ==== Übung 2: Implementierung eines einfachen Vector Stores mit FAISS
 
 === Integration mit LangChain
+
 ==== Verknüpfung von Vector Stores und LLMs
+
+Die Verknüpfung von Vector Stores mit großen Sprachmodellen (_Large Language Models_, LLMs) wie GPT-3 eröffnet leistungsfähige Anwendungsmöglichkeiten, insbesondere im Bereich der natürlichen Sprachverarbeitung und des kontextuellen Verständnisses. LangChain ist eine Bibliothek, die diese Verknüpfung erleichtert, indem es eine robuste Schnittstelle zur nahtlosen Integration von Vector Stores und LLMs bietet. Die Hauptvorteile dieser Integration umfassen:
+
+- **Kontextuelle Suche**: Durch die Nutzung von Vector Stores können Suchabfragen kontextuell erweitert werden. Die LLMs extrahieren den relevanten Kontext aus Textdaten und verwenden Embeddings, um die Ergebnisse in einem Vector Store effizient zu durchsuchen.
+- **Textgenerierung und Vervollständigung**: LLMs können nicht nur Texte analysieren, sondern auch generieren. Mit Vector Stores können diese generierten Texte in hochdimensionale Vektoren umgewandelt und gespeichert werden, um sie später für Abfragen oder Kontextvervollständigungen zu nutzen.
+- **Verbesserte Empfehlungsalgorithmen**: Durch die Kombination von Embeddings und LLMs können Empfehlungsalgorithmen verbessert werden. Die Vektoren aus den LLMs repräsentieren die Präferenzen und Interessen der Benutzer genauer und ermöglichen präzisere Empfehlungen.
+
+LangChain stellt die Werkzeuge bereit, um diese Funktionen nahtlos zu integrieren und zu nutzen. Die Bibliothek bietet Unterstützung für verschiedene Vector Store-Technologien und ermöglicht es, LLMs effizient zu trainieren, zu fine-tunen und in bestehenden Workflows zu verwenden.
+
 ==== Erstellung einer Beispielanwendung mit LangChain und Vector Stores
 
-=== Zusammenfassung und Ausblick
-==== Zusammenfassung der wichtigsten Konzepte
-==== Diskussion über fortgeschrittene Einsatzmöglichkeiten
-==== Zukunftsperspektiven für Vector Stores und Embeddings
+Um die praktische Anwendung von LangChain mit Vector Stores zu veranschaulichen, betrachten wir eine Beispielanwendung, die die kontextuelle Suche in einer Dokumentendatenbank ermöglicht. Wir werden GPT-3 als LLM und FAISS als Vector Store verwenden. Hier sind die Schritte zur Erstellung dieser Anwendung:
+
+1. **Installationsvorbereitung**:
+
+Zunächst müssen die erforderlichen Bibliotheken installiert werden:
++
+[source,shell]
+----
+pip install openai langchain faiss-cpu
+----
+
+2. **Initialisierung von GPT-3 und FAISS**:
+
+Wir initialisieren GPT-3 für die Erzeugung von Text-Embeddings und FAISS als Vector Store:
++
+[source,python]
+----
+import openai
+import faiss
+import numpy as np
+from langchain import LangChain
+
+# GPT-3 API-Schlüssel setzen
+openai.api_key = 'YOUR_API_KEY'
+
+# Language Chain initialisieren
+langchain = LangChain()
+
+# FAISS-Index initialisieren
+d = 768  # Dimension der GPT-3 Vektoren
+index = faiss.IndexFlatL2(d)
+
+# Beispiel-Dokumente
+documents = [
+    "Das Wetter ist sonnig und angenehm.",
+    "Es regnet heute den ganzen Tag.",
+    "Morgen wird es bewölkt sein."
+]
+
+# Embeddings erstellen und in den FAISS-Index einfügen
+embeddings = []
+
+for doc in documents:
+    response = openai.Embedding.create(input=doc, model="text-embedding-ada-002")
+    embedding = response['data'][0]['embedding']
+    embeddings.append(embedding)
+
+index.add(np.array(embeddings))
+
+# Anzahl der Vektoren im Index überprüfen
+print(f"Anzahl der Vektoren im Index: {index.ntotal}")
+----
+
+3. **Durchführung einer kontextuellen Suche**:
+
+Um eine kontextuelle Suche durchzuführen, verwenden wir GPT-3 zur Erzeugung eines Query-Embeddings und FAISS zum Finden der ähnlichsten Dokumente:
++
+[source,python]
+----
+# Abfrage definieren und Embedding erstellen
+query = "Wie wird das Wetter morgen?"
+response = openai.Embedding.create(input=query, model="text-embedding-ada-002")
+query_embedding = response['data'][0]['embedding']
+
+# Suche im FAISS-Index
+k = 2  # Anzahl der nächstgelegenen Nachbarn
+D, I = index.search(np.array([query_embedding]), k)
+
+# Ausgabe der Ergebnisse
+for i in I[0]:
+    print(f"Ähnliches Dokument: {documents[i]}")
+----
+
+4. **Integration und Kontextaufbau**:
+
+Durch die Integration von GPT-3 und FAISS in LangChain können wir komplexere Anwendungen erstellen, die kontextuelles Verständnis und kontextuelle Antworten umfassen:
++
+[source,python]
+----
+# GPT-3 verwenden, um eine kontextuelle Antwort basierend auf der Suche zu generieren
+def generate_response(query):
+    response = openai.Embedding.create(input=query, model="text-embedding-ada-002")
+    query_embedding = response['data'][0]['embedding']
+    D, I = index.search(np.array([query_embedding]), 1)
+    similar_doc = documents[I[0][0]]
+
+    prompt = f"Frage: {query}\nAntwort basierend auf ähnlichem Dokument: {similar_doc}\nGib eine fundierte Antwort:"
+    response = openai.Completion.create(engine="text-davinci-003", prompt=prompt, max_tokens=100)
+    return response.choices[0].text.strip()
+
+# Beispiel-Abfrage
+query = "Wie wird das Wetter morgen?"
+response = generate_response(query)
+print(f"Antwort: {response}")
+----
+
+Durch diese Schritte können wir eine Beispielanwendung erstellen, die die kontextuelle Suche und die Textgenerierung von GPT-3 mit der Vektorspeicherung und -abfrage des FAISS-Index kombiniert. LangChain erleichtert die Integration dieser Komponenten und ermöglicht den Aufbau leistungsfähiger KI-Anwendungen.
