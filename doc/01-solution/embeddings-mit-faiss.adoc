@@ -1,0 +1,40 @@
+== Übung: Implementierung eines einfachen Vector Stores mit FAISS
+
+=== Ziel der Aufgabe
+
+In dieser Übung implementieren wir einen einfachen Vector Store unter Verwendung von FAISS (Facebook AI Similarity Search). FAISS ist eine Bibliothek für Ähnlichkeitssuche in großen Vektordatenmengen. Wir werden Embeddings erzeugen, diese in einen FAISS-Index einfügen und dann Abfragen durchführen, um ähnliche Vektoren zu finden.
+
+=== Schritte zur Lösung
+
+1. **Installation und Vorbereitung von FAISS**:
+   Zunächst müssen wir die FAISS-Bibliothek installieren. Dies kann mit pip erfolgen.
+
+2. **Datenvorbereitung**:
+   Wir bereiten die Vektoren vor, die in den Vector Store eingefügt werden sollen. Diese Vektoren können Embeddings von Wörtern, Sätzen oder beliebigen anderen Daten sein.
+
+3. **Erstellung des Vector Stores**:
+   Wir erstellen einen FAISS-Index und fügen die vorbereiteten Vektoren ein.
+
+4. **Durchführung von Abfragen**:
+   Wir führen Abfragen durch, um ähnliche Vektoren im Vector Store zu finden.
+
+=== Codebeispiel
+
+[source,python]
+----
+include::embeddings-mit-faiss.py[]
+----
+
+=== Erläuterung
+
+In dieser Übung haben wir FAISS verwendet, um einen einfachen Vector Store zu implementieren und Abfragen durchzuführen.
+
+- **Installation und Vorbereitung von FAISS**: FAISS wurde mit pip installiert, und FastText wurde verwendet, um Embeddings für eine Sammlung von Sätzen zu erzeugen.
+
+- **Vorbereitung der Embeddings**: Die Embeddings für einige Beispielwörter wurden mithilfe eines FastText-Modells erstellt. Diese Vektoren wurden in einer Liste gesammelt und in ein Numpy-Array umgewandelt.
+
+- **Erstellung des Vector Stores**: Ein FAISS-Index wurde erstellt und die vorbereiteten Vektoren wurden in diesen Index eingefügt. Der Index verwendet die L2-Distanzmetrikenstandard, um die Ähnlichkeit zwischen den Vektoren zu berechnen.
+
+- **Durchführung von Abfragen**: Ein Abfragevektor wurde generiert (z.B. Vektor für das Wort 'sonnig') und eine K-NN-Suche (k-Nearest Neighbor) wurde durchgeführt, um die ähnlichen Vektoren im Vector Store zu finden. Die Indizes und Distanzen der nächsten Nachbarn wurden ausgegeben, und die am ähnlichsten Wörter wurden basierend auf den Indizes ermittelt.
+
+Diese Schritte zeigen, wie FAISS verwendet werden kann, um einen einfachen Vector Store zu erstellen und effiziente Ähnlichkeitssuchen durchzuführen.
