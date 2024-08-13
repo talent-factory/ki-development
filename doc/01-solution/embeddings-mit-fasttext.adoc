@@ -1,0 +1,86 @@
+== Übung: Erzeugung von Embeddings mit FastText
+:FastText: https://fasttext.cc/
+
+
+=== Ziel der Aufgabe
+
+In dieser Übung erstellen wir Wortembeddings unter Verwendung der
+FastText-Technik. {FastText}[FastText]  erweitert das Word2Vec-Modell, indem es Wörter als N-Gramme (Teilstücke von Wörtern) darstellt. Dies ermöglicht es FastText, auch für seltene und unbekannte Wörter robuste Vektoren zu erzeugen, was besonders nützlich für Sprachen mit komplexen Morphologien ist.
+
+=== Schritte zur Lösung
+
+1. **Installation und Vorbereitung von FastText**:
+   Zunächst müssen wir die FastText-Bibliothek installieren. FastText kann sowohl mit vortrainierten Modellen als auch durch Training neuer Modelle auf einem eigenen Korpus verwendet werden.
+
+2. **Datenvorbereitung**:
+   Wir bereiten den Textkorpus vor, der zur Erstellung der Embeddings verwendet wird. Für diese Übung verwenden wir eine Sammlung von Sätzen.
+
+3. **Erstellung der Embeddings**:
+   Wir trainieren das FastText-Modell auf unserem Korpus und erzeugen die Embeddings für die gewünschten Wörter.
+
+4. **Verwendung der Embeddings**:
+   Wir verwenden die erzeugten Embeddings, um semantische Ähnlichkeiten zwischen Wörtern zu berechnen.
+
+=== Codebeispiel
+
+[source,python]
+----
+# Schritt 1: Installation von FastText
+# Die FastText-Bibliothek kann mit pip installiert werden:
+# pip install fasttext
+
+# Schritt 2: Trainieren des FastText-Modells
+import fasttext
+import fasttext.util
+
+# Beispieltextdaten
+sentences = [
+    "das wetter ist heute sonnig",
+    "es ist ein heller tag",
+    "ich liebe kaltes winterwetter"
+]
+
+# FastText erwartet Textdaten aus einer Datei
+with open('text_corpus.txt', 'w') as f:
+    for sentence in sentences:
+        f.write(f"{sentence}\n")
+
+# Trainieren des FastText-Modells auf dem Korpus
+model = fasttext.train_unsupervised('text_corpus.txt', model='skipgram', dim=100, ws=5)
+
+# Schritt 3: Berechnung von Embeddings für Beispielwörter
+word1 = 'sonnig'
+word2 = 'heller'
+word3 = 'kaltes'
+
+vector_sonnig = model.get_word_vector(word1)
+vector_heller = model.get_word_vector(word2)
+vector_kaltes = model.get_word_vector(word3)
+
+# Schritt 4: Berechnung der semantischen Ähnlichkeit (z.B. Kosinus-Ähnlichkeit)
+import numpy as np
+from numpy.linalg import norm
+
+def cosine_similarity(v1, v2):
+    return np.dot(v1, v2) / (norm(v1) * norm(v2))
+
+similarity_sonnig_heller = cosine_similarity(vector_sonnig, vector_heller)
+similarity_sonnig_kaltes = cosine_similarity(vector_sonnig, vector_kaltes)
+
+print(f"Ähnlichkeit zwischen '{word1}' und '{word2}': {similarity_sonnig_heller}")
+print(f"Ähnlichkeit zwischen '{word1}' und '{word3}': {similarity_sonnig_kaltes}")
+----
+
+=== Erläuterung
+
+In dieser Übung haben wir die FastText-Bibliothek verwendet, um Embeddings für eine kleine Sammlung von Sätzen zu erzeugen und die semantische Ähnlichkeit zwischen bestimmten Wörtern zu berechnen.
+
+- **Installation und Vorbereitung von FastText**: FastText wurde mit pip installiert und die Textdaten wurden in eine Datei geschrieben, die von FastText verarbeitet werden kann.
+
+- **Training des FastText-Modells**: Das FastText-Modell wurde auf dem vorbereiteten Korpus trainiert. FastText bietet verschiedene Parameter, die angepasst werden können, wie z.B. die Dimension der Vektoren und das Fenster für den Kontext der Wörter.
+
+- **Erzeugung der Embeddings**: Die Embeddings für die Wörter wurden aus dem trainierten FastText-Modell extrahiert.
+
+- **Berechnung der Ähnlichkeit**: Die Kosinus-Ähnlichkeit wurde verwendet, um die semantische Ähnlichkeit zwischen den Wortpaaren zu berechnen.
+
+Durch diese Vorgehensweise konnten wir die Robustheit und Nützlichkeit von FastText verdeutlichen, insbesondere für die Arbeit mit seltenen und unbekannten Wörtern.
