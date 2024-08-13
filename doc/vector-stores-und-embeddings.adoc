@@ -730,7 +730,6 @@ LangChain stellt die Werkzeuge bereit, um diese Funktionen nahtlos zu integriere
 Um die praktische Anwendung von LangChain mit Vector Stores zu veranschaulichen, betrachten wir eine Beispielanwendung, die die kontextuelle Suche in einer Dokumentendatenbank ermöglicht. Wir werden GPT-3 als LLM und FAISS als Vector Store verwenden. Hier sind die Schritte zur Erstellung dieser Anwendung:
 
 1. **Installationsvorbereitung**:
-
 Zunächst müssen die erforderlichen Bibliotheken installiert werden:
 +
 [source,shell]
@@ -739,7 +738,6 @@ pip install openai langchain faiss-cpu
 ----
 
 2. **Initialisierung von GPT-3 und FAISS**:
-
 Wir initialisieren GPT-3 für die Erzeugung von Text-Embeddings und FAISS als Vector Store:
 +
 [source,python]
@@ -781,7 +779,6 @@ print(f"Anzahl der Vektoren im Index: {index.ntotal}")
 ----
 
 3. **Durchführung einer kontextuellen Suche**:
-
 Um eine kontextuelle Suche durchzuführen, verwenden wir GPT-3 zur Erzeugung eines Query-Embeddings und FAISS zum Finden der ähnlichsten Dokumente:
 +
 [source,python]
@@ -801,7 +798,6 @@ for i in I[0]:
 ----
 
 4. **Integration und Kontextaufbau**:
-
 Durch die Integration von GPT-3 und FAISS in LangChain können wir komplexere Anwendungen erstellen, die kontextuelles Verständnis und kontextuelle Antworten umfassen:
 +
 [source,python]
