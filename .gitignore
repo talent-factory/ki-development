@@ -162,4 +162,5 @@ cython_debug/
 
 /doc/Script.pdf
 /doc/index.html
-/doc/Script.pdf
+
+/doc/01-solution/text_corpus.txt
