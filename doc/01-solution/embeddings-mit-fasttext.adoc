@@ -5,7 +5,7 @@
 === Ziel der Aufgabe
 
 In dieser Übung erstellen wir Wortembeddings unter Verwendung der
-FastText-Technik. {FastText}[FastText]  erweitert das Word2Vec-Modell, indem es Wörter als N-Gramme (Teilstücke von Wörtern) darstellt. Dies ermöglicht es FastText, auch für seltene und unbekannte Wörter robuste Vektoren zu erzeugen, was besonders nützlich für Sprachen mit komplexen Morphologien ist.
+FastText-Technik. {FastText}[FastText]  erweitert das Word2Vec-Modell, indem es Wörter als N-Gramme (Teilstücke von Wörtern) darstellt.Dies ermöglicht es FastText, auch für seltene und unbekannte Wörter robuste Vektoren zu erzeugen, was besonders nützlich für Sprachen mit komplexen Morphologien ist.
 
 === Schritte zur Lösung
 
@@ -25,50 +25,7 @@ FastText-Technik. {FastText}[FastText]  erweitert das Word2Vec-Modell, indem es 
 
 [source,python]
 ----
-# Schritt 1: Installation von FastText
-# Die FastText-Bibliothek kann mit pip installiert werden:
-# pip install fasttext
-
-# Schritt 2: Trainieren des FastText-Modells
-import fasttext
-import fasttext.util
-
-# Beispieltextdaten
-sentences = [
-    "das wetter ist heute sonnig",
-    "es ist ein heller tag",
-    "ich liebe kaltes winterwetter"
-]
-
-# FastText erwartet Textdaten aus einer Datei
-with open('text_corpus.txt', 'w') as f:
-    for sentence in sentences:
-        f.write(f"{sentence}\n")
-
-# Trainieren des FastText-Modells auf dem Korpus
-model = fasttext.train_unsupervised('text_corpus.txt', model='skipgram', dim=100, ws=5)
-
-# Schritt 3: Berechnung von Embeddings für Beispielwörter
-word1 = 'sonnig'
-word2 = 'heller'
-word3 = 'kaltes'
-
-vector_sonnig = model.get_word_vector(word1)
-vector_heller = model.get_word_vector(word2)
-vector_kaltes = model.get_word_vector(word3)
-
-# Schritt 4: Berechnung der semantischen Ähnlichkeit (z.B. Kosinus-Ähnlichkeit)
-import numpy as np
-from numpy.linalg import norm
-
-def cosine_similarity(v1, v2):
-    return np.dot(v1, v2) / (norm(v1) * norm(v2))
-
-similarity_sonnig_heller = cosine_similarity(vector_sonnig, vector_heller)
-similarity_sonnig_kaltes = cosine_similarity(vector_sonnig, vector_kaltes)
-
-print(f"Ähnlichkeit zwischen '{word1}' und '{word2}': {similarity_sonnig_heller}")
-print(f"Ähnlichkeit zwischen '{word1}' und '{word3}': {similarity_sonnig_kaltes}")
+include::embeddings-mit-fasttext.py[]
 ----
 
 === Erläuterung
