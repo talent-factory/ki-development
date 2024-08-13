@@ -83,7 +83,7 @@ nbformat==5.10.4
 nest-asyncio==1.6.0
 notebook==7.2.1
 notebook_shim==0.2.4
-numpy==2.0.1
+numpy==1.26.4
 openai==1.40.6
 orjson==3.10.7
 overrides==7.7.0
@@ -118,7 +118,7 @@ rfc3339-validator==0.1.4
 rfc3986-validator==0.1.1
 rpds-py==0.20.0
 scikit-learn==1.5.1
-scipy==1.14.0
+scipy==1.7.0
 Send2Trash==1.8.3
 serpapi==0.1.5
 setuptools==72.1.0

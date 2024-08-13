@@ -19,12 +19,12 @@ documents = [
 
 # Function to get embeddings using OpenAI API
 def get_embeddings(docs):
-    embeddings = []
+    doc_embeddings = []
     for doc in docs:
         response = openai.Embedding.create(model="text-embedding-ada-002-v2", input=[doc])
         embedding = response['data'][0]['embedding']
-        embeddings.append(embedding)
-    return embeddings
+        doc_embeddings.append(embedding)
+    return doc_embeddings
 
 
 # Create embeddings and insert them into the FAISS index
