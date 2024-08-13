@@ -1,0 +1,348 @@
+== Vector-Stores und -Embeddings
+include::locale/attributes-de.adoc[]
+:imagesdir: images/
+
+
+=== Theoretische Grundlagen
+==== Was sind Vector Stores?
+Ein Vector Store ist eine spezialisierte Datenbank, die darauf ausgelegt ist,
+hochdimensionale Vektoren effizient zu speichern und abzufragen.
+Vektoren sind mathematische Objekte, die aus einer Liste von numerischen
+Werten bestehen und in der Regel in einem n-dimensionalen Raum dargestellt
+werden. In der Welt der künstlichen Intelligenz und des maschinellen Lernens
+werden Vektoren häufig verwendet, um komplexe Datenstrukturen wie Text,
+Bilder und Videos zu repräsentieren.
+
+Vector Stores bieten eine Reihe von Funktionen, die speziell für die
+Handhabung von Vektoren entwickelt wurden. Dazu gehören:
+
+- **Speichern und Verwalten grosser Mengen von Vektoren**: Vector Stores sind
+    darauf ausgelegt, Millionen bis Milliarden von Vektoren effizient zu
+    speichern, ohne dass die Leistung darunter leidet.
+- **Schnelle und präzise Abfragen**: Durch spezialisierte Indizierungsmechanismen
+    können Vector Stores schnelle und genaue Suchen nach ähnlichen Vektoren durchführen.
+- **Integrationsmöglichkeiten**: Vector Stores sind oft mit anderen Tools
+    und Bibliotheken kompatibel, die in der Datenanalyse und im maschinellen
+    Lernen verwendet werden, sodass sie leicht in bestehende Workflows
+    integriert werden können.
+
+Ein praktisches Beispiel für die Anwendung von Vector Stores ist die Suche
+nach semantisch ähnlichen Dokumenten. Hierbei werden Textdokumente in
+Vektoren umgewandelt (z.B. durch die Verwendung von TF-IDF, Word2Vec oder BERT),
+und diese Vektoren werden dann in einem Vector Store gespeichert.
+Bei einer Abfrage kann der Vector Store effizient die Vektoren durchsuchen
+und die Dokumente finden, die dem Abfragevektor am ähnlichsten sind.
+
+==== Unterschiede zu traditionellen Datenbanken
+
+Während traditionelle Datenbanken wie relationale Datenbanken (z.B. MySQL, PostgreSQL)
+gut für strukturierte Daten und konventionelle Abfragen geeignet sind,
+sind sie für den Umgang mit hochdimensionalen Vektordaten weniger optimal.
+Hier sind einige wesentliche Unterschiede zwischen Vector Stores und
+traditionellen Datenbanken:
+
+- **Datenstruktur**: Traditionelle Datenbanken speichern Daten meist in Tabellenform,
+    wobei jede Zeile einen Datensatz und jede Spalte ein Attribut darstellt.
+    Im Gegensatz dazu speichern Vector Stores Daten als Vektoren in einem
+    n-dimensionalen Raum.
+- **Abfragemethoden**: Relationale Datenbanken verwenden SQL (Structured Query Language)
+    für Abfragen, die auf Attributen und deren Werten basieren. Vector Stores
+    hingegen verwenden spezialisierte Algorithmen wie _Approximate Nearest Neighbor_ (ANN)
+    _Search_, um ähnliche Vektoren zu finden.
+- **Leistung und Skalierbarkeit**: Bei der Suche nach ähnlichen Vektoren profitieren
+    Vector Stores von speziellen Datenstrukturen (z.B. K-D Trees, Ball Trees)
+    und Indexierungstechniken, die für hohe Dimensionsräume optimiert sind.
+    Traditionelle Datenbanken sind in der Regel nicht für solche Anwendungsfälle
+    optimiert und können bei grossen Datensätzen und komplexen Abfragen Leistungseinbussen
+    erleben.
+- **Anwendungsfälle**: Vector Stores werden häufig in Anwendungen verwendet,
+    die semantische Ähnlichkeit oder inhaltliche Übereinstimmung benötigen, wie z.B. in
+    Empfehlungsalgorithmen, Suchmaschinen und Bilderkennungssystemen.
+    Traditionelle Datenbanken sind ideal für Anwendungen, die transaktionale
+    Integrität, ACID-Eigenschaften (_Atomicity_, _Consistency_, _Isolation_, _Durability_)
+    und strukturierte Datenmodelle benötigen.
+
+Durch diese klaren Unterschiede bieten Vector Stores eine spezialisierte und effiziente
+Lösung für moderne Anforderungen im Bereich der künstlichen Intelligenz und des
+maschinellen Lernens.
+
+=== Einführung in Vektorrepräsentationen
+
+==== Bedeutung von Vektoren im maschinellen Lernen und in der künstlichen Intelligenz
+
+Vektoren spielen eine zentrale Rolle im maschinellen Lernen und in der künstlichen
+Intelligenz, da sie eine effiziente und mathematisch fundierte Methode bieten,
+um komplexe Daten in einer Weise zu repräsentieren, die für Algorithmen leicht
+verständlich und verarbeitbar ist. Ein Vektor ist eine geordnete Liste von
+Zahlen, die einen Punkt in einem mehrdimensionalen Raum repräsentiert.
+Diese Repräsentation ermöglicht es, Daten wie Texte, Bilder, Videos und
+andere Formen von Informationen in ein Format zu überführen, das durch
+mathematische und statistische Methoden analysiert und manipuliert werden kann.
+
+Im maschinellen Lernen werden Vektoren verwendet, um Merkmale aus Daten
+zu extrahieren und sie in einem mehrdimensionalen Raum zu positionieren.
+Jedes Merkmal eines Datensatzes wird durch eine Dimension im Vektorraum
+repräsentiert. Wenn alle Merkmale zusammengeführt werden, ergibt sich ein
+Vektor, der den gesamten Datensatz beschreibt. Dieses Vorgehen ermöglicht
+es Algorithmen, Muster in den Daten zu erkennen, Beziehungen zwischen
+verschiedenen Datensätzen zu identifizieren und komplexe Vorhersagen zu treffen.
+
+Ein herausragendes Beispiel für die Bedeutung von Vektoren ist die
+Verarbeitung natürlicher Sprache (_Natural Language Processing_, NLP).
+Hier werden Wörter oder Textsegmente in numerische Vektoren umgewandelt,
+die semantische und syntaktische Informationen erfassen. Diese numerische
+Darstellung ermöglicht es Maschinen, Text zu verstehen, Texte zu
+klassifizieren, semantische Ähnlichkeiten zu berechnen und sogar
+natürliche Sprache zu generieren.
+
+Die Fähigkeit, Daten in Vektorform zu repräsentieren und zu analysieren,
+hat viele bahnbrechende Entwicklungen in der künstlichen Intelligenz
+ermöglicht, einschliesslich der Entwicklung von Sprachmodellen,
+Bilderkennungssystemen, Empfehlungsalgorithmen und vielen anderen
+Anwendungen. Im Wesentlichen bilden Vektoren die Grundlage für
+die Verarbeitung und Analyse von Daten in modernen KI-Systemen.
+
+==== Beispiele für Vektoren: Wortvektoren
+
+Ein besonders anschauliches Beispiel für die Nutzung von Vektoren
+im Bereich der KI sind Wortvektoren. Wortvektoren sind numerische
+Repräsentationen von Wörtern, die semantische Beziehungen zwischen
+Wörtern in einem kontinuierlichen Vektorraum erfassen.
+Diese Repräsentationen ermöglichen es, die Bedeutung von Wörtern
+auf eine Weise zu modellieren, die für maschinelle Lernalgorithmen
+zugänglich und nützlich ist.
+
+Zu den bekanntesten Methoden zur Erzeugung von Wortvektoren zählen
+Word2Vec, GloVe (_Global Vectors for Word Representation_) und das
+BERT-Modell (_Bidirectional Encoder Representations from Transformers_).
+
+- **Word2Vec**: Word2Vec ist ein Algorithmus, der von Google entwickelt
+    wurde und darauf abzielt, Wörter in einem kontinuierlichen Vektorraum zu
+    positionieren, basierend auf ihrem Kontext in einem Textkorpus.
+    Word2Vec verwendet zwei Architekturen: _Continuous Bag of Words_ (CBOW)
+    und _Skip-gram_. CBOW sagt ein Wort basierend auf seinem Kontext voraus,
+    während Skip-gram verwendet wird, um den Kontext basierend auf einem
+    gegebenen Wort vorherzusagen. Das Ergebnis ist ein Satz von Vektoren,
+    bei dem ähnliche Wörter in der Nähe voneinander im Vektorraum liegen.
+
+- **GloVe**: GloVe ist ein weiteres populäres Verfahren zur Erzeugung von
+    Wortvektoren, entwickelt von der Stanford University. Im Gegensatz zu
+    Word2Vec, das lokale Kontexte verwendet, nutzt GloVe globale statistische
+    Informationen aus der gesamten Textmenge. Es optimiert die Vektoren,
+    indem es die Wahrscheinlichkeit modelliert, dass zwei Wörter zusammen
+    in einem bestimmten Kontext auftreten. Dadurch werden Vektoren erzeugt,
+    die eine hohe semantische Genauigkeit aufweisen und Wortbeziehungen
+    besser erfassen.
+
+- **BERT**: BERT ist ein tiefes, bidirektionales Transformationsmodell,
+    das die Bedeutung von Wörtern und deren Kontext in einem Text erfasst.
+    Es verwendet eine maskierte Wortprädiktionsaufgabe sowie eine
+    Satzpaar-Klassifizierungsaufgabe, um kontextuelle Repräsentationen
+    von Wörtern zu lernen. BERT-Vektoren sind kontextspezifisch,
+    was bedeutet, dass dasselbe Wort unterschiedliche Vektoren in
+    verschiedenen Kontexten haben kann. Diese Eigenschaft macht BERT
+    besonders leistungsfähig bei Aufgaben der natürlichen Sprachverarbeitung.
+
+Dank dieser Methoden können Wortvektoren verwendet werden, um semantische
+Ähnlichkeiten zu berechnen, Wörter zu klassifizieren, Textdokumente
+zu clustern und viele andere NLP-bezogene Aufgaben zu lösen.
+Wortvektoren sind ein hervorragendes Beispiel dafür, wie
+Vektorrepräsentationen die Fähigkeit von Maschinen, natürliche
+Sprache und ihre Bedeutungen zu verstehen, revolutioniert haben.
+
+=== Vector Embeddings
+
+==== Was sind Embeddings?
+Embeddings sind eine Möglichkeit, komplexe Daten wie Wörter, Sätze, Bilder
+oder andere Elemente numerisch zu repräsentieren, indem sie in einen
+niedrigdimensionalen Vektorraum eingebettet werden. Diese Vektoren,
+auch Embeddings genannt, erfassen die relevanten Merkmale und
+Beziehungen der ursprünglichen Daten in einer hoch verdichteten
+und manchmal weniger dimensionalen Form. Embeddings spielen eine
+zentrale Rolle in vielen Anwendungen des maschinellen Lernens und
+der künstlichen Intelligenz, da sie die Grundlage für die Verarbeitung
+und Analyse komplexer Daten bieten.
+
+Das grundlegende Ziel von Embeddings ist es, semantisch ähnliche
+Datenpunkte näher zusammen zu positionieren und unähnliche Datenpunkte
+weiter auseinander zu halten. Beispielsweise könnten in einem
+Wortembedding-Raum die Vektoren für "König" und "Königin" nahe
+beieinander liegen, weil sie semantisch ähnlich sind, während
+"König" und "Auto" weiter getrennt sind, da sie unterschiedliche
+Bedeutungen haben.
+
+Ein wesentlicher Vorteil von Embeddings ist ihre Fähigkeit,
+hohe Dimensionen und komplexe Datenstrukturen in handhabbare
+und recheneffiziente Vektoren zu überführen. Diese Transformation
+erleichtert es maschinellen Lernmodellen, die Daten zu
+verarbeiten und Muster oder Beziehungen zu erkennen, die in
+den Rohdaten nicht offensichtlich sind.
+
+Embeddings werden häufig in der Verarbeitung natürlicher
+Sprache (_Natural Language Processing_, NLP) verwendet,
+um Wörter und Sätze in dichte Vektoren umzuwandeln.
+Diese Vektoren erfassen die semantischen und syntaktischen
+Merkmale der Sprache, sodass maschinelle Lernmodelle Text
+verstehen und analysieren können. Neben NLP-Anwendungen
+finden Embeddings auch in der Bilderkennung, der
+Empfehlungssysteme und vielen anderen Bereichen Anwendung,
+in denen hochdimensionale Daten verarbeitet werden müssen.
+
+==== Methoden zur Erzeugung von Embeddings
+
+Es gibt verschiedene Methoden zur Erzeugung von Embeddings,
+die je nach Anwendungsfall und Datenstruktur eingesetzt werden.
+Hier sind einige der bekanntesten und am häufigsten verwendeten Ansätze:
+
+- **Word2Vec**: Word2Vec ist eine Technik, die von Google entwickelt
+    wurde, um Wörter aus grossen Textkorpora in kontinuierliche
+    Vektoren zu überführen. Es gibt zwei Hauptarchitekturen in
+    Word2Vec: _Continuous Bag of Words_ (CBOW) und _Skip-gram_.
+    CBOW sagt ein Wort basierend auf seinem Kontext voraus,
+    während Skip-gram den Kontext basierend auf einem zentralen
+    Wort vorhersagt. Diese architektonischen Ansätze ermöglichen
+    es dem Modell, semantische Beziehungen zwischen Wörtern zu
+    erlernen und Wörter mit ähnlicher Bedeutung in der Nähe
+    im Vektorraum zu platzieren.
+
+- **GloVe (_Global Vectors for Word Representation_)**: GloVe ist
+    ein weiteres Verfahren zur Erzeugung von Wortvektoren, das von
+    der Stanford University entwickelt wurde. GloVe kombiniert
+    globale statistische Informationen aus dem gesamten Textkorpus
+    mit der lokalen Kontextinformation, um hochpräzise Wortvektoren
+    zu erzeugen. Dies wird erreicht, indem die Wahrscheinlichkeit
+    modelliert wird, dass Wörter in bestimmten Kontexten zusammen
+    auftreten. Das Resultat sind Vektoren, die eine starke
+    semantische Bedeutung besitzen und präzise Wortbeziehungen erfassen.
+
+- **FastText**: FastText, entwickelt von Facebook, erweitert das
+    Word2Vec-Modell, indem es Wörter als N-Gramme (Teilstücke von Wörtern)
+    darstellt. Durch die Verwendung von Subwortinformationen kann
+    FastText effektiver mit seltenen und unbekannten Wörtern umgehen,
+    da auch unbekannte Wörter in ihre N-Gramme zerlegt und deren Vektoren
+    summiert werden. Dies führt zu robusteren Wortvektoren,
+    insbesondere für Sprachen mit komplexen Morphologien.
+
+- **BERT (_Bidirectional Encoder Representations from Transformers_)**: BERT
+    ist ein hochentwickeltes Sprachmodell, das von Google entwickelt
+    wurde und auf der Transformer-Architektur basiert. BERT erzeugt
+    kontextabhängige Wortvektoren, indem es den bidirektionalen
+    Kontext eines Wortes in einem Satz berücksichtigt.
+    Dies ermöglicht es dem Modell, tiefere semantische Bedeutungen
+    zu erfassen und in Aufgaben der natürlichen Sprachverarbeitung
+    (z.B. Fragebeantwortung, Named Entity Recognition) aussergewöhnlich
+    gut abzuschneiden. BERT verwendet _Masked Language Modeling_ (MLM)
+    und _Next Sentence Prediction_ (NSP) zur Erzeugung hochwertiger Embeddings.
+
+- **Sentence-BERT (SBERT)**: Sentence-BERT erweitert das BERT-Modell,
+    indem es ganze Sätze in dichte Vektoren einbettet, die semantische
+    Informationen über den gesamten Satz hinweg erfassen.
+    Dies ermöglicht es, semantische Ähnlichkeiten auf Satz-
+    oder Textabsatzebene zu berechnen und ist besonders nützlich
+    für Textklassifikation, Informationsabruf und Satzähnlichkeitsaufgaben.
+
+- **DeepWalk**: DeepWalk ist eine Methode zur Erzeugung von Embeddings
+    für Netzwerke oder Graphen. Sie transformiert Grapheninformationen
+    in niedrigdimensionale Vektoren, wobei zufällige Wanderungen
+    (_Random Walks_) auf dem Graphen durchgeführt und diese als Sätze
+    behandelt werden. Diese Sätze werden anschließend mit Techniken
+    wie Word2Vec verarbeitet, um Knotenembeddings zu erzeugen, die
+    die Struktur und Beziehungen im Graphen widerspiegeln.
+
+Diese Methoden zur Erzeugung von Embeddings haben bedeutende Fortschritte
+in verschiedenen Anwendungen ermöglicht, indem sie die Rohdaten in
+eine Form überführen, die recheneffizient ist und tiefere semantische
+Bedeutungen erfassen kann. Die Auswahl der geeigneten Methode hängt
+von der speziellen Anwendung und den Datenanforderungen ab.
+
+=== Verwendung von Vector Embeddings
+==== Anwendungsbereiche von Embeddings
+
+Vector Embeddings finden Einsatz in einer Vielzahl von Anwendungen
+im Bereich der künstlichen Intelligenz und des maschinellen Lernens.
+Ihre Fähigkeit, komplexe und hochdimensionale Daten in dichte,
+numerische Vektoren zu verwandeln, ermöglicht es, verschiedene
+Arten von Informationen zu vergleichen, zu klassifizieren und
+zu analysieren. Hier sind einige der wichtigsten Anwendungsbereiche
+von Embeddings:
+
+- **Informationsabruf und -wiedergewinnung**: Embeddings werden
+    häufig verwendet, um Dokumente oder Datenpunkte zu repräsentieren,
+    die in grossen Datenmengen gespeichert sind. Durch die
+    Berechnung von Ähnlichkeiten zwischen Embeddings können
+    relevante Dokumente effizienter abgerufen werden, was nützlich
+    ist in Suchmaschinen, Fragebeantwortungssystemen und bei
+    der Indexierung von Daten.
+
+- **Textklassifikation**: Eine der weit verbreiteten Anwendungen
+    von Embeddings ist die Textklassifikation. Hierbei werden
+    Textdaten in Vektoren umgewandelt, die dann als Input für
+    Klassifikationsmodelle dienen. Dies ermöglicht es, Texte
+    automatisch in Kategorien einzuordnen, wie z.B. Spam-Erkennung
+    in E-Mails oder Sentiment-Analyse in sozialen Medien.
+
+- **Ähnlichkeitssuche und Clustering**: Embeddings werden auch
+    in der Ähnlichkeitssuche und beim Clustering verwendet.
+    Bei der Ähnlichkeitssuche werden Vektoren verwendet,
+    um die Ähnlichkeit zwischen Datenpunkten zu berechnen
+    und ähnliche Elemente zu finden. Beim Clustering werden
+    Datenpunkte basierend auf ihren Vektorrepräsentationen
+    in Gruppen unterteilt, um Muster und Strukturen in den
+    Daten zu erkennen.
+
+- **Empfehlungssysteme**: Moderne Empfehlungssysteme nutzen
+    Embeddings, um Benutzerpräferenzen und Artikelmerkmale
+    darzustellen. Durch die Berechnung der Ähnlichkeiten
+    zwischen Benutzer- und Artikel-Embeddings können personalisierte
+    Empfehlungen generiert werden, die auf den Präferenzen
+    des Benutzers basieren.
+
+- **Bilderkennung und -klassifikation**: In der Computer Vision
+    werden Bilder in Embeddings umgewandelt, die visuelle Merkmale
+    und Inhalte erfassen. Diese Embeddings können verwendet werden,
+    um Bilder zu klassifizieren, ähnliches Bildmaterial zu finden
+    oder Objekte in Bildern zu erkennen.
+
+- **Sprachübersetzung und Sprachgenerierung**: Embeddings spielen
+    eine zentrale Rolle in der maschinellen Übersetzung und
+    Sprachgenerierung. Modelle wie BERT und GPT verwenden
+    Embeddings, um den Kontext und die Bedeutung von Wörtern
+    und Sätzen zu erfassen, was die Übersetzung und Erzeugung
+    natürlicher Sprache verbessert.
+
+- **Graphenanalyse**: Embeddings werden auch verwendet, um Knoten
+    in Graphen zu repräsentieren. Dies ermöglicht die Analyse
+    von Netzwerkstrukturen, z.B. zur Erkennung von
+    Gemeinschaften, zur Vorhersage von Links oder zur
+    Klassifizierung von Knoten basierend auf ihrer Einbettung.
+
+
+==== Praktische Beispiele mit Pseudocode
+Um die praktische Anwendung von Embeddings zu veranschaulichen,
+betrachten wir einige Beispiele, die zeigen, wie Embeddings
+in verschiedenen Szenarien genutzt werden können.
+
+- **Ähnlichkeitssuche im Text**:
+  Ein häufiges Anwendungsgebiet von Embeddings ist die Berechnung der semantischen Ähnlichkeit zwischen Texten. Hier ist ein Pseudocode-Beispiel, das zeigt, wie Embeddings verwendet werden können, um ähnliche Sätze zu finden:
+
+
+=== Einführung in Vector Stores
+==== Architektur und Funktionsweise von Vector Stores
+==== Einsatzgebiete von Vector Stores
+
+=== Praktische Implementierung
+==== Auswahl von Tools und Bibliotheken
+==== Erstellung eines Vector Stores
+
+=== Hands-on Übung
+==== Übung 1: Erzeugung von Embeddings mit Word2Vec
+==== Übung 2: Implementierung eines einfachen Vector Stores mit FAISS
+
+=== Integration mit LangChain
+==== Verknüpfung von Vector Stores und LLMs
+==== Erstellung einer Beispielanwendung mit LangChain und Vector Stores
+
+=== Zusammenfassung und Ausblick
+==== Zusammenfassung der wichtigsten Konzepte
+==== Diskussion über fortgeschrittene Einsatzmöglichkeiten
+==== Zukunftsperspektiven für Vector Stores und Embeddings

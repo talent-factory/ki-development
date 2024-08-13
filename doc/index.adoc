@@ -17,6 +17,8 @@ include::flowise-ai.adoc[]
 // Verwenden von LangChain
 include::langchain.adoc[]
 
+// Vector Stores und Embeddings
+include::vector-stores-und-embeddings.adoc[]
 
 // Verwendete Software
 include::software.adoc[]
