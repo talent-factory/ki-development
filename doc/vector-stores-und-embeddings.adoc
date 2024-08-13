@@ -324,15 +324,390 @@ in verschiedenen Szenarien genutzt werden können.
 
 - **Ähnlichkeitssuche im Text**:
   Ein häufiges Anwendungsgebiet von Embeddings ist die Berechnung der semantischen Ähnlichkeit zwischen Texten. Hier ist ein Pseudocode-Beispiel, das zeigt, wie Embeddings verwendet werden können, um ähnliche Sätze zu finden:
++
+[source,python]
+----
+# Pseudocode zur Berechnung der semantischen Ähnlichkeit zwischen Texten
+import embedding_library
+
+# Texte definieren
+text1 = "Das Wetter ist heute sonnig."
+text2 = "Es ist ein heller und sonniger Tag."
+text3 = "Ich liebe kaltes Winterwetter."
+
+# Erzeugen von Embeddings
+embedding1 = embedding_library.create_embedding(text1)
+embedding2 = embedding_library.create_embedding(text2)
+embedding3 = embedding_library.create_embedding(text3)
+
+# Berechnung der Ähnlichkeiten (z.B. Kosinus-Ähnlichkeit)
+similarity_1_2 = embedding_library.cosine_similarity(embedding1, embedding2)
+similarity_1_3 = embedding_library.cosine_similarity(embedding1, embedding3)
+
+# Ausgabe der Ergebnisse
+print(f"Ähnlichkeit zwischen Text 1 und Text 2: {similarity_1_2}")
+print(f"Ähnlichkeit zwischen Text 1 und Text 3: {similarity_1_3}")
+----
+
+- **Textklassifikation mit Embeddings**: In diesem Beispiel verwenden wir Embeddings,
+um Texte in Kategorien einzuordnen. Der Pseudocode zeigt, wie ein Klassifikationsmodell
+mit Embeddings trainiert wird:
++
+[source,python]
+----
+# Pseudocode zur Textklassifikation
+import embedding_library
+from machine_learning_library import Classifier
+
+# Trainingsdaten
+texts = ["Diese E-Mail ist Spam.", "Dies ist eine legitime E-Mail.", ...]
+labels = ["Spam", "Ham", ...]
+
+# Erzeugen von Embeddings für die Trainingsdaten
+embeddings = [embedding_library.create_embedding(text) for text in texts]
+
+# Trainingsdatenset erstellen
+train_data = (embeddings, labels)
+
+# Klassifikationsmodell erstellen und trainieren
+classifier = Classifier()
+classifier.train(train_data)
+
+# Klassifikation eines neuen Textes
+new_text = "Dies ist eine neue E-Mail, die klassifiziert werden soll."
+new_embedding = embedding_library.create_embedding(new_text)
+prediction = classifier.predict(new_embedding)
+
+# Ausgabe der Klassifikation
+print(f"Die Klassifikation des neuen Textes ist: {prediction}")
+----
+
+- **Empfehlungssystem mit Embeddings**: Hier ein Pseudocode-Beispiel zur
+Implementierung eines einfachen Empfehlungssystems, das Artikel basierend
+auf Benutzerpräferenzen empfiehlt:
++
+[source,python]
+----
+# Pseudocode für ein Empfehlungssystem
+import embedding_library
+from recommendation_library import Recommender
+
+# Beispiel-Benutzerdaten
+user_preferences = ["Artikel 1", "Artikel 2", ...]
+
+# Erzeugen von Embeddings für die Benutzerdaten
+user_embeddings = [embedding_library.create_embedding(item) for item in user_preferences]
+
+# Artikel-Datenbank
+articles = ["Artikel A", "Artikel B", "Artikel C", ...]
+article_embeddings = [embedding_library.create_embedding(article) for article in articles]
+
+# Empfehlungssystem erstellen und trainieren
+recommender = Recommender()
+recommender.train(user_embeddings, article_embeddings)
+
+# Empfehlungen generieren
+recommendations = recommender.recommend(user_embeddings)
+
+# Ausgabe der Empfehlungen
+for recommendation in recommendations:
+    print(recommendation)
+----
+
+Diese Beispiele veranschaulichen die praktischen Anwendungen von Embeddings
+in verschiedenen Szenarien. Durch das Umwandeln von Daten in dichte
+numerische Vektoren ermöglichen Embeddings eine effiziente Verarbeitung,
+Analyse und Vorhersage in einer Vielzahl von maschinellen Lernanwendungen.
 
 
 === Einführung in Vector Stores
+
 ==== Architektur und Funktionsweise von Vector Stores
+
+Vector Stores sind spezialisierte Datenbanksysteme, die entwickelt
+wurden, um hochdimensionale Vektoren effizient zu speichern
+und abzufragen. Die zugrundeliegende Architektur und
+Funktionsweise von Vector Stores sind darauf abgestimmt,
+die Herausforderungen bei der Verarbeitung und Suche in
+grossen Vektormengen zu bewältigen. Hier ein detaillierter
+Überblick über die Architektur und Funktionsweise:
+
+- **Datenstrukturen und Speicher**:
+  Vector Stores nutzen spezialisierte Datenstrukturen und
+    Speichertechniken, um Vektoren effizient zu speichern
+    und abzurufen. Dazu zählen _In-Memory_-Speicher,
+    Festplattenspeicher oder hybride Ansätze, die eine
+    Mischung aus beiden verwenden. Die Wahl der Datenstruktur
+    hängt von den Anforderungen an die Lade- und Abfragezeiten
+    sowie der Menge und Grösse der zu speichernden Vektoren ab.
+
+- **Indexierung**: Eine der Schlüsselkomponenten eines Vector Stores ist das
+    Indexierungssystem. Da Vektoren im Allgemeinen hochdimensional
+    sind, ist eine einfache lineare Suche ineffizient.
+    Stattdessen verwenden Vector Stores fortschrittliche
+    Indexierungsalgorithmen wie _Approximate Nearest Neighbor_ (ANN)
+    oder strukturbasierte Methoden wie _k-d_ Trees, _Ball Trees_ oder
+    HNSW (_Hierarchical Navigable Small World Graphs_).
+    Diese Techniken reduzieren die Abfragezeiten erheblich, indem
+    sie einen Teil der Vektorraumsuche vorab berechnen und nur
+    relevante Teilräume durchsuchen.
+
+- **Abfragesystem**: Vector Stores sind darauf ausgelegt, hochdimensionale Abfragen schnell
+    und präzise zu beantworten. Die typischen Abfragen umfassen die
+    _K-Nearest Neighbors_ (K-NN) Suche, die Suche nach dem nächsten
+    Nachbarn oder die Berechnung der kosinusbasierten Ähnlichkeit.
+    Diese Abfragen werden durch spezialisierte Algorithmen und
+    Datenstrukturen ermöglicht, die die komplexen Berechnungen
+    effizient durchführen.
+
+- **Skalierbarkeit und Verteilte Systeme**: Vector Stores sind oft skalierbar
+    und können grosse Datenmengen verarbeiten, indem sie auf verteilte
+    Systeme zurückgreifen. Dies ermöglicht es ihnen, Vektoren über mehrere
+    Knoten zu verteilen und parallele Abfragen durchzuführen, um die
+    Leistung und Skalierbarkeit zu erhöhen. Systeme wie FAISS von Facebook
+    oder Milvus sind Beispiele für skalierbare, verteilte Vector Stores.
+
+- **Integrations- und Schnittstellen**: Vector Stores bieten oft APIs und
+    Integrationsmöglichkeiten für verschiedene Programmiersprachen und
+    Frameworks. Dies erleichtert die Integration in bestehende Workflows
+    und Anwendungen. Außerdem unterstützen sie häufig Schnittstellen zu
+    Machine Learning Bibliotheken wie TensorFlow oder PyTorch, um eine
+    nahtlose Integration mit maschinellen Lernmodellen zu ermöglichen.
+
+Durch diese architektonischen Merkmale bieten Vector Stores eine spezialisierte
+und effiziente Lösung für die Speicherung und Abfrage hochdimensionaler
+Vektoren, die in vielen modernen Anwendungen benötigt werden.
+
 ==== Einsatzgebiete von Vector Stores
 
+Vector Stores finden in einer Vielzahl von Anwendungsgebieten Einsatz,
+die auf die Analyse und Verarbeitung hochdimensionaler Daten angewiesen
+sind. Hier sind einige der wichtigsten Einsatzgebiete:
+
+- **Ähnlichkeitssuche und -wiedererkennung**: Ein weit verbreitetes
+    Einsatzgebiet von Vector Stores ist die Ähnlichkeitssuche. Dabei
+    werden Vektoren verwendet, um Datenelemente zu vergleichen und
+    ähnliche Einträge zu finden. Dies ist besonders nützlich in
+    Suchmaschinen, bei der Bild- und Videoerkennung sowie in
+    Musiksuchdiensten. Zum Beispiel kann ein Vector Store verwendet
+    werden, um Bilder in einer großen Datenbank zu durchsuchen
+    und diejenigen zu finden, die einem gegebenen Bild am ähnlichsten sind.
+
+- **Empfehlungssysteme**: Vector Stores spielen eine zentrale Rolle in
+    modernen Empfehlungssystemen. Sie ermöglichen die Speicherung
+    und Abfrage von Vektoren, die Benutzerpräferenzen und Artikelmerkmale
+    repräsentieren. Durch die Berechnung der Ähnlichkeiten zwischen
+    Benutzer- und Artikelvektoren können personalisierte Empfehlungen
+    generiert werden, was in E-Commerce-Plattformen, Streaming-Diensten
+    und Social Media von grosser Bedeutung ist.
+
+- **Dokumenten- und Textsuche**: In der Text- und Dokumentensuche
+    werden Vector Stores verwendet, um Textdokumente in Form von
+    Vektoren zu speichern und schnell auf relevante Informationen
+    zuzugreifen. Dies ist besonders nützlich in Fragebeantwortungssystemen,
+    bei der automatischen Klassifikation von Texten und in der semantischen
+    Suche, wo nicht nur die wortgenaue Übereinstimmung, sondern auch die
+    semantische Bedeutung des Textes beachtet wird.
+
+- **Bilderkennung und -analyse**: In der Computer Vision werden Vector
+    Stores eingesetzt, um Bildmerkmale zu speichern und abzufragen.
+    Diese Vektoren können aus Rohbildern extrahiert werden und
+    repräsentieren visuelle Merkmale wie Kanten, Farben und
+    Texturen. Vector Stores können dann verwendet werden, um
+    ähnliche Bilder zu finden oder Bildklassifikation durchzuführen.
+
+- **Betrugserkennung und Anomalieerkennung**: Vector Stores können auch
+    für die Betrugserkennung und Anomalieerkennung in Finanz- und
+    Sicherheitssystemen verwendet werden. Vektoren werden verwendet,
+    um Transaktionsdaten oder Benutzermuster zu repräsentieren, und
+    können schnell untersucht werden, um abnormale Aktivitäten oder
+    Betrugsversuche zu identifizieren.
+
+- **Genomik und Bioinformatik**: In der Bioinformatik und Genomik
+    ermöglichen Vector Stores die Speicherung und Analyse
+    hochdimensionaler Daten wie DNA-Sequenzen oder Proteinstrukturen.
+    Dies erleichtert die Suche nach genetischen Ähnlichkeiten und
+    Mustern, die für die Forschung und Entwicklung neuer Medikamente
+    von entscheidender Bedeutung sind.
+
+- **Sprach- und Audioverarbeitung**: Vector Stores werden auch in der
+    Sprach- und Audioverarbeitung verwendet, um Audio- und Sprachdaten
+    zu analysieren. Vektoren können verwendet werden, um Merkmale
+    von Audiodateien zu extrahieren, wie z.B. Tonhöhe, Lautstärke
+    und Spektrogramme, und diese Daten können für Aufgaben wie
+    Spracherkennung, Speaker Identification und Audio-Clustering
+    verwendet werden.
+
+Diese vielfältigen Einsatzgebiete zeigen, wie vielseitig und
+leistungsfähig Vector Stores sind, wenn es darum geht, hochdimensionale
+Daten zu analysieren und zu verarbeiten. Sie bieten spezifische
+Lösungen für verschiedene Branchen und Anwendungsfälle, die auf die
+effiziente Speicherung und Abfrage von Vektoren angewiesen sind.
+
+
+=== Unterschied zwischen Vector Embeddings und Vector Stores
+
+Vector Embeddings und Vector Stores sind zwei unterschiedliche,
+aber miteinander verbundene Konzepte, die in der Welt der künstlichen
+Intelligenz und des maschinellen Lernens eine wichtige Rolle spielen.
+Hier ist eine detaillierte Erklärung der beiden Begriffe und
+ihrer Unterschiede:
+
+==== Vector Embeddings
+
+**Vector Embeddings** sind eine Methode zur Repräsentation komplexer
+Daten wie Wörter, Sätze, Bilder oder andere Elemente als hochdimensionale
+Vektoren in einem kontinuierlichen Vektorraum. Diese Vektoren fassen
+die wichtigsten Merkmale und Beziehungen der Originaldaten in einer
+kompakten und mathematisch verwertbaren Form zusammen.
+Die Hauptziele von Embeddings sind es, die semantischen Beziehungen
+zwischen Datenpunkten zu erfassen und gleichzeitig die Dimension der
+Daten zu reduzieren, um sie recheneffizienter zu machen.
+
+*Merkmale von Vector Embeddings:*
+- *Hochdimensionale Vektoren*: Embeddings repräsentieren Daten in einem n-dimensionalen Raum, wobei jede Dimension eine spezifische Eigenschaft oder ein Merkmal der Daten beschreibt.
+- *Semantische Bedeutung*: Eingebettete Vektoren erfassen die semantischen Beziehungen zwischen Datenpunkten, sodass ähnlich bedeutende Daten nahe beieinander im Vektorraum liegen.
+- *Reduzierung der Komplexität*: Embeddings transformieren komplexe Daten in eine weniger dimensionale Form, was die Verarbeitung durch Maschinen effizienter macht.
+
+*Beispiele für Vector Embeddings:*
+- *Word2Vec und GloVe*: Diese Techniken erzeugen Vektoren, die semantische Beziehungen zwischen Wörtern erfassen.
+- *BERT*: Ein Modell, das kontextspezifische Wort- und Satz-Vektoren erzeugt und in der natürlichen Sprachverarbeitung genutzt wird.
+
+==== Vector Stores
+
+**Vector Stores** sind spezialisierte Datenbanken, die entwickelt wurden,
+um hochdimensionale Vektoren effizient zu speichern, zu verwalten und
+abzufragen. Während Vector Embeddings die numerische Darstellung der
+Daten liefern, bieten Vector Stores die Infrastruktur, um diese Vektoren
+zu speichern und schnelle Abfragen zu ermöglichen, insbesondere in
+Szenarien mit großen Datenmengen und der Notwendigkeit, ähnliche oder
+relevante Vektoren zu finden.
+
+*Merkmale von Vector Stores:*
+- *Speicherung von Vektoren*: Vector Stores sind darauf ausgelegt, große Mengen an hochdimensionalen Vektoren effizient zu speichern.
+- *Effiziente Abfrage- und Suchmethoden*: Sie nutzen spezialisierte Indexierungs- und Suchalgorithmen, um schnelle und präzise Suchen nach ähnlichen Vektoren durchzuführen.
+- *Skalierbarkeit*: Vector Stores können oft auf verteilten Systemen betrieben werden, um große Datenmengen zu handhaben und die Leistung zu maximieren.
+
+*Beispiele für Vector Stores:*
+- *FAISS*: Ein von Facebook entwickelter Vector Store, der schnelle Ähnlichkeitssuchen in großen Vektormengen ermöglicht.
+- *Milvus*: Ein Open-Source-Vector Store, der für hochdimensionale Daten und maschinelles Lernen entwickelt wurde.
+
+==== Unterschiede zwischen Vector Embeddings und Vector Stores
+
+1. **Ziel und Funktion**:
+   - *Vector Embeddings*: Transformieren komplexe Daten in hochdimensionale Vektoren, die semantische Eigenschaften und Beziehungen erfassen.
+   - *Vector Stores*: Bieten die Infrastruktur zur Speicherung und Abfrage dieser Vektoren, insbesondere für große Datensätze und schnelle Suchanfragen.
+
+2. **Aufgaben und Anwendungsbereiche**:
+   - *Vector Embeddings*: Werden hauptsächlich durch maschinelle Lernmodelle erzeugt und in verschiedenen KI-Anwendungen wie NLP, Computer Vision und Empfehlungssystemen verwendet.
+   - *Vector Stores*: Dienen als spezialisierte Datenbanken, die diese Vektoren effizient speichern und schnelle Abfragen ermöglichen, was in Suchmaschinen, Empfehlungssystemen und anderen Anwendungen genutzt wird.
+
+3. **Technologie und Implementierung**:
+   - *Vector Embeddings*: Nutzen Modelle wie Word2Vec, GloVe, BERT etc., um die Vektoren zu erzeugen.
+   - *Vector Stores*: Verwenden spezialisierte Algorithmen und Datenstrukturen wie k-d Trees, HNSW und ANN zur effizienten Speicherung und Suche nach Vektoren.
+
+==== Zusammenfassung
+
+Zusammenfassend lässt sich sagen, dass Vector Embeddings und Vector Stores
+komplementäre Technologien sind. Während Embeddings dafür sorgen,
+dass komplexe Daten in numerische Vektoren umgewandelt werden,
+speichern und verwalten Vector Stores diese Vektoren und ermöglichen
+ihre effiziente Abfrage. Beide Technologien spielen eine entscheidende
+Rolle in modernen maschinellen Lern- und KI-Systemen und tragen dazu bei,
+die Verarbeitung und Analyse großer und komplexer Datensätze zu optimieren.
+
+
 === Praktische Implementierung
+
 ==== Auswahl von Tools und Bibliotheken
+
+Bei der Auswahl von Tools und Bibliotheken für die Erstellung und Nutzung von Vector Stores gibt es mehrere Optionen, die sich durch unterschiedliche Eigenschaften und Anwendungsfälle auszeichnen. Hier sind einige der bekanntesten und am häufigsten verwendeten Tools und Bibliotheken:
+
+- **FAISS (Facebook AI Similarity Search)**:
+  FAISS ist eine Bibliothek von Facebook AI Research, die entwickelt wurde, um schnelle Ähnlichkeitssuchen in großen Vektormengen zu ermöglichen. FAISS unterstützt sowohl exakte als auch Näherungssuchen und ist für hohe Leistung und Skalierbarkeit optimiert. Es bietet verschiedene Algorithmen und Indexierungsmechanismen, darunter k-d Trees, vorgefertigte Vektorencluster und HNSW (Hierarchical Navigable Small World Graphs).
+
+- **Annoy (Approximate Nearest Neighbors Oh Yeah)**:
+  Annoy ist eine von Spotify entwickelte Bibliothek, die Approximate Nearest Neighbor Suchen mit einer Mischung aus Random-Projection-Bäumen und k-d Bäumen ermöglicht. Annoy ist auf sehr große Datensätze und minimalen Speicherbedarf optimiert und bietet eine besonders effiziente Implementierung für das Einfügen und Abfragen von Vektoren.
+
+- **Milvus**:
+  Milvus ist ein hoch skalierbarer Open-Source-Vector Store, der entwickelt wurde, um Milliarden von Vektoren zu speichern und abzufragen. Milvus nutzt fortgeschrittene Indexierungstechniken wie IVF (Inverted File System), HNSW und PQ (Product Quantization), um schnelle und genaue Suchvorgänge zu ermöglichen. Milvus unterstützt verteilte Systeme und bietet eine benutzerfreundliche API.
+
+- **Elasticsearch mit Vector Search**:
+  Elasticsearch ist eine weit verbreitete Such- und Analyse-Engine, die auch die Suche nach Vektor-ähnlichen Dokumenten unterstützt. Mit der Einführung von Densen Vectors Indexing und K-NN (k-Nearest Neighbor) Suchfunktionen kann Elasticsearch als einfacher Vector Store fungieren und ermöglicht eine nahtlose Integration in bestehende Elasticsearch-Workflows.
+
+- **PostgreSQL mit pgvector**:
+  PostgreSQL, eine leistungsstarke relationale Datenbank, hat mit der Erweiterung pgvector Unterstützung für Vektordaten und -abfragen gewonnen. Diese Erweiterung ermöglicht es, Vektor-ähnliche Datenbanken in PostgreSQL zu erstellen und unterstützt K-NN-Suchen, was PostgreSQL zu einer vielseitigen Lösung für kleinere Vektordatenanwendungen macht.
+
 ==== Erstellung eines Vector Stores
+
+Die Erstellung eines Vector Stores beinhaltet mehrere Schritte, von der Vorbereitung der Daten bis zur Implementierung der Suchlogik. Hier ist ein exemplarischer Ablauf zur Erstellung eines einfachen Vector Stores mit FAISS:
+
+1. **Installationsvorbereitung**:
+   Zunächst müssen die erforderlichen Bibliotheken installiert werden. Für FAISS kann dies durch die Ausführung eines einfachen Pip-Befehls erfolgen:
++
+[source,shell]
+----
+pip install faiss-cpu
+----
+
+2. **Datenvorbereitung**: Bereiten Sie Ihre Daten vor, indem Sie sie in numerische Vektoren umwandeln. Dies kann mit einer Embedding-Methode wie Word2Vec, GloVe oder BERT erfolgen. Hier ein Beispiel für die Erzeugung von Embeddings mit dem Word2Vec-Modell:
++
+[source,python]
+----
+from gensim.models import Word2Vec
+
+# Beispieltextdaten
+sentences = [["das", "wetter", "ist", "heute", "sonnig"], ["es", "ist", "ein", "heller", "tag"]]
+
+# Training des Word2Vec-Modells
+model = Word2Vec(sentences, vector_size=100, window=5, min_count=1, workers=4)
+
+# Erzeugen von Vektoren (Embeddings) für die Wörter
+vector_sonnig = model.wv['sonnig']
+vector_tag = model.wv['tag']
+----
+
+3. **Erstellung des Vector Stores mit FAISS**: Sobald die Vektoren vorbereitet sind, können sie in einem FAISS-Index gespeichert werden. Hier ist ein Beispiel zur Erzeugung eines FAISS-Indexes und Einfügen der Vektoren:
++
+[source,python]
+----
+import faiss
+import numpy as np
+
+# Erstellen eines FAISS-Index
+d = 100  # Dimension der Vektoren
+index = faiss.IndexFlatL2(d)  # L2-Distanzmetrikenstandard
+
+# Konvertieren der Vektoren in ein Numpy-Array
+vectors = np.array([vector_sonnig, vector_tag])
+
+# Hinzufügen der Vektoren zum Index
+index.add(vectors)
+
+# Überprüfung der Anzahl der im Index gespeicherten Vektoren
+print(f"Anzahl der Vektoren im Index: {index.ntotal}")
+----
+
+4. **Durchführung von Abfragen*: Mit dem erstellten Vector Store können nun Abfragen durchgeführt werden, um ähnliche Vektoren zu finden. Hier ein Beispiel für eine K-NN-Suche:
++
+[source,python]
+----
+# Abfragevektor
+query_vector = model.wv['heute']
+
+# Durchführung einer K-NN-Suche (Suche nach den 2 nächsten Nachbarn)
+k = 2
+D, I = index.search(np.array([query_vector]), k)
+
+# Ausgabe der Ergebnisse
+print(f"Indizes der nächsten Nachbarn: {I}")
+print(f"Distanzen zu den nächsten Nachbarn: {D}")
+----
+
+Durch diese Schritte können Sie einen einfachen Vector Store erstellen
+und für die effiziente Abfrage hochdimensionaler Vektoren verwenden.
+Die Wahl des Tools und der Bibliotheken hängt von den spezifischen
+Anforderungen und dem Anwendungsfall ab.
 
 === Hands-on Übung
 ==== Übung 1: Erzeugung von Embeddings mit Word2Vec
