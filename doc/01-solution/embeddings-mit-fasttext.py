@@ -1,6 +1,6 @@
 # Schritt 1: Installation von FastText
 # Die FastText-Bibliothek kann mit pip installiert werden:
-# pip install fasttext
+# pip install fasttext numpy
 
 # Trainieren des FastText-Modells
 import fasttext.util
@@ -45,6 +45,17 @@ vector_kaltes = model.get_word_vector(word3)
 def cosine_similarity(v1, v2):
     return np.dot(v1, v2) / (norm(v1) * norm(v2))
 
+
+# Alternativer Algorithmus: Euklidische Distanz
+def euclidean_distance(v1, v2):
+    return np.sqrt(np.sum((v1 - v2) ** 2))
+
+
+distance_sonnig_heller = euclidean_distance(vector_sonnig, vector_heller)
+distance_sonnig_kaltes = euclidean_distance(vector_sonnig, vector_kaltes)
+
+print(f"Euklidische Distanz zwischen '{word1}' und '{word2}': {distance_sonnig_heller}")
+print(f"Euklidische Distanz zwischen '{word1}' und '{word3}': {distance_sonnig_kaltes}")
 
 similarity_sonnig_heller = cosine_similarity(vector_sonnig, vector_heller)
 similarity_sonnig_kaltes = cosine_similarity(vector_sonnig, vector_kaltes)
