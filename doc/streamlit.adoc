@@ -1,0 +1,65 @@
+== Streamlit
+include::locale/attributes-de.adoc[]
+:imagesdir: images/
+
+=== Einführung
+
+In diesem ersten Kapitel werden wir einen Blick auf Streamlit und
+seine Kernfunktionen werfen. Wir werden ausserdem besprechen,
+warum Streamlit benötigt wird und es mit Alternativen vergleichen.
+Anschliessend gehen wir auf die Installationsschritte ein,
+um Streamlit-Anwendungen auf verschiedenen Betriebssystemen
+auszuführen. Abschliessend werden wir unsere erste Streamlit-Anwendung
+entwickeln und ausführen.
+
+=== Was ist Streamlit?
+
+Streamlit ist ein Open-Source-Python-Framework, das im Oktober 2019
+veröffentlicht wurde. Es dient als Schnittstelle zwischen Daten
+und der Benutzerinteraktion innerhalb einer Anwendung.
+Ziel der Entwicklung der Streamlit-Bibliothek war es,
+Datenwissenschaftlern und Machine-Learning-Ingenieuren zu
+ermöglichen, Daten in einer Benutzeroberfläche (UI) zu
+interpretieren und bereitzustellen, ohne Vorkenntnisse
+in Webentwicklungstools wie Flask, Django, Node usw.
+zu haben, und dies ausschliesslich mit Python.
+
+=== Warum Streamlit?
+
+Die Streamlit-Bibliothek wurde entwickelt, um sich auf
+Prototyp-Anwendungen für datengetriebene und maschinelle
+Lernmodelle zu konzentrieren. Diese Prototyp-Anwendungen
+sind einfach zu bedienen und erfordern keine Vorkenntnisse
+in der Webentwicklung. Sie benötigen lediglich grundlegende
+Kenntnisse in Python und Streamlit, um solche Apps zu
+entwickeln. Im Vergleich zur traditionellen Entwicklung
+von Anwendungen ist die Entwicklung mit Streamlit weniger
+zeitaufwendig, und Streamlit-Apps sind von Natur aus
+interaktiv. Eine mit Streamlit entwickelte Anwendung
+wird für viele Unternehmen wie ein Rückenwind wirken,
+indem sie die Prozesszeit und die Kosten reduziert.
+
+=== Installieren von Streamlit
+
+Um Streamlit zu installieren benötigen wird eine lauffähige
+`python` Umgebung und das Kommando `pip`.
+
+[source,bash]
+----
+$ pip install streamlit
+----
+
+Wir werden nun überprüfen, ob die Streamlit-Bibliothek
+installiert wurde, indem wir den Streamlit-Befehl verwenden.
+Öffnen Sie die Eingabeaufforderung und geben Sie den
+folgenden Befehl ein:
+
+[source,bash]
+----
+$ streamlit hello
+----
+
+==== Unsere erste Anwendung
+
+
+
