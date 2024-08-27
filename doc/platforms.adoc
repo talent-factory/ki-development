@@ -1,0 +1,63 @@
+== Plattformen und Tools
+include::locale/attributes-de.adoc[]
+:imagesdir: images/
+
+:cog-github: https://github.com/replicate/cog
+:github: https://github.com/
+:replicate: https://replicate.com/
+
+=== Replicate
+
+{replicate}[Replicate.com] ist eine Plattform, die sich auf das Hosting und
+die Bereitstellung von Machine-Learning-Modellen spezialisiert hat.
+Hier sind einige wichtige Informationen dazu:
+
+1. *Zweck*: Replicate ermöglicht es Entwicklern und Forschern, ihre KI-Modelle
+    einfach zu teilen, zu hosten und über APIs zugänglich zu machen.
+
+2. *Einfache Nutzung*: Die Plattform vereinfacht den Prozess der Modellbereitstellung,
+    sodass Benutzer sich mehr auf die Entwicklung und weniger auf die Infrastruktur
+    konzentrieren können.
+
+3. *Vielfalt der Modelle*: Auf Replicate finden sich verschiedene Arten von ML-Modellen,
+    von Bildgenerierung bis hin zu Textverarbeitung und mehr.
+
+4. *API-Zugriff*: Bereitgestellte Modelle können über RESTful APIs angesprochen werden,
+    was die Integration in verschiedene Anwendungen erleichtert.
+
+5. *Versionierung*: Replicate unterstützt die Versionierung von Modellen, was für
+    die Nachverfolgung und Reproduzierbarkeit wichtig ist.
+
+6. *Community-Aspekt*: Es gibt eine wachsende Community von Entwicklern,
+    die ihre Modelle auf der Plattform teilen.
+
+7. *Skalierbarkeit*: Die Plattform kümmert sich um die Infrastruktur und Skalierung,
+    sodass Modelle je nach Bedarf genutzt werden können.
+
+8. *Zusammenarbeit mit Cog*: Replicate arbeitet eng mit {cog-github}[Cog] zusammen, dem Framework,
+    das wir zuvor besprochen haben. Cog wird oft verwendet, um Modelle für
+    Replicate vorzubereiten.
+
+Versuchen wir {replicate}[Replicate] und {cog-github}[Cog] an einem konkreten Beispiel
+einzusetzen. In einem ersten Schritt müssen wir uns auf der Plattform von Replicate
+Registrieren. Dies ist ein einfacher Schritt, welcher mit einem bestehenden
+{github}[GitHub]-_Account_ erfolgt. Anschliessend benötigen wir auch das CLI-Programm
+Cog. Hierzu folgen wir {cog-github}[diesen] Installationsschritten.
+
+Damit wir nicht von Grund auf ein eigenes Beispiel entwickeln müssen verwenden wir
+ein bestehendes Projekt:
+
+[source,bash]
+----
+git clone https://github.com/replicate/cog-examples
+----
+
+Dieser Befehl klont die von Replicate bereitgestellten Beispiele.
+
+In unserem ersten Beispiel verwenden wir das `hello-world` Beispiel.
+Somit bewegen wir uns in dieses Verzeichnis mit
+
+[source,bash]
+----
+cd cog-examples/hello-world
+----

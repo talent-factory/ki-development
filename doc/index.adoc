@@ -20,6 +20,9 @@ include::langchain.adoc[]
 // Vector Stores und Embeddings
 include::vector-stores-und-embeddings.adoc[]
 
+// Platforms and Tools
+include::platforms.adoc[]
+
 // Verwendete Software
 include::software.adoc[]
 
