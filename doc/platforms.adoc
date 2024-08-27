@@ -3,6 +3,7 @@ include::locale/attributes-de.adoc[]
 :imagesdir: images/
 
 :cog-github: https://github.com/replicate/cog
+:cog-home: https://cog.run/
 :github: https://github.com/
 :replicate: https://replicate.com/
 
@@ -34,7 +35,7 @@ Hier sind einige wichtige Informationen dazu:
 7. *Skalierbarkeit*: Die Plattform kümmert sich um die Infrastruktur und Skalierung,
     sodass Modelle je nach Bedarf genutzt werden können.
 
-8. *Zusammenarbeit mit Cog*: Replicate arbeitet eng mit {cog-github}[Cog] zusammen, dem Framework,
+8. *Zusammenarbeit mit Cog*: Replicate arbeitet eng mit Cog zusammen, dem Framework,
     das wir zuvor besprochen haben. Cog wird oft verwendet, um Modelle für
     Replicate vorzubereiten.
 
@@ -60,4 +61,20 @@ Somit bewegen wir uns in dieses Verzeichnis mit
 [source,bash]
 ----
 cd cog-examples/hello-world
+----
+
+In diesem Verzeichnis sind die Dateien gespeichert, welcher üblicherweise
+mit dem Befehl `cog init` erstellt werden. In unserem Fall verwenden wir
+allerdings die in obigem Verzeichnis bereitgestellten Dateien.
+
+.cog.yaml
+[source,yaml]
+----
+include::../replicate/hello-world/cog.yaml[]
+----
+
+.predict.py
+[source,python]
+----
+include::../replicate/hello-world/predict.py[]
 ----
