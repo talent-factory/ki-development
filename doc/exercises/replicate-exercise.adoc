@@ -15,14 +15,13 @@ Erstellen Sie ein einfaches Modell, das den eingegebenen Text zurückgibt, nachd
 .cog.yaml
 [source,yaml]
 ----
-name: text-uppercase
-description: A simple model that converts text to uppercase
-gpu: false
-environment:
-  python: "3.9"
-  system_packages: []
+build:
+  python_version: "3.12"
+  gpu: false
   python_packages: []
-predict: "predict.py:predict"
+  system_packages: []
+predict: "predict.py:Predictor"
+image: "r8.im/dsenften/text-uppercase"
 ----
 
 .predict.py
@@ -46,7 +45,7 @@ $ curl http://localhost:5000/predictions -X POST \
   -H 'Content-Type: application/json' \
   -d '{"input": {"text": "hello world"}}'
 $ cog login
-$ cog push r8.im/username/text-uppercase
+$ cog push
 ----
 
 === Aufgabe 2: Einfacher Zahlenverdoppler
@@ -66,14 +65,13 @@ Erstellen Sie ein Modell, das eine Zahl als Eingabe nimmt und das Doppelte diese
 .cog.yaml
 [source,yaml]
 ----
-name: double-number
-description: A simple model that doubles a number
-gpu: false
-environment:
-  python: "3.9"
-  system_packages: []
+build:
+  python_version: "3.12"
+  gpu: false
   python_packages: []
-predict: "predict.py:predict"
+  system_packages: []
+predict: "predict.py:Predictor"
+image: "r8.im/dsenften/double-number"
 ----
 
 .predict.py
@@ -98,7 +96,7 @@ $ curl http://localhost:5000/predictions -X POST \
   -H 'Content-Type: application/json' \
   -d '{"input": {"number": 5}}'
 $ cog login
-$ cog push r8.im/username/double-number
+$ cog push
 ----
 
 === Aufgabe 3: Einfacher Liste-Sortierer
@@ -118,14 +116,13 @@ Erstellen Sie ein Modell, das eine Liste von Zahlen als Eingabe nimmt und die so
 .cog.yaml
 [source,yaml]
 ----
-name: sort-list
-description: A simple model that sorts a list of numbers
-gpu: false
-environment:
-  python: "3.9"
-  system_packages: []
+build:
+  python_version: "3.12"
+  gpu: false
   python_packages: []
-predict: "predict.py:predict"
+  system_packages: []
+predict: "predict.py:Predictor"
+image: "r8.im/dsenften/sort-list"
 ----
 
 .predict.py
@@ -151,6 +148,5 @@ $ curl http://localhost:5000/predictions -X POST \
   -H 'Content-Type: application/json' \
   -d '{"input": {"numbers": [3, 1, 4, 1, 5, 9]}}'
 $ cog login
-$ cog push r8.im/username/sort-list
+$ cog push
 ----
-

@@ -156,6 +156,6 @@ Das Modell wird dann auf die Plattform kopiert.
 
 [source,bash]
 ----
-$ cog push r8.im/dsenften/hello-world
+$ cog push
 ----
 

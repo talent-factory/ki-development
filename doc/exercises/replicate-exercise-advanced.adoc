@@ -2,6 +2,9 @@
 
 Erstellen Sie einen Bild-zu-Text Konverter, der mithilfe eines vortrainierten OCR-Modells (Optical Character Recognition) arbeitet. Verwenden Sie dazu die Plattform Replicate und das Werkzeug Cog.
 
+.Lesen einer Autonummer
+image::car-number.png[width=60%]
+
 *Schritte*:
 
 * Finden Sie ein geeignetes vortrainiertes OCR-Modell auf Replicate.com oder GitHub.
@@ -55,17 +58,20 @@ $ cd EasyOCR
 .cog.yaml
 [source,yaml]
 ----
-name: easyocr
-description: OCR model using EasyOCR
-gpu: false
-environment:
-  python: "3.9"
+build:
+  python_version: "3.12"
+  gpu: false
   system_packages: []
   python_packages:
     - easyocr
     - torch
-predict: "predict.py:predict"
+predict: "predict.py:Predictor"
+image: "r8.im/dsenften/easyocr"
 ----
+
+Der Name des _Images_ in der Datei `cog.yaml` muss natürlich noch angepasst werden.
+In diesem und den folgenden Musterlösungen wird jeweil der Name der Modulautors (`dsenften`)
+benutzt.
 
 .predict.py
 [source,python]
@@ -107,7 +113,7 @@ $ curl http://localhost:5000/predictions -X POST \
 [source,bash]
 ----
 $ cog login
-$ cog push r8.im/username/easyocr
+$ cog push
 ----
 
 === Musterlösung für Aufgabe 2: Textgenerierung mittels Transformer-Modell
@@ -125,16 +131,15 @@ $ cd transformers
 .cog.yaml
 [source,yaml]
 ----
-name: gpt2
-description: Text generation using GPT-2
-gpu: false
-environment:
-  python: "3.9"
+build:
+  python_version: "3.12"
+  gpu: false
   system_packages: []
   python_packages:
     - transformers
     - torch
-predict: "predict.py:predict"
+predict: "predict.py:Predictor"
+image: "r8.im/dsenften/gpt2"
 ----
 
 .predict.py
@@ -176,7 +181,7 @@ $ curl http://localhost:5000/predictions -X POST \
 [source,bash]
 ----
 $ cog login
-$ cog push r8.im/username/gpt2
+$ cog push
 ----
 
 === Musterlösung für Aufgabe 3: Sentiment-Analyse-App
@@ -189,21 +194,20 @@ $ git clone https://github.com/huggingface/transformers.git
 $ cd transformers
 ----
 
-*Schritt 3*: Modifikation von cog.yaml und predict.py
+*Schritt 3*: Modifikation von `cog.yaml` und `predict.py`
 
 .cog.yaml
 [source,yaml]
 ----
-name: sentiment-analysis
-description: Sentiment analysis using BERT
-gpu: false
-environment:
-  python: "3.9"
+build:
+  python_version: "3.12"
+  gpu: false
   system_packages: []
   python_packages:
     - transformers
     - torch
-predict: "predict.py:predict"
+predict: "predict.py:Predictor"
+image: "r8.im/dsenften/sentiment-analysis"
 ----
 
 .predict.py
@@ -245,5 +249,5 @@ $ curl http://localhost:5000/predictions -X POST \
 [source,bash]
 ----
 $ cog login
-$ cog push r8.im/username/sentiment-analysis
+$ cog push
 ----

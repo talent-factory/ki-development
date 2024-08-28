@@ -6,3 +6,6 @@ include::locale/attributes-de.adoc[]
 
 include::exercises/ex-01.adoc[]
 include::exercises/ex-02.adoc[]
+include::exercises/replicate-exercise.adoc[]
+include::exercises/replicate-exercise-advanced.adoc[]
+
