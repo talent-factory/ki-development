@@ -1,8 +1,8 @@
-== Streamlit
+=== Streamlit
 include::locale/attributes-de.adoc[]
 :imagesdir: images/
 
-=== Einführung
+==== Einführung
 
 In diesem ersten Kapitel werden wir einen Blick auf Streamlit und
 seine Kernfunktionen werfen. Wir werden ausserdem besprechen,
@@ -12,7 +12,7 @@ um Streamlit-Anwendungen auf verschiedenen Betriebssystemen
 auszuführen. Abschliessend werden wir unsere erste Streamlit-Anwendung
 entwickeln und ausführen.
 
-=== Was ist Streamlit?
+==== Was ist Streamlit?
 
 Streamlit ist ein Open-Source-Python-Framework, das im Oktober 2019
 veröffentlicht wurde. Es dient als Schnittstelle zwischen Daten
@@ -24,7 +24,7 @@ interpretieren und bereitzustellen, ohne Vorkenntnisse
 in Webentwicklungstools wie Flask, Django, Node usw.
 zu haben, und dies ausschliesslich mit Python.
 
-=== Warum Streamlit?
+==== Warum Streamlit?
 
 Die Streamlit-Bibliothek wurde entwickelt, um sich auf
 Prototyp-Anwendungen für datengetriebene und maschinelle
@@ -39,7 +39,7 @@ interaktiv. Eine mit Streamlit entwickelte Anwendung
 wird für viele Unternehmen wie ein Rückenwind wirken,
 indem sie die Prozesszeit und die Kosten reduziert.
 
-=== Installieren von Streamlit
+==== Installieren von Streamlit
 
 Um Streamlit zu installieren benötigen wird eine lauffähige
 `python` Umgebung und das Kommando `pip`.
@@ -56,10 +56,24 @@ folgenden Befehl ein:
 
 [source,bash]
 ----
+dsenften/abc
 $ streamlit hello
 ----
 
 ==== Unsere erste Anwendung
+
+Die folgende Beispielanwendung kann wie folgt gestartet werden:
+
+[source,bash]
+----
+$ streamlit run hello-world.py
+----
+
+.hello-world.py
+[source,python]
+----
+include::../streamlit/hello-world.py[]
+----
 
 
 

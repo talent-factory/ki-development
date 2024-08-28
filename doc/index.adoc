@@ -22,6 +22,7 @@ include::vector-stores-und-embeddings.adoc[]
 
 // Platforms and Tools
 include::platforms.adoc[]
+include::streamlit.adoc[]
 
 // Verwendete Software
 include::software.adoc[]

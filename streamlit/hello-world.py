@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Writing Title
-st.title("Meine erste Streamlit-Anwendung")
+st.title("Erste Streamlit-Anwendung")
 
 st.write("""
 In dieser ersten Version verwenden wir lediglich einen längeren
@@ -14,7 +14,7 @@ st.latex(r'''cos2\theta = 1 - 2sin^2\theta''')
 st.latex("""(a+b)^2 = a^2 + b^2 + 2ab""")
 
 # Displaying Python Code
-st.subheader("""Python Code""")
+st.subheader("Python Code")
 code = '''def hello():
     print("Hello, Streamlit!")'''
 st.code(code, language='python')
@@ -39,4 +39,4 @@ st.dataframe(df)
 
 
 st.subheader('Metriken')
-st.metric(label="Temperatur", value="31 °C", delta="-1.2 °C")
+st.metric(label="Temperatur", value="31 °C", delta="1.2 °C")
