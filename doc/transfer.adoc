@@ -1,0 +1,22 @@
+=== Praxistransfer und Umsetzung
+include::locale/attributes-de.adoc[]
+:imagesdir: images/
+
+==== Erstellung einer komplexeren Anwendung
+===== Entwicklung eines Q&A-Systems für eigene Daten
+===== Integration von RAG-Techniken in die Anwendung
+===== Implementierung von Agents für autonome Aufgabenausführung
+
+==== API-Interaktionen
+===== Einbindung externer APIs in LLM-basierte Anwendungen
+===== Praktische Übung zur API-Integration
+
+==== Bereitstellung und Deployment
+==== Methoden zur Bereitstellung von LLM-Anwendungen
+==== Diskussion von Hosting-Optionen und Best Practices
+
+==== Abschlussdiskussion und Ausblick
+===== Zusammenfassung der wichtigsten Kursinhalte
+===== Diskussion aktueller Trends und zukünftiger Entwicklungen im Bereich KI Development
+===== Möglichkeiten zur Weiterbildung und Vertiefung des Gelernten
+
