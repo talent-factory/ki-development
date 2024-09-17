@@ -26,7 +26,7 @@ include::streamlit.adoc[]
 
 // Letzter Abend, welche Themen sind auch noch wichtig?
 include::rag.adoc[]
-include::transfer.adoc[]
+// include::transfer.adoc[]
 
 // Verwendete Software
 include::software.adoc[]
