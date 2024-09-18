@@ -1,0 +1,29 @@
+=== Aufgabe 1: Installation und Einrichtung von Python 3
+
+:python-home: https://www.python.org/
+1. **Python 3 installieren**:
+   - Besuchen Sie die offizielle {python-home}[Python-Website] und laden Sie die neueste Version von Python 3 herunter.
+   - Installieren Sie Python 3 auf Ihrem System.
+
+2. **Überprüfen der Installation**:
+   - Öffnen Sie eine Kommandozeile (CMD, Terminal, PowerShell, etc.).
+   - Geben Sie den Befehl `python --version` oder `python3 --version` ein, um die installierte Version von Python zu überprüfen.
+
+3. **Erstellen und Ausführen eines einfachen Python-Skripts**:
+   - Erstellen Sie eine Datei namens `test.py` mit folgendem Inhalt:
++
+     print("Hello, World!")
+
+   - Führen Sie das Skript in der Kommandozeile mit `python test.py` aus.
+
+:tip-caption: Abgabe
+[TIP]
+====
+
+Reichen Sie einen entsprechenden Screenshot, um die erfolgreiche Installation und Funktionalität der Software nachzuweisen:
+
+1. **Python 3**:
+   - Screenshot des `python --version` Befehls.
+   - Screenshot der Ausgabe des `test.py` Skripts.
+
+====

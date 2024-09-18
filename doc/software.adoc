@@ -182,7 +182,7 @@ npx flowise start
 
 [,shell]
 ----
-docker run -d --name flowise -p 3000:3000 flowise
+docker run -d --name flowise -p 3000:3000 flowiseai/flowise
 ----
 
 Die Docker-Variante ist üblicherweise mein bevorzugter Weg,

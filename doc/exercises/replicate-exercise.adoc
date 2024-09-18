@@ -1,0 +1,152 @@
+=== Aufgabe 1: Einfache Text-Wiedergabe-Modell
+
+Erstellen Sie ein einfaches Modell, das den eingegebenen Text zurückgibt, nachdem er in Großbuchstaben umgewandelt wurde.
+
+*Schritte*:
+
+* Erstellen Sie ein neues Projektverzeichnis und wechseln Sie in dieses Verzeichnis.
+* Erstellen Sie die `cog.yaml` und `predict.py` Dateien.
+* Testen Sie das Modell lokal in einem Docker-Container.
+* Stellen Sie das Modell als HTTP-Server bereit und prüfen Sie die Funktionalität.
+* Laden Sie das Modell auf Replicate.com hoch.
+
+*Musterlösung*:
+
+.cog.yaml
+[source,yaml]
+----
+build:
+  python_version: "3.12"
+  gpu: false
+  python_packages: []
+  system_packages: []
+predict: "predict.py:Predictor"
+image: "r8.im/dsenften/text-uppercase"
+----
+
+.predict.py
+[source,python]
+----
+from cog import BasePredictor, Input
+
+class Predictor(BasePredictor):
+    def predict(self, text: str) -> str:
+        return text.upper()
+----
+
+*Befehle zum Testen und Bereitstellen*:
+
+[source,bash]
+----
+$ cog run python
+$ cog build -t text-uppercase
+$ docker run -d --rm -p 5000:5000 text-uppercase
+$ curl http://localhost:5000/predictions -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{"input": {"text": "hello world"}}'
+$ cog login
+$ cog push
+----
+
+=== Aufgabe 2: Einfacher Zahlenverdoppler
+
+Erstellen Sie ein Modell, das eine Zahl als Eingabe nimmt und das Doppelte dieser Zahl zurückgibt.
+
+*Schritte*:
+
+* Erstellen Sie ein neues Projektverzeichnis und wechseln Sie in dieses Verzeichnis.
+* Erstellen Sie die `cog.yaml` und `predict.py` Dateien.
+* Testen Sie das Modell lokal in einem Docker-Container.
+* Stellen Sie das Modell als HTTP-Server bereit und prüfen Sie die Funktionalität.
+* Laden Sie das Modell auf Replicate.com hoch.
+
+*Musterlösung*:
+
+.cog.yaml
+[source,yaml]
+----
+build:
+  python_version: "3.12"
+  gpu: false
+  python_packages: []
+  system_packages: []
+predict: "predict.py:Predictor"
+image: "r8.im/dsenften/double-number"
+----
+
+.predict.py
+[source,python]
+----
+from cog import BasePredictor, Input
+
+
+class Predictor(BasePredictor):
+    def predict(self, number: float) -> float:
+        return number * 2
+----
+
+*Befehle zum Testen und Bereitstellen*:
+
+[source,bash]
+----
+$ cog run python
+$ cog build -t double-number
+$ docker run -d --rm -p 5000:5000 double-number
+$ curl http://localhost:5000/predictions -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{"input": {"number": 5}}'
+$ cog login
+$ cog push
+----
+
+=== Aufgabe 3: Einfacher Liste-Sortierer
+
+Erstellen Sie ein Modell, das eine Liste von Zahlen als Eingabe nimmt und die sortierte Liste zurückgibt.
+
+*Schritte*:
+
+* Erstellen Sie ein neues Projektverzeichnis und wechseln Sie in dieses Verzeichnis.
+* Erstellen Sie die cog.yaml und predict.py Dateien.
+* Testen Sie das Modell lokal in einem Docker-Container.
+* Stellen Sie das Modell als HTTP-Server bereit und prüfen Sie die Funktionalität.
+* Laden Sie das Modell auf Replicate.com hoch.
+
+*Musterlösung*:
+
+.cog.yaml
+[source,yaml]
+----
+build:
+  python_version: "3.12"
+  gpu: false
+  python_packages: []
+  system_packages: []
+predict: "predict.py:Predictor"
+image: "r8.im/dsenften/sort-list"
+----
+
+.predict.py
+[source,python]
+----
+from cog import BasePredictor, Input
+from typing import List
+
+
+class Predictor(BasePredictor):
+    def predict(self, numbers: List[float]) -> List[float]:
+        return sorted(numbers)
+----
+
+*Befehle zum Testen und Bereitstellen*:
+
+[source,bash]
+----
+$ cog run python
+$ cog build -t sort-list
+$ docker run -d --rm -p 5000:5000 sort-list
+$ curl http://localhost:5000/predictions -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{"input": {"numbers": [3, 1, 4, 1, 5, 9]}}'
+$ cog login
+$ cog push
+----

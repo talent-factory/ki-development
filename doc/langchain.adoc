@@ -1,0 +1,189 @@
+== LangChain
+include::locale/attributes-de.adoc[]
+:imagesdir: images/
+
+:langchain: https://www.langchain.com/
+
+
+=== Einführung in LangChain
+
+In diesem Kapitel werden wir uns mit LangChain beschäftigen, einem
+leistungsstarken Werkzeug zur Erstellung von Anwendungen mithilfe
+von Large Language Models (LLMs). Sie werden lernen, wie man
+LangChain einsetzt, um komplexe Anwendungen zu entwicklen,
+und dabei die verschiedenen Komponenten und Funktionen von LangChain
+verstehen.
+
+==== Theoretische Grundlagen
+
+===== Übersicht und Einsatzmöglichkeiten von LangChain
+
+LangChain ist ein Framework, das die Entwicklung von Anwendungen
+erleichtert, die auf großen Sprachmodellen (Large Language Models, LLMs)
+basieren. Es ermöglicht die nahtlose Integration von LLMs in
+verschiedene Anwendungen und bietet dabei umfassende Unterstützung
+für die Verbindung mit externen Datenquellen, Schnittstellen und
+andere KI-Komponenten.
+
+*Einsatzgebiete von LangChain*:
+
+* Erstellung von Chatbots und dialogorientierten Anwendungen
+* Dokumentanalyse und Inhaltsgenerierung
+* Automatisierte Übersetzungsdienste
+* Intelligente Assistenten und Agenten
+
+===== Architektur von LangChain
+
+LangChain besteht aus mehreren Schlüsselkomponenten, die zusammenarbeiten,
+um komplexe Aufgaben zu bewältigen:
+
+* *PromptTemplates*: Strukturierte Vorlagen, die Eingabeaufforderungen für
+    LLMs formatieren und generieren.
+* *Chains*: Verknüpfen mehrere Schritte und Operationen, um komplexere
+    Workflows zu erstellen.
+* *Agents*: Interaktive Systeme, die kontinuierlich Informationen sammeln
+    und Aktionen basierend auf Benutzerinteraktionen ausführen.
+* *Toolkits*: Sammlung von nützlichen Tools und APIs zur Erweiterung der
+    Funktionen.
+
+===== Installation und Einrichtung
+
+Die Installation von LangChain ist unkompliziert und kann mit den folgenden
+Schritten durchgeführt werden:
+
+1. Erstellung eines Python-Virtualenv:
++
+[source,bash]
+----
+python -m venv langchain-env
+source langchain-env/bin/activate
+----
+
+2. Installation von LangChain mittels pip:
++
+[source,bash]
+----
+pip install langchain
+----
+
+3. Zusätzliche Abhängigkeiten und Tools installieren:
++
+[source,bash]
+----
+pip install openai
+----
+
+4. Setzen des OpenAI-API-Schlüssels als Umgebungsvariable:
++
+[source,bash]
+----
+export OPENAI_API_KEY='your_openai_api_key'
+----
+
+
+=== Praktische Übungen
+
+Diese Übungen helfen Ihnen, die Grundlagen von LangChain zu verstehen
+und erste Anwendungen zu erstellen.
+
+==== Übung 1: Erstellen eines PromptTemplate
+
+
+1. PromptTemplate erstellen:
++
+Mit FlowiseAI konnten wir gemäss folgender Abbildung eine Vorlage (_Template_) mit
+entsprechenden Platzhaltern erstellen
++
+.Prompt Template
+image::template-values.png[width=80%]
++
+Nun wollen wir dasselbe mit Python umsetzen.
++
+[source,python]
+----
+from langchain.prompts import PromptTemplate
+
+template = "Schreibe eine kurze Geschichte über einen Helden namens {name}."
+prompt = PromptTemplate(template=template, input_variables=["name"])
+story_prompt = prompt.format(name="Arthur")
+print(story_prompt)
+----
+
+
+2. Ergebnis analysieren und Verbesserungsvorschläge überlegen.
+
+==== Übung 2: Erstellen einer Chain
+
+1. Einfache Chain erstellen:
++
+[source,python]
+----
+from langchain import LLMChain
+from langchain.llms import OpenAI
+
+llm = OpenAI(api_key="your_openai_api_key")
+chain = LLMChain(llm=llm, prompt=prompt)
+story = chain.run({"name": "Arthur"})
+print(story)
+----
+
+2. Korrigieren des Codes:
++
+Obiger Code schein nicht einwandfrei zu laufen. Versuchen Sie mit Hilde der KI
+die notwendigen Korrekturen anzubringen, sodass das kurze Script fehlerrei
+gestartet werden kann.
+
+==== Übung 3: Arbeiten mit Agents
+
+1. Einfachen Agent erstellen, der Fragen beantwortet:
++
+[source,python]
+----
+from langchain_community.utilities import SerpAPIWrapper
+
+search = SerpAPIWrapper()
+result = search.run("Obama's first name?")
+
+print(result)
+----
+
+2. Agenten konfigurieren und verschiedene Tools ausprobieren.
+
+=== Aufgaben für Selbststudium
+
+Diese Aufgaben sollen Ihnen helfen, LangChain eigenständig zu
+und Ihre eigenen Projekte zu realisieren.
+
+==== Aufgabe 1: Erstellen eines intelligenten Chatbots
+
+1. *Zieldefinition und Anwendungsfall skizzieren*: Definieren Sie einen
+Anwendungsfall für Ihren Chatbot und erstellen Sie eine funktionsfähige
+Skizze der Anwendung.
+
+2. *Implementierung des Chatbots*: Setzen Sie Ihren Anwendungsfall um,
+indem Sie die gelernten Konzepte anwenden und einen funktionalen
+Chatbot erstellen.
+
+3. *Testen und Dokumentation*: Testen Sie den Chatbot in verschiedenen
+Szenarien und dokumentieren Sie die Ergebnisse sowie aufgetretene
+Herausforderungen.
+
+==== Aufgabe 2: Entwickeln einer dokumentenzentrierten Anwendung
+
+1. *Dokumentenquelle identifizieren*: Finden Sie eine geeignete
+Dokumentenquelle (z.B. PDF, Website) und laden Sie diese zur Analyse
+hoch.
+
+2. *Erstellen einer Verarbeitungskette (Chain)*: Entwickeln Sie eine
+Kette, die die Dokumente analysiert, relevante Informationen extrahiert
+und eine Zusammenfassung erstellt.
+
+3. *Integration und Test*: Integrieren Sie die Kette in eine Anwendung
+und testen Sie die Ergebnisse. Optimieren Sie die Kette gegebenenfalls
+für bessere Ergebnisse.
+
+Mit diesen Übungen und Aufgaben haben Sie eine umfassende Einführung
+in LangChain und können Ihre Fähigkeiten zur Erstellung komplexer
+LLM-basierter Anwendungen weiter vertiefen.
+
+Viel Erfolg!

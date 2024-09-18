@@ -1,0 +1,161 @@
+== Plattformen und Tools
+include::locale/attributes-de.adoc[]
+:imagesdir: images/
+
+:cog-github: https://github.com/replicate/cog
+:cog-home: https://cog.run/
+:github: https://github.com/
+:replicate: https://replicate.com/
+:replicate-create-model: https://replicate.com/create
+
+=== Replicate
+
+{replicate}[Replicate.com] ist eine Plattform, die sich auf das Hosting und
+die Bereitstellung von Machine-Learning-Modellen spezialisiert hat.
+Hier sind einige wichtige Informationen dazu:
+
+1. *Zweck*: Replicate ermöglicht es Entwicklern und Forschern, ihre KI-Modelle
+    einfach zu teilen, zu hosten und über APIs zugänglich zu machen.
+
+2. *Einfache Nutzung*: Die Plattform vereinfacht den Prozess der Modellbereitstellung,
+    sodass Benutzer sich mehr auf die Entwicklung und weniger auf die Infrastruktur
+    konzentrieren können.
+
+3. *Vielfalt der Modelle*: Auf Replicate finden sich verschiedene Arten von ML-Modellen,
+    von Bildgenerierung bis hin zu Textverarbeitung und mehr.
+
+4. *API-Zugriff*: Bereitgestellte Modelle können über RESTful APIs angesprochen werden,
+    was die Integration in verschiedene Anwendungen erleichtert.
+
+5. *Versionierung*: Replicate unterstützt die Versionierung von Modellen, was für
+    die Nachverfolgung und Reproduzierbarkeit wichtig ist.
+
+6. *Community-Aspekt*: Es gibt eine wachsende Community von Entwicklern,
+    die ihre Modelle auf der Plattform teilen.
+
+7. *Skalierbarkeit*: Die Plattform kümmert sich um die Infrastruktur und Skalierung,
+    sodass Modelle je nach Bedarf genutzt werden können.
+
+8. *Zusammenarbeit mit Cog*: Replicate arbeitet eng mit Cog<<cog>> zusammen, dem Framework,
+    das wir zuvor besprochen haben. Cog wird oft verwendet, um Modelle für
+    Replicate vorzubereiten.
+
+Versuchen wir {replicate}[Replicate] und {cog-github}[Cog] an einem konkreten Beispiel
+einzusetzen. In einem ersten Schritt müssen wir uns auf der Plattform von Replicate
+Registrieren. Dies ist ein einfacher Schritt, welcher mit einem bestehenden
+{github}[GitHub]-_Account_ erfolgt. Anschliessend benötigen wir auch das CLI-Programm
+Cog. Hierzu folgen wir {cog-github}[diesen] Installationsschritten.
+
+Damit wir nicht von Grund auf ein eigenes Beispiel entwickeln müssen verwenden wir
+ein bestehendes Projekt:
+
+[source,bash]
+----
+git clone https://github.com/replicate/cog-examples
+----
+
+Dieser Befehl klont die von Replicate bereitgestellten Beispiele.
+
+In unserem ersten Beispiel verwenden wir das `hello-world` Beispiel.
+Somit bewegen wir uns in dieses Verzeichnis mit
+
+[source,bash]
+----
+cd cog-examples/hello-world
+----
+
+In diesem Verzeichnis sind die Dateien gespeichert, welcher üblicherweise
+mit dem Befehl `cog init` erstellt werden. In unserem Fall verwenden wir
+allerdings die in obigem Verzeichnis bereitgestellten Dateien.
+
+Im einfachsten Fall sind die beiden Dateien `cog.yaml`, welche zur
+Erstellung des Docker-Abbilds,
+
+.cog.yaml
+[source,yaml]
+----
+include::../replicate/hello-world/cog.yaml[]
+----
+
+und die `predict.py` Datei vorhanden, welche für die Vorrhersage unseres
+Models verwendet wird. Diese Datei wird anschliessend nicht in unserer lokalen
+Umgebung gestartet, sondern in einem Docker-Kontainer.
+
+.predict.py
+[source,python]
+----
+include::../replicate/hello-world/predict.py[]
+----
+
+Versuchen wir nun den Docker-Kontainer zu erstellen und anschliessend
+den Python-Interpreter innerhalb unseres Models zu starten.
+
+[source,bash]
+----
+$ cog run python
+
+Building Docker image from environment in cog.yaml...
+[+] ...                                                                                                         docker:desktop-linux
+
+Running 'python' in Docker with the current directory mounted as a volume...
+Python 3.12.4 (main, Jun 13 2024, 05:37:23) [GCC 12.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+----
+
+Interessanter ist sicherlich die Funktion `predict()` unsers Modells
+zu nutzen mit:
+
+[source,bash]
+----
+$ cog predict -i text=Daniel
+
+Starting Docker image cog-hello-world-base and running setup()...
+Running prediction...
+Hallo,  Daniel
+$
+----
+
+Wir können den Code des Modells, die trainierten Gewichte und
+die dazugehörige Docker-Umgebung in ein Docker-Image integrieren.
+Dieses Image ermöglicht die Vorhersage über einen HTTP-Server und
+kann überall bereitgestellt werden, wo Docker verfügbar ist,
+um in Echtzeit Vorhersagen zu liefern.
+
+[source,bash]
+----
+$ cog build -t hello-world
+$ docker run -d --rm -p 5000:5000 hello-world
+----
+
+Anschliessend können wir diesen HTTP-Server wie folgt nutzen:
+
+[source,bash]
+----
+$ curl http://localhost:5000/predictions -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{"input": {"text": "Daniel Senften"}}'
+----
+
+Das soeben erstellt Modell wollen wir nun auf der Plattform {replicate}[Replicate.com]
+zur Nutzung zur Verfügung stellen. Vorausgesetzt, dass wir unseren _Account_ bereits erstellt
+haben, müssen wir und nun anmelden mit
+
+[source,bash]
+----
+$ cog login
+----
+
+Nach der Eingabe dieses Befehls muss der API-Key, welchen wir auf der Plattform
+erstellt haben, eingegeben (_copy/paste_) werden. Diesen Schlüssel können wir
+natürlich auch in unseren Python Programmen verwenden.
+
+Bevor wir unser Modell auf die Plattform kopieren müssen wir das zu
+verwendene Modell vorgängig erstellen: {replicate-create-model}[https://replicate.com/].
+Das Modell wird dann auf die Plattform kopiert.
+
+[source,bash]
+----
+$ cog push
+----
+

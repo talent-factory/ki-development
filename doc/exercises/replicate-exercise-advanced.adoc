@@ -1,0 +1,253 @@
+=== Aufgabe 1: Eigener Bild-zu-Text Konverter
+
+Erstellen Sie einen Bild-zu-Text Konverter, der mithilfe eines vortrainierten OCR-Modells (Optical Character Recognition) arbeitet. Verwenden Sie dazu die Plattform Replicate und das Werkzeug Cog.
+
+.Lesen einer Autonummer
+image::car-number.png[width=60%]
+
+*Schritte*:
+
+* Finden Sie ein geeignetes vortrainiertes OCR-Modell auf Replicate.com oder GitHub.
+* Klonen Sie das Projekt auf Ihre lokale Entwicklungsumgebung.
+* Modifizieren Sie die cog.yaml und predict.py Dateien so, dass sie auf das OCR-Modell abgestimmt sind.
+* Testen Sie das Modell lokal in einem Docker-Container.
+* Erstellen Sie ein Docker-Image und setzen Sie dieses als HTTP-Server auf.
+* Prüfen Sie die Funktionalität des Servers mittels eines HTTP-POST-Requests.
+* Laden Sie Ihr Modell auf Replicate.com hoch und stellen Sie es der Community zur Verfügung.
+
+=== Aufgabe 2: Textgenerierung mittels Transformer-Modell
+
+Erstellen Sie ein Textgenerierungsmodell, das mithilfe eines vortrainierten Transformer-Modells, wie GPT-2 oder GPT-3, funktioniert. Bereitstellen Sie dieses Modell auf Replicate.com.
+
+*Schritte*:
+
+* Finden Sie ein vortrainiertes GPT-2 oder GPT-3 Modell auf Replicate.com oder einer anderen Quelle wie Hugging Face.
+* Klonen Sie das Projekt auf Ihre lokale Umgebung und installieren Sie notwendige Abhängigkeiten.
+* Modifizieren Sie die cog.yaml und predict.py Dateien, um das Transformer-Modell nutzen zu können.
+* Testen Sie die Textgenerierung lokal in einem Docker-Container.
+* Erstellen Sie ein Docker-Image und setzen Sie dieses als HTTP-Server auf.
+* Testen Sie den HTTP-Server, um sicherzugehen, dass er korrekte Textvorhersagen liefert.
+* Registrieren Sie sich auf Replicate.com und laden Sie Ihr Modell hoch.
+
+=== Aufgabe 3: Sentiment-Analyse-App
+
+Erstellen Sie eine App zur Sentiment-Analyse eines Textes, die ein vortrainiertes Sentiment-Analyse-Modell verwendet und auf Replicate.com bereitgestellt wird.
+
+*Schritte*:
+
+* Finden Sie ein geeignetes vortrainiertes Sentiment-Analyse-Modell auf Replicate.com oder einer anderen Quelle.
+* Klonen Sie das Projekt auf Ihre lokale Entwicklungsumgebung.
+* Modifizieren Sie die cog.yaml und predict.py Dateien, um das gewählte Modell zu verwenden.
+* Testen Sie das Sentiment-Analyse-Modell lokal in einem Docker-Container.
+* Erstellen Sie ein Docker-Image und setzen Sie dieses als HTTP-Server auf.
+* Verwenden Sie curl oder ein anderes Werkzeug, um den HTTP-Server zu testen.
+* Registrieren Sie sich auf Replicate.com und laden Sie Ihr Modell hoch. Teilen Sie den Endpunkt und eine kurze Dokumentation zur Nutzung.
+
+=== Musterlösung für Aufgabe 1: Eigener Bild-zu-Text Konverter
+
+*Schritt 1 und 2*: Finden und Klonen des OCR-Projekts
+
+[source,bash]
+----
+$ git clone https://github.com/JaidedAI/EasyOCR.git
+$ cd EasyOCR
+----
+
+*Schritt 3*: Modifikation von `cog.yaml` und `predict.py`
+
+.cog.yaml
+[source,yaml]
+----
+build:
+  python_version: "3.12"
+  gpu: false
+  system_packages: []
+  python_packages:
+    - easyocr
+    - torch
+predict: "predict.py:Predictor"
+image: "r8.im/dsenften/easyocr"
+----
+
+Der Name des _Images_ in der Datei `cog.yaml` muss natürlich noch angepasst werden.
+In diesem und den folgenden Musterlösungen wird jeweil der Name der Modulautors (`dsenften`)
+benutzt.
+
+.predict.py
+[source,python]
+----
+import os
+import easyocr
+from cog import BasePredictor, Input, Path
+
+
+class Predictor(BasePredictor):
+    def setup(self):
+        self.reader = easyocr.Reader(['en'], gpu=False)
+
+    def predict(self, image: Path) -> str:
+        result = self.reader.readtext(str(image))
+        return ' '.join([text[1] for text in result])
+----
+
+*Schritte 4 und 5*: Testen und Erstellen des Docker-Images
+
+[source,bash]
+----
+$ cog run python
+$ cog build -t easyocr
+$ docker run -d --rm -p 5000:5000 easyocr
+----
+
+*Schritt 6*: Testen des HTTP-Servers
+
+[source,bash]
+----
+$ curl http://localhost:5000/predictions -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{"input": {"image": "path_to_image_file"}}'
+----
+
+*Schritt 7*: Hochladen auf Replicate.com
+
+[source,bash]
+----
+$ cog login
+$ cog push
+----
+
+=== Musterlösung für Aufgabe 2: Textgenerierung mittels Transformer-Modell
+
+*Schritt 1 und 2*: Finden und Klonen des Transformer-Projekts
+
+[source,bash]
+----
+$ git clone https://github.com/huggingface/transformers.git
+$ cd transformers
+----
+
+*Schritt 3*: Modifikation von `cog.yaml` und `predict.py`
+
+.cog.yaml
+[source,yaml]
+----
+build:
+  python_version: "3.12"
+  gpu: false
+  system_packages: []
+  python_packages:
+    - transformers
+    - torch
+predict: "predict.py:Predictor"
+image: "r8.im/dsenften/gpt2"
+----
+
+.predict.py
+[source,python]
+----
+from transformers import pipeline
+from cog import BasePredictor, Input
+
+
+class Predictor(BasePredictor):
+    def setup(self):
+        self.generator = pipeline('text-generation', model='gpt2')
+
+    def predict(self, text: str) -> str:
+        result = self.generator(text, max_length=50)
+        return result[0]['generated_text']
+----
+
+*Schritte 4 und 5*: Testen und Erstellen des Docker-Images
+
+[source,bash]
+----
+$ cog run python
+$ cog build -t gpt2
+$ docker run -d --rm -p 5000:5000 gpt2
+----
+
+*Schritt 6*: Testen des HTTP-Servers
+
+[source,bash]
+----
+$ curl http://localhost:5000/predictions -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{"input": {"text": "Once upon a time"}}'
+----
+
+*Schritt 7*: Hochladen auf Replicate.com
+
+[source,bash]
+----
+$ cog login
+$ cog push
+----
+
+=== Musterlösung für Aufgabe 3: Sentiment-Analyse-App
+
+*Schritt 1 und 2*: Finden und Klonen des Sentiment-Analyse-Projekts
+
+[source,bash]
+----
+$ git clone https://github.com/huggingface/transformers.git
+$ cd transformers
+----
+
+*Schritt 3*: Modifikation von `cog.yaml` und `predict.py`
+
+.cog.yaml
+[source,yaml]
+----
+build:
+  python_version: "3.12"
+  gpu: false
+  system_packages: []
+  python_packages:
+    - transformers
+    - torch
+predict: "predict.py:Predictor"
+image: "r8.im/dsenften/sentiment-analysis"
+----
+
+.predict.py
+[source,python]
+----
+from transformers import pipeline
+from cog import BasePredictor, Input
+
+
+class Predictor(BasePredictor):
+    def setup(self):
+        self.analyzer = pipeline('sentiment-analysis')
+
+    def predict(self, text: str) -> str:
+        result = self.analyzer(text)
+        return result[0]['label']
+----
+
+*Schritte 4 und 5*: Testen und Erstellen des Docker-Images
+
+[source,bash]
+----
+$ cog run python
+$ cog build -t sentiment-analysis
+$ docker run -d --rm -p 5000:5000 sentiment-analysis
+----
+
+*Schritt 6*: Testen des HTTP-Servers
+
+[source,bash]
+----
+$ curl http://localhost:5000/predictions -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{"input": {"text": "I am very happy today!"}}'
+----
+
+*Schritt 7*: Hochladen auf Replicate.com
+
+[source,bash]
+----
+$ cog login
+$ cog push
+----

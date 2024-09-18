@@ -1,0 +1,128 @@
+include::locale/attributes-de.adoc[]
+:faiss: https://github.com/facebookresearch/faiss
+
+=== Facebook AI Similarity Search (FAISS)
+
+// Referenzen:
+//   - https://myscale.com/blog/efficient-vector-stores-from-documents-using-faiss/
+//   - https://www.pinecone.io/learn/series/faiss/faiss-tutorial/
+
+
+{faiss}[FAISS] (GitHub) ist eine Bibliothek für
+effiziente Ähnlichkeitssuche und Clustering von dichten Vektoren.
+Sie enthält Algorithmen, die in Vektorsätzen beliebiger Grösse
+suchen, bis hin zu solchen, die möglicherweise nicht in das
+RAM passen. Sie enthält auch unterstützenden Code für die Auswertung
+und Parameterabstimmung.
+
+FAISS<<faiss>> zeichnet sich durch seine hohe Geschwindigkeit und Effizienz
+bei der Datenabfrage aus. Durch fortschrittliche Algorithmen und
+Indizierungstechniken ermöglicht es eine schnelle und genaue Suche
+in umfangreichen Datensätzen. Es bietet zudem Skalierbarkeit für
+grosse Datensätze, was es Unternehmen mit großen Datenmengen
+ermöglicht, effizient Milliarden von Objekten zu verwalten und
+abzufragen. Dies macht FAISS zu einer wertvollen Ressource für
+Unternehmen, die schnellen Zugriff und Verarbeitung grosser
+Datenmengen benötigen.
+
+:vector-wiki: https://en.wikipedia.org/wiki/Vector_database
+
+==== Die Rolle von Vektor-Speichern
+
+===== Erklärungen zu Vektorspeichern
+Vector-Stores spielen eine entscheidende Rolle in der modernen
+Informatik, da sie als spezialisierte Datenbanken fungieren,
+die auf Hochgeschwindigkeitsberechnungen und Echtzeitanwendungen
+zugeschnitten sind. Diese Stores sind darauf ausgelegt,
+hochdimensionale Daten effizient zu verarbeiten, was sie ideal
+für Aufgaben im Bereich von Machine-Learning-Algorithmen und
+Ähnlichkeitssuchen macht. Im Gegensatz zu traditionellen
+Datenbanken glänzen Vector-Stores bei der Verarbeitung
+unstrukturierter Daten und liefern schnelle Antworten, die
+für zeitkritische Operationen unerlässlich sind.
+
+===== Definition und Funktionsweise
+Vector Stores speichern und rufen Daten basierend auf Vektoren
+oder multidimensionalen Arrays ab, anstatt traditionelle
+Zeilen-Spalten-Strukturen zu verwenden. Diese einzigartige
+Methode ermöglicht eine schnelle Suche nach ähnlichen Elementen
+oder Mustern in umfangreichen Datensätzen und erlaubt Anwendungen
+komplexe Berechnungen mit minimaler Verzögerung durchzuführen.
+Durch den Einsatz fortschrittlicher Indexierungstechniken und
+optimierter Algorithmen optimieren Vector Stores den Prozess
+der Datensuche in grossen Mengen und steigern die Rechenleistung
+signifikant.
+
+===== Beispiele für Vektorspeicheranwendungen
+Vector-Stores werden in verschiedenen Bereichen wie
+E-Commerce-Empfehlungssystemen, Bilderkennungssoftware und
+Anwendungen im Bereich der natürlichen Sprachverarbeitung
+umfassend eingesetzt. In E-Commerce-Plattformen beispielsweise
+unterstützen Vector-Stores Empfehlungssysteme, indem sie
+schnell Produkte identifizieren, die ähnlich zu denen sind,
+mit denen ein Benutzer zuvor interagiert hat. Ebenso
+ermöglichen Vector-Stores in Bilderkennungsaufgaben den
+schnellen Vergleich von Merkmalen über Bilder hinweg, um
+Objekte präzise zu klassifizieren.
+
+===== Vektor-Embeddings
+Vektor-Datenbanken und Vektor-Embeddings sind nicht dasselbe. Obwohl
+beide Begriffe das Wort "Vektor" verwenden, beziehen sie sich auf
+unterschiedliche Konzepte in der Datenverarbeitung.
+
+Eine Vektor-Datenbank, ist ein spezialisiertes Datenbankmanagementsystem,
+das darauf ausgelegt ist, Vektordaten, insbesondere raumbezogene
+Daten, zu speichern, abzufragen und zu analysieren. Vektor-Datenbanken
+nutzen spezielle Indexstrukturen und Algorithmen, um komplexe
+räumliche Abfragen effizient zu verarbeiten.
+
+Auf der anderen Seite beziehen sich Vektor-Embeddings auf eine
+Methode des maschinellen Lernens, bei der Wörter, Sätze oder
+Objekte in einen Vektorraum abgebildet werden. Vektor-Embeddings
+erfassen semantische Beziehungen zwischen den Datenpunkten, sodass
+ähnliche Datenpunkte im Vektorraum nahe beieinander liegen.
+Dies ermöglicht es, semantische Ähnlichkeiten und Beziehungen
+zwischen den Datenpunkten zu analysieren und zu nutzen.
+
+Vektor-Embeddings werden in verschiedenen Anwendungen des
+maschinellen Lernens verwendet, wie z.B. der Sprachverarbeitung,
+der Bilderkennung und der Empfehlungssysteme. Sie ermöglichen es,
+komplexe Daten in einem kompakten Vektorformat darzustellen, das
+für maschinelle Lernalgorithmen leichter verarbeitbar ist.
+
+Obwohl Vektor-Datenbanken und Vektor-Embeddings beide Vektoren verwenden,
+um Informationen zu repräsentieren, sind sie in ihrer Funktionsweise
+und Anwendungsbereichen unterschiedlich. Während Vektor-Datenbanken
+sich auf die Verwaltung und Analyse von Vektordaten spezialisieren,
+konzentrieren sich Vektor-Embeddings auf die Darstellung von
+semantischen Beziehungen zwischen Datenpunkten in einem Vektorraum.
+
+Hier sind einige Beispiele von Vektor-Embedding-Datenbanken:
+
+:FAISS: https://faiss.ai
+:FAISS-lc: https://python.langchain.com/v0.2/docs/integrations/vectorstores/faiss/
+
+:Pinecone: https://pinecone.io
+:Pinecone-lc: https://python.langchain.com/v0.2/docs/integrations/vectorstores/pinecone/
+
+:Qdrant: https://qdrant.tech
+:Qdrant-lc: https://python.langchain.com/v0.2/docs/integrations/vectorstores/qdrant/
+
+:hide-uri-scheme:
+.Vektor-Embedding-Datenbanken
+[%header]
+[%autowidth]
+|===
+| Name \| Dokumentation | Beschreibung
+| {FAISS-lc}[FAISS]        | Facebook AI Similarity Search (Faiss) ist eine Bibliothek für effiziente Ähnlichkeitssuche und Clusterbildung von dichten Vektoren. Sie enthält Algorithmen, die in Vektorenetschen beliebiger Gröse suchen können, bis hin zu solchen, die möglicherweise nicht in den RAM passen. Ausserdem enthält sie unterstützenden Code für Evaluation und Parameterabstimmung.
+
+{FAISS}
+| {Pinecone}[Pinecone]  | Die beliebteste Vektordatenbank - jetzt serverless. Erstellen Sie bemerkenswerte GenAI-Anwendungen schnell, kostengünstig, leistungsstark und benutzerfreundlich in beliebiger Grössenordnung.
+
+{Pinecone}
+| {Qdrant-lc}[Qdrant]   | Qdrant (ausgesprochen: quadrant) ist eine Vektor-Ähnlichkeitssuchmaschine, die einen betriebsbereiten Service mit einer praktischen API zum Speichern, Suchen und Verwalten von Punkten - Vektoren mit zusätzlichen Nutzlasten - bietet. Qdrant bietet erweiterte Filterunterstützung und ist daher für verschiedene Anwendungen wie neuronales Netzwerk oder semantikbasierte Übereinstimmung, facettierte Suche und andere Anwendungen nützlich.
+
+{Qdrant}
+|===
+
+
