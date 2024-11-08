@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "ai-development"
+version = "1.0.0"
+description = "KI Professional – Fachrichtung Development"
+authors = ["Daniel Senften <daniel.senften@talent-factory.ch>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+cog = "^0.12.0"
+google-search-results = "^2.4.2"
+langchain = "^0.3.7"
+langchain-community = "^0.3.5"
+langchain-openai = "^0.2.5"
+pypdf = "^5.1.0"
+watchdog = "^6.0.0"
+faiss-cpu = "^1.9.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,5 +1,14 @@
-from langchain_openai import OpenAI
+import os
+
+from dotenv import load_dotenv
 from langchain.prompts import PromptTemplate
+from langchain_openai import OpenAI
+
+# Laden der Umgebungsvariablen aus der .env-Datei
+load_dotenv()
+
+# key = os.environ.get("OPENAI_API_KEY")
+# print(key)
 
 
 # noinspection PyShadowingNames
@@ -16,8 +25,9 @@ class NewChain:
 if __name__ == '__main__':
     template = "Schreibe eine kurze Geschichte über einen Helden namens {name}."
     prompt = PromptTemplate(template=template, input_variables=["name"])
-    name = "Daniel"
+    name = "Jürg"
     story_prompt = prompt.format(name=name)
+
     llm = OpenAI()  # get the OpenAI API Key from environment variable
     chain = NewChain(llm=llm, prompt=prompt)
     story = chain.invoke({"name": name})

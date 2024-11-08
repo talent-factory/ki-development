@@ -51,11 +51,11 @@ def get_conversation_chain(vectorstore):
 
 # Hauptfunktion für die Streamlit-App
 def main():
-    st.set_page_config(page_title="Chat mit deinem PDF", page_icon=":books:")
-    st.header("Chat mit deinem PDF 💬")
+    st.set_page_config(page_title="FAQ - Häufig gestellte Fragen", page_icon=":books:")
+    st.header("FAQ - Häufig gestellte Fragen 💬")
 
     # PDF-Upload
-    pdf_docs = st.file_uploader("Lade deine PDF-Dateien hoch", accept_multiple_files=True)
+    pdf_docs = st.file_uploader("Lade alle relevanten PDF-Dateien hoch", accept_multiple_files=True)
 
     if pdf_docs:
         # Text extrahieren

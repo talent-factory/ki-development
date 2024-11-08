@@ -5,6 +5,24 @@ anschliessend einige Fragen zu dessen Inhalt stellen.
 
 import os
 
+from pathlib import Path
+from dotenv import load_dotenv
+
+def find_project_root(current_path: Path) -> Path:
+    """Rekursiv nach der `pyproject.toml` suchen, um das Projekt-Root-Verzeichnis zu bestimmen."""
+    for parent in current_path.resolve().parents:
+        if (parent / "pyproject.toml").exists():
+            return parent
+    raise FileNotFoundError("Keine `pyproject.toml`-Datei gefunden. Stelle sicher, dass du im Projektverzeichnis bist.")
+
+# Bestimme das Projekt-Root-Verzeichnis basierend auf der `pyproject.toml`-Datei
+project_root = find_project_root(Path(__file__))
+
+# Lade die .env-Datei aus dem Projekt-Root-Verzeichnis
+dotenv_path = project_root / '.env'
+load_dotenv(dotenv_path)
+
+
 from langchain.chains import RetrievalQA
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.vectorstores import FAISS
@@ -85,7 +103,7 @@ def main(pdf_path, question):
 
 if __name__ == "__main__":
     # Pfad zur PDF-Datei
-    pdf_path = os.path.join(current_dir, "../doc", "Script.pdf")
+    pdf_path = os.path.join(current_dir, "../doc", "index.pdf")
 
     # Frage zum Dokument
     question = "Was sind die Hauptpunkte des ersten Kapitels?"
