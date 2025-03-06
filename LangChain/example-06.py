@@ -1,9 +1,15 @@
-import openai
+import os
+
 import faiss
 import numpy as np
+import openai
+from dotenv import load_dotenv
 
-# GPT-3 API key setup
-openai.api_key = 'YOUR_API_KEY'
+# Lade Umgebungsvariablen aus .env Datei
+load_dotenv()
+
+# GPT-3 API key aus Umgebungsvariablen
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Initialize FAISS index
 d = 768  # Dimension of the GPT-3 vectors
@@ -27,9 +33,11 @@ def get_embeddings(docs):
     return doc_embeddings
 
 
-# Create embeddings and insert them into the FAISS index
-embeddings = get_embeddings(documents)
-index.add(np.array(embeddings))
-
-# Check the number of vectors in the index
-print(f"Anzahl der Vektoren im Index: {index.ntotal}")
+# Main execution
+if __name__ == "__main__":
+    # Create embeddings and insert them into the FAISS index
+    embeddings = get_embeddings(documents)
+    index.add(np.array(embeddings))
+    
+    # Check the number of vectors in the index
+    print(f"Anzahl der Vektoren im Index: {index.ntotal}")

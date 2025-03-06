@@ -2,11 +2,9 @@
 # Diese Abhängigkeiten sind jetzt in pyproject.toml definiert und werden über poetry installiert
 
 # Schritt 2: Importieren der benötigten Module
+import os
+
 from dotenv import load_dotenv
-
-# Umgebungsvariablen laden (für OpenAI API Key)
-load_dotenv()
-
 from langchain.chains import RetrievalQA
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.document_loaders import TextLoader
@@ -14,8 +12,10 @@ from langchain_community.vectorstores import Chroma
 from langchain_openai import OpenAI
 from langchain_openai import OpenAIEmbeddings
 
-# Schritt 4: Laden und Vorbereiten der Dokumente
-import os
+# Umgebungsvariablen laden (für OpenAI API Key)
+load_dotenv()
+
+# Schritt 3: Laden und Vorbereiten der Dokumente
 current_dir = os.path.dirname(os.path.abspath(__file__))
 schweiz_path = os.path.join(current_dir, "schweiz.txt")
 loader = TextLoader(schweiz_path)
@@ -36,23 +36,28 @@ qa = RetrievalQA.from_chain_type(
 )
 
 # Schritt 7: Abfragen des RAG-Systems
-query = "Was ist die Hauptstadt der Schweiz?"
-result = qa.invoke(query)
-print(result['result'])
-
-query = "Welche Sprachen werden in der Schweiz gesprochen?"
-result = qa.invoke(query)
-print(result['result'])
+def run_query(query_text):
+    result = qa.invoke(query_text)
+    print(f"Frage: {query_text}")
+    print(f"Antwort: {result['result']}")
+    print("-" * 50)
 
 # Schritt 8: Erweiterung des Systems
-wirtschaft_path = os.path.join(current_dir, "schweiz_wirtschaft.txt")
-new_loader = TextLoader(wirtschaft_path)
-new_documents = new_loader.load()
-new_texts = text_splitter.split_documents(new_documents)
-
-vectorstore.add_documents(new_texts)
-
-# Schritt 9: Testen des erweiterten Systems
-query = "Wofür ist die Schweizer Wirtschaft bekannt?"
-result = qa.invoke(query)
-print(result['result'])
+def extend_system():
+    wirtschaft_path = os.path.join(current_dir, "schweiz_wirtschaft.txt")
+    new_loader = TextLoader(wirtschaft_path)
+    new_documents = new_loader.load()
+    new_texts = text_splitter.split_documents(new_documents)
+    vectorstore.add_documents(new_texts)
+    print("System mit Wirtschaftsinformationen erweitert.")
+    
+if __name__ == '__main__':
+    # Beispiel-Abfragen
+    run_query("Was ist die Hauptstadt der Schweiz?")
+    run_query("Welche Sprachen werden in der Schweiz gesprochen?")
+    
+    # System erweitern
+    extend_system()
+    
+    # Abfrage an das erweiterte System
+    run_query("Wofür ist die Schweizer Wirtschaft bekannt?")
