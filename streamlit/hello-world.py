@@ -27,7 +27,7 @@ st.code("""public class MyClass {
      }
 }""", language='java')
 
-st.subheader("Data Framse")
+st.subheader("Data Frames")
 # Import Necessary libraries
 import pandas as pd
 import numpy as np

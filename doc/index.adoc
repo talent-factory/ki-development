@@ -19,6 +19,7 @@ include::langchain.adoc[]
 
 // Vector Stores und Embeddings
 include::vector-stores-und-embeddings.adoc[]
+include::embeddings.adoc[]
 
 // Platforms and Tools
 include::platforms.adoc[]
@@ -26,10 +27,10 @@ include::streamlit.adoc[]
 
 // Letzter Abend, welche Themen sind auch noch wichtig?
 include::rag.adoc[]
-// include::transfer.adoc[]
+include::transfer.adoc[]
 
 // Verwendete Software
-///include::software.adoc[]
+include::software.adoc[]
 
 // Aufgaben
 include::exercises.adoc[]

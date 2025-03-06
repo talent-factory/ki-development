@@ -710,8 +710,224 @@ Die Wahl des Tools und der Bibliotheken hängt von den spezifischen
 Anforderungen und dem Anwendungsfall ab.
 
 === Hands-on Übung
+
 ==== Übung 1: Erzeugung von Embeddings mit Word2Vec
+
+In dieser Übung erstellen wir Wortembeddings mit dem Word2Vec-Modell und explorieren die semantischen Beziehungen zwischen Wörtern.
+
+*Schritt 1: Installation und Import der benötigten Bibliotheken*
+
+[source,python]
+----
+# Installation der benötigten Bibliotheken
+# pip install gensim numpy matplotlib
+
+# Import der Bibliotheken
+import gensim
+from gensim.models import Word2Vec
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+----
+
+*Schritt 2: Vorbereitung der Trainingsdaten*
+
+[source,python]
+----
+# Beispiel-Trainingsdaten (Sätze als Listen von Wörtern)
+sentences = [
+    ["die", "schweiz", "ist", "ein", "wunderschönes", "land"],
+    ["bern", "ist", "die", "hauptstadt", "der", "schweiz"],
+    ["zürich", "ist", "die", "größte", "stadt", "der", "schweiz"],
+    ["in", "der", "schweiz", "spricht", "man", "deutsch", "französisch", "italienisch", "und", "rätoromanisch"],
+    ["die", "alpen", "sind", "ein", "gebirge", "in", "europa"],
+    ["die", "schweiz", "ist", "bekannt", "für", "käse", "schokolade", "und", "uhren"],
+    ["bern", "zürich", "genf", "und", "basel", "sind", "städte", "in", "der", "schweiz"]
+]
+----
+
+*Schritt 3: Training des Word2Vec-Modells*
+
+[source,python]
+----
+# Training des Word2Vec-Modells
+model = Word2Vec(sentences, vector_size=100, window=5, min_count=1, workers=4)
+
+# Speichern des Modells
+model.save("word2vec.model")
+
+# Optional: Laden eines gespeicherten Modells
+# model = Word2Vec.load("word2vec.model")
+----
+
+*Schritt 4: Analyse der Wortvektoren*
+
+[source,python]
+----
+# Ähnlichkeit zwischen Wörtern berechnen
+print("Ähnlichkeit zwischen 'schweiz' und 'bern':", model.wv.similarity('schweiz', 'bern'))
+print("Ähnlichkeit zwischen 'schweiz' und 'alpen':", model.wv.similarity('schweiz', 'alpen'))
+
+# Visualisierung der Wortvektoren durch Dimensionsreduktion
+def plot_words(model, words):
+    word_vectors = [model.wv[w] for w in words]
+    pca = PCA(n_components=2)
+    result = pca.fit_transform(word_vectors)
+    
+    plt.figure(figsize=(10, 8))
+    plt.scatter(result[:, 0], result[:, 1], c='blue')
+    
+    for i, word in enumerate(words):
+        plt.annotate(word, xy=(result[i, 0], result[i, 1]))
+    
+    plt.title("Word Embeddings visualisiert mit PCA")
+    plt.show()
+
+# Liste der zu visualisierenden Wörter
+words_to_plot = ['schweiz', 'bern', 'zürich', 'alpen', 'käse', 'schokolade', 'uhren', 'deutsch', 'französisch']
+plot_words(model, words_to_plot)
+----
+
+*Schritt 5: Exploration von Wortanalogien*
+
+[source,python]
+----
+# Wortanalogien erkunden
+try:
+    result = model.wv.most_similar(positive=['bern', 'frankreich'], negative=['schweiz'])
+    print("bern : schweiz :: ? : frankreich")
+    print("Antwort:", result[0][0])
+except KeyError:
+    print("Nicht genügend Trainingsdaten für diese Analogie.")
+
+# Finden der ähnlichsten Wörter zu einem gegebenen Wort
+similar_words = model.wv.most_similar('schweiz', topn=5)
+print("Wörter, die 'schweiz' am ähnlichsten sind:")
+for word, similarity in similar_words:
+    print(f"{word}: {similarity:.4f}")
+----
+
 ==== Übung 2: Implementierung eines einfachen Vector Stores mit FAISS
+
+In dieser Übung implementieren wir einen einfachen Vector Store mit FAISS und führen Ähnlichkeitssuchen durch.
+
+*Schritt 1: Installation und Import der benötigten Bibliotheken*
+
+[source,python]
+----
+# Installation der benötigten Bibliotheken
+# pip install faiss-cpu numpy sentence-transformers
+
+# Import der Bibliotheken
+import numpy as np
+import faiss
+from sentence_transformers import SentenceTransformer
+----
+
+*Schritt 2: Erstellen von Embeddings für Textdaten*
+
+[source,python]
+----
+# Beispiel-Textdaten
+texts = [
+    "Die Schweiz ist ein wunderschönes Land in Europa.",
+    "Bern ist die Hauptstadt der Schweiz.",
+    "Zürich ist die größte Stadt der Schweiz.",
+    "In der Schweiz spricht man Deutsch, Französisch, Italienisch und Rätoromanisch.",
+    "Die Alpen sind ein Gebirge in Europa.",
+    "Die Schweiz ist bekannt für Käse, Schokolade und Uhren.",
+    "Bern, Zürich, Genf und Basel sind Städte in der Schweiz."
+]
+
+# Laden eines vortrainierten Embedding-Modells
+model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
+
+# Erstellen von Embeddings für die Textdaten
+embeddings = model.encode(texts)
+print(f"Embedding-Dimensionen: {embeddings.shape}")
+----
+
+*Schritt 3: Erstellen eines FAISS-Index*
+
+[source,python]
+----
+# Dimension der Embeddings
+d = embeddings.shape[1]
+
+# Erstellen eines FAISS-Index (mit L2-Distanz)
+index = faiss.IndexFlatL2(d)
+
+# Hinzufügen der Embeddings zum Index
+index.add(np.array(embeddings))
+
+# Anzahl der Vektoren im Index überprüfen
+print(f"Anzahl der Vektoren im Index: {index.ntotal}")
+----
+
+*Schritt 4: Durchführung von Ähnlichkeitsabfragen*
+
+[source,python]
+----
+# Beispiel-Abfragen
+queries = [
+    "Was ist die Hauptstadt der Schweiz?",
+    "Welche Sprachen spricht man in der Schweiz?",
+    "Wofür ist die Schweiz bekannt?"
+]
+
+# Erstellen von Embeddings für die Abfragen
+query_embeddings = model.encode(queries)
+
+# Durchführung von k-NN-Abfragen (hier: k=2)
+k = 2
+D, I = index.search(np.array(query_embeddings), k)
+
+# Ausgabe der Ergebnisse
+for i, query in enumerate(queries):
+    print(f"\nAbfrage: {query}")
+    print("Ähnlichste Dokumente:")
+    for j in range(k):
+        print(f"{j+1}. {texts[I[i][j]]} (Distanz: {D[i][j]:.4f})")
+----
+
+*Schritt 5: Erweiterung des Vector Stores*
+
+[source,python]
+----
+# Neue Dokumente
+new_texts = [
+    "Die Schweiz hat eine direkte Demokratie mit regelmäßigen Volksabstimmungen.",
+    "Der Schweizer Franken ist eine stabile Währung."
+]
+
+# Erstellen von Embeddings für die neuen Dokumente
+new_embeddings = model.encode(new_texts)
+
+# Hinzufügen der neuen Embeddings zum Index
+index.add(np.array(new_embeddings))
+
+# Aktualisierte Anzahl der Vektoren im Index überprüfen
+print(f"Aktualisierte Anzahl der Vektoren im Index: {index.ntotal}")
+
+# Alle Texte für Referenz
+all_texts = texts + new_texts
+
+# Neue Abfrage
+new_query = "Wie funktioniert die Politik in der Schweiz?"
+new_query_embedding = model.encode([new_query])
+
+# Durchführung einer k-NN-Abfrage
+k = 2
+D, I = index.search(np.array(new_query_embedding), k)
+
+# Ausgabe der Ergebnisse
+print(f"\nAbfrage: {new_query}")
+print("Ähnlichste Dokumente:")
+for j in range(k):
+    print(f"{j+1}. {all_texts[I[0][j]]} (Distanz: {D[0][j]:.4f})")
+----
+
+Diese Übungen bieten einen praktischen Einstieg in die Erstellung von Embeddings mit Word2Vec und die Implementierung eines Vector Stores mit FAISS. Experimentieren Sie mit verschiedenen Parametern und Datensätzen, um ein tieferes Verständnis dieser Technologien zu entwickeln.
 
 === Integration mit LangChain
 

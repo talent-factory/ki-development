@@ -157,12 +157,12 @@ Nun können wir Fragen an unser System stellen:
 [source, python]
 ----
 query = "Was ist die Hauptstadt der Schweiz?"
-result = qa.run(query)
-print(result)
+result = qa.invoke(query)
+print(result['result'])
 
 query = "Welche Sprachen werden in der Schweiz gesprochen?"
-result = qa.run(query)
-print(result)
+result = qa.invoke(query)
+print(result['result'])
 ----
 
 *Schritt 8: Erweiterung des Systems*
@@ -197,7 +197,7 @@ vectorstore.add_documents(new_texts)
 ----
 query = "Wofür ist die Schweizer Wirtschaft bekannt?"
 result = qa.invoke(query)
-print(result)
+print(result['result'])
 ----
 
 

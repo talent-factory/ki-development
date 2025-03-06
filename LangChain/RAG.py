@@ -1,7 +1,11 @@
 # Schritt 1: Vorbereitung der Umgebung
-# pip install langchain langchain_openai langchain_community openai chromadb tiktoken
+# Diese Abhängigkeiten sind jetzt in pyproject.toml definiert und werden über poetry installiert
 
 # Schritt 2: Importieren der benötigten Module
+from dotenv import load_dotenv
+
+# Umgebungsvariablen laden (für OpenAI API Key)
+load_dotenv()
 
 from langchain.chains import RetrievalQA
 from langchain.text_splitter import CharacterTextSplitter
@@ -11,7 +15,10 @@ from langchain_openai import OpenAI
 from langchain_openai import OpenAIEmbeddings
 
 # Schritt 4: Laden und Vorbereiten der Dokumente
-loader = TextLoader("schweiz.txt")
+import os
+current_dir = os.path.dirname(os.path.abspath(__file__))
+schweiz_path = os.path.join(current_dir, "schweiz.txt")
+loader = TextLoader(schweiz_path)
 documents = loader.load()
 
 text_splitter = CharacterTextSplitter(chunk_size=10, chunk_overlap=5)
@@ -38,7 +45,8 @@ result = qa.invoke(query)
 print(result['result'])
 
 # Schritt 8: Erweiterung des Systems
-new_loader = TextLoader("schweiz_wirtschaft.txt")
+wirtschaft_path = os.path.join(current_dir, "schweiz_wirtschaft.txt")
+new_loader = TextLoader(wirtschaft_path)
 new_documents = new_loader.load()
 new_texts = text_splitter.split_documents(new_documents)
 
