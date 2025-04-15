@@ -1,5 +1,10 @@
 == Vector-Stores und -Embeddings
 
+=== Lernziele
+* Sie verstehen das Konzept von Vektorrepräsentationen und Vector Stores.
+* Sie können Embeddings und deren Einsatz im KI-Kontext erklären.
+* Sie kennen die wichtigsten Anwendungsfälle für Vector Stores.
+
 === Theoretische Grundlagen
 ==== Was sind Vector Stores?
 Ein Vector Store ist eine spezialisierte Datenbank, die darauf ausgelegt ist,

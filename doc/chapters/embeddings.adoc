@@ -1,5 +1,10 @@
 === Streamlit Embeddings App - Eine Dokumentation
 
+==== Lernziele
+* Sie verstehen den Workflow von Embeddings in einer Streamlit-App.
+* Sie können die Architektur und Implementierung einer Embeddings-App erläutern.
+* Sie sind in der Lage, eigene Anpassungen vorzunehmen.
+
 Die `embeddings.py` App im `streamlit`-Verzeichnis ist eine leistungsstarke Anwendung, die die Funktionsweise von Embeddings und Vector Stores anhand von PDF-Dokumenten demonstriert. Diese Dokumentation erklärt die Funktionsweise, Architektur und Implementierungsdetails der Anwendung.
 
 ==== Überblick

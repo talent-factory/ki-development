@@ -1,5 +1,10 @@
 == Plattformen und Tools
 
+=== Lernziele
+* Sie kennen wichtige Plattformen für KI-Entwicklung und -Deployment.
+* Sie können Replicate und verwandte Tools praktisch einsetzen.
+* Sie beurteilen die Bedeutung von Plattformen für den KI-Workflow.
+
 :cog-github: https://github.com/replicate/cog
 :cog-home: https://cog.run/
 :github: https://github.com/

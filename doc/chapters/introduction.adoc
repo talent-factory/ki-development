@@ -1,5 +1,10 @@
 == Einführung
 
+=== Lernziele
+* Sie verstehen die Grundbegriffe der Künstlichen Intelligenz (KI).
+* Sie können die wichtigsten Teilbereiche und Begriffe von KI voneinander abgrenzen.
+* Sie erkennen die Bedeutung von KI in der Informatik und Gesellschaft.
+
 :SimpleML: https://simplemlforsheets.com/
 :account: https://accounts.google.com/
 :youtube: https://www.youtube.com/watch?v=SKpu2G2q1Fk
@@ -18,6 +23,11 @@ Künstliche Intelligenz bezieht sich auf Systeme oder Maschinen, die menschenäh
 
 
 *Cybernetics (Kybernetik)*
+
+=== Übungen
+. Erstellen Sie eine Mindmap zu den Begriffen der KI und ordnen Sie Beispiele zu.
+. Recherchieren Sie aktuelle Anwendungsbeispiele für KI in der Wirtschaft.
+. Diskutieren Sie in der Gruppe, welche Chancen und Risiken KI für die Gesellschaft mit sich bringt.
 Kybernetik ist die Wissenschaft von der Steuerung und der Kommunikation in Organismen, Maschinen und Organisationen. Sie untersucht vor allem, wie Systeme sich selbst regulieren und Informationen verarbeiten, um ihre Ziele zu erreichen. Kybernetik ist eng mit der KI verbunden, da sie die theoretischen Grundlagen für das Verständnis von Feedbackschleifen und adaptiven Systemen bietet, die in der KI-Entwicklung verwendet werden.
 
 *Problem Solving (Problemlösung)*

@@ -1,5 +1,10 @@
 == Generative KI ohne Code
 
+=== Lernziele
+* Sie kennen die wichtigsten No-Code/Low-Code-Tools für generative KI.
+* Sie können Flowise und Langflow hinsichtlich Funktion und Anwendung beschreiben.
+* Sie beurteilen die Einsatzmöglichkeiten von No-Code-Lösungen im KI-Kontext.
+
 :flowise: https://flowiseai.com/
 :langflow: https://www.langflow.org/
 :ReactFlow: https://reactflow.dev/
@@ -17,7 +22,12 @@ Im Folgenden stellen wir die angesagtesten kostenlosen KI-Prototyping-Tools vor.
 
 Flowise und Langflow sind kostenlose Low-Code-Tools zur Erstellung von generativen KI-Anwendungen
 (_GenAI_). Sie sind direkt im Browser nutzbar und bieten einen _Drag & Drop_-Editor, mit dem
-man die typischen Komponenten von GenAI-Anwendungen visuell zusammenstellen und sofort ausprobieren
+man die typischen Komponenten von GenAI-Anwendungen visuell zusammenstellen und sofort ausprobieren.
+
+=== Übungen
+. Testen Sie Flowise oder Langflow und erstellen Sie einen einfachen KI-Workflow (z.B. Text-Generator).
+. Vergleichen Sie die beiden Tools hinsichtlich Bedienbarkeit und Funktionsumfang.
+. Überlegen Sie, für welche Zielgruppe sich No-Code-KI besonders eignet.
 kann. So kann man beispielsweise in kurzer Zeit einen OpenAI-GPT-basierten Chatbot erstellen.
 
 Flowise und Langflow ermöglichen die schnelle Erstellung von Prototypen für KI-Anwendungen,

@@ -1,5 +1,10 @@
 === Streamlit
 
+==== Lernziele
+* Sie verstehen die Grundidee und Architektur von Streamlit.
+* Sie können einfache Streamlit-Apps erstellen und ausführen.
+* Sie erkennen Einsatzmöglichkeiten von Streamlit im KI-Kontext.
+
 ==== Einführung
 
 In diesem ersten Kapitel werden wir einen Blick auf Streamlit und
@@ -21,6 +26,11 @@ ermöglichen, Daten in einer Benutzeroberfläche (UI) zu
 interpretieren und bereitzustellen, ohne Vorkenntnisse
 in Webentwicklungstools wie Flask, Django, Node usw.
 zu haben, und dies ausschliesslich mit Python.
+
+==== Übungen
+. Installieren Sie Streamlit und entwickeln Sie eine kleine Demo-App.
+. Vergleichen Sie Streamlit mit alternativen Frameworks (z.B. Dash, Gradio).
+. Überlegen Sie, wie Streamlit in einem KI-Projekt eingesetzt werden kann.
 
 ==== Warum Streamlit?
 

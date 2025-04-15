@@ -1,5 +1,10 @@
 === Transfer Learning im Kontext von KI-Entwicklung
 
+==== Lernziele
+* Sie verstehen das Konzept des Transfer Learning.
+* Sie können Transfer Learning in eigenen Projekten anwenden.
+* Sie erkennen die Vorteile und Grenzen dieses Ansatzes.
+
 ==== Grundkonzepte des Transfer Learnings
 
 Transfer Learning ist ein Ansatz im maschinellen Lernen, bei dem ein vortrainiertes Modell, das für eine Aufgabe entwickelt wurde, als Ausgangspunkt für ein Modell verwendet wird, das für eine andere, aber verwandte Aufgabe bestimmt ist. Dieses Konzept basiert auf der Idee, dass das Wissen, das ein Modell aus einer Aufgabe gewonnen hat, auf eine andere Aufgabe übertragen werden kann, was den Lernprozess beschleunigt und die Leistung verbessert.

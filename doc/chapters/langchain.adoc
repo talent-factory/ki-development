@@ -1,5 +1,10 @@
 == LangChain
 
+=== Lernziele
+* Sie verstehen das Prinzip von LangChain und dessen Komponenten.
+* Sie können einfache Anwendungen mit LangChain konzipieren.
+* Sie erkennen die Einsatzmöglichkeiten von LLMs in der Praxis.
+
 :langchain: https://www.langchain.com/
 
 

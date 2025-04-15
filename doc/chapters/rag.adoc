@@ -1,4 +1,9 @@
 === Vertiefung der LLM-basierten Anwendungsentwicklung
+
+==== Lernziele
+* Sie verstehen das Prinzip von Retrieval Augmented Generation (RAG).
+* Sie können RAG in eigenen Projekten anwenden.
+* Sie reflektieren die Grenzen und Potenziale von LLM-basierten Systemen.
 include::locale/attributes-de.adoc[]
 :imagesdir: images/
 

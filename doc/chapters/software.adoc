@@ -1,6 +1,11 @@
 [#_software]
 == Software
 
+=== Lernziele
+* Sie kennen die wichtigsten Software-Tools für KI-Entwicklung.
+* Sie können die Einsatzbereiche von Python, Node.js & Co. erläutern.
+* Sie sind in der Lage, passende Tools für eigene Projekte auszuwählen.
+
 :python: https://www.python.org/
 :pypi: https://pypi.org/
 :nbviewer: https://nbviewer.org/github/talent-factory/pyt-introduction/blob/develop/01-Introduction-to-Python.ipynb

@@ -1,5 +1,10 @@
 === Flowise AI
 
+==== Lernziele
+* Sie verstehen die Grundfunktionen von FlowiseAI.
+* Sie können Workflows visuell modellieren und erläutern.
+* Sie erkennen die Vorteile von Drag-and-Drop-Interfaces für KI-Anwendungen.
+
 :flowiseai: https://docs.flowiseai.com/
 
 ==== Einleitung
