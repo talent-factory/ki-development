@@ -150,6 +150,23 @@ import numpy as np
 
 ==== Häufig verwendete Module
 
+// ---
+
+==== Modernes Paketmanagement mit uv
+
+In der Praxis stoßen klassische Tools wie pip oder poetry bei großen Projekten oder in CI/CD-Pipelines oft an ihre Grenzen, insbesondere was Geschwindigkeit und Reproduzierbarkeit angeht. Das neue Tool *uv* bietet eine moderne, blitzschnelle und ressourcenschonende Alternative, die sowohl für Einsteiger als auch für Fortgeschrittene geeignet ist.
+
+[NOTE]
+====
+uv kann als Drop-in-Replacement für pip und poetry genutzt werden und ist besonders für große Projekte und Teams interessant.
+====
+
+Im folgenden Kapitel lernst du uv im Detail kennen und kannst es direkt ausprobieren:
+
+include::chapters/uv.adoc[]
+
+// ---
+
 Hier sind einige weitere häufig verwendete Module und Bibliotheken, die für
 verschiedene Aufgaben nützlich sind:
 

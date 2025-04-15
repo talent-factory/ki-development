@@ -1,0 +1,107 @@
+== Python-Paketmanagement mit uv
+:toc:
+:sectnums:
+
+=== Vergleich: pip, poetry und uv
+
+[cols="1,1,1,2",options="header"]
+|===
+| Tool | Geschwindigkeit | Features | Besonderheiten
+| pip | langsam (Standard) | Installation, Requirements | Weit verbreitet, keine Lockfiles, keine Dependency-Resolution
+| poetry | mittel | Installation, Lockfile, Dependency-Resolution, Build, Publishing | Modernes Projektmanagement, eigene pyproject.toml, langsam bei großen Projekten
+| uv | extrem schnell | Installation, Lockfile, Dependency-Resolution, pip-kompatibel | Drop-in Replacement für pip, poetry, pip-tools; Rust-basiert, sehr ressourcenschonend
+|===
+
+[NOTE]
+====
+*uv* ist ein modernes, blitzschnelles Python-Paketmanagement-Tool, entwickelt von Astral (u.a. Entwickler von Ruff).
+====
+
+=== Lernziele
+* Sie verstehen die Vorteile und Einsatzbereiche von uv.
+* Sie können uv als Drop-in-Replacement für pip und poetry einsetzen.
+* Sie können mit uv Projekte initialisieren, Abhängigkeiten verwalten und Lockfiles erzeugen.
+
+=== Installation von uv
+
+[source,bash]
+----
+pip install uv
+----
+
+Oder mit Homebrew:
+[source,bash]
+----
+brew install astral-sh/tap/uv
+----
+
+=== Grundlegende Befehle mit uv
+
+==== Pakete installieren (wie pip)
+[source,bash]
+----
+uv pip install requests
+----
+
+==== Abhängigkeiten aus requirements.txt installieren
+[source,bash]
+----
+uv pip install -r requirements.txt
+----
+
+==== Lockfile erzeugen (wie pip-tools/poetry)
+[source,bash]
+----
+uv pip compile requirements.in
+----
+
+==== Als Ersatz für poetry (pyproject.toml)
+[source,bash]
+----
+uv pip install -r pyproject.toml
+----
+
+==== Update aller Pakete
+[source,bash]
+----
+uv pip install --upgrade --all
+----
+
+=== Praxisbeispiel: Schnelles Setup eines Projekts
+
+. Erstellen Sie ein neues Verzeichnis, z.B. `uv-demo`
+. Legen Sie eine Datei `requirements.in` mit folgendem Inhalt an:
++
+[source]
+----
+requests
+pandas
+----
+. Erzeugen Sie ein Lockfile:
++
+[source,bash]
+----
+uv pip compile requirements.in
+----
+. Installieren Sie die Abhängigkeiten:
++
+[source,bash]
+----
+uv pip install -r requirements.txt
+----
+
+=== Tipps & Hinweise
+- uv ist kompatibel zu bestehenden pip/poetry-Projekten
+- uv kann als Drop-in-Replacement in CI/CD verwendet werden
+- uv unterstützt Caching und parallele Auflösung für maximale Geschwindigkeit
+
+=== Übungen
+. Installieren Sie uv auf Ihrem System und richten Sie ein neues Projekt mit Lockfile ein.
+. Vergleichen Sie die Installationsgeschwindigkeit von pip, poetry und uv für dasselbe requirements.txt.
+. Erzeugen Sie ein Lockfile mit uv und prüfen Sie, ob alle Abhängigkeiten korrekt aufgelöst werden.
+. Ersetzen Sie in einem bestehenden Projekt pip/poetry durch uv und testen Sie die Kompatibilität.
+
+=== Weiterführende Links
+- https://github.com/astral-sh/uv
+- https://astral.sh/blog/uv-fastest-python-installer/
+- https://astral.sh/docs/uv/overview/
