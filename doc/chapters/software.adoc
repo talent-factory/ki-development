@@ -1,0 +1,271 @@
+[#_software]
+== Software
+
+:python: https://www.python.org/
+:pypi: https://pypi.org/
+:nbviewer: https://nbviewer.org/github/talent-factory/pyt-introduction/blob/develop/01-Introduction-to-Python.ipynb
+:nodejs: https://nodejs.org/
+:nvm: https://github.com/nvm-sh/nvm
+:langchain: https://langchain.com/
+:openai: https://platform.openai.com/
+:tiktoken: https://github.com/openai/tiktoken
+:chromadb: https://docs.trychroma.com/
+:faiss: https://github.com/facebookresearch/faiss
+:sentence-transformers: https://www.sbert.net/
+
+Künstliche Intelligenz (AI) und maschinelles Lernen (ML) sind Technologien,
+die darauf abzielen, Maschinen menschenähnliche Fähigkeiten zu verleihen, indem
+sie grosse Datenmengen analysieren, Muster erkennen und darauf basierend
+Entscheidungen treffen.Diese Aufgaben erfordern spezialisierte Software,
+um effizient und genau durchgeführt werden zu können.
+
+Ohne den Einsatz spezialisierter Software wäre die Entwicklung und Anwendung
+von AI und ML nahezu unmöglich. Softwaretools ermöglichen es, die komplexen
+Prozesse der Datenverarbeitung und Modellentwicklung effizient und effektiv
+durchzuführen. Sie bieten die notwendige Rechenleistung, Automatisierung,
+Reproduzierbarkeit und Skalierbarkeit, um AI in der Praxis erfolgreich
+einzusetzen. Daher ist die Installation und Nutzung von Software ein
+nverzichtbarer Bestandteil jedes AI-Kurses.
+
+=== Python
+
+Python ist eine der am häufigsten verwendeten Programmiersprachen in der Welt
+der künstlichen Intelligenz (KI) und des maschinellen Lernens (ML). Es zeichnet
+sich durch seine einfache Syntax, umfangreiche Bibliotheken und grosse Community
+aus, die eine Vielzahl von Ressourcen und Unterstützung bietet. In diesem
+Abschnitt werden wir die Grundlagen von Python, die Installation der Sprache
+sowie die Nutzung von zusätzlichen Modulen aus dem Python Package Index (PyPi)
+behandeln.
+
+==== Warum Python?
+
+1. *Einfachheit und Lesbarkeit*: Python hat eine klare und leicht lesbare Syntax,
+    die es auch Anfängern ermöglicht, schnell produktiv zu werden.
+
+2. *Umfangreiche Bibliotheken*: Python bietet eine Vielzahl von Bibliotheken für
+    Datenanalyse, ML, Webentwicklung und vieles mehr.
+
+3. *Grosse Community*: Die grosse und aktive Community bietet umfangreiche Ressourcen,
+    Tutorials und Foren für Unterstützung.
+
+4. *Interdisziplinäre Nutzung*: Python wird in verschiedenen Bereichen wie Wissenschaft,
+    Finanzen, Webentwicklung und Automatisierung verwendet.
+
+==== Installation von Python
+
+Um mit Python zu beginnen, müssen Sie Python zunächst auf Ihrem Computer installieren.
+Hier sind die Schritte zur Installation von Python:
+
+1. *Herunterladen von Python*:
+    * Gehen Sie zur offiziellen Python-Website: {python}[python.org]
+    * Laden Sie die neueste Version von Python für Ihr Betriebssystem herunter.
+
+2. *Installation*:
+    * Führen Sie das Installationsprogramm aus und folgen Sie den Anweisungen.
+    * Stellen Sie sicher, dass die Option "Add Python to PATH" aktiviert ist.
+
+3. Überprüfung der Installation:
+    * Öffnen Sie die Eingabeaufforderung (`cmd`) oder das Terminal.
+    * Geben Sie `python --version` ein, um zu überprüfen, ob Python korrekt installiert wurde.
+
+
+Jupyter Notebooks sind insbesondere im Data Science-Umfeld und in Schulungen weit
+verbreitet. Auf {nbviewer}[NBViewer] ist eine Einführung in die Python-Programmierung
+verfügbar, falls dies benötigt wird.
+
+=== PyPi und pip
+
+Der Python Package Index ({pypi}[PyPi]) ist ein _Repository_ von Software-Paketen für Python.
+Mit PyPi können Sie zusätzliche Module und Bibliotheken installieren, die nicht in der
+Standardbibliothek enthalten sind. `pip` ist das Paketverwaltungswerkzeug von Python,
+mit dem Sie diese Pakete installieren und verwalten können.
+
+==== Installation von pip
+
+Falls `pip` nicht automatisch mit Python installiert wurde, können Sie es wie
+folgt installieren:
+
+* Öffnen Sie die Eingabeaufforderung oder das Terminal.
+
+* Geben Sie `python -m ensurepip --upgrade` ein, um pip zu installieren.
+
+==== Nutzung von pip
+
+Mit `pip` können Sie ganz einfach Module von PyPi installieren. Hier sind
+einige grundlegende Befehle:
+
+* Installation eines Moduls:
+[source,sh]
+----
+pip install modulname
+----
+
+* Aktualisierung eines Moduls:
+[source,sh]
+----
+pip install --upgrade modulname
+----
+
+* Deinstallation eines Moduls:
+[source,sh]
+----
+pip uninstall modulname
+----
+
+* Liste der installierten Module anzeigen:
+[source,sh]
+----
+pip list
+----
+
+
+==== Beispiel: Installation und Verwendung eines Moduls
+
+Nehmen wir an, Sie möchten das Modul `numpy` installieren, das häufig für numerische
+Berechnungen in Python verwendet wird.
+
+1. *Installation von numpy*:
+    * Öffnen Sie die Eingabeaufforderung oder das Terminal.
+    * Geben Sie den folgenden Befehl ein: `pip install numpy`
+
+2. *Verwendung von `numpy`*:
+    * Erstellen Sie eine neue Python-Datei (z.B. `example.py`).
+    * Fügen Sie den folgenden Code ein, um numpy zu verwenden:
++
+[,python]
+----
+import numpy as np
+----
+
+3. Ausführen des Python-Skripts:
+    * Speichern Sie die Datei und öffnen Sie die Eingabeaufforderung oder das Terminal.
+    * Navigieren Sie zu dem Verzeichnis, in dem die Datei gespeichert ist.
+    * Geben Sie `python example.py` ein, um das Skript auszuführen.
+
+
+==== Häufig verwendete Module
+
+Hier sind einige weitere häufig verwendete Module und Bibliotheken, die für
+verschiedene Aufgaben nützlich sind:
+
+* *`pandas`*: Datenanalyse und -manipulation
+
+* *`matplotlib`*: Datenvisualisierung
+
+* *`scikit-learn`*: Machine Learning
+
+* *`tensorflow`*: Deep Learning
+
+* *`langchain`*: Framework für AI-Anwendungen mit LLMs
+
+* *`openai`*: Zugriff auf die OpenAI API
+
+* *`tiktoken`*: Tokenizer für OpenAI-Modelle
+
+* *`chromadb`*: Vektordatenbank für Embeddings
+
+* *`faiss`*: Effizienter Similarity Search für Vektoren
+
+* *`sentence-transformers`*: Erzeugung von Satz-Embeddings
+
+* *`transformers`*: Verwendung von Transformermodellen
+
+* *`pypdf2`*: Extraktion von Text aus PDFs
+
+* *`streamlit`*: Erstellung interaktiver Web-Anwendungen für ML/AI
+
+
+=== AI-spezifische Bibliotheken
+
+==== LangChain
+
+{langchain}[LangChain] ist ein Framework zur Entwicklung von Anwendungen, die mit großen Sprachmodellen (LLMs) arbeiten. Es bietet Komponenten und Tools, um LLM-basierte Anwendungen zu erstellen, die:
+
+* Dokumente abrufen und verarbeiten können
+* Mit externen Datenquellen interagieren können
+* Umfangreiche Reasoning-Fähigkeiten haben
+* Auf spezifische Domänen zugeschnitten werden können
+
+Installation:
+[source,sh]
+----
+pip install langchain langchain_openai langchain_community
+----
+
+Hauptkomponenten:
+* *Chains*: Kombinieren LLMs mit anderen Komponenten für komplexe Workflows
+* *Agents*: Geben LLMs die Möglichkeit, Tools zu verwenden und Entscheidungen zu treffen
+* *Memory*: Speichern und Abrufen früherer Interaktionen
+* *Vector Stores*: Speichern von Embeddings für semantische Suche
+* *Document Loaders*: Laden von Dokumenten aus verschiedenen Quellen
+
+==== Faiss (Facebook AI Similarity Search)
+
+{faiss}[Faiss] ist eine Bibliothek von Facebook AI Research, die effizientes Suchen und Clustering von dichten Vektoren ermöglicht. Sie ist besonders nützlich für Anwendungen, die semantische Ähnlichkeiten in großen Datenmengen finden müssen.
+
+Installation:
+[source,sh]
+----
+pip install faiss-cpu  # Für CPU-Nutzung
+# oder
+pip install faiss-gpu  # Für GPU-Unterstützung
+----
+
+Haupteigenschaften:
+* Hocheffiziente Ähnlichkeitssuche für große Mengen von Vektoren
+* Unterstützung für verschiedene Metriken (L2, Kosinus-Ähnlichkeit, etc.)
+* Skalierbarkeit für Milliarden von Vektoren
+* Anwendbar in Bereichen wie Empfehlungssysteme, Bilderkennung und Sprachverarbeitung
+
+==== Sentence-Transformers
+
+{sentence-transformers}[Sentence-Transformers] ist eine Python-Bibliothek, die vorgefertigte Modelle zur Erzeugung von Satz-Embeddings bereitstellt. Diese Embeddings können für verschiedene NLP-Aufgaben verwendet werden, insbesondere für semantische Ähnlichkeitssuche.
+
+Installation:
+[source,sh]
+----
+pip install sentence-transformers
+----
+
+Hauptmerkmale:
+* Einfache Erzeugung hochqualitativer Satz-Embeddings
+* Vorgefertigte Modelle für verschiedene Sprachen und Anwendungsfälle
+* Optimiert für semantische Suche, Clustering und Klassifikation
+* Integration mit anderen Bibliotheken wie FAISS für effiziente Ähnlichkeitssuche
+
+=== Flowise
+
+Erfahren Sie, wie Sie Flowise lokal einsetzen können. Bevor wir
+beginnen können, müssen wir sicherstellen, dass {nodejs}[NodeJS]
+auf dem Computer installiert haben. Node `v18.15.0` oder `v20+` wird unterstützt.
+Mit dem {nvm}[Node Version Manager] kann, falls notwendig, die richtive Version
+von NodeJS bereitgestellt werden.
+
+[,shell]
+----
+nvm install 22
+----
+
+.Flowise _Drag & Drop_-UI
+image::flowise.gif[width=80%]
+
+
+==== Lokale Installation mit NPM
+
+[,shell]
+----
+npm install -g flowise
+npx flowise start
+----
+
+==== Erstellen eines Docker Containers
+
+[,shell]
+----
+docker run -d --name flowise -p 3000:3000 flowiseai/flowise
+----
+
+Die Docker-Variante ist üblicherweise mein bevorzugter Weg,
+Software in meiner Umgebung zur Verfügung zu stellen.
+
+<http://localhost:3000>

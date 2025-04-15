@@ -1,0 +1,159 @@
+=== Streamlit Embeddings App - Eine Dokumentation
+
+Die `embeddings.py` App im `streamlit`-Verzeichnis ist eine leistungsstarke Anwendung, die die Funktionsweise von Embeddings und Vector Stores anhand von PDF-Dokumenten demonstriert. Diese Dokumentation erklärt die Funktionsweise, Architektur und Implementierungsdetails der Anwendung.
+
+==== Überblick
+
+Die Embeddings App ist eine Streamlit-Anwendung, die es Benutzern ermöglicht:
+
+1. Ein PDF-Dokument hochzuladen
+2. Den Text aus dem PDF zu extrahieren
+3. Den extrahierten Text in Chunks zu unterteilen
+4. Embeddings für diese Chunks zu erstellen
+5. Die Embeddings in einem Vector Store zu speichern
+6. Fragen zum Inhalt des Dokuments zu stellen und relevante Antworten zu erhalten
+
+Die Anwendung demonstriert so den vollständigen Workflow eines einfachen Retrieval-basierten Frage-Antwort-Systems.
+
+==== Technische Architektur
+
+Die Anwendung nutzt folgende Hauptkomponenten:
+
+* **Streamlit**: Für die Web-Benutzeroberfläche
+* **PyPDF2**: Zum Extrahieren von Text aus PDF-Dokumenten
+* **Sentence-Transformers**: Zum Erstellen von semantisch aussagekräftigen Embeddings
+* **FAISS**: Als effizienter Vector Store für die Ähnlichkeitssuche
+* **NumPy**: Für die Verarbeitung der Vektordaten
+
+==== Kernfunktionen
+
+Die App ist in mehrere Kernfunktionen unterteilt, die jeweils eine spezifische Aufgabe erfüllen:
+
+1. **Laden des Embedding-Modells**:
+   ```python
+   @st.cache_resource
+   def load_model():
+       return SentenceTransformer('paraphrase-MiniLM-L6-v2')
+   ```
+   Diese Funktion lädt das vortrainierte Sentence-Transformer-Modell und nutzt Streamlits Caching, um das Modell nur einmal zu laden.
+
+2. **Extraktion von Text aus PDFs**:
+   ```python
+   @st.cache_data
+   def extract_pdf_text(pdf_file):
+       try:
+           reader = PdfReader(pdf_file)
+           text = ""
+           for page in reader.pages:
+               page_text = page.extract_text()
+               if page_text:
+                   text += page_text + " "
+           return text
+       except Exception as e:
+           st.error(f"Fehler beim Extrahieren des PDF-Textes: {e}")
+           return ""
+   ```
+   Diese Funktion extrahiert Text aus allen Seiten eines PDF-Dokuments mit Fehlerbehandlung.
+
+3. **Aufteilung des Textes in Chunks**:
+   ```python
+   @st.cache_data
+   def split_text(text, max_length=500):
+       words = text.split()
+       chunks = []
+       current_chunk = []
+       for word in words:
+           current_chunk.append(word)
+           if len(" ".join(current_chunk)) > max_length:
+               chunks.append(" ".join(current_chunk))
+               current_chunk = []
+       if current_chunk:
+           chunks.append(" ".join(current_chunk))
+       return chunks
+   ```
+   Diese Funktion teilt den extrahierten Text in überschaubare Chunks auf, um effiziente Embeddings zu erstellen.
+
+4. **Erstellung von Embeddings**:
+   ```python
+   @st.cache_data
+   def create_embeddings(chunks, _model):
+       with warnings.catch_warnings():
+           warnings.filterwarnings("ignore", category=FutureWarning)
+           return _model.encode(chunks)
+   ```
+   Diese Funktion wandelt Textchunks in numerische Vektoren (Embeddings) um.
+
+5. **Erstellung des Vector Stores**:
+   ```python
+   @st.cache_resource
+   def build_vector_store(embeddings, chunks):
+       dim = embeddings.shape[1]
+       index = faiss.IndexFlatL2(dim)
+       index.add(embeddings)
+       vector_store = {
+           'index': index,
+           'chunks': chunks,
+       }
+       return vector_store
+   ```
+   Diese Funktion erstellt einen FAISS-Index für die Embeddings und speichert sowohl den Index als auch die Originalchunks.
+
+6. **Beantwortung von Fragen**:
+   ```python
+   @st.cache_data
+   def answer_question(question, _vector_store, _model):
+       with warnings.catch_warnings():
+           warnings.filterwarnings("ignore", category=FutureWarning)
+           question_embedding = _model.encode([question])
+       distances, indices = _vector_store['index'].search(question_embedding, k=3)
+       context_chunks = [_vector_store['chunks'][idx] for idx in indices[0]]
+       return "\n\n".join(context_chunks)
+   ```
+   Diese Funktion nimmt eine Frage entgegen, erstellt ein Embedding dafür und sucht dann nach den ähnlichsten Chunks im Vector Store.
+
+==== Benutzerinteraktion
+
+Die Anwendung bietet eine intuitive Benutzeroberfläche mit folgenden Interaktionspunkten:
+
+1. **Datei-Upload**: Benutzer können ein PDF-Dokument hochladen
+2. **Progressanzeige**: Während der Verarbeitung werden Fortschrittsbalken angezeigt
+3. **Textvorschau**: Der extrahierte Text wird teilweise angezeigt
+4. **Eingabefeld für Fragen**: Benutzer können Fragen zum Dokument stellen
+5. **Antwortanzeige**: Die Antwort (relevanteste Textpassagen) wird angezeigt
+
+==== Technische Besonderheiten
+
+1. **Caching-Mechanismen**: Durch die Verwendung von `@st.cache_data` und `@st.cache_resource` werden teure Berechnungen nur einmal durchgeführt und die Ergebnisse für zukünftige Anfragen gespeichert.
+
+2. **Fehlerbehandlung**: Die Anwendung enthält robuste Fehlerbehandlung für PDF-Parsing und andere potenzielle Fehlerquellen.
+
+3. **Warnung-Unterdrückung**: Die App unterdrückt unnötige Warnungen, um die Benutzeroberfläche sauber zu halten.
+
+4. **Optimierte Ähnlichkeitssuche**: FAISS ermöglicht eine schnelle Ähnlichkeitssuche, selbst für große Dokumente mit vielen Chunks.
+
+==== Erweiterungsmöglichkeiten
+
+Die Anwendung könnte in folgenden Bereichen erweitert werden:
+
+1. **Integrierte LLM-Antworten**: Statt nur die relevantesten Chunks zurückzugeben, könnte die App ein LLM verwenden, um basierend auf den Chunks eine kohärente Antwort zu generieren (RAG-Ansatz).
+
+2. **Unterstützung für mehrere Dateitypen**: Erweiterung der Unterstützung auf andere Dokumentformate wie Word, Text oder HTML.
+
+3. **Fortgeschrittene Chunking-Strategien**: Implementierung von semantischem Chunking oder überlappenden Chunks für bessere Kontexterfassung.
+
+4. **Visualisierung der Embeddings**: Hinzufügen einer Visualisierungskomponente, um die Beziehungen zwischen verschiedenen Textpassagen zu zeigen.
+
+5. **Nutzerhistorie**: Speichern und Anzeigen vergangener Fragen und Antworten für verbesserte Benutzerinteraktion.
+
+==== Anwendungsbeispiele
+
+Die App eignet sich hervorragend für Anwendungsfälle wie:
+
+* **Dokumentenanalyse**: Schnelles Durchsuchen und Extrahieren relevanter Informationen aus langen Dokumenten
+* **Bildungszwecke**: Veranschaulichung der Funktionsweise von Embeddings und Vector Stores
+* **Prototyping**: Als Basis für komplexere Retrieval-basierte Systeme
+* **Wissensdatenbank**: Als einfaches System zur Abfrage von Informationen aus Dokumenten
+
+==== Zusammenfassung
+
+Die Embeddings App demonstriert die praktische Anwendung moderner NLP-Techniken zur Erstellung eines einfachen, aber leistungsfähigen Frage-Antwort-Systems. Sie bietet einen vollständigen End-to-End-Workflow vom Dokumenten-Upload bis zur Beantwortung von Fragen und ist ein ausgezeichnetes Beispiel für die Integration von Embeddings und Vector Stores in einer benutzerfreundlichen Anwendung.
