@@ -163,7 +163,7 @@ uv kann als Drop-in-Replacement für pip und poetry genutzt werden und ist beson
 
 Im folgenden Kapitel lernst du uv im Detail kennen und kannst es direkt ausprobieren:
 
-include::chapters/uv.adoc[]
+include::uv.adoc[]
 
 // ---
 

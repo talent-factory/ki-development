@@ -1,6 +1,6 @@
 = KI Professional: Fachrichtung Development
 :author: Daniel Senften
-:email: daniel.senften@gibb.ch
+:email: daniel.senften@talent-factory.ch.ch
 :revnumber: 1.0
 :revdate: {localdate}
 :doctype: book
