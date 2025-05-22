@@ -1,13 +1,93 @@
-=== Flowise AI
+= Generative KI ohne Code
+:author: Daniel Senften
+:email: daniel.senften@talent-factory.ch.ch
+:revnumber: 1.0
+:revdate: {localdate}
+:doctype: book
+include::../locale/attributes-de.adoc[]
+:toc: left
+:sectnums:
+:sectnumlevels: 2
+ifndef::imagesdir[:imagesdir: ../images]
+:source-highlighter: highlight.js
+:icons: font
+:title-page:
+:pdf-theme: themes/pdf-theme.yml
+:title-page-background-image: image:title-image.png[top=0%, align=left, width=20%]
+:pdf-page-size: A4
 
-==== Lernziele
+== Lernziele
+* Sie kennen die wichtigsten No-Code/Low-Code-Tools für generative KI.
+* Sie können Flowise und Langflow hinsichtlich Funktion und Anwendung beschreiben.
+* Sie beurteilen die Einsatzmöglichkeiten von No-Code-Lösungen im KI-Kontext.
 * Sie verstehen die Grundfunktionen von FlowiseAI.
 * Sie können Workflows visuell modellieren und erläutern.
 * Sie erkennen die Vorteile von Drag-and-Drop-Interfaces für KI-Anwendungen.
 
+:flowise: https://flowiseai.com/
+:langflow: https://www.langflow.org/
+:ReactFlow: https://reactflow.dev/
+:langchain: https://www.langchain.com/
+:deeplearning: https://www.deeplearning.ai/
+
+// Referenz: https://ai-rockstars.de/flowise-langflow/
+
+{flowise}[Flowise] und {langflow}[Langflow] sind Tools, mit denen generative KI-Anwendungen per _Drag & Drop_
+erstellt werden können, ohne dass Entwicklerkenntnisse erforderlich sind.
+Diese Tools erleichtern das schnelle Prototyping und das einfache Ausprobieren von Ideen.
+Im Folgenden stellen wir die angesagtesten kostenlosen KI-Prototyping-Tools vor.
+
+== Flowise und Langflow
+
+Flowise und Langflow sind kostenlose Low-Code-Tools zur Erstellung von generativen KI-Anwendungen
+(_GenAI_). Sie sind direkt im Browser nutzbar und bieten einen _Drag & Drop_-Editor, mit dem
+man die typischen Komponenten von GenAI-Anwendungen visuell zusammenstellen und sofort ausprobieren.
+
+== Übungen
+. Testen Sie Flowise oder Langflow und erstellen Sie einen einfachen KI-Workflow (z.B. Text-Generator).
+. Vergleichen Sie die beiden Tools hinsichtlich Bedienbarkeit und Funktionsumfang.
+. Überlegen Sie, für welche Zielgruppe sich No-Code-KI besonders eignet.
+kann. So kann man beispielsweise in kurzer Zeit einen OpenAI-GPT-basierten Chatbot erstellen.
+
+Flowise und Langflow ermöglichen die schnelle Erstellung von Prototypen für KI-Anwendungen,
+was besonders bei der Entwicklung generativer KI-Anwendungen hilfreich ist. Diese iterative
+und ergebnisorientierte Vorgehensweise erleichtert die Zusammenarbeit zwischen Developern,
+KI- und Sprachspezialisten sowie Fachanwendern. Mit den Tools lassen sich komplexe Abläufe
+kombinieren, um nützliche Anwendungen wie Content-Generatoren zu erstellen, die Texte,
+Bilder, Tabellen und mehr automatisch generieren. Der Drag & Drop-Editor, der auf dem
+visuellen OpenSource-Editor {ReactFlow}[ReactFlow] basiert, ist leicht zu bedienen und gleichzeitig
+leistungsstark.
+
+.Flowise AI
+image::generative-ai-tool-flowise.png[width=80%]
+
+Ein grosser Vorteil der Prototyping-Lösungen ist, dass sie viele nützliche Komponenten und
+Integrationen bieten, wie Vektor-Datenbank-Integration, Crawler- und Google-Search-APIs,
+Text-Splitter und Document Loader für PDFs und Texte. Dies ermöglicht die Entwicklung
+neuartiger Use-Cases und spart Zeit und Entwickler-Ressourcen.
+
+
+== Unterschiede
+
+Flowise bietet die meisten Integrationen und zahlreiche Zusatz-Tools, wodurch es sich
+ideal zur Erstellung beliebiger GenAI-Anwendungs-Prototypen eignet. Namhafte Unternehmen
+wie AWS, Alibaba, Hitachi, ByteDance, Microsoft, InsightSoftware, Google und Accenture
+nutzen Flowise.
+
+Langflow bietet weniger Integrationen, da es speziell für das Prototyping von
+{langchain}[Langchain]-Anwendungen konzipiert ist. Langchain ist ein beliebtes Framework zur
+Entwicklung von GenAI-Anwendungen. Langflow hat wahrscheinlich eine grössere Verbreitung
+bei vielen Nutzern, da Langchain häufig in den Online-Kursen von {deeplearning}[deeplearning.ai]
+verwendet wird, die von vielen LLM-Einsteigern besucht werden.
+
+Wir werden Langchain zu einem späteren Zeitpunkt auch betrachten.
+
+== Flowise AI
+
 :flowiseai: https://docs.flowiseai.com/
 
-==== Einleitung
+[discrete]
+=== Einleitung
 
 FlowiseAI ist eine innovative Plattform für den Entwurf, die Entwicklung und
 die Verwaltung von künstlicher Intelligenz (KI) und maschinellem Lernen (ML).
@@ -17,8 +97,8 @@ tiefgreifende Programmierkenntnisse zu benötigen. FlowiseAI integriert
 verschiedene Tools und Dienste, um den gesamten Entwicklungsprozess von
 der Datenvorbereitung bis zur Bereitstellung von Modellen zu unterstützen.
 
-
-==== Hauptmerkmale von FlowiseAI
+[discrete]
+=== Hauptmerkmale von FlowiseAI
 
 1. *Visuelle Workflow-Erstellung*: FlowiseAI ermöglicht die visuelle Erstellung von
     Workflows durch ein _Drag-and-Drop_-Interface. Dies vereinfacht den Prozess
@@ -39,8 +119,8 @@ der Datenvorbereitung bis zur Bereitstellung von Modellen zu unterstützen.
 5. *Skalierbarkeit*: Durch die Nutzung von Cloud-Infrastrukturen kann FlowiseAI
     skalieren, um große Datenmengen und komplexe Modelle effizient zu verarbeiten.
 
-
-==== Einsatzmöglichkeiten
+[discrete]
+=== Einsatzmöglichkeiten
 
 FlowiseAI kann in verschiedenen Bereichen eingesetzt werden, darunter:
 
@@ -54,8 +134,8 @@ FlowiseAI kann in verschiedenen Bereichen eingesetzt werden, darunter:
 * *Marketing*: Kundensegmentierung, Vorhersage von Kundenverhalten und Optimierung
     von Marketingkampagnen.
 
-
-==== Vorteile von FlowiseAI
+[discrete]
+=== Vorteile von FlowiseAI
 
 1. *Benutzerfreundlichkeit*: Durch das visuelle Interface und die
     _Drag-and-Drop_-Funktionalität ist FlowiseAI auch für Benutzer ohne
@@ -70,8 +150,8 @@ FlowiseAI kann in verschiedenen Bereichen eingesetzt werden, darunter:
 4. *Kostenreduktion*: Durch die Optimierung von Workflows und die Automatisierung
     von Prozessen können Unternehmen Kosten einsparen.
 
-
-==== Herausforderungen und Einschränkungen
+[discrete]
+=== Herausforderungen und Einschränkungen
 
 Trotz der vielen Vorteile gibt es auch einige Herausforderungen bei der Nutzung
 von FlowiseAI:
@@ -85,8 +165,8 @@ von FlowiseAI:
 * *Komplexe Szenarien*: Für sehr komplexe Anwendungsfälle kann es erforderlich sein,
     tiefergehendes technisches Wissen und manuelle Anpassungen vorzunehmen.
 
-
-==== Zukunftsperspektiven
+[discrete]
+=== Zukunftsperspektiven
 
 FlowiseAI hat das Potenzial, die Art und Weise, wie KI und ML in verschiedenen
 Branchen eingesetzt werden, grundlegend zu verändern. Durch die kontinuierliche
@@ -95,8 +175,8 @@ eine zentrale Rolle in der zukünftigen KI-Landschaft spielen.
 
 Installation der Software wird unter xref:software.adoc#_flowise[Flowise AI] erläutert.
 
-
-==== YouTube Tutorials
+[discrete]
+=== YouTube Tutorials
 
 :tutorial-1: https://youtu.be/nqAK_L66sIQ?list=PL4HikwTaYE0H7wBxhvQqxYcKOkZ4O3zXh
 :tutorial-2: https://youtu.be/kAyKOsm8L5Y?list=PL4HikwTaYE0H7wBxhvQqxYcKOkZ4O3zXh

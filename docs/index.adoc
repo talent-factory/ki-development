@@ -22,8 +22,7 @@ include::locale/attributes-de.adoc[]
 include::chapters/01-introduction.adoc[leveloffset=+1]
 
 // Generative KI ohne Codierung
-include::chapters/no-code.adoc[]
-include::chapters/flowise-ai.adoc[]
+include::chapters/02-no-code.adoc[leveloffset=+1]
 
 // Verwenden von LangChain
 include::chapters/langchain.adoc[]
