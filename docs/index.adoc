@@ -7,8 +7,8 @@
 include::locale/attributes-de.adoc[]
 :toc: left
 :sectnums:
-:sectnumlevels: 2
 :imagesdir: images
+:sectnumlevels: 2
 :source-highlighter: highlight.js
 :icons: font
 :title-page:
@@ -18,9 +18,8 @@ include::locale/attributes-de.adoc[]
 
 :quick-uri: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
 
-
 // Hinzufügen aller Dokumente
-include::chapters/introduction.adoc[]
+include::chapters/01-introduction.adoc[leveloffset=+1]
 
 // Generative KI ohne Codierung
 include::chapters/no-code.adoc[]
