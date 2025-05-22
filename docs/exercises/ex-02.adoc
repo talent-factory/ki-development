@@ -1,5 +1,5 @@
 === Aufgabe 2: Einsatz von Flowise AI
-:imagesdir: images/
+:imagesdir: ../images/
 
 :flowise-ai: https://flowiseai.com/
 
