@@ -1,0 +1,1322 @@
+= Erste Schritte mit PydanticAI
+:author: Daniel Senften
+:email: daniel.senften@talent-factory.ch
+:revnumber: 1.0
+:revdate: {localdate}
+:doctype: book
+include::../locale/attributes-de.adoc[]
+:toc: left
+:sectnums:
+:sectnumlevels: 2
+ifndef::imagesdir[:imagesdir: ../images]
+:source-highlighter: highlight.js
+:icons: font
+:title-page:
+:pdf-theme: themes/pdf-theme.yml
+:pdf-page-size: A4
+:docinfo: shared
+
+PydanticAI ist eine leistungsstarke Bibliothek, die die Stärken von Pydantic mit modernen KI-Modellen verbindet. Sie ermöglicht es Entwicklern, strukturierte Daten aus LLM-Antworten (Large Language Models) zu extrahieren und zu validieren. In diesem Leitfaden werden wir die Grundlagen von PydanticAI kennenlernen und praktische Anwendungsfälle erkunden.
+
+== Überblick über PydanticAI
+
+=== Was ist PydanticAI?
+
+PydanticAI ist eine Erweiterung der beliebten Pydantic-Bibliothek, die speziell für die Arbeit mit KI-Modellen entwickelt wurde. Während Pydantic für die Datenvalidierung und -serialisierung in Python bekannt ist, fügt PydanticAI Funktionen hinzu, die es ermöglichen, strukturierte Daten direkt aus den Antworten von Sprachmodellen zu extrahieren.
+
+Die Hauptvorteile von PydanticAI sind:
+
+* *Typsicherheit*: Definiere genau, welche Datenstrukturen du von KI-Modellen erwartest
+* *Validierung*: Automatische Überprüfung, ob die Antworten den erwarteten Formaten entsprechen
+* *Einfache Integration*: Nahtlose Zusammenarbeit mit beliebten KI-Bibliotheken wie LangChain
+* *Fehlerbehandlung*: Robuste Mechanismen zum Umgang mit unerwarteten Antwortformaten
+
+=== Anwendungsfälle
+
+PydanticAI eignet sich besonders für folgende Szenarien:
+
+* Extraktion strukturierter Informationen aus Texten
+* Konvertierung von natürlicher Sprache in strukturierte Daten
+* Validierung von KI-generierten Antworten
+* Erstellung von Schnittstellen zwischen KI-Modellen und Datenbanken oder APIs
+
+[source,python]
+----
+# Einfaches Beispiel für PydanticAI
+from pydantic import BaseModel, Field
+from pydantic_ai import PydanticAI
+
+# Definiere ein Datenmodell
+class Person(BaseModel):
+    name: str
+    alter: int
+    beruf: str = Field(description="Die berufliche Tätigkeit der Person")
+
+# Verwende PydanticAI, um Informationen zu extrahieren
+text = "Max Mustermann ist ein 42-jähriger Softwareentwickler aus Berlin."
+person = PydanticAI().run(Person, text)
+
+print(person)  # Person(name='Max Mustermann', alter=42, beruf='Softwareentwickler')
+----
+
+==== Übung: Datenmodell erstellen
+
+Erstelle ein eigenes Pydantic-Modell für ein Produkt mit folgenden Eigenschaften:
+- Name des Produkts (String)
+- Preis (Float)
+- Kategorie (String)
+- Verfügbarkeit (Boolean)
+
+[source,python]
+----
+# Deine Lösung hier
+from pydantic import BaseModel
+
+class Produkt(BaseModel):
+    name: str
+    preis: float
+    kategorie: str
+    verfuegbar: bool
+----
+
+*Lösung:*
+Das obige Beispiel zeigt eine korrekte Implementierung eines Pydantic-Modells für ein Produkt. Du kannst auch Beschreibungen mit `Field()` hinzufügen, um die Bedeutung der einzelnen Felder zu verdeutlichen.
+
+== Einrichtung von PydanticAI
+
+=== Installation
+
+Um PydanticAI zu verwenden, musst du zunächst die Bibliothek installieren. Dies kann einfach mit pip oder Poetry erfolgen:
+
+[source,bash]
+----
+# Mit pip
+pip install pydantic-ai
+
+# Mit Poetry
+poetry add pydantic-ai
+----
+
+Stelle sicher, dass du auch die erforderlichen Abhängigkeiten installierst:
+
+[source,bash]
+----
+# Für die Verwendung mit OpenAI
+pip install openai
+
+# Für die Verwendung mit LangChain
+pip install langchain
+----
+
+=== Konfiguration
+
+Nach der Installation musst du deine API-Schlüssel konfigurieren. Dies kann über Umgebungsvariablen oder direkt im Code erfolgen:
+
+[source,python]
+----
+import os
+from dotenv import load_dotenv
+
+# Lade Umgebungsvariablen aus .env-Datei
+load_dotenv()
+
+# Konfiguriere den API-Schlüssel
+os.environ["OPENAI_API_KEY"] = "dein-api-schlüssel"  # Besser: aus .env-Datei laden
+----
+
+==== Übung: Projektstruktur erstellen
+
+Erstelle eine grundlegende Projektstruktur für ein PydanticAI-Projekt mit folgenden Elementen:
+- Eine .env-Datei für API-Schlüssel
+- Eine requirements.txt oder pyproject.toml-Datei
+- Eine Hauptdatei app.py
+
+*Lösung:*
+
+.Projektstruktur
+[source,text]
+----
+pydantic-ai-projekt/
+├── .env                  # Enthält API-Schlüssel
+├── pyproject.toml        # Projektabhängigkeiten
+├── app.py                # Hauptanwendungsdatei
+└── README.md             # Projektdokumentation
+----
+
+.pyproject.toml
+[source,toml]
+----
+[tool.poetry]
+name = "pydantic-ai-projekt"
+version = "0.1.0"
+description = "Ein Projekt zur Demonstration von PydanticAI"
+authors = ["Dein Name <deine.email@beispiel.ch>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pydantic-ai = "^0.1.0"
+openai = "^1.0.0"
+langchain = "^0.1.0"
+python-dotenv = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+----
+
+.app.py
+[source,python]
+----
+import os
+from dotenv import load_dotenv
+from pydantic import BaseModel
+from pydantic_ai import PydanticAI
+
+# Lade Umgebungsvariablen
+load_dotenv()
+
+# Definiere ein Modell
+class Nachricht(BaseModel):
+    betreff: str
+    inhalt: str
+    prioritaet: int
+
+# Hauptfunktion
+def main():
+    text = "Betreff: Wichtige Mitteilung, Inhalt: Bitte um Rückmeldung bis morgen, Priorität: hoch (2)"
+    nachricht = PydanticAI().run(Nachricht, text)
+    print(f"Extrahierte Nachricht: {nachricht}")
+
+if __name__ == "__main__":
+    main()
+----
+
+== Fragen an Chat-Modelle stellen
+
+=== Grundlegende Konzepte
+
+Um Fragen an Chat-Modelle zu stellen und strukturierte Antworten zu erhalten, kombinieren wir PydanticAI mit LLM-Bibliotheken wie OpenAI oder LangChain. Der grundlegende Ablauf ist wie folgt:
+
+1. Definiere ein Pydantic-Modell für die erwartete Antwortstruktur
+2. Stelle eine Frage an das Sprachmodell
+3. Verwende PydanticAI, um die Antwort in die definierte Struktur zu konvertieren
+
+[source,python]
+----
+from pydantic import BaseModel, Field
+from pydantic_ai import PydanticAI
+from langchain_openai import ChatOpenAI
+
+# Definiere ein Modell für die Antwort
+class Wettervorhersage(BaseModel):
+    temperatur: float = Field(description="Temperatur in Grad Celsius")
+    niederschlag: bool = Field(description="Ob Niederschlag erwartet wird")
+    beschreibung: str = Field(description="Kurze Beschreibung des Wetters")
+
+# Initialisiere das Sprachmodell
+llm = ChatOpenAI(model_name="gpt-3.5-turbo")
+
+# Stelle eine Frage und extrahiere strukturierte Daten
+frage = "Wie wird das Wetter morgen in Zürich sein?"
+vorhersage = PydanticAI(llm=llm).run(Wettervorhersage, frage)
+
+print(f"Temperatur: {vorhersage.temperatur}°C")
+print(f"Niederschlag: {'Ja' if vorhersage.niederschlag else 'Nein'}")
+print(f"Beschreibung: {vorhersage.beschreibung}")
+----
+
+=== Fortgeschrittene Techniken
+
+Du kannst die Genauigkeit der extrahierten Daten verbessern, indem du:
+
+* Detaillierte Beschreibungen für jedes Feld hinzufügst
+* Validatoren für Felder definierst
+* Beispiele für die erwarteten Werte bereitstellst
+
+[source,python]
+----
+from pydantic import BaseModel, Field, validator
+from typing import List
+
+class Rezept(BaseModel):
+    name: str = Field(description="Der Name des Gerichts")
+    zutaten: List[str] = Field(description="Liste der benötigten Zutaten")
+    zubereitungszeit: int = Field(description="Zubereitungszeit in Minuten")
+    schwierigkeitsgrad: str = Field(description="Schwierigkeitsgrad: einfach, mittel oder schwer")
+    
+    @validator('schwierigkeitsgrad')
+    def validate_schwierigkeitsgrad(cls, v):
+        allowed = ["einfach", "mittel", "schwer"]
+        if v.lower() not in allowed:
+            raise ValueError(f"Schwierigkeitsgrad muss einer der folgenden sein: {', '.join(allowed)}")
+        return v.lower()
+----
+
+==== Übung: Nachrichtenanalyse
+
+Entwickle ein Pydantic-Modell für die Analyse einer Nachricht, das folgende Informationen extrahiert:
+- Stimmung (positiv, neutral, negativ)
+- Hauptthema
+- Dringlichkeit (1-5)
+- Liste der erwähnten Personen
+
+Verwende dann PydanticAI, um diese Informationen aus einer Beispielnachricht zu extrahieren.
+
+*Lösung:*
+
+[source,python]
+----
+from pydantic import BaseModel, Field, validator
+from typing import List
+from pydantic_ai import PydanticAI
+from langchain_openai import ChatOpenAI
+
+class NachrichtenAnalyse(BaseModel):
+    stimmung: str = Field(description="Die Stimmung der Nachricht: positiv, neutral oder negativ")
+    hauptthema: str = Field(description="Das Hauptthema der Nachricht")
+    dringlichkeit: int = Field(description="Die Dringlichkeit auf einer Skala von 1 (niedrig) bis 5 (hoch)")
+    personen: List[str] = Field(description="Liste der in der Nachricht erwähnten Personen")
+    
+    @validator('stimmung')
+    def validate_stimmung(cls, v):
+        allowed = ["positiv", "neutral", "negativ"]
+        if v.lower() not in allowed:
+            raise ValueError(f"Stimmung muss eine der folgenden sein: {', '.join(allowed)}")
+        return v.lower()
+    
+    @validator('dringlichkeit')
+    def validate_dringlichkeit(cls, v):
+        if not 1 <= v <= 5:
+            raise ValueError("Dringlichkeit muss zwischen 1 und 5 liegen")
+        return v
+
+# Beispielanwendung
+llm = ChatOpenAI(model_name="gpt-3.5-turbo")
+nachricht = """Hallo Team, ich bin sehr besorgt über die Verzögerung beim Projekt. 
+Peter und Sarah haben noch nicht ihre Berichte eingereicht, und die Deadline ist morgen. 
+Bitte kümmert euch dringend darum!"""
+
+analyse = PydanticAI(llm=llm).run(NachrichtenAnalyse, nachricht)
+print(f"Stimmung: {analyse.stimmung}")
+print(f"Hauptthema: {analyse.hauptthema}")
+print(f"Dringlichkeit: {analyse.dringlichkeit}/5")
+print(f"Erwähnte Personen: {', '.join(analyse.personen)}")
+----
+
+== Erstellung markierter Anweisungen
+
+=== Was sind markierte Anweisungen?
+
+Markierte Anweisungen (annotated instructions) sind Prompts, die mit zusätzlichen Informationen angereichert werden, um dem KI-Modell zu helfen, genauere und strukturiertere Antworten zu liefern. In PydanticAI werden diese Anweisungen oft durch die Metadaten in den Pydantic-Modellen definiert.
+
+=== Implementierung
+
+Du kannst markierte Anweisungen erstellen, indem du:
+
+* Detaillierte Feldbeschreibungen verwendest
+* Beispiele für erwartete Antworten bereitstellst
+* Zusätzliche Kontext- oder Formatierungshinweise gibst
+
+[source,python]
+----
+from pydantic import BaseModel, Field
+from typing import List, Optional
+from pydantic_ai import PydanticAI
+
+class Filmkritik(BaseModel):
+    titel: str = Field(description="Der vollständige Titel des Films")
+    regisseur: str = Field(description="Name des Regisseurs")
+    erscheinungsjahr: int = Field(description="Jahr der Veröffentlichung")
+    bewertung: float = Field(
+        description="Bewertung auf einer Skala von 1 bis 10",
+        ge=1.0,  # Mindestens 1.0
+        le=10.0  # Höchstens 10.0
+    )
+    genre: List[str] = Field(description="Liste der Genres, zu denen der Film gehört")
+    zusammenfassung: str = Field(
+        description="Kurze Zusammenfassung des Films ohne Spoiler (max. 100 Wörter)"
+    )
+    staerken: List[str] = Field(description="Die Stärken des Films")
+    schwaechen: Optional[List[str]] = Field(
+        description="Die Schwächen des Films, falls vorhanden",
+        default=None
+    )
+
+# Verwende das Modell mit zusätzlichen Anweisungen
+prompt = """
+    Bitte schreibe eine Kritik für den Film 'Inception' von Christopher Nolan.
+    Gehe dabei auf die Handlung, die schauspielerische Leistung und die visuellen Effekte ein.
+"""
+
+llm = ChatOpenAI(model_name="gpt-3.5-turbo")
+kritik = PydanticAI(llm=llm).run(Filmkritik, prompt)
+----
+
+==== Übung: Reiseplanung
+
+Erstelle ein Pydantic-Modell für einen Reiseplan, das folgende Informationen enthält:
+- Reiseziel
+- Dauer in Tagen
+- Budget
+- Liste der Aktivitäten
+- Beste Reisezeit
+- Erforderliche Dokumente
+
+Verwende dann markierte Anweisungen, um einen Reiseplan für eine Woche in Japan zu erstellen.
+
+*Lösung:*
+
+[source,python]
+----
+from pydantic import BaseModel, Field
+from typing import List
+from pydantic_ai import PydanticAI
+from langchain_openai import ChatOpenAI
+
+class Reiseplan(BaseModel):
+    reiseziel: str = Field(description="Name des Reiseziels (Stadt oder Land)")
+    dauer: int = Field(description="Dauer der Reise in Tagen")
+    budget: str = Field(description="Geschätztes Budget für die Reise (z.B. '1000-1500 EUR')")
+    aktivitaeten: List[str] = Field(
+        description="Liste der empfohlenen Aktivitäten und Sehenswürdigkeiten"
+    )
+    beste_reisezeit: str = Field(
+        description="Die beste Jahreszeit für die Reise mit Begründung"
+    )
+    erforderliche_dokumente: List[str] = Field(
+        description="Liste der für die Reise erforderlichen Dokumente"
+    )
+
+# Verwende das Modell für eine Japan-Reise
+prompt = """Erstelle einen Reiseplan für eine einwöchige Reise nach Japan.
+    Ich interessiere mich für Kultur, Geschichte und lokale Küche.
+    Mein Budget ist mittel bis hoch."""
+
+llm = ChatOpenAI(model_name="gpt-3.5-turbo")
+reiseplan = PydanticAI(llm=llm).run(Reiseplan, prompt)
+
+print(f"Reiseziel: {reiseplan.reiseziel}")
+print(f"Dauer: {reiseplan.dauer} Tage")
+print(f"Budget: {reiseplan.budget}")
+print("Aktivitäten:")
+for aktivitaet in reiseplan.aktivitaeten:
+    print(f"- {aktivitaet}")
+print(f"Beste Reisezeit: {reiseplan.beste_reisezeit}")
+print("Erforderliche Dokumente:")
+for dokument in reiseplan.erforderliche_dokumente:
+    print(f"- {dokument}")
+----
+
+== Einführung in Prompt-Templates
+
+=== Was sind Prompt-Templates?
+
+Prompt-Templates sind wiederverwendbare Vorlagen für Anfragen an KI-Modelle. Sie ermöglichen es, dynamische Inhalte in vordefinierte Strukturen einzufügen, was die Konsistenz und Qualität der Antworten verbessert.
+
+=== Erstellung von Templates
+
+In PydanticAI können wir Templates mit LangChain oder direkt mit String-Formatierung erstellen:
+
+[source,python]
+----
+from langchain.prompts import PromptTemplate
+from pydantic import BaseModel, Field
+from pydantic_ai import PydanticAI
+from langchain_openai import ChatOpenAI
+
+# Definiere ein Pydantic-Modell
+class Zusammenfassung(BaseModel):
+    hauptpunkte: list[str] = Field(description="Die wichtigsten Punkte des Textes")
+    schlussfolgerung: str = Field(description="Die Hauptschlussfolgerung des Textes")
+    zielgruppe: str = Field(description="Die Zielgruppe, für die der Text geschrieben wurde")
+
+# Erstelle ein Prompt-Template
+template = PromptTemplate(
+    input_variables=["text"],
+    template="""Bitte analysiere den folgenden Text und erstelle eine strukturierte Zusammenfassung:
+
+{text}
+
+Deine Analyse sollte die Hauptpunkte, die Schlussfolgerung und die vermutliche Zielgruppe enthalten."""
+)
+
+# Verwende das Template mit einem Beispieltext
+text = """Künstliche Intelligenz revolutioniert die Art und Weise, wie wir arbeiten und leben. 
+Von der Automatisierung repetitiver Aufgaben bis hin zur Unterstützung bei komplexen Entscheidungen 
+bietet KI zahlreiche Vorteile für Unternehmen und Einzelpersonen. Allerdings müssen wir auch die 
+ethischen Implikationen und potentiellen Risiken berücksichtigen. Eine verantwortungsvolle 
+Entwicklung und Nutzung von KI-Technologien ist daher unerlässlich für eine positive Zukunft."""
+
+prompt = template.format(text=text)
+llm = ChatOpenAI(model_name="gpt-3.5-turbo")
+zusammenfassung = PydanticAI(llm=llm).run(Zusammenfassung, prompt)
+
+print("Hauptpunkte:")
+for punkt in zusammenfassung.hauptpunkte:
+    print(f"- {punkt}")
+print(f"\nSchlussfolgerung: {zusammenfassung.schlussfolgerung}")
+print(f"Zielgruppe: {zusammenfassung.zielgruppe}")
+----
+
+==== Übung: Produktbeschreibung
+
+Erstelle ein Prompt-Template für die Generierung von Produktbeschreibungen. Das Template sollte folgende Variablen enthalten:
+- Produktname
+- Kategorie
+- Hauptmerkmale
+- Zielgruppe
+
+Verwende dann PydanticAI, um eine strukturierte Produktbeschreibung zu erstellen.
+
+*Lösung:*
+
+[source,python]
+----
+from langchain.prompts import PromptTemplate
+from pydantic import BaseModel, Field
+from typing import List
+from pydantic_ai import PydanticAI
+from langchain_openai import ChatOpenAI
+
+class Produktbeschreibung(BaseModel):
+    kurzbeschreibung: str = Field(description="Kurze, prägnante Beschreibung des Produkts (1-2 Sätze)")
+    vorteile: List[str] = Field(description="Die wichtigsten Vorteile des Produkts")
+    anwendungsfaelle: List[str] = Field(description="Typische Anwendungsfälle für das Produkt")
+    verkaufsargumente: List[str] = Field(description="Überzeugende Verkaufsargumente")
+    call_to_action: str = Field(description="Aufforderung zum Handeln (Call to Action)")
+
+# Erstelle ein Prompt-Template
+template = PromptTemplate(
+    input_variables=["produktname", "kategorie", "merkmale", "zielgruppe"],
+    template="""Erstelle eine überzeugende Produktbeschreibung für folgendes Produkt:
+
+Produktname: {produktname}
+Kategorie: {kategorie}
+Hauptmerkmale: {merkmale}
+Zielgruppe: {zielgruppe}
+
+Die Beschreibung sollte informativ, ansprechend und überzeugend sein."""
+)
+
+# Verwende das Template mit Beispieldaten
+produktdaten = {
+    "produktname": "EcoTech Wasserfilter Pro",
+    "kategorie": "Haushaltsgeräte",
+    "merkmale": "Mehrschichtiges Filtersystem, Aktivkohlefilter, Langlebigkeit von bis zu 6 Monaten, Kompaktes Design",
+    "zielgruppe": "Umweltbewusste Haushalte, Familien mit Kindern, Gesundheitsorientierte Verbraucher"
+}
+
+prompt = template.format(**produktdaten)
+llm = ChatOpenAI(model_name="gpt-3.5-turbo")
+beschreibung = PydanticAI(llm=llm).run(Produktbeschreibung, prompt)
+
+print(f"Kurzbeschreibung: {beschreibung.kurzbeschreibung}\n")
+print("Vorteile:")
+for vorteil in beschreibung.vorteile:
+    print(f"- {vorteil}")
+print("\nAnwendungsfälle:")
+for anwendung in beschreibung.anwendungsfaelle:
+    print(f"- {anwendung}")
+print("\nVerkaufsargumente:")
+for argument in beschreibung.verkaufsargumente:
+    print(f"- {argument}")
+print(f"\nCall to Action: {beschreibung.call_to_action}")
+----
+
+== Vorbereitung eines Chat-Templates
+
+=== Chat-Templates vs. einfache Templates
+
+Chat-Templates sind speziell für die Arbeit mit Chat-Modellen konzipiert und berücksichtigen die Rollen (System, Benutzer, Assistent) in der Konversation. Im Gegensatz zu einfachen Templates ermöglichen sie eine natürlichere Interaktion mit dem Modell.
+
+=== Implementierung von Chat-Templates
+
+[source,python]
+----
+from langchain.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
+from pydantic import BaseModel, Field
+from typing import List
+from pydantic_ai import PydanticAI
+from langchain_openai import ChatOpenAI
+
+# Definiere ein Pydantic-Modell
+class Buchempfehlung(BaseModel):
+    titel: str = Field(description="Der vollständige Titel des Buches")
+    autor: str = Field(description="Name des Autors/der Autorin")
+    genre: str = Field(description="Das Genre des Buches")
+    zusammenfassung: str = Field(description="Kurze Zusammenfassung des Buchinhalts")
+    zielgruppe: str = Field(description="Für wen ist das Buch geeignet")
+    seitenzahl: int = Field(description="Ungefähre Anzahl der Seiten")
+
+# Erstelle ein Chat-Template
+system_template = """Du bist ein erfahrener Literaturexperte, der personalisierte Buchempfehlungen gibt.
+Deine Aufgabe ist es, basierend auf den Interessen und Vorlieben des Benutzers ein passendes Buch zu empfehlen.
+"""
+
+human_template = """Ich suche nach einem neuen Buch zum Lesen. Ich mag {genre} und habe {vorherige_buecher} gelesen und gemocht.
+Ich suche nach etwas {stimmung} mit {thema} als Thema. Kannst du mir ein Buch empfehlen?"""
+
+system_message_prompt = SystemMessagePromptTemplate.from_template(system_template)
+human_message_prompt = HumanMessagePromptTemplate.from_template(human_template)
+
+chat_prompt = ChatPromptTemplate.from_messages([system_message_prompt, human_message_prompt])
+
+# Verwende das Chat-Template
+benutzer_praeferenzen = {
+    "genre": "Science-Fiction",
+    "vorherige_buecher": "'Dune' von Frank Herbert und 'Der Marsianer' von Andy Weir",
+    "stimmung": "nachdenklich und philosophisch",
+    "thema": "künstliche Intelligenz und Bewusstsein"
+}
+
+prompt = chat_prompt.format_messages(**benutzer_praeferenzen)
+llm = ChatOpenAI(model_name="gpt-3.5-turbo")
+empfehlung = PydanticAI(llm=llm).run(Buchempfehlung, prompt)
+
+print(f"Titel: {empfehlung.titel}")
+print(f"Autor: {empfehlung.autor}")
+print(f"Genre: {empfehlung.genre}")
+print(f"Zusammenfassung: {empfehlung.zusammenfassung}")
+print(f"Zielgruppe: {empfehlung.zielgruppe}")
+print(f"Seitenzahl: {empfehlung.seitenzahl}")
+----
+
+==== Übung: Interviewfragen
+
+Erstelle ein Chat-Template für die Generierung von Interviewfragen. Das Template sollte folgende Variablen enthalten:
+- Position (z.B. "Software-Entwickler")
+- Erfahrungsstufe (z.B. "Junior", "Senior")
+- Technische Fähigkeiten
+- Soft Skills
+
+Verwende dann PydanticAI, um strukturierte Interviewfragen zu erstellen.
+
+*Lösung:*
+
+[source,python]
+----
+from langchain.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
+from pydantic import BaseModel, Field
+from typing import List, Dict
+from pydantic_ai import PydanticAI
+from langchain_openai import ChatOpenAI
+
+class Interviewfragen(BaseModel):
+    technische_fragen: List[Dict[str, str]] = Field(
+        description="Liste der technischen Fragen mit Frage und erwarteter Antwort"
+    )
+    soft_skill_fragen: List[Dict[str, str]] = Field(
+        description="Liste der Soft-Skill-Fragen mit Frage und erwarteter Antwort"
+    )
+    situationsfragen: List[Dict[str, str]] = Field(
+        description="Liste der situationsbezogenen Fragen mit Frage und erwarteter Antwort"
+    )
+    abschlussfrage: str = Field(
+        description="Eine gute Abschlussfrage, um das Interview zu beenden"
+    )
+
+# Erstelle ein Chat-Template
+system_template = """Du bist ein erfahrener Personalverantwortlicher, der Interviewfragen für technische Positionen erstellt.
+Deine Aufgabe ist es, basierend auf der Position, Erfahrungsstufe und den erforderlichen Fähigkeiten relevante Interviewfragen zu generieren.
+"""
+
+human_template = """Ich benötige Interviewfragen für die Position '{position}' auf {erfahrungsstufe}-Level.
+Die Person sollte folgende technische Fähigkeiten haben: {technische_faehigkeiten}.
+Zudem sind diese Soft Skills wichtig: {soft_skills}.
+Bitte erstelle eine strukturierte Liste von Fragen für das Interview."""
+
+system_message_prompt = SystemMessagePromptTemplate.from_template(system_template)
+human_message_prompt = HumanMessagePromptTemplate.from_template(human_template)
+
+chat_prompt = ChatPromptTemplate.from_messages([system_message_prompt, human_message_prompt])
+
+# Verwende das Chat-Template
+position_details = {
+    "position": "Full-Stack-Entwickler",
+    "erfahrungsstufe": "Senior",
+    "technische_faehigkeiten": "JavaScript, React, Node.js, SQL, Docker",
+    "soft_skills": "Teamarbeit, Kommunikation, Problemlösung, Zeitmanagement"
+}
+
+prompt = chat_prompt.format_messages(**position_details)
+llm = ChatOpenAI(model_name="gpt-3.5-turbo")
+fragen = PydanticAI(llm=llm).run(Interviewfragen, prompt)
+
+print("Technische Fragen:")
+for i, frage in enumerate(fragen.technische_fragen, 1):
+    print(f"\n{i}. Frage: {frage['Frage']}")
+    print(f"   Erwartete Antwort: {frage['erwarteter Antwort']}")
+
+print("\nSoft-Skill-Fragen:")
+for i, frage in enumerate(fragen.soft_skill_fragen, 1):
+    print(f"\n{i}. Frage: {frage['Frage']}")
+    print(f"   Erwartete Antwort: {frage['erwarteter Antwort']}")
+
+print("\nSituationsfragen:")
+for i, frage in enumerate(fragen.situationsfragen, 1):
+    print(f"\n{i}. Frage: {frage['Frage']}")
+    print(f"   Erwartete Antwort: {frage['erwarteter Antwort']}")
+
+print(f"\nAbschlussfrage: {fragen.abschlussfrage}")
+----
+
+== Verkettung von Runnables
+
+=== Was sind Runnables?
+
+Runnables sind in LangChain Komponenten, die eine einheitliche Schnittstelle für die Verkettung von Operationen bieten. Sie ermöglichen es, komplexe Workflows zu erstellen, indem verschiedene Schritte miteinander verbunden werden.
+
+=== Verkettung mit PydanticAI
+
+PydanticAI kann in Runnable-Ketten integriert werden, um strukturierte Daten aus den Antworten von Sprachmodellen zu extrahieren:
+
+[source,python]
+----
+from langchain.prompts import ChatPromptTemplate
+from langchain.schema.runnable import RunnablePassthrough
+from pydantic import BaseModel, Field
+from typing import List
+from pydantic_ai import PydanticAI
+from langchain_openai import ChatOpenAI
+
+# Definiere ein Pydantic-Modell
+class Nachrichtenartikel(BaseModel):
+    titel: str = Field(description="Der Titel des Artikels")
+    zusammenfassung: str = Field(description="Eine kurze Zusammenfassung des Artikels")
+    schlagworte: List[str] = Field(description="Relevante Schlagworte für den Artikel")
+
+# Erstelle ein Prompt-Template
+template = ChatPromptTemplate.from_template(
+    """Schreibe einen kurzen Nachrichtenartikel über das folgende Thema: {thema}.
+    Der Artikel sollte informativ und objektiv sein."""
+)
+
+# Erstelle das Sprachmodell
+llm = ChatOpenAI(model_name="gpt-3.5-turbo")
+
+# Erstelle eine Runnable-Kette
+kette = (
+    {"thema": RunnablePassthrough()}
+    | template
+    | llm
+    | PydanticAI(Nachrichtenartikel)
+)
+
+# Verwende die Kette
+ergebnis = kette.invoke("Die neuesten Entwicklungen in der Quantencomputer-Forschung")
+
+print(f"Titel: {ergebnis.titel}")
+print(f"Zusammenfassung: {ergebnis.zusammenfassung}")
+print("Schlagworte:")
+for schlagwort in ergebnis.schlagworte:
+    print(f"- {schlagwort}")
+----
+
+==== Übung: Mehrstufige Analyse
+
+Erstelle eine Runnable-Kette, die folgende Schritte ausführt:
+1. Einen Text zusammenfasst
+2. Die Stimmung der Zusammenfassung analysiert
+3. Verbesserungsvorschläge für den Text generiert
+
+Verwende PydanticAI, um die Ergebnisse jedes Schritts zu strukturieren.
+
+*Lösung:*
+
+[source,python]
+----
+from langchain.prompts import ChatPromptTemplate
+from langchain.schema.runnable import RunnablePassthrough, RunnableLambda
+from pydantic import BaseModel, Field
+from typing import List
+from pydantic_ai import PydanticAI
+from langchain_openai import ChatOpenAI
+
+# Definiere Pydantic-Modelle für jeden Schritt
+class Zusammenfassung(BaseModel):
+    text: str = Field(description="Die Zusammenfassung des Originaltextes")
+
+class Stimmungsanalyse(BaseModel):
+    stimmung: str = Field(description="Die allgemeine Stimmung des Textes (positiv, neutral, negativ)")
+    tonalitaet: str = Field(description="Die Tonalität des Textes (formal, informell, technisch, etc.)")
+    emotionen: List[str] = Field(description="Liste der im Text erkennbaren Emotionen")
+
+class Verbesserungsvorschlaege(BaseModel):
+    struktur: List[str] = Field(description="Vorschläge zur Verbesserung der Textstruktur")
+    sprache: List[str] = Field(description="Vorschläge zur Verbesserung der Sprache")
+    inhalt: List[str] = Field(description="Vorschläge zur Verbesserung des Inhalts")
+
+# Erstelle Prompt-Templates
+zusammenfassung_template = ChatPromptTemplate.from_template(
+    """Fasse den folgenden Text kurz und prägnant zusammen:
+
+    {text}
+    """
+)
+
+stimmung_template = ChatPromptTemplate.from_template(
+    """Analysiere die Stimmung des folgenden Textes:
+
+    {zusammenfassung}
+    """
+)
+
+verbesserung_template = ChatPromptTemplate.from_template(
+    """Basierend auf der folgenden Zusammenfassung und Stimmungsanalyse, 
+    gib Vorschläge zur Verbesserung des Originaltextes:
+
+    Zusammenfassung: {zusammenfassung}
+    Stimmung: {stimmung}
+    """
+)
+
+# Erstelle das Sprachmodell
+llm = ChatOpenAI(model_name="gpt-3.5-turbo")
+
+# Erstelle die Runnable-Kette
+def extrahiere_text(ergebnis):
+    return ergebnis.text
+
+def kombiniere_daten(inputs):
+    return {
+        "zusammenfassung": inputs["zusammenfassung"].text,
+        "stimmung": f"Stimmung: {inputs['stimmung'].stimmung}, Tonalität: {inputs['stimmung'].tonalitaet}"
+    }
+
+# Schritt 1: Zusammenfassung
+zusammenfassung_kette = zusammenfassung_template | llm | PydanticAI(Zusammenfassung)
+
+# Schritt 2: Stimmungsanalyse
+stimmung_kette = (
+    {"zusammenfassung": RunnableLambda(extrahiere_text)}
+    | stimmung_template
+    | llm
+    | PydanticAI(Stimmungsanalyse)
+)
+
+# Schritt 3: Verbesserungsvorschläge
+verbesserung_kette = (
+    RunnableLambda(kombiniere_daten)
+    | verbesserung_template
+    | llm
+    | PydanticAI(Verbesserungsvorschlaege)
+)
+
+# Kombiniere alle Ketten
+kette = {
+    "zusammenfassung": zusammenfassung_kette,
+    "stimmung": stimmung_kette,
+    "verbesserung": verbesserung_kette
+}
+
+# Verwende die Kette
+text = """Die künstliche Intelligenz hat in den letzten Jahren enorme Fortschritte gemacht. 
+Viele Unternehmen setzen bereits KI-Systeme ein, um ihre Prozesse zu optimieren und neue 
+Produkte zu entwickeln. Allerdings gibt es auch Bedenken hinsichtlich der Auswirkungen 
+auf den Arbeitsmarkt und ethische Fragen, die noch nicht vollständig geklärt sind."""
+
+ergebnis = kette.invoke({"text": text})
+
+print("Zusammenfassung:")
+print(ergebnis["zusammenfassung"].text)
+print("\nStimmungsanalyse:")
+print(f"Stimmung: {ergebnis['stimmung'].stimmung}")
+print(f"Tonalität: {ergebnis['stimmung'].tonalitaet}")
+print("Emotionen:")
+for emotion in ergebnis["stimmung"].emotionen:
+    print(f"- {emotion}")
+print("\nVerbesserungsvorschläge:")
+print("Struktur:")
+for vorschlag in ergebnis["verbesserung"].struktur:
+    print(f"- {vorschlag}")
+print("Sprache:")
+for vorschlag in ergebnis["verbesserung"].sprache:
+    print(f"- {vorschlag}")
+print("Inhalt:")
+for vorschlag in ergebnis["verbesserung"].inhalt:
+    print(f"- {vorschlag}")
+----
+
+== Inspektion Ihrer Kette
+
+=== Warum ist Inspektion wichtig?
+
+Die Inspektion von LangChain-Ketten ist wichtig, um zu verstehen, wie Daten durch die verschiedenen Komponenten fließen und wo möglicherweise Probleme auftreten können. Dies hilft bei der Fehlersuche und Optimierung der Ketten.
+
+=== Implementierung der Inspektion
+
+LangChain bietet verschiedene Möglichkeiten zur Inspektion von Ketten, darunter Callbacks und Debug-Ausgaben:
+
+[source,python]
+----
+from langchain.prompts import ChatPromptTemplate
+from langchain.schema.runnable import RunnablePassthrough
+from langchain.callbacks import ConsoleCallbackHandler
+from pydantic import BaseModel, Field
+from typing import List
+from pydantic_ai import PydanticAI
+from langchain_openai import ChatOpenAI
+
+# Definiere ein Pydantic-Modell
+class Produktbewertung(BaseModel):
+    name: str = Field(description="Name des Produkts")
+    bewertung: int = Field(description="Bewertung von 1 bis 5 Sternen")
+    staerken: List[str] = Field(description="Stärken des Produkts")
+    schwaechen: List[str] = Field(description="Schwächen des Produkts")
+    fazit: str = Field(description="Zusammenfassendes Fazit zur Produktbewertung")
+
+# Erstelle ein Prompt-Template
+template = ChatPromptTemplate.from_template(
+    """Bewerte das folgende Produkt basierend auf der Beschreibung: {produkt_beschreibung}.
+    Deine Bewertung sollte objektiv und ausgewogen sein."""
+)
+
+# Erstelle das Sprachmodell mit Callbacks für die Inspektion
+llm = ChatOpenAI(
+    model_name="gpt-3.5-turbo",
+    callbacks=[ConsoleCallbackHandler()]
+)
+
+# Erstelle eine Runnable-Kette mit Verbose-Modus
+kette = (
+    {"produkt_beschreibung": RunnablePassthrough()}
+    | template
+    | llm
+    | PydanticAI(Produktbewertung)
+).with_verbose(True)  # Aktiviere den Verbose-Modus
+
+# Verwende die Kette mit Inspektion
+produkt_beschreibung = """Smartphone XYZ: 6,5-Zoll-OLED-Display, 128 GB Speicher, 
+12 MP Hauptkamera, 8 MP Frontkamera, 5000 mAh Akku, Android 13, 
+Fingerabdrucksensor, Gesichtserkennung, wasserdicht nach IP68."""
+
+# Führe die Kette aus und inspiziere den Ablauf
+ergebnis = kette.invoke(produkt_beschreibung)
+
+print(f"\nName: {ergebnis.name}")
+print(f"Bewertung: {ergebnis.bewertung}/5 Sterne")
+print("Stärken:")
+for staerke in ergebnis.staerken:
+    print(f"- {staerke}")
+print("Schwächen:")
+for schwaeche in ergebnis.schwaechen:
+    print(f"- {schwaeche}")
+print(f"Fazit: {ergebnis.fazit}")
+----
+
+==== Übung: Fehlersuche
+
+Erstelle eine Kette mit PydanticAI, die absichtlich einen Fehler enthält (z.B. ein Feld mit einem falschen Datentyp), und verwende die Inspektion, um den Fehler zu identifizieren und zu beheben.
+
+*Lösung:*
+
+[source,python]
+----
+from langchain.prompts import ChatPromptTemplate
+from langchain.schema.runnable import RunnablePassthrough
+from langchain.callbacks import ConsoleCallbackHandler
+from pydantic import BaseModel, Field, validator
+from typing import List
+from pydantic_ai import PydanticAI
+from langchain_openai import ChatOpenAI
+import logging
+
+# Konfiguriere Logging für die Fehlersuche
+logging.basicConfig(level=logging.INFO)
+
+# Definiere ein Pydantic-Modell mit einem problematischen Feld
+class Rezeptanalyse(BaseModel):
+    name: str = Field(description="Name des Rezepts")
+    zubereitungszeit: int = Field(description="Zubereitungszeit in Minuten")  # Erwartet eine Zahl
+    schwierigkeitsgrad: str = Field(description="Schwierigkeitsgrad: einfach, mittel oder schwer")
+    zutaten: List[str] = Field(description="Liste der benötigten Zutaten")
+    
+    # Validator für den Schwierigkeitsgrad
+    @validator('schwierigkeitsgrad')
+    def validate_schwierigkeitsgrad(cls, v):
+        allowed = ["einfach", "mittel", "schwer"]
+        if v.lower() not in allowed:
+            raise ValueError(f"Schwierigkeitsgrad muss einer der folgenden sein: {', '.join(allowed)}")
+        return v.lower()
+
+# Erstelle ein Prompt-Template
+template = ChatPromptTemplate.from_template(
+    """Analysiere das folgende Rezept: {rezept}.
+    Gib den Namen, die Zubereitungszeit, den Schwierigkeitsgrad und die Zutaten an."""
+)
+
+# Erstelle das Sprachmodell mit Callbacks für die Inspektion
+llm = ChatOpenAI(
+    model_name="gpt-3.5-turbo",
+    callbacks=[ConsoleCallbackHandler()]
+)
+
+# Erstelle eine Runnable-Kette mit Fehlerbehandlung
+def handle_error(error):
+    print(f"Fehler aufgetreten: {error}")
+    print("Versuche, das Problem zu beheben...")
+    
+    # Analysiere den Fehler
+    if "zubereitungszeit" in str(error).lower():
+        print("Problem mit dem Feld 'zubereitungszeit' erkannt.")
+        print("Mögliche Lösung: Stelle sicher, dass die Zubereitungszeit als Zahl angegeben wird.")
+    
+    # Weitere Fehleranalysen könnten hier hinzugefügt werden
+    
+    return {"name": "Fehler bei der Analyse", "zubereitungszeit": 0, "schwierigkeitsgrad": "mittel", "zutaten": []}
+
+kette = (
+    {"rezept": RunnablePassthrough()}
+    | template
+    | llm
+    | PydanticAI(Rezeptanalyse)
+).with_verbose(True)  # Aktiviere den Verbose-Modus
+
+# Füge Fehlerbehandlung hinzu
+kette_mit_fehlerbehandlung = kette.with_fallbacks([handle_error])
+
+# Verwende die Kette mit einem problematischen Rezept
+rezept = """Spaghetti Carbonara
+
+Zubereitungszeit: etwa eine halbe Stunde
+Schwierigkeitsgrad: mittel
+
+Zutaten:
+- 400g Spaghetti
+- 200g Pancetta oder Guanciale
+- 4 Eier
+- 100g Pecorino Romano
+- Salz und Pfeffer
+
+Zubereitung: Nudeln kochen, Pancetta anbraten, mit Eiern und Käse vermengen."""
+
+try:
+    ergebnis = kette.invoke(rezept)
+    print(f"\nName: {ergebnis.name}")
+    print(f"Zubereitungszeit: {ergebnis.zubereitungszeit} Minuten")
+    print(f"Schwierigkeitsgrad: {ergebnis.schwierigkeitsgrad}")
+    print("Zutaten:")
+    for zutat in ergebnis.zutaten:
+        print(f"- {zutat}")
+except Exception as e:
+    print(f"Fehler: {e}")
+    print("Versuche mit Fehlerbehandlung...")
+    ergebnis = kette_mit_fehlerbehandlung.invoke(rezept)
+    print(f"\nName: {ergebnis.name}")
+    print(f"Zubereitungszeit: {ergebnis.zubereitungszeit} Minuten")
+    print(f"Schwierigkeitsgrad: {ergebnis.schwierigkeitsgrad}")
+    print("Zutaten:")
+    for zutat in ergebnis.zutaten:
+        print(f"- {zutat}")
+----
+
+== Erweiterung Ihrer Kette
+
+=== Hinzufügen von benutzerdefinierten Komponenten
+
+LangChain-Ketten können mit benutzerdefinierten Komponenten erweitert werden, um spezifische Anforderungen zu erfüllen. Dies kann durch die Erstellung eigener Runnable-Klassen oder durch die Verwendung von Lambda-Funktionen erfolgen.
+
+=== Implementierung von Erweiterungen
+
+[source,python]
+----
+from langchain.prompts import ChatPromptTemplate
+from langchain.schema.runnable import RunnablePassthrough, RunnableLambda
+from pydantic import BaseModel, Field
+from typing import List, Dict, Any
+from pydantic_ai import PydanticAI
+from langchain_openai import ChatOpenAI
+
+# Definiere ein Pydantic-Modell
+class Nachrichtenanalyse(BaseModel):
+    titel: str = Field(description="Der Titel der Nachricht")
+    zusammenfassung: str = Field(description="Eine kurze Zusammenfassung der Nachricht")
+    stimmung: str = Field(description="Die Stimmung der Nachricht: positiv, neutral oder negativ")
+    themen: List[str] = Field(description="Die wichtigsten Themen der Nachricht")
+
+# Benutzerdefinierte Komponente: Stimmungsanalyse
+def stimmungsanalyse_verbessern(ergebnis: Dict[str, Any]) -> Dict[str, Any]:
+    """Verbessert die Stimmungsanalyse mit zusätzlichen Informationen."""
+    # Extrahiere die ursprüngliche Stimmung
+    stimmung = ergebnis["stimmung"].lower()
+    
+    # Füge zusätzliche Informationen hinzu
+    if stimmung == "positiv":
+        ergebnis["stimmung_details"] = "Die Nachricht hat einen optimistischen Ton."
+    elif stimmung == "negativ":
+        ergebnis["stimmung_details"] = "Die Nachricht hat einen pessimistischen Ton."
+    else:  # neutral
+        ergebnis["stimmung_details"] = "Die Nachricht hat einen ausgewogenen Ton."
+    
+    return ergebnis
+
+# Benutzerdefinierte Komponente: Themenanalyse
+def themen_kategorisieren(ergebnis: Dict[str, Any]) -> Dict[str, Any]:
+    """Kategorisiert die Themen in verschiedene Bereiche."""
+    # Definiere Kategorien und Schlüsselwörter
+    kategorien = {
+        "Politik": ["regierung", "politik", "wahl", "partei", "parlament"],
+        "Wirtschaft": ["wirtschaft", "finanzen", "markt", "unternehmen", "aktien"],
+        "Technologie": ["technologie", "tech", "digital", "software", "hardware", "ki", "internet"],
+        "Gesellschaft": ["gesellschaft", "sozial", "bildung", "gesundheit", "kultur"],
+        "Umwelt": ["umwelt", "klima", "natur", "nachhaltigkeit", "energie"]
+    }
+    
+    # Initialisiere Kategorien
+    ergebnis["themen_kategorien"] = {}
+    
+    # Kategorisiere die Themen
+    for thema in ergebnis["themen"]:
+        thema_lower = thema.lower()
+        for kategorie, schluesselwoerter in kategorien.items():
+            if any(wort in thema_lower for wort in schluesselwoerter):
+                if kategorie not in ergebnis["themen_kategorien"]:
+                    ergebnis["themen_kategorien"][kategorie] = []
+                ergebnis["themen_kategorien"][kategorie].append(thema)
+    
+    return ergebnis
+
+# Erstelle ein Prompt-Template
+template = ChatPromptTemplate.from_template(
+    """Analysiere die folgende Nachricht und extrahiere den Titel, eine kurze Zusammenfassung, 
+    die Stimmung und die wichtigsten Themen:
+
+    {nachricht}
+    """
+)
+
+# Erstelle das Sprachmodell
+llm = ChatOpenAI(model_name="gpt-3.5-turbo")
+
+# Erstelle eine erweiterte Runnable-Kette
+kette = (
+    {"nachricht": RunnablePassthrough()}
+    | template
+    | llm
+    | PydanticAI(Nachrichtenanalyse)
+    | RunnableLambda(stimmungsanalyse_verbessern)  # Füge die Stimmungsanalyse-Komponente hinzu
+    | RunnableLambda(themen_kategorisieren)  # Füge die Themenanalyse-Komponente hinzu
+)
+
+# Verwende die erweiterte Kette
+nachricht = """Die Europäische Kommission hat heute neue Richtlinien für den Einsatz von 
+künstlicher Intelligenz vorgestellt. Die Regelungen sollen sicherstellen, dass KI-Systeme 
+transparent, sicher und ethisch sind. Unternehmen begrüßen die Klarheit, während 
+Datenschutzexperten vor möglichen Lücken warnen."""
+
+ergebnis = kette.invoke(nachricht)
+
+print(f"Titel: {ergebnis['titel']}")
+print(f"Zusammenfassung: {ergebnis['zusammenfassung']}")
+print(f"Stimmung: {ergebnis['stimmung']}")
+print(f"Stimmungsdetails: {ergebnis['stimmung_details']}")
+print("Themen:")
+for thema in ergebnis["themen"]:
+    print(f"- {thema}")
+print("\nThemen nach Kategorien:")
+for kategorie, themen in ergebnis["themen_kategorien"].items():
+    print(f"{kategorie}:")
+    for thema in themen:
+        print(f"- {thema}")
+----
+
+== Fragen mit Kontext stellen
+
+=== Warum ist Kontext wichtig?
+
+Kontext ist entscheidend für die Qualität der Antworten von KI-Modellen. Durch die Bereitstellung relevanter Informationen können die Modelle präzisere und nützlichere Antworten liefern. In PydanticAI kann Kontext verwendet werden, um strukturierte Daten aus komplexen Szenarien zu extrahieren.
+
+=== Implementierung von Kontext
+
+[source,python]
+----
+from langchain.prompts import ChatPromptTemplate
+from langchain.schema.runnable import RunnablePassthrough
+from pydantic import BaseModel, Field
+from typing import List
+from pydantic_ai import PydanticAI
+from langchain_openai import ChatOpenAI
+
+# Definiere ein Pydantic-Modell für die Antwort
+class Antwort(BaseModel):
+    antwort: str = Field(description="Die Antwort auf die Frage")
+    quellen: List[str] = Field(description="Die Quellen, die zur Beantwortung der Frage verwendet wurden")
+    sicherheit: int = Field(description="Die Sicherheit der Antwort auf einer Skala von 1 bis 10")
+
+# Erstelle ein Prompt-Template mit Kontext
+template = ChatPromptTemplate.from_template(
+    """Beantworte die folgende Frage basierend auf dem bereitgestellten Kontext:
+
+    Kontext:
+    {kontext}
+
+    Frage:
+    {frage}
+
+    Gib eine präzise Antwort und liste die Quellen auf, die du zur Beantwortung verwendet hast.
+    Gib auch an, wie sicher du dir bei deiner Antwort bist (1-10)."""
+)
+
+# Erstelle das Sprachmodell
+llm = ChatOpenAI(model_name="gpt-3.5-turbo")
+
+# Erstelle eine Runnable-Kette
+def combine_inputs(inputs):
+    return {
+        "kontext": inputs["kontext"],
+        "frage": inputs["frage"]
+    }
+
+kette = (
+    RunnableLambda(combine_inputs)
+    | template
+    | llm
+    | PydanticAI(Antwort)
+)
+
+# Verwende die Kette mit Kontext
+kontext = """
+PydanticAI ist eine Bibliothek, die Pydantic mit KI-Modellen verbindet. 
+Sie wurde 2023 entwickelt und ermöglicht die Extraktion strukturierter Daten aus LLM-Antworten.
+Die Hauptvorteile sind:
+1. Typsicherheit durch Pydantic-Modelle
+2. Einfache Integration mit LangChain und anderen KI-Bibliotheken
+3. Robuste Fehlerbehandlung
+4. Unterstützung für verschiedene LLM-Anbieter wie OpenAI, Anthropic und Google
+
+Die aktuelle Version ist 0.2.0 und wurde im März 2024 veröffentlicht.
+"""
+
+frage = "Wann wurde PydanticAI entwickelt und was sind die Hauptvorteile?"
+
+ergebnis = kette.invoke({"kontext": kontext, "frage": frage})
+
+print(f"Antwort: {ergebnis.antwort}")
+print("\nQuellen:")
+for quelle in ergebnis.quellen:
+    print(f"- {quelle}")
+print(f"\nSicherheit: {ergebnis.sicherheit}/10")
+----
+
+==== Übung: Dokumentenanalyse
+
+Erstelle eine Kette, die mehrere Dokumente als Kontext verwendet, um eine Frage zu beantworten. Die Antwort sollte die relevanten Dokumente als Quellen angeben.
+
+*Lösung:*
+
+[source,python]
+----
+from langchain.prompts import ChatPromptTemplate
+from langchain.schema.runnable import RunnablePassthrough, RunnableLambda
+from pydantic import BaseModel, Field
+from typing import List, Dict
+from pydantic_ai import PydanticAI
+from langchain_openai import ChatOpenAI
+
+# Definiere ein Pydantic-Modell für die Antwort
+class DokumentenAntwort(BaseModel):
+    antwort: str = Field(description="Die Antwort auf die Frage")
+    relevante_dokumente: List[str] = Field(description="Die Dokumente, die für die Antwort relevant sind")
+    fehlende_informationen: List[str] = Field(description="Informationen, die zur vollständigen Beantwortung fehlen")
+
+# Beispieldokumente
+dokumente = {
+    "dok1": "PydanticAI wurde 2023 entwickelt und ist eine Bibliothek zur Extraktion strukturierter Daten aus LLM-Antworten.",
+    "dok2": "Die Hauptvorteile von PydanticAI sind Typsicherheit, einfache Integration und robuste Fehlerbehandlung.",
+    "dok3": "PydanticAI unterstützt verschiedene LLM-Anbieter wie OpenAI, Anthropic und Google.",
+    "dok4": "Die aktuelle Version von PydanticAI ist 0.2.0 und wurde im März 2024 veröffentlicht.",
+    "dok5": "Python ist eine vielseitige Programmiersprache, die in den 1990er Jahren entwickelt wurde."
+}
+
+# Funktion zur Auswahl relevanter Dokumente (vereinfachte Version)
+def dokumente_auswaehlen(frage: str) -> List[Dict[str, str]]:
+    """Wählt Dokumente aus, die für die Frage relevant sein könnten."""
+    relevante_dokumente = []
+    
+    # Einfache Schlüsselwortsuche (in der Praxis würde man Embeddings verwenden)
+    schluesselbegriffe = frage.lower().split()
+    
+    for dok_id, inhalt in dokumente.items():
+        if any(begriff in inhalt.lower() for begriff in schluesselbegriffe):
+            relevante_dokumente.append({"id": dok_id, "inhalt": inhalt})
+    
+    return relevante_dokumente
+
+# Erstelle ein Prompt-Template mit Kontext
+template = ChatPromptTemplate.from_template(
+    """Beantworte die folgende Frage basierend auf den bereitgestellten Dokumenten:
+
+    Dokumente:
+    {dokumente}
+
+    Frage:
+    {frage}
+
+    Gib eine präzise Antwort, liste die relevanten Dokumente auf und gib an, 
+    welche Informationen möglicherweise fehlen, um die Frage vollständig zu beantworten."""
+)
+
+# Erstelle das Sprachmodell
+llm = ChatOpenAI(model_name="gpt-3.5-turbo")
+
+# Funktion zur Vorbereitung der Eingabe
+def prepare_input(inputs):
+    frage = inputs["frage"]
+    relevante_dokumente = dokumente_auswaehlen(frage)
+    
+    # Formatiere die Dokumente für das Prompt
+    dokumente_text = ""
+    for dok in relevante_dokumente:
+        dokumente_text += f"[{dok['id']}]: {dok['inhalt']}\n"
+    
+    return {
+        "dokumente": dokumente_text,
+        "frage": frage
+    }
+
+# Erstelle eine Runnable-Kette
+kette = (
+    RunnableLambda(prepare_input)
+    | template
+    | llm
+    | PydanticAI(DokumentenAntwort)
+)
+
+# Verwende die Kette mit einer Frage
+frage = "Was sind die Hauptvorteile von PydanticAI und wann wurde es veröffentlicht?"
+
+ergebnis = kette.invoke({"frage": frage})
+
+print(f"Antwort: {ergebnis.antwort}\n")
+print("Relevante Dokumente:")
+for dok in ergebnis.relevante_dokumente:
+    print(f"- {dok}")
+print("\nFehlende Informationen:")
+for info in ergebnis.fehlende_informationen:
+    print(f"- {info}")
+----
+
+== Zusammenfassung
+
+In diesem Leitfaden haben wir die Grundlagen von PydanticAI kennengelernt und verschiedene Anwendungsfälle erkundet. Wir haben gesehen, wie PydanticAI die Extraktion strukturierter Daten aus LLM-Antworten ermöglicht und wie es mit anderen Bibliotheken wie LangChain integriert werden kann.
+
+Die wichtigsten Punkte, die wir behandelt haben, sind:
+
+1. **Grundlagen von PydanticAI**: Definition, Installation und Konfiguration
+2. **Strukturierte Datenextraktion**: Verwendung von Pydantic-Modellen zur Extraktion und Validierung von Daten aus LLM-Antworten
+3. **Prompt-Templates**: Erstellung und Verwendung von Templates für konsistente Anfragen
+4. **Chat-Templates**: Spezialisierte Templates für die Arbeit mit Chat-Modellen
+5. **Verkettung von Runnables**: Erstellung komplexer Workflows durch die Verkettung verschiedener Komponenten
+6. **Inspektion und Fehlersuche**: Methoden zur Überwachung und Fehlersuche in Ketten
+7. **Erweiterung von Ketten**: Hinzufügen benutzerdefinierter Komponenten zur Erweiterung der Funktionalität
+8. **Kontextbasierte Fragen**: Verwendung von Kontext zur Verbesserung der Antwortqualität
+
+Durch die Kombination dieser Konzepte können Sie leistungsfähige Anwendungen erstellen, die strukturierte Daten aus natürlicher Sprache extrahieren und verarbeiten.
+
+== Weiterführende Ressourcen
+
+* https://github.com/pydantic/pydantic-ai[Offizielle PydanticAI-Dokumentation]
+* https://pydantic-docs.helpmanual.io/[Pydantic-Dokumentation]
+* https://python.langchain.com/docs/get_started/introduction[LangChain-Dokumentation]
+* https://platform.openai.com/docs/introduction[OpenAI-Dokumentation]
+* https://huggingface.co/docs[Hugging Face-Dokumentation]
