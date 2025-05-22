@@ -1,6 +1,22 @@
-== LangChain
+= LangChain
+:author: Daniel Senften
+:email: daniel.senften@talent-factory.ch.ch
+:revnumber: 1.0
+:revdate: {localdate}
+:doctype: book
+include::../locale/attributes-de.adoc[]
+:toc: left
+:sectnums:
+:sectnumlevels: 2
+ifndef::imagesdir[:imagesdir: ../images]
+:source-highlighter: highlight.js
+:icons: font
+:title-page:
+:pdf-theme: themes/pdf-theme.yml
+:title-page-background-image: image:title-image.png[top=0%, align=left, width=20%]
+:pdf-page-size: A4
 
-=== Lernziele
+== Lernziele
 * Sie verstehen das Prinzip von LangChain und dessen Komponenten.
 * Sie können einfache Anwendungen mit LangChain konzipieren.
 * Sie erkennen die Einsatzmöglichkeiten von LLMs in der Praxis.
@@ -8,7 +24,7 @@
 :langchain: https://www.langchain.com/
 
 
-=== Einführung in LangChain
+== Einführung in LangChain
 
 In diesem Kapitel werden wir uns mit LangChain beschäftigen, einem
 leistungsstarken Werkzeug zur Erstellung von Anwendungen mithilfe
@@ -17,9 +33,11 @@ LangChain einsetzt, um komplexe Anwendungen zu entwicklen,
 und dabei die verschiedenen Komponenten und Funktionen von LangChain
 verstehen.
 
-==== Theoretische Grundlagen
+[discrete]
+=== Theoretische Grundlagen
 
-===== Übersicht und Einsatzmöglichkeiten von LangChain
+[discrete]
+==== Übersicht und Einsatzmöglichkeiten von LangChain
 
 LangChain ist ein Framework, das die Entwicklung von Anwendungen
 erleichtert, die auf großen Sprachmodellen (Large Language Models, LLMs)
@@ -35,7 +53,8 @@ andere KI-Komponenten.
 * Automatisierte Übersetzungsdienste
 * Intelligente Assistenten und Agenten
 
-===== Architektur von LangChain
+[discrete]
+==== Architektur von LangChain
 
 LangChain besteht aus mehreren Schlüsselkomponenten, die zusammenarbeiten,
 um komplexe Aufgaben zu bewältigen:
@@ -49,7 +68,8 @@ um komplexe Aufgaben zu bewältigen:
 * *Toolkits*: Sammlung von nützlichen Tools und APIs zur Erweiterung der
     Funktionen.
 
-===== Installation und Einrichtung
+[discrete]
+==== Installation und Einrichtung
 
 Die Installation von LangChain ist unkompliziert und kann mit den folgenden
 Schritten durchgeführt werden:
@@ -84,12 +104,13 @@ export OPENAI_API_KEY='your_openai_api_key'
 ----
 
 
-=== Praktische Übungen
+== Praktische Übungen
 
 Diese Übungen helfen Ihnen, die Grundlagen von LangChain zu verstehen
 und erste Anwendungen zu erstellen.
 
-==== Übung 1: Erstellen eines PromptTemplate
+[discrete]
+=== Übung 1: Erstellen eines PromptTemplate
 
 
 1. PromptTemplate erstellen:
@@ -115,7 +136,8 @@ print(story_prompt)
 
 2. Ergebnis analysieren und Verbesserungsvorschläge überlegen.
 
-==== Übung 2: Erstellen einer Chain
+[discrete]
+=== Übung 2: Erstellen einer Chain
 
 1. Einfache Chain erstellen:
 +
@@ -136,7 +158,8 @@ Obiger Code schein nicht einwandfrei zu laufen. Versuchen Sie mit Hilde der KI
 die notwendigen Korrekturen anzubringen, sodass das kurze Script fehlerrei
 gestartet werden kann.
 
-==== Übung 3: Arbeiten mit Agents
+[discrete]
+=== Übung 3: Arbeiten mit Agents
 
 1. Einfachen Agent erstellen, der Fragen beantwortet:
 +
@@ -152,12 +175,13 @@ print(result)
 
 2. Agenten konfigurieren und verschiedene Tools ausprobieren.
 
-=== Aufgaben für Selbststudium
+== Aufgaben für Selbststudium
 
 Diese Aufgaben sollen Ihnen helfen, LangChain eigenständig zu
 und Ihre eigenen Projekte zu realisieren.
 
-==== Aufgabe 1: Erstellen eines intelligenten Chatbots
+[discrete]
+=== Aufgabe 1: Erstellen eines intelligenten Chatbots
 
 1. *Zieldefinition und Anwendungsfall skizzieren*: Definieren Sie einen
 Anwendungsfall für Ihren Chatbot und erstellen Sie eine funktionsfähige
@@ -171,7 +195,8 @@ Chatbot erstellen.
 Szenarien und dokumentieren Sie die Ergebnisse sowie aufgetretene
 Herausforderungen.
 
-==== Aufgabe 2: Entwickeln einer dokumentenzentrierten Anwendung
+[discrete]
+=== Aufgabe 2: Entwickeln einer dokumentenzentrierten Anwendung
 
 1. *Dokumentenquelle identifizieren*: Finden Sie eine geeignete
 Dokumentenquelle (z.B. PDF, Website) und laden Sie diese zur Analyse

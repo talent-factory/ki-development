@@ -25,7 +25,7 @@ include::chapters/01-introduction.adoc[leveloffset=+1]
 include::chapters/02-no-code.adoc[leveloffset=+1]
 
 // Verwenden von LangChain
-include::chapters/langchain.adoc[]
+include::chapters/03-langchain.adoc[leveloffset=+1]
 
 // Vector Stores und Embeddings
 include::chapters/vector-stores-und-embeddings.adoc[]
