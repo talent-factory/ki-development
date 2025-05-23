@@ -1,7 +1,7 @@
 """
-LangChain-Beispiele für das AI Development Projekt.
+LangChain-Beispiele fÃ¼r das AI Development Projekt.
 
-Dieses Paket enthält verschiedene Beispiele für den Einsatz von LangChain,
+Dieses Paket enthÃ¤lt verschiedene Beispiele fÃ¼r den Einsatz von LangChain,
 darunter RAG-Anwendungen und Integration mit verschiedenen LLMs.
 """
 
