@@ -1,4 +1,6 @@
 import streamlit as st
+import pandas as pd
+import numpy as np
 
 # Writing Title
 st.title("Erste Streamlit-Anwendung")
@@ -28,15 +30,10 @@ st.code("""public class MyClass {
 }""", language='java')
 
 st.subheader("Data Frames")
-# Import Necessary libraries
-import pandas as pd
-import numpy as np
-
 # defining random values in a dataframe using pandas and numpy
 df = pd.DataFrame(
     np.random.randn(30, 10), columns=('col %d' % i for i in range(10)))
 st.dataframe(df)
-
 
 st.subheader('Metriken')
 st.metric(label="Temperatur", value="31 °C", delta="1.2 °C")

@@ -1,10 +1,62 @@
 # [KI Professional – Fachrichtung Development](https://ibaw.ch/bildungsangebote/informatik/digital-collaboration-transformation/ki-professional-development/#rowno5)
 
----
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Daniel%20Senften-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/dsenften/)
+&nbsp;
+[![GitHub](https://img.shields.io/badge/GitHub-blue?logo=github&logoColor=white)](https://github.com/talent-factory/ki-development)
 
 KI-Anwendungen entwickeln, ohne nur eine Zeile Code zu schreiben? Ja, das ist möglich. Erfahren Sie, wie Sie KI-gesteuerte Apps mit No-Code-Tools erstellen und entwickeln Sie dabei ein umfangreiches Verständnis der dahinter liegenden maschinellen Lernprinzipien – damit Sie diese erfolgreich für Ihre Projekte umsetzen können.
 
 Entdecken Sie Konzepte sowie Anwendungsfelder von Machine Learning (ML), Large Language Models (LLM), Vector Databases und Retrieval Augmented Generation (RAG). Verstehen Sie Low-Code-Entwicklung, Anwendungsfelder und die Integration in eigene Apps. Mit dem erworbenen Wissen wenden Sie die verschiedenen Tools an, um Ihre eigenen Ideen erfolgsbringend in eine Anwendung zu überführen – darunter Q&A-Systeme für eigene Daten, Chatbots und Agents sowie die Interaktion mit APIs. Die Zukunft der KI beginnt hier!
+
+## 🚀 Projekt-Setup
+
+Dieses Projekt verwendet `uv` als Paketmanager und Build-System. `uv` ist ein schneller, zuverlässiger und kompatibler Ersatz für pip und pip-tools, der in Rust geschrieben wurde.
+
+### Voraussetzungen
+
+- Python 3.10 oder höher
+- `uv` installieren:
+
+  ```bash
+  pip install uv
+  ```
+
+### Installation
+
+1. Virtuelle Umgebung erstellen und aktivieren:
+
+   ```bash
+   uv venv
+   source .venv/bin/activate  # Linux/macOS
+   # ODER
+   .\.venv\Scripts\activate  # Windows
+   ```
+
+2. Abhängigkeiten installieren:
+
+   ```bash
+   uv pip install -r requirements.txt
+   ```
+
+### Entwicklung
+
+- **Neue Abhängigkeit hinzufügen**:
+
+  ```bash
+  uv pip install <paketname>
+  ```
+
+- **Aktualisierte Abhängigkeiten speichern**:
+
+  ```bash
+  uv pip freeze > requirements.txt
+  ```
+
+- **Streamlit-App starten**:
+
+  ```bash
+  uv run streamlit run streamlit/<app_name>.py
+  ```
 
 ## LERNZIELE
 
@@ -29,6 +81,7 @@ Am Ende dieses Lerngangs …
 ---
 
 ### Einführung in die KI-Basics
+
 - Grundlagen der künstlichen Intelligenz
 - Ethische, rechtliche und Datenschutzaspekte im Kontext von KI
 - Nutzen und Gefahren von KI, um fundierte Entscheidungen zu treffen
@@ -37,12 +90,14 @@ Am Ende dieses Lerngangs …
 - Wichtige Begriffe und Terminologien
 
 ### Training von Machine-Learning-Modellen ohne Code
+
 - Möglichkeiten und Grenzen
 - Erstellung des eigenen Machine-Learning-Modells
 - Training, Überprüfung und Export des Machine-Learning-Modells
 - Integration Ihres Machine-Learning-Modells in eine Webseite
 
 ### Grundlagen LLM-basierter Applikationen
+
 - Möglichkeiten und Grenzen
 - Kennenlernen und verwenden verschiedener Sprachmodelle lokal und in der Cloud
 - Anwendungsgesteuerte Kommunikation mit Sprachmodellen
@@ -50,6 +105,7 @@ Am Ende dieses Lerngangs …
 - Fine-Tuning und Embedding
 
 ### Entwicklung von LLM-basierten Applikationen
+
 - Low-Code-Entwicklung von LLM/RAG-basierten Anwendungen
 - Identifizierung von potenziellen Anwendungsfeldern und Use Cases
 - Verständnis der Systemarchitektur von LangChain basierten Apps
