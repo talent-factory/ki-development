@@ -30,6 +30,16 @@ Diese Beispiele zeigen die schrittweise Entwicklung eines einfachen Chatbots mit
 - Zeigt Best Practices für die Projektstruktur auf
 - Vereinfacht die Wartung und Wiederverwendung von Code
 
+### 04_simple_tool_agent.py
+
+#### Erweiterte Funktionalität mit Tools
+
+- Demonstriert die einfache Integration von benutzerdefinierten Tools in Pydantic AI
+- Zeigt die Verwendung des `@agent.tool` Decorators
+- Implementiert eine Funktion zur Abfrage der aktuellen Uhrzeit
+- Veranschaulicht die einfache Erweiterbarkeit des Agenten um neue Funktionen
+- Bietet eine interaktive Kommandozeilenschnittstelle für die Benutzerinteraktion
+
 ## Voraussetzungen
 
 - Python 3.8 oder höher
@@ -60,8 +70,23 @@ Diese Beispiele zeigen die schrittweise Entwicklung eines einfachen Chatbots mit
    python src/pydantic/tool/01_simple_tool_agent.py
    ```
 
+## Beispiel für die Verwendung von Tools
+
+Das folgende Beispiel zeigt, wie einfach ein benutzerdefiniertes Tool in Pydantic AI integriert werden kann:
+
+```python
+@agent.tool
+def get_aktuelle_zeit(self):
+    """Gib die aktuelle Zeit im Format '%H:%M:%S' zurück."""
+    from datetime import datetime
+    return datetime.now().strftime("%H:%M:%S")
+```
+
+Dieses Tool kann dann vom Agenten verwendet werden, wenn der Benutzer nach der aktuellen Uhrzeit fragt.
+
 ## Nächste Schritte
 
 - Erweitern Sie die Funktionalität durch Hinzufügen weiterer Tools
 - Implementieren Sie eine Benutzeroberfläche mit Streamlit oder einer Webanwendung
 - Fügen Sie Logging und Fehlerbehandlung hinzu
+- Erforschen Sie komplexere Anwendungsfälle für KI-Agenten mit Werkzeugen
