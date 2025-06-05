@@ -47,7 +47,11 @@ Diese Beispiele zeigen die schrittweise Entwicklung eines einfachen Chatbots mit
 2. Erstellen Sie eine `.env`-Datei im Projektstammverzeichnis mit Ihren API-Keys:
 
    ```env
-   OPENAI_API_KEY=ihr_api_schluessel
+   # Erforderlich für Pydantic AI mit Anthropic-Modellen
+   ANTHROPIC_API_KEY=ihr_anthropic_api_schluessel
+   
+   # Optional: Für andere Modelle
+   OPENAI_API_KEY=ihr_openai_api_schluessel
    ```
 
 3. Führen Sie eines der Beispiele aus:
