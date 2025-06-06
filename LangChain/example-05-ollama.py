@@ -7,7 +7,10 @@ from langchain_core.prompts import ChatPromptTemplate
 # supports many more optional parameters. Hover on your `ChatOllama(...)`
 # class to view the latest available supported parameters
 llm = ChatOllama(model="llama3")
-prompt = ChatPromptTemplate.from_template("Tell me a short joke about {topic}")
+prompt = ChatPromptTemplate.from_template("""
+    Erzähle mir einen kurzen Witz über {topic}.
+    Verwende für deinen Antwort ausschliesslich Deutsch
+    """)
 
 # using LangChain Expressive Language chain syntax
 # learn more about the LCEL on
@@ -17,4 +20,4 @@ chain = prompt | llm | StrOutputParser()
 # for brevity, response is printed in terminal
 # You can use LangServe to deploy your application for
 # production
-print(chain.invoke({"topic": "Space travel"}))
+print(chain.invoke({"topic": "Sheldon Cooper"}))

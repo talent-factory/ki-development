@@ -166,5 +166,5 @@ cython_debug/
 /doc/index.html
 
 /doc/index.pdf
-/geschichte_arthur.txt
+/geschichte*
 /docs/chapters/pydantic-ai.html

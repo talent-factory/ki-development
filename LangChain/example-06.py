@@ -2,18 +2,18 @@ import os
 
 import faiss
 import numpy as np
-import openai
+from openai import OpenAI
 from dotenv import load_dotenv
 
 # Lade Umgebungsvariablen aus .env Datei
 load_dotenv()
 
-# GPT-3 API key aus Umgebungsvariablen
-openai.api_key = os.getenv("OPENAI_API_KEY")
+# OpenAI Client initialisieren
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Initialize FAISS index
-d = 768  # Dimension of the GPT-3 vectors
-index = faiss.IndexFlatL2(d)
+dimensions = 1536  # Dimension of the text-embedding-ada-002 vectors
+index = faiss.IndexFlatL2(dimensions)
 
 # Example documents
 documents = [
@@ -27,8 +27,11 @@ documents = [
 def get_embeddings(docs):
     doc_embeddings = []
     for doc in docs:
-        response = openai.Embedding.create(model="text-embedding-ada-002-v2", input=[doc])
-        embedding = response['data'][0]['embedding']
+        response = client.embeddings.create(
+            model="text-embedding-ada-002",
+            input=doc
+        )
+        embedding = response.data[0].embedding
         doc_embeddings.append(embedding)
     return doc_embeddings
 
@@ -41,3 +44,9 @@ if __name__ == "__main__":
     
     # Check the number of vectors in the index
     print(f"Anzahl der Vektoren im Index: {index.ntotal}")
+
+    # Zeige nur einen kleinen Teil des Vektors an
+    print("Inhalt des Index (nur die ersten 10 Zahlen):")
+    for i, doc in enumerate(documents):
+        print(f"{i+1}. {doc} -> {embeddings[i][:10]}")
+       

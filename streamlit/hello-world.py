@@ -36,4 +36,4 @@ df = pd.DataFrame(
 st.dataframe(df)
 
 st.subheader('Metriken')
-st.metric(label="Temperatur", value="31 °C", delta="1.2 °C")
+st.metric(label="Temperatur", value="31 °C", delta="1.5 °C")

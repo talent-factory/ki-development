@@ -243,6 +243,17 @@ def main(pdf_path: str, question: str = Config.DEFAULT_QUESTION) -> None:
         vector_store = create_vector_store(split_docs)
         qa_chain = create_retrieval_qa_chain(vector_store)
         
+        # Ausgabe von Details zum ersten Chunk
+        first_chunk = split_docs[0]
+        # Verwende den Embedder direkt, um den Vektor zu bekommen
+        from langchain_community.embeddings import OpenAIEmbeddings
+        embedder = OpenAIEmbeddings()
+        first_embedding = embedder.embed_query(first_chunk.page_content)
+        print(f"\nErster Chunk: {first_chunk.page_content[:100]}")
+        print(f"Vektorlänge: {len(first_embedding)}")
+        print(f"Erste 5 Dimensionen: {first_embedding[:5]}")
+        
+
         # Frage beantworten
         response = process_question(qa_chain, question)
         
