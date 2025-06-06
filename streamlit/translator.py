@@ -28,7 +28,7 @@ def detect_language(text):
     try:
         lang = detect(text)
         return "de" if lang == "de" else "en"
-    except:
+    except Exception:
         return "en"
 
 # Funktion zur Übersetzung

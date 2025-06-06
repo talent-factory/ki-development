@@ -1,6 +1,5 @@
 from langchain_community.utilities import SerpAPIWrapper
 from dotenv import load_dotenv
-import textwrap
 
 # Lade Umgebungsvariablen aus der .env-Datei
 load_dotenv()

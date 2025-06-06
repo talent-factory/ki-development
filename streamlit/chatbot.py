@@ -1,7 +1,6 @@
 import streamlit as st
 from langchain_openai import ChatOpenAI
 from langchain.schema import HumanMessage, AIMessage
-import os
 from dotenv import load_dotenv
 
 # Lade Umgebungsvariablen
