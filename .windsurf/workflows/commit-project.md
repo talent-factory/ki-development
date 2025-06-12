@@ -6,4 +6,4 @@ Bitte führe einen Commit aller Dateien im aktuellen Workspace durch. Stelle dab
 
 Führe anschliessend alle Tests in allen Projekten durch und behebe gegebenenfalls auftretende Fehler und Warnungen. Sobald dieser Schritt erfolgreich abgeschlossen ist und alle Dateien mit einem aktuellen Commit versehen sind, können sämtliche Projekte per push in die jeweiligen Remote-Repositories übertragen werden.
 
-Vwerwende hierzu auch meinen Workflow '/ruff-check'.
+Verwende hierzu auch meinen Workflow '/ruff-check'.
