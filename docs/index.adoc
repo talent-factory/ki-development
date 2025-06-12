@@ -28,8 +28,8 @@ include::chapters/02-no-code.adoc[leveloffset=+1]
 include::chapters/03-langchain.adoc[leveloffset=+1]
 
 // Vector Stores und Embeddings
-include::chapters/vector-stores-und-embeddings.adoc[]
-include::chapters/embeddings.adoc[]
+include::chapters/04-vector-stores.adoc[leveloffset=+1]
+include::chapters/05-embeddings.adoc[leveloffset=+1]
 
 // Platforms and Tools
 include::chapters/platforms.adoc[]

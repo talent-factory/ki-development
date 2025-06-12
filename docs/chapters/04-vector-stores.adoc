@@ -1,12 +1,15 @@
-== Vector-Stores und -Embeddings
+= Vector-Stores und -Embeddings
 
-=== Lernziele
+== Lernziele
+
 * Sie verstehen das Konzept von Vektorrepräsentationen und Vector Stores.
 * Sie können Embeddings und deren Einsatz im KI-Kontext erklären.
 * Sie kennen die wichtigsten Anwendungsfälle für Vector Stores.
 
-=== Theoretische Grundlagen
-==== Was sind Vector Stores?
+== Theoretische Grundlagen
+
+=== Was sind Vector Stores?
+
 Ein Vector Store ist eine spezialisierte Datenbank, die darauf ausgelegt ist,
 hochdimensionale Vektoren effizient zu speichern und abzufragen.
 Vektoren sind mathematische Objekte, die aus einer Liste von numerischen
@@ -35,7 +38,7 @@ und diese Vektoren werden dann in einem Vector Store gespeichert.
 Bei einer Abfrage kann der Vector Store effizient die Vektoren durchsuchen
 und die Dokumente finden, die dem Abfragevektor am ähnlichsten sind.
 
-==== Unterschiede zu traditionellen Datenbanken
+=== Unterschiede zu traditionellen Datenbanken
 
 Während traditionelle Datenbanken wie relationale Datenbanken (z.B. MySQL, PostgreSQL)
 gut für strukturierte Daten und konventionelle Abfragen geeignet sind,
@@ -68,9 +71,9 @@ Durch diese klaren Unterschiede bieten Vector Stores eine spezialisierte und eff
 Lösung für moderne Anforderungen im Bereich der künstlichen Intelligenz und des
 maschinellen Lernens.
 
-=== Einführung in Vektorrepräsentationen
+== Einführung in Vektorrepräsentationen
 
-==== Bedeutung von Vektoren im maschinellen Lernen und in der künstlichen Intelligenz
+=== Bedeutung von Vektoren im maschinellen Lernen und in der künstlichen Intelligenz
 
 Vektoren spielen eine zentrale Rolle im maschinellen Lernen und in der künstlichen
 Intelligenz, da sie eine effiziente und mathematisch fundierte Methode bieten,
@@ -104,7 +107,7 @@ Bilderkennungssystemen, Empfehlungsalgorithmen und vielen anderen
 Anwendungen. Im Wesentlichen bilden Vektoren die Grundlage für
 die Verarbeitung und Analyse von Daten in modernen KI-Systemen.
 
-==== Beispiele für Vektoren: Wortvektoren
+=== Beispiele für Vektoren: Wortvektoren
 
 Ein besonders anschauliches Beispiel für die Nutzung von Vektoren
 im Bereich der KI sind Wortvektoren. Wortvektoren sind numerische
@@ -152,9 +155,10 @@ Wortvektoren sind ein hervorragendes Beispiel dafür, wie
 Vektorrepräsentationen die Fähigkeit von Maschinen, natürliche
 Sprache und ihre Bedeutungen zu verstehen, revolutioniert haben.
 
-=== Vector Embeddings
+== Vector Embeddings
 
-==== Was sind Embeddings?
+=== Was sind Embeddings?
+
 Embeddings sind eine Möglichkeit, komplexe Daten wie Wörter, Sätze, Bilder
 oder andere Elemente numerisch zu repräsentieren, indem sie in einen
 niedrigdimensionalen Vektorraum eingebettet werden. Diese Vektoren,
@@ -190,7 +194,7 @@ finden Embeddings auch in der Bilderkennung, der
 Empfehlungssysteme und vielen anderen Bereichen Anwendung,
 in denen hochdimensionale Daten verarbeitet werden müssen.
 
-==== Methoden zur Erzeugung von Embeddings
+=== Methoden zur Erzeugung von Embeddings
 
 Es gibt verschiedene Methoden zur Erzeugung von Embeddings,
 die je nach Anwendungsfall und Datenstruktur eingesetzt werden.
@@ -247,7 +251,7 @@ Hier sind einige der bekanntesten und am häufigsten verwendeten Ansätze:
     für Netzwerke oder Graphen. Sie transformiert Grapheninformationen
     in niedrigdimensionale Vektoren, wobei zufällige Wanderungen
     (_Random Walks_) auf dem Graphen durchgeführt und diese als Sätze
-    behandelt werden. Diese Sätze werden anschließend mit Techniken
+    behandelt werden. Diese Sätze werden anschliessend mit Techniken
     wie Word2Vec verarbeitet, um Knotenembeddings zu erzeugen, die
     die Struktur und Beziehungen im Graphen widerspiegeln.
 
@@ -257,8 +261,9 @@ eine Form überführen, die recheneffizient ist und tiefere semantische
 Bedeutungen erfassen kann. Die Auswahl der geeigneten Methode hängt
 von der speziellen Anwendung und den Datenanforderungen ab.
 
-=== Verwendung von Vector Embeddings
-==== Anwendungsbereiche von Embeddings
+== Verwendung von Vector Embeddings
+
+=== Anwendungsbereiche von Embeddings
 
 Vector Embeddings finden Einsatz in einer Vielzahl von Anwendungen
 im Bereich der künstlichen Intelligenz und des maschinellen Lernens.
@@ -319,7 +324,8 @@ von Embeddings:
     Klassifizierung von Knoten basierend auf ihrer Einbettung.
 
 
-==== Praktische Beispiele mit Pseudocode
+=== Praktische Beispiele mit Pseudocode
+
 Um die praktische Anwendung von Embeddings zu veranschaulichen,
 betrachten wir einige Beispiele, die zeigen, wie Embeddings
 in verschiedenen Szenarien genutzt werden können.
@@ -422,9 +428,9 @@ numerische Vektoren ermöglichen Embeddings eine effiziente Verarbeitung,
 Analyse und Vorhersage in einer Vielzahl von maschinellen Lernanwendungen.
 
 
-=== Einführung in Vector Stores
+== Einführung in Vector Stores
 
-==== Architektur und Funktionsweise von Vector Stores
+=== Architektur und Funktionsweise von Vector Stores
 
 Vector Stores sind spezialisierte Datenbanksysteme, die entwickelt
 wurden, um hochdimensionale Vektoren effizient zu speichern
@@ -472,7 +478,7 @@ grossen Vektormengen zu bewältigen. Hier ein detaillierter
 - **Integrations- und Schnittstellen**: Vector Stores bieten oft APIs und
     Integrationsmöglichkeiten für verschiedene Programmiersprachen und
     Frameworks. Dies erleichtert die Integration in bestehende Workflows
-    und Anwendungen. Außerdem unterstützen sie häufig Schnittstellen zu
+    und Anwendungen. Ausserdem unterstützen sie häufig Schnittstellen zu
     Machine Learning Bibliotheken wie TensorFlow oder PyTorch, um eine
     nahtlose Integration mit maschinellen Lernmodellen zu ermöglichen.
 
@@ -480,7 +486,7 @@ Durch diese architektonischen Merkmale bieten Vector Stores eine spezialisierte
 und effiziente Lösung für die Speicherung und Abfrage hochdimensionaler
 Vektoren, die in vielen modernen Anwendungen benötigt werden.
 
-==== Einsatzgebiete von Vector Stores
+=== Einsatzgebiete von Vector Stores
 
 Vector Stores finden in einer Vielzahl von Anwendungsgebieten Einsatz,
 die auf die Analyse und Verarbeitung hochdimensionaler Daten angewiesen
@@ -492,7 +498,7 @@ sind. Hier sind einige der wichtigsten Einsatzgebiete:
     ähnliche Einträge zu finden. Dies ist besonders nützlich in
     Suchmaschinen, bei der Bild- und Videoerkennung sowie in
     Musiksuchdiensten. Zum Beispiel kann ein Vector Store verwendet
-    werden, um Bilder in einer großen Datenbank zu durchsuchen
+    werden, um Bilder in einer grossen Datenbank zu durchsuchen
     und diejenigen zu finden, die einem gegebenen Bild am ähnlichsten sind.
 
 - **Empfehlungssysteme**: Vector Stores spielen eine zentrale Rolle in
@@ -547,7 +553,7 @@ Lösungen für verschiedene Branchen und Anwendungsfälle, die auf die
 effiziente Speicherung und Abfrage von Vektoren angewiesen sind.
 
 
-=== Unterschied zwischen Vector Embeddings und Vector Stores
+== Unterschied zwischen Vector Embeddings und Vector Stores
 
 Vector Embeddings und Vector Stores sind zwei unterschiedliche,
 aber miteinander verbundene Konzepte, die in der Welt der künstlichen
@@ -555,7 +561,7 @@ Intelligenz und des maschinellen Lernens eine wichtige Rolle spielen.
 Hier ist eine detaillierte Erklärung der beiden Begriffe und
 ihrer Unterschiede:
 
-==== Vector Embeddings
+=== Vector Embeddings
 
 **Vector Embeddings** sind eine Methode zur Repräsentation komplexer
 Daten wie Wörter, Sätze, Bilder oder andere Elemente als hochdimensionale
@@ -567,48 +573,60 @@ zwischen Datenpunkten zu erfassen und gleichzeitig die Dimension der
 Daten zu reduzieren, um sie recheneffizienter zu machen.
 
 *Merkmale von Vector Embeddings:*
-- *Hochdimensionale Vektoren*: Embeddings repräsentieren Daten in einem n-dimensionalen Raum, wobei jede Dimension eine spezifische Eigenschaft oder ein Merkmal der Daten beschreibt.
-- *Semantische Bedeutung*: Eingebettete Vektoren erfassen die semantischen Beziehungen zwischen Datenpunkten, sodass ähnlich bedeutende Daten nahe beieinander im Vektorraum liegen.
-- *Reduzierung der Komplexität*: Embeddings transformieren komplexe Daten in eine weniger dimensionale Form, was die Verarbeitung durch Maschinen effizienter macht.
+- *Hochdimensionale Vektoren*: Embeddings repräsentieren Daten in einem n-dimensionalen Raum, wobei jede Dimension
+eine spezifische Eigenschaft oder ein Merkmal der Daten beschreibt.
+- *Semantische Bedeutung*: Eingebettete Vektoren erfassen die semantischen Beziehungen zwischen Datenpunkten,
+sodass ähnlich bedeutende Daten nahe beieinander im Vektorraum liegen.
+- *Reduzierung der Komplexität*: Embeddings transformieren komplexe Daten in eine weniger dimensionale Form,
+was die Verarbeitung durch Maschinen effizienter macht.
 
 *Beispiele für Vector Embeddings:*
 - *Word2Vec und GloVe*: Diese Techniken erzeugen Vektoren, die semantische Beziehungen zwischen Wörtern erfassen.
-- *BERT*: Ein Modell, das kontextspezifische Wort- und Satz-Vektoren erzeugt und in der natürlichen Sprachverarbeitung genutzt wird.
+- *BERT*: Ein Modell, das kontextspezifische Wort- und Satz-Vektoren erzeugt und in der natürlichen
+Sprachverarbeitung genutzt wird.
 
-==== Vector Stores
+=== Vector Stores
 
 **Vector Stores** sind spezialisierte Datenbanken, die entwickelt wurden,
 um hochdimensionale Vektoren effizient zu speichern, zu verwalten und
 abzufragen. Während Vector Embeddings die numerische Darstellung der
 Daten liefern, bieten Vector Stores die Infrastruktur, um diese Vektoren
 zu speichern und schnelle Abfragen zu ermöglichen, insbesondere in
-Szenarien mit großen Datenmengen und der Notwendigkeit, ähnliche oder
+Szenarien mit grossen Datenmengen und der Notwendigkeit, ähnliche oder
 relevante Vektoren zu finden.
 
 *Merkmale von Vector Stores:*
-- *Speicherung von Vektoren*: Vector Stores sind darauf ausgelegt, große Mengen an hochdimensionalen Vektoren effizient zu speichern.
-- *Effiziente Abfrage- und Suchmethoden*: Sie nutzen spezialisierte Indexierungs- und Suchalgorithmen, um schnelle und präzise Suchen nach ähnlichen Vektoren durchzuführen.
-- *Skalierbarkeit*: Vector Stores können oft auf verteilten Systemen betrieben werden, um große Datenmengen zu handhaben und die Leistung zu maximieren.
+- *Speicherung von Vektoren*: Vector Stores sind darauf ausgelegt, grosse Mengen an hochdimensionalen
+Vektoren effizient zu speichern.
+- *Effiziente Abfrage- und Suchmethoden*: Sie nutzen spezialisierte Indexierungs- und Suchalgorithmen,
+um schnelle und präzise Suchen nach ähnlichen Vektoren durchzuführen.
+- *Skalierbarkeit*: Vector Stores können oft auf verteilten Systemen betrieben werden, um grosse Datenmengen
+zu handhaben und die Leistung zu maximieren.
 
 *Beispiele für Vector Stores:*
-- *FAISS*: Ein von Facebook entwickelter Vector Store, der schnelle Ähnlichkeitssuchen in großen Vektormengen ermöglicht.
+- *FAISS*: Ein von Facebook entwickelter Vector Store, der schnelle Ähnlichkeitssuchen in grossen Vektormengen ermöglicht.
 - *Milvus*: Ein Open-Source-Vector Store, der für hochdimensionale Daten und maschinelles Lernen entwickelt wurde.
 
-==== Unterschiede zwischen Vector Embeddings und Vector Stores
+=== Unterschiede zwischen Vector Embeddings und Vector Stores
 
 1. **Ziel und Funktion**:
-   - *Vector Embeddings*: Transformieren komplexe Daten in hochdimensionale Vektoren, die semantische Eigenschaften und Beziehungen erfassen.
-   - *Vector Stores*: Bieten die Infrastruktur zur Speicherung und Abfrage dieser Vektoren, insbesondere für große Datensätze und schnelle Suchanfragen.
+   - *Vector Embeddings*: Transformieren komplexe Daten in hochdimensionale Vektoren, die semantische
+Eigenschaften und Beziehungen erfassen.
+   - *Vector Stores*: Bieten die Infrastruktur zur Speicherung und Abfrage dieser Vektoren, insbesondere
+für grosse Datensätze und schnelle Suchanfragen.
 
 2. **Aufgaben und Anwendungsbereiche**:
-   - *Vector Embeddings*: Werden hauptsächlich durch maschinelle Lernmodelle erzeugt und in verschiedenen KI-Anwendungen wie NLP, Computer Vision und Empfehlungssystemen verwendet.
-   - *Vector Stores*: Dienen als spezialisierte Datenbanken, die diese Vektoren effizient speichern und schnelle Abfragen ermöglichen, was in Suchmaschinen, Empfehlungssystemen und anderen Anwendungen genutzt wird.
+   - *Vector Embeddings*: Werden hauptsächlich durch maschinelle Lernmodelle erzeugt und in verschiedenen
+KI-Anwendungen wie NLP, Computer Vision und Empfehlungssystemen verwendet.
+   - *Vector Stores*: Dienen als spezialisierte Datenbanken, die diese Vektoren effizient speichern und schnelle
+Abfragen ermöglichen, was in Suchmaschinen, Empfehlungssystemen und anderen Anwendungen genutzt wird.
 
 3. **Technologie und Implementierung**:
    - *Vector Embeddings*: Nutzen Modelle wie Word2Vec, GloVe, BERT etc., um die Vektoren zu erzeugen.
-   - *Vector Stores*: Verwenden spezialisierte Algorithmen und Datenstrukturen wie k-d Trees, HNSW und ANN zur effizienten Speicherung und Suche nach Vektoren.
+   - *Vector Stores*: Verwenden spezialisierte Algorithmen und Datenstrukturen wie k-d Trees, HNSW und ANN
+zur effizienten Speicherung und Suche nach Vektoren.
 
-==== Zusammenfassung
+=== Zusammenfassung
 
 Zusammenfassend lässt sich sagen, dass Vector Embeddings und Vector Stores
 komplementäre Technologien sind. Während Embeddings dafür sorgen,
@@ -616,43 +634,64 @@ dass komplexe Daten in numerische Vektoren umgewandelt werden,
 speichern und verwalten Vector Stores diese Vektoren und ermöglichen
 ihre effiziente Abfrage. Beide Technologien spielen eine entscheidende
 Rolle in modernen maschinellen Lern- und KI-Systemen und tragen dazu bei,
-die Verarbeitung und Analyse großer und komplexer Datensätze zu optimieren.
+die Verarbeitung und Analyse grosser und komplexer Datensätze zu optimieren.
 
 
-=== Praktische Implementierung
+== Praktische Implementierung
 
-==== Auswahl von Tools und Bibliotheken
+=== Auswahl von Tools und Bibliotheken
 
-Bei der Auswahl von Tools und Bibliotheken für die Erstellung und Nutzung von Vector Stores gibt es mehrere Optionen, die sich durch unterschiedliche Eigenschaften und Anwendungsfälle auszeichnen. Hier sind einige der bekanntesten und am häufigsten verwendeten Tools und Bibliotheken:
+Bei der Auswahl von Tools und Bibliotheken für die Erstellung und Nutzung von Vector Stores gibt es mehrere Optionen,
+die sich durch unterschiedliche Eigenschaften und Anwendungsfälle auszeichnen. Hier sind einige der bekanntesten
+und am häufigsten verwendeten Tools und Bibliotheken:
 
 - **FAISS (Facebook AI Similarity Search)**:
-  FAISS ist eine Bibliothek von Facebook AI Research, die entwickelt wurde, um schnelle Ähnlichkeitssuchen in großen Vektormengen zu ermöglichen. FAISS unterstützt sowohl exakte als auch Näherungssuchen und ist für hohe Leistung und Skalierbarkeit optimiert. Es bietet verschiedene Algorithmen und Indexierungsmechanismen, darunter k-d Trees, vorgefertigte Vektorencluster und HNSW (Hierarchical Navigable Small World Graphs).
+  FAISS ist eine Bibliothek von Facebook AI Research, die entwickelt wurde, um schnelle Ähnlichkeitssuchen in
+grossen Vektormengen zu ermöglichen. FAISS unterstützt sowohl exakte als auch Näherungssuchen und ist für hohe
+Leistung und Skalierbarkeit optimiert. Es bietet verschiedene Algorithmen und Indexierungsmechanismen,
+darunter k-d Trees, vorgefertigte Vektorencluster und HNSW (Hierarchical Navigable Small World Graphs).
 
 - **Annoy (Approximate Nearest Neighbors Oh Yeah)**:
-  Annoy ist eine von Spotify entwickelte Bibliothek, die Approximate Nearest Neighbor Suchen mit einer Mischung aus Random-Projection-Bäumen und k-d Bäumen ermöglicht. Annoy ist auf sehr große Datensätze und minimalen Speicherbedarf optimiert und bietet eine besonders effiziente Implementierung für das Einfügen und Abfragen von Vektoren.
+  Annoy ist eine von Spotify entwickelte Bibliothek, die Approximate Nearest Neighbor Suchen mit einer Mischung
+aus Random-Projection-Bäumen und k-d Bäumen ermöglicht. Annoy ist auf sehr grosse Datensätze und minimalen
+Speicherbedarf optimiert und bietet eine besonders effiziente Implementierung für das Einfügen und Abfragen von Vektoren.
 
 - **Milvus**:
-  Milvus ist ein hoch skalierbarer Open-Source-Vector Store, der entwickelt wurde, um Milliarden von Vektoren zu speichern und abzufragen. Milvus nutzt fortgeschrittene Indexierungstechniken wie IVF (Inverted File System), HNSW und PQ (Product Quantization), um schnelle und genaue Suchvorgänge zu ermöglichen. Milvus unterstützt verteilte Systeme und bietet eine benutzerfreundliche API.
+  Milvus ist ein hoch skalierbarer Open-Source-Vector Store, der entwickelt wurde, um Milliarden von Vektoren
+zu speichern und abzufragen. Milvus nutzt fortgeschrittene Indexierungstechniken wie IVF (Inverted File System),
+HNSW und PQ (Product Quantization), um schnelle und genaue Suchvorgänge zu ermöglichen. Milvus unterstützt
+verteilte Systeme und bietet eine benutzerfreundliche API.
 
 - **Elasticsearch mit Vector Search**:
-  Elasticsearch ist eine weit verbreitete Such- und Analyse-Engine, die auch die Suche nach Vektor-ähnlichen Dokumenten unterstützt. Mit der Einführung von Densen Vectors Indexing und K-NN (k-Nearest Neighbor) Suchfunktionen kann Elasticsearch als einfacher Vector Store fungieren und ermöglicht eine nahtlose Integration in bestehende Elasticsearch-Workflows.
+  Elasticsearch ist eine weit verbreitete Such- und Analyse-Engine, die auch die Suche nach Vektor-ähnlichen
+Dokumenten unterstützt. Mit der Einführung von Densen Vectors Indexing und K-NN (k-Nearest Neighbor) Suchfunktionen
+kann Elasticsearch als einfacher Vector Store fungieren und ermöglicht eine nahtlose Integration in
+bestehende Elasticsearch-Workflows.
 
 - **PostgreSQL mit pgvector**:
-  PostgreSQL, eine leistungsstarke relationale Datenbank, hat mit der Erweiterung pgvector Unterstützung für Vektordaten und -abfragen gewonnen. Diese Erweiterung ermöglicht es, Vektor-ähnliche Datenbanken in PostgreSQL zu erstellen und unterstützt K-NN-Suchen, was PostgreSQL zu einer vielseitigen Lösung für kleinere Vektordatenanwendungen macht.
+  PostgreSQL, eine leistungsstarke relationale Datenbank, hat mit der Erweiterung pgvector Unterstützung
+für Vektordaten und -abfragen gewonnen. Diese Erweiterung ermöglicht es, Vektor-ähnliche Datenbanken in
+PostgreSQL zu erstellen und unterstützt K-NN-Suchen, was PostgreSQL zu einer vielseitigen Lösung für
+kleinere Vektordatenanwendungen macht.
 
-==== Erstellung eines Vector Stores
+=== Erstellung eines Vector Stores
 
-Die Erstellung eines Vector Stores beinhaltet mehrere Schritte, von der Vorbereitung der Daten bis zur Implementierung der Suchlogik. Hier ist ein exemplarischer Ablauf zur Erstellung eines einfachen Vector Stores mit FAISS:
+Die Erstellung eines Vector Stores beinhaltet mehrere Schritte, von der Vorbereitung der Daten bis zur
+Implementierung der Suchlogik. Hier ist ein exemplarischer Ablauf zur Erstellung eines einfachen Vector
+Stores mit FAISS:
 
 1. **Installationsvorbereitung**:
-   Zunächst müssen die erforderlichen Bibliotheken installiert werden. Für FAISS kann dies durch die Ausführung eines einfachen Pip-Befehls erfolgen:
+   Zunächst müssen die erforderlichen Bibliotheken installiert werden. Für FAISS kann dies durch die Ausführung
+eines einfachen Pip-Befehls erfolgen:
 +
 [source,shell]
 ----
 pip install faiss-cpu
 ----
 
-2. **Datenvorbereitung**: Bereiten Sie Ihre Daten vor, indem Sie sie in numerische Vektoren umwandeln. Dies kann mit einer Embedding-Methode wie Word2Vec, GloVe oder BERT erfolgen. Hier ein Beispiel für die Erzeugung von Embeddings mit dem Word2Vec-Modell:
+2. **Datenvorbereitung**: Bereiten Sie Ihre Daten vor, indem Sie sie in numerische Vektoren umwandeln.
+Dies kann mit einer Embedding-Methode wie Word2Vec, GloVe oder BERT erfolgen. Hier ein Beispiel für
+die Erzeugung von Embeddings mit dem Word2Vec-Modell:
 +
 [source,python]
 ----
@@ -669,7 +708,8 @@ vector_sonnig = model.wv['sonnig']
 vector_tag = model.wv['tag']
 ----
 
-3. **Erstellung des Vector Stores mit FAISS**: Sobald die Vektoren vorbereitet sind, können sie in einem FAISS-Index gespeichert werden. Hier ist ein Beispiel zur Erzeugung eines FAISS-Indexes und Einfügen der Vektoren:
+3. **Erstellung des Vector Stores mit FAISS**: Sobald die Vektoren vorbereitet sind, können sie in einem
+FAISS-Index gespeichert werden. Hier ist ein Beispiel zur Erzeugung eines FAISS-Indexes und Einfügen der Vektoren:
 +
 [source,python]
 ----
@@ -690,7 +730,8 @@ index.add(vectors)
 print(f"Anzahl der Vektoren im Index: {index.ntotal}")
 ----
 
-4. **Durchführung von Abfragen*: Mit dem erstellten Vector Store können nun Abfragen durchgeführt werden, um ähnliche Vektoren zu finden. Hier ein Beispiel für eine K-NN-Suche:
+4. **Durchführung von Abfragen*: Mit dem erstellten Vector Store können nun Abfragen durchgeführt werden,
+um ähnliche Vektoren zu finden. Hier ein Beispiel für eine K-NN-Suche:
 +
 [source,python]
 ----
@@ -711,11 +752,12 @@ und für die effiziente Abfrage hochdimensionaler Vektoren verwenden.
 Die Wahl des Tools und der Bibliotheken hängt von den spezifischen
 Anforderungen und dem Anwendungsfall ab.
 
-=== Hands-on Übung
+== Hands-on Übung
 
-==== Übung 1: Erzeugung von Embeddings mit Word2Vec
+=== Übung 1: Erzeugung von Embeddings mit Word2Vec
 
-In dieser Übung erstellen wir Wortembeddings mit dem Word2Vec-Modell und explorieren die semantischen Beziehungen zwischen Wörtern.
+In dieser Übung erstellen wir Wortembeddings mit dem Word2Vec-Modell und explorieren die semantischen
+Beziehungen zwischen Wörtern.
 
 *Schritt 1: Installation und Import der benötigten Bibliotheken*
 
@@ -740,7 +782,7 @@ from sklearn.decomposition import PCA
 sentences = [
     ["die", "schweiz", "ist", "ein", "wunderschönes", "land"],
     ["bern", "ist", "die", "hauptstadt", "der", "schweiz"],
-    ["zürich", "ist", "die", "größte", "stadt", "der", "schweiz"],
+    ["zürich", "ist", "die", "grösste", "stadt", "der", "schweiz"],
     ["in", "der", "schweiz", "spricht", "man", "deutsch", "französisch", "italienisch", "und", "rätoromanisch"],
     ["die", "alpen", "sind", "ein", "gebirge", "in", "europa"],
     ["die", "schweiz", "ist", "bekannt", "für", "käse", "schokolade", "und", "uhren"],
@@ -809,7 +851,7 @@ for word, similarity in similar_words:
     print(f"{word}: {similarity:.4f}")
 ----
 
-==== Übung 2: Implementierung eines einfachen Vector Stores mit FAISS
+=== Übung 2: Implementierung eines einfachen Vector Stores mit FAISS
 
 In dieser Übung implementieren wir einen einfachen Vector Store mit FAISS und führen Ähnlichkeitssuchen durch.
 
@@ -834,7 +876,7 @@ from sentence_transformers import SentenceTransformer
 texts = [
     "Die Schweiz ist ein wunderschönes Land in Europa.",
     "Bern ist die Hauptstadt der Schweiz.",
-    "Zürich ist die größte Stadt der Schweiz.",
+    "Zürich ist die grösste Stadt der Schweiz.",
     "In der Schweiz spricht man Deutsch, Französisch, Italienisch und Rätoromanisch.",
     "Die Alpen sind ein Gebirge in Europa.",
     "Die Schweiz ist bekannt für Käse, Schokolade und Uhren.",
@@ -898,7 +940,7 @@ for i, query in enumerate(queries):
 ----
 # Neue Dokumente
 new_texts = [
-    "Die Schweiz hat eine direkte Demokratie mit regelmäßigen Volksabstimmungen.",
+    "Die Schweiz hat eine direkte Demokratie mit regelmässigen Volksabstimmungen.",
     "Der Schweizer Franken ist eine stabile Währung."
 ]
 
@@ -929,23 +971,39 @@ for j in range(k):
     print(f"{j+1}. {all_texts[I[0][j]]} (Distanz: {D[0][j]:.4f})")
 ----
 
-Diese Übungen bieten einen praktischen Einstieg in die Erstellung von Embeddings mit Word2Vec und die Implementierung eines Vector Stores mit FAISS. Experimentieren Sie mit verschiedenen Parametern und Datensätzen, um ein tieferes Verständnis dieser Technologien zu entwickeln.
+Diese Übungen bieten einen praktischen Einstieg in die Erstellung von Embeddings mit Word2Vec und
+die Implementierung eines Vector Stores mit FAISS. Experimentieren Sie mit verschiedenen Parametern und
+Datensätzen, um ein tieferes Verständnis dieser Technologien zu entwickeln.
 
-=== Integration mit LangChain
+== Integration mit LangChain
 
-==== Verknüpfung von Vector Stores und LLMs
+=== Verknüpfung von Vector Stores und LLMs
 
-Die Verknüpfung von Vector Stores mit großen Sprachmodellen (_Large Language Models_, LLMs) wie GPT-3 eröffnet leistungsfähige Anwendungsmöglichkeiten, insbesondere im Bereich der natürlichen Sprachverarbeitung und des kontextuellen Verständnisses. LangChain ist eine Bibliothek, die diese Verknüpfung erleichtert, indem es eine robuste Schnittstelle zur nahtlosen Integration von Vector Stores und LLMs bietet. Die Hauptvorteile dieser Integration umfassen:
+Die Verknüpfung von Vector Stores mit grossen Sprachmodellen (_Large Language Models_, LLMs) wie GPT-3 eröffnet
+leistungsfähige Anwendungsmöglichkeiten, insbesondere im Bereich der natürlichen Sprachverarbeitung und des
+kontextuellen Verständnisses. LangChain ist eine Bibliothek, die diese Verknüpfung erleichtert, indem es
+eine robuste Schnittstelle zur nahtlosen Integration von Vector Stores und LLMs bietet. Die Hauptvorteile
+dieser Integration umfassen:
 
-- **Kontextuelle Suche**: Durch die Nutzung von Vector Stores können Suchabfragen kontextuell erweitert werden. Die LLMs extrahieren den relevanten Kontext aus Textdaten und verwenden Embeddings, um die Ergebnisse in einem Vector Store effizient zu durchsuchen.
-- **Textgenerierung und Vervollständigung**: LLMs können nicht nur Texte analysieren, sondern auch generieren. Mit Vector Stores können diese generierten Texte in hochdimensionale Vektoren umgewandelt und gespeichert werden, um sie später für Abfragen oder Kontextvervollständigungen zu nutzen.
-- **Verbesserte Empfehlungsalgorithmen**: Durch die Kombination von Embeddings und LLMs können Empfehlungsalgorithmen verbessert werden. Die Vektoren aus den LLMs repräsentieren die Präferenzen und Interessen der Benutzer genauer und ermöglichen präzisere Empfehlungen.
+- **Kontextuelle Suche**: Durch die Nutzung von Vector Stores können Suchabfragen kontextuell erweitert werden.
+Die LLMs extrahieren den relevanten Kontext aus Textdaten und verwenden Embeddings, um die Ergebnisse in einem
+Vector Store effizient zu durchsuchen.
+- **Textgenerierung und Vervollständigung**: LLMs können nicht nur Texte analysieren, sondern auch generieren.
+Mit Vector Stores können diese generierten Texte in hochdimensionale Vektoren umgewandelt und gespeichert werden,
+um sie später für Abfragen oder Kontextvervollständigungen zu nutzen.
+- **Verbesserte Empfehlungsalgorithmen**: Durch die Kombination von Embeddings und LLMs können Empfehlungsalgorithmen
+verbessert werden. Die Vektoren aus den LLMs repräsentieren die Präferenzen und Interessen der Benutzer genauer und
+ermöglichen präzisere Empfehlungen.
 
-LangChain stellt die Werkzeuge bereit, um diese Funktionen nahtlos zu integrieren und zu nutzen. Die Bibliothek bietet Unterstützung für verschiedene Vector Store-Technologien und ermöglicht es, LLMs effizient zu trainieren, zu fine-tunen und in bestehenden Workflows zu verwenden.
+LangChain stellt die Werkzeuge bereit, um diese Funktionen nahtlos zu integrieren und zu nutzen. Die Bibliothek
+bietet Unterstützung für verschiedene Vector Store-Technologien und ermöglicht es, LLMs effizient zu trainieren,
+zu fine-tunen und in bestehenden Workflows zu verwenden.
 
-==== Erstellung einer Beispielanwendung mit LangChain und Vector Stores
+=== Erstellung einer Beispielanwendung mit LangChain und Vector Stores
 
-Um die praktische Anwendung von LangChain mit Vector Stores zu veranschaulichen, betrachten wir eine Beispielanwendung, die die kontextuelle Suche in einer Dokumentendatenbank ermöglicht. Wir werden GPT-3 als LLM und FAISS als Vector Store verwenden. Hier sind die Schritte zur Erstellung dieser Anwendung:
+Um die praktische Anwendung von LangChain mit Vector Stores zu veranschaulichen, betrachten wir eine Beispielanwendung,
+die die kontextuelle Suche in einer Dokumentendatenbank ermöglicht. Wir werden GPT-3 als LLM und FAISS als
+Vector Store verwenden. Hier sind die Schritte zur Erstellung dieser Anwendung:
 
 1. **Installationsvorbereitung**:
 Zunächst müssen die erforderlichen Bibliotheken installiert werden:
@@ -997,7 +1055,8 @@ print(f"Anzahl der Vektoren im Index: {index.ntotal}")
 ----
 
 3. **Durchführung einer kontextuellen Suche**:
-Um eine kontextuelle Suche durchzuführen, verwenden wir GPT-3 zur Erzeugung eines Query-Embeddings und FAISS zum Finden der ähnlichsten Dokumente:
+Um eine kontextuelle Suche durchzuführen, verwenden wir GPT-3 zur Erzeugung eines Query-Embeddings und FAISS
+zum Finden der ähnlichsten Dokumente:
 +
 [source,python]
 ----
@@ -1016,7 +1075,8 @@ for i in I[0]:
 ----
 
 4. **Integration und Kontextaufbau**:
-Durch die Integration von GPT-3 und FAISS in LangChain können wir komplexere Anwendungen erstellen, die kontextuelles Verständnis und kontextuelle Antworten umfassen:
+Durch die Integration von GPT-3 und FAISS in LangChain können wir komplexere Anwendungen erstellen,
+die kontextuelles Verständnis und kontextuelle Antworten umfassen:
 +
 [source,python]
 ----
@@ -1043,12 +1103,41 @@ der Vektorspeicherung und -abfrage des FAISS-Index kombiniert.
 LangChain erleichtert die Integration dieser Komponenten und
 ermöglicht den Aufbau leistungsfähiger KI-Anwendungen.
 
-=== Zusammenfassung und Ausblick
-==== Zusammenfassung der wichtigsten Konzepte
-In diesem Skript haben wir die zentralen Konzepte rund um Vector Stores und Embeddings detailliert behandelt. Vector Stores sind spezialisierte Datenbanken, die entwickelt wurden, um hochdimensionale Vektoren effizient zu speichern und abzufragen. Diese bieten Vorteile wie schnelle und präzise Abfragen, Integration in bestehende Workflows und die Handhabung großer Datenmengen. Im Gegensatz dazu sind Vector Embeddings eine Methode, komplexe Daten wie Wörter, Sätze, Bilder oder Graphen in dichten numerischen Vektoren zu repräsentieren. Diese Embeddings ermöglichen es, die semantischen Beziehungen zwischen den Datenpunkten zu erfassen und ihre Verarbeitung durch Algorithmen zu erleichtern. Beide Technologien spielen eine zentrale Rolle in modernen KI- und maschinellen Lernsystemen und sind wesentliche Werkzeuge zur Analyse und Interpretation komplexer Datensätze.
+== Zusammenfassung und Ausblick
 
-==== Diskussion über fortgeschrittene Einsatzmöglichkeiten
-Vector Stores und Embeddings finden nicht nur in den erwähnten Standardanwendungen ihren Einsatz, sondern bieten auch Potenzial für fortgeschrittene und spezialisierte Anwendungen. Dazu gehört beispielsweise die Verwendung in der personalisierten Medizin, wo Patienten- und Genomikdaten als Vektoren dargestellt und analysiert werden, um maßgeschneiderte Behandlungspläne zu entwickeln. In der Finanzbranche können sie zur Analyse von Markttrends und zur Vorhersage von Aktienkursen verwendet werden. Auch in der Robotik tragen sie dazu bei, Umgebungsinformationen in Vektorform zu speichern und diese zur Navigation und Entscheidungsfindung zu nutzen. Darüber hinaus ermöglichen sie in der Cyber-Sicherheit die Echtzeitanalyse großer Datenströme zur Erkennung von Anomalien und zur Abwehr von Bedrohungen. Diese fortgeschrittenen Einsatzmöglichkeiten zeigen die Vielseitigkeit und den Wert von Vector Stores und Embeddings in verschiedenen High-Tech-Industrien.
+=== Zusammenfassung der wichtigsten Konzepte
 
-==== Zukunftsperspektiven für Vector Stores und Embeddings
-Die Zukunft von Vector Stores und Embeddings sieht vielversprechend aus, da die Nachfrage nach effizienten Lösungen zur Datenspeicherung und -analyse weiter zunimmt. Mit dem zunehmenden Einsatz von Künstlicher Intelligenz und maschinellem Lernen in verschiedenen Industrien wird die Rolle von Vector Stores zentraler. Zukünftige Entwicklungen könnten fortschrittlichere Indexierungs- und Suchalgorithmen umfassen, die noch schneller und präziser arbeiten und eine bessere Skalierbarkeit bieten. Im Bereich der Embeddings ist die Weiterentwicklung hin zu noch kontextuelleren und dynamischeren Repräsentationen zu erwarten, die die Fähigkeiten von Modellen erweitern, komplexe und nuancierte Daten zu verstehen. Darüber hinaus könnten sich hybride Systeme, die sowohl Vector Stores als auch konventionelle Datenbanken kombinieren, etablieren, um die Vielseitigkeit und Leistungsfähigkeit beider Technologien zu nutzen. Insgesamt bieten die Fortschritte in diesen Bereichen aufregende Möglichkeiten für Innovationen in der Datenverarbeitung und -analyse.
+In diesem Skript haben wir die zentralen Konzepte rund um Vector Stores und Embeddings detailliert behandelt.
+Vector Stores sind spezialisierte Datenbanken, die entwickelt wurden, um hochdimensionale Vektoren effizient
+zu speichern und abzufragen. Diese bieten Vorteile wie schnelle und präzise Abfragen, Integration in bestehende
+Workflows und die Handhabung grosser Datenmengen. Im Gegensatz dazu sind Vector Embeddings eine Methode,
+komplexe Daten wie Wörter, Sätze, Bilder oder Graphen in dichten numerischen Vektoren zu repräsentieren.
+Diese Embeddings ermöglichen es, die semantischen Beziehungen zwischen den Datenpunkten zu erfassen und
+ihre Verarbeitung durch Algorithmen zu erleichtern. Beide Technologien spielen eine zentrale Rolle in modernen
+KI- und maschinellen Lernsystemen und sind wesentliche Werkzeuge zur Analyse und Interpretation komplexer Datensätze.
+
+=== Diskussion über fortgeschrittene Einsatzmöglichkeiten
+
+Vector Stores und Embeddings finden nicht nur in den erwähnten Standardanwendungen ihren Einsatz, 
+sondern bieten auch Potenzial für fortgeschrittene und spezialisierte Anwendungen. Dazu gehört beispielsweise 
+die Verwendung in der personalisierten Medizin, wo Patienten- und Genomikdaten als Vektoren dargestellt 
+und analysiert werden, um massgeschneiderte Behandlungspläne zu entwickeln. In der Finanzbranche können 
+sie zur Analyse von Markttrends und zur Vorhersage von Aktienkursen verwendet werden. Auch in der Robotik 
+tragen sie dazu bei, Umgebungsinformationen in Vektorform zu speichern und diese zur Navigation und 
+Entscheidungsfindung zu nutzen. Darüber hinaus ermöglichen sie in der Cyber-Sicherheit die Echtzeitanalyse
+grosser Datenströme zur Erkennung von Anomalien und zur Abwehr von Bedrohungen. Diese fortgeschrittenen
+Einsatzmöglichkeiten zeigen die Vielseitigkeit und den Wert von Vector Stores und Embeddings in verschiedenen
+High-Tech-Industrien.
+
+=== Zukunftsperspektiven für Vector Stores und Embeddings
+
+Die Zukunft von Vector Stores und Embeddings sieht vielversprechend aus, da die Nachfrage nach effizienten Lösungen 
+zur Datenspeicherung und -analyse weiter zunimmt. Mit dem zunehmenden Einsatz von Künstlicher Intelligenz und 
+maschinellem Lernen in verschiedenen Industrien wird die Rolle von Vector Stores zentraler. 
+Zukünftige Entwicklungen könnten fortschrittlichere Indexierungs- und Suchalgorithmen umfassen, 
+die noch schneller und präziser arbeiten und eine bessere Skalierbarkeit bieten. Im Bereich der Embeddings 
+ist die Weiterentwicklung hin zu noch kontextuelleren und dynamischeren Repräsentationen zu erwarten, 
+die die Fähigkeiten von Modellen erweitern, komplexe und nuancierte Daten zu verstehen. Darüber hinaus 
+könnten sich hybride Systeme, die sowohl Vector Stores als auch konventionelle Datenbanken kombinieren, etablieren, 
+um die Vielseitigkeit und Leistungsfähigkeit beider Technologien zu nutzen. Insgesamt bieten die Fortschritte 
+in diesen Bereichen aufregende Möglichkeiten für Innovationen in der Datenverarbeitung und -analyse.
