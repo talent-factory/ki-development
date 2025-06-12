@@ -6,6 +6,10 @@
 * Sie können die Architektur und Implementierung einer Embeddings-App erläutern.
 * Sie sind in der Lage, eigene Anpassungen vorzunehmen.
 
+== Motivation und Kontext
+
+Embeddings spielen eine zentrale Rolle bei modernen Retrieval- und Frage-Antwort-Systemen. Dieser Abschnitt stellt sicher, dass die Lernenden verstehen, _warum_ wir Embeddings einsetzen und welche Probleme damit gelöst werden. Nutzen Sie reale Beispiele (z. B. semantische Suche oder Empfehlungssysteme), um das Vorwissen zu aktivieren und Neugier zu wecken.
+
 Die `embeddings.py` App im `streamlit`-Verzeichnis ist eine leistungsstarke Anwendung, die die Funktionsweise von Embeddings und Vector Stores anhand von PDF-Dokumenten demonstriert. Diese Dokumentation erklärt die Funktionsweise, Architektur und Implementierungsdetails der Anwendung.
 
 == Überblick

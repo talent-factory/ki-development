@@ -6,6 +6,10 @@
 * Sie können Embeddings und deren Einsatz im KI-Kontext erklären.
 * Sie kennen die wichtigsten Anwendungsfälle für Vector Stores.
 
+== Motivation und Kontext
+
+Dieser Abschnitt erläutert, warum Vector Stores im modernen Machine-Learning-Stack unverzichtbar sind und wie sie sich in bestehende Daten­strategien einfügen. Verwenden Sie ihn, um die Lernenden zu aktivieren und an ihr Vorwissen anzuknüpfen.
+
 == Theoretische Grundlagen
 
 === Was sind Vector Stores?
@@ -633,9 +637,7 @@ komplementäre Technologien sind. Während Embeddings dafür sorgen,
 dass komplexe Daten in numerische Vektoren umgewandelt werden,
 speichern und verwalten Vector Stores diese Vektoren und ermöglichen
 ihre effiziente Abfrage. Beide Technologien spielen eine entscheidende
-Rolle in modernen maschinellen Lern- und KI-Systemen und tragen dazu bei,
-die Verarbeitung und Analyse grosser und komplexer Datensätze zu optimieren.
-
+Rolle in modernen maschinellen Lern- und KI-Systemen und sind wesentliche Werkzeuge zur Analyse und Interpretation komplexer Datensätze.
 
 == Praktische Implementierung
 
@@ -780,7 +782,7 @@ from sklearn.decomposition import PCA
 ----
 # Beispiel-Trainingsdaten (Sätze als Listen von Wörtern)
 sentences = [
-    ["die", "schweiz", "ist", "ein", "wunderschönes", "land"],
+    ["das", "wetter", "ist", "heute", "sonnig"],
     ["bern", "ist", "die", "hauptstadt", "der", "schweiz"],
     ["zürich", "ist", "die", "grösste", "stadt", "der", "schweiz"],
     ["in", "der", "schweiz", "spricht", "man", "deutsch", "französisch", "italienisch", "und", "rätoromanisch"],
