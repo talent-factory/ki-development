@@ -193,3 +193,22 @@ wrapt==1.17.2 ; python_version >= "3.10" and python_version < "3.12"
 yarl==1.20.0 ; python_version >= "3.10" and python_version < "3.12"
 zipp==3.21.0 ; python_version >= "3.10" and python_version < "3.12"
 zstandard==0.23.0 ; python_version >= "3.10" and python_version < "3.12"
+
+python-dotenv~=1.1.0
+google-api-python-client~=2.171.0
+matplotlib~=3.10.3
+gensim~=4.3.3
+scikit-learn~=1.7.0
+langchain~=0.3.25
+langchain-community~=0.3.24
+langchain-openai~=0.3.19
+langchain-core~=0.3.63
+faiss-cpu~=1.11.0
+numpy~=1.26.4
+openai~=1.84.0
+streamlit~=1.45.1
+PyPDF2~=3.0.1
+pillow~=11.2.1
+requests~=2.32.3
+langdetect~=1.0.9
+pandas~=2.3.0

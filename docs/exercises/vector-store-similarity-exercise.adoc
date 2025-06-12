@@ -1,0 +1,207 @@
+= Übung: Textähnlichkeit mit Vector Stores und Embeddings
+
+== Lernziele
+
+* Sie können die erstellten Embeddings praktisch für Ähnlichkeitsberechnungen nutzen
+* Sie erfahren, wie Vector Stores zur effizienten Suche genutzt werden
+* Sie implementieren ein einfaches semantisches Suchsystem
+
+== Einführung
+
+In dieser Übung kombinieren Sie die Konzepte aus den Kapiteln zu Vector Stores und Embeddings, um ein praktisches semantisches Suchsystem zu implementieren. Sie werden mit vortrainierten Embeddings arbeiten, diese in einem Vector Store organisieren und anschließend ähnliche Dokumente finden.
+
+== Vorbereitung
+
+=== 1. Benötigte Pakete
+
+Stellen Sie sicher, dass folgende Pakete installiert sind:
+
+[source,bash]
+----
+pip install sentence-transformers faiss-cpu numpy streamlit
+----
+
+=== 2. Datenvorbereitung
+
+Erstellen Sie eine neue Python-Datei `semantic_search.py` mit folgendem Grundgerüst:
+
+[source,python]
+----
+import streamlit as st
+from sentence_transformers import SentenceTransformer
+import numpy as np
+import faiss
+import time
+
+# Titel der App
+st.title("Semantische Textsuche mit Embeddings")
+st.write("Diese App demonstriert die Verwendung von Embeddings und Vector Stores für semantische Suche.")
+----
+
+== Aufgaben
+
+=== Aufgabe 1: Beispieldaten vorbereiten
+
+Ergänzen Sie die App um einen Bereich, in dem ein Textkorpus definiert wird. Verwenden Sie mindestens 10 Sätze oder kurze Absätze zum Thema "Künstliche Intelligenz" oder einem anderen Thema Ihrer Wahl.
+
+[source,python]
+----
+# Hier definieren Sie einen Beispiel-Textkorpus
+example_texts = [
+    # Fügen Sie hier mindestens 10 Sätze oder kurze Absätze ein
+    "Künstliche Intelligenz (KI) ist ein Teilgebiet der Informatik, das sich mit der Automatisierung intelligenten Verhaltens befasst.",
+    # ...weitere Texte...
+]
+
+# Anzeigen der Beispieldaten
+st.subheader("Beispiel-Textkorpus")
+for i, text in enumerate(example_texts):
+    st.write(f"{i+1}. {text}")
+----
+
+=== Aufgabe 2: Embedding-Modell implementieren
+
+Implementieren Sie das Laden eines vortrainierten Embedding-Modells und das Erstellen von Embeddings für die Beispieltexte.
+
+[source,python]
+----
+@st.cache_resource
+def load_model():
+    # Laden Sie das Sentence-Transformer-Modell
+    return SentenceTransformer('paraphrase-MiniLM-L6-v2')
+
+# Modell laden
+model = load_model()
+
+# Progress-Bar anzeigen
+with st.spinner('Erstelle Embeddings für die Beispieltexte...'):
+    # IHRE AUFGABE: Erstellen Sie Embeddings für alle Beispieltexte
+    # Hinweis: Verwenden Sie model.encode(example_texts)
+    embeddings = # TODO: Füllen Sie diese Zeile aus
+    
+    # Dimensionalität der Embeddings anzeigen
+    embedding_dimension = embeddings.shape[1]
+    st.info(f"Embedding-Dimension: {embedding_dimension}")
+----
+
+=== Aufgabe 3: Vector Store mit FAISS implementieren
+
+Erstellen Sie einen FAISS-Index und fügen Sie die Embeddings hinzu.
+
+[source,python]
+----
+@st.cache_resource
+def build_vector_store(_embeddings):
+    # IHRE AUFGABE: Erstellen Sie einen FAISS-Index
+    # 1. Dimensionalität bestimmen
+    # 2. Index erstellen (IndexFlatL2)
+    # 3. Embeddings zum Index hinzufügen
+    # 4. Index zurückgeben
+    
+    dimension = # TODO
+    index = # TODO
+    # TODO: Fügen Sie die Embeddings zum Index hinzu
+    
+    return index
+
+# Vector Store erstellen
+index = build_vector_store(embeddings)
+st.success("Vector Store erfolgreich erstellt!")
+----
+
+=== Aufgabe 4: Ähnlichkeitssuche implementieren
+
+Implementieren Sie eine Funktion, die eine Suchanfrage in Embedding umwandelt und ähnliche Texte im Vector Store findet.
+
+[source,python]
+----
+# Suchfunktion
+def search_similar_texts(query, top_k=3):
+    # IHRE AUFGABE: 
+    # 1. Query-Text in Embedding umwandeln
+    # 2. Ähnlichkeitssuche im Index durchführen
+    # 3. Ergebnisse (Indizes und Distanzen) zurückgeben
+    
+    query_embedding = # TODO
+    # TODO: Führen Sie die Suche durch
+    
+    return # TODO
+
+# Benutzereingabe für die Suche
+st.subheader("Semantische Suche")
+query = st.text_input("Geben Sie eine Suchanfrage ein:")
+
+if query:
+    # Suche durchführen und Ergebnisse anzeigen
+    start_time = time.time()
+    # IHRE AUFGABE: Rufen Sie die search_similar_texts-Funktion auf
+    # und zeigen Sie die Ergebnisse an
+    
+    # Zeitmessung
+    search_time = (time.time() - start_time) * 1000  # in ms
+    st.info(f"Suchdauer: {search_time:.2f} ms")
+    
+    # Ergebnisse anzeigen
+    st.subheader("Suchergebnisse")
+    # TODO: Zeigen Sie die gefundenen Texte und ihre Ähnlichkeitswerte an
+----
+
+=== Aufgabe 5: Visualisierung der Embeddings (optional)
+
+Fügen Sie eine einfache Visualisierung der Embeddings hinzu, indem Sie PCA oder t-SNE zur Dimensionsreduktion verwenden.
+
+[source,python]
+----
+# Optional: Visualisierung der Embeddings mit PCA
+if st.checkbox("Embeddings visualisieren"):
+    from sklearn.decomposition import PCA
+    import matplotlib.pyplot as plt
+    
+    # IHRE AUFGABE:
+    # 1. PCA auf 2 Dimensionen anwenden
+    # 2. Plot erstellen
+    # 3. Punkte für jeden Text anzeigen
+    # 4. Beschriftungen hinzufügen
+    
+    # Matplotlib-Plot in Streamlit anzeigen
+    st.pyplot(# TODO)
+----
+
+== Erweiterte Aufgaben
+
+=== Erweiterte Aufgabe 1: Dokument-Upload
+
+Erweitern Sie die App, um das Hochladen eigener Textdateien zu ermöglichen, die dann in den Vector Store integriert werden.
+
+=== Erweiterte Aufgabe 2: Chunk-basierte Verarbeitung
+
+Implementieren Sie eine Funktion, die größere Texte in Chunks aufteilt, ähnlich wie in der `embeddings.py`-App aus dem Unterricht.
+
+=== Erweiterte Aufgabe 3: Hybrid-Suche
+
+Kombinieren Sie die semantische Suche mit einer lexikalischen Suche (z.B. TF-IDF), um noch präzisere Ergebnisse zu erzielen.
+
+== Reflexionsfragen
+
+Beantworten Sie zum Abschluss folgende Fragen:
+
+1. Welche Vorteile bietet die semantische Suche mit Embeddings gegenüber einer einfachen Keyword-Suche?
+2. Wie verändert sich die Qualität der Suchergebnisse mit unterschiedlichen Embedding-Modellen?
+3. Welche Rolle spielt der Vector Store in dieser Anwendung und welche Alternativen zu FAISS gibt es?
+4. Wie könnte diese Technologie in realen Produkten eingesetzt werden? Nennen Sie konkrete Beispiele.
+
+== Abgabe
+
+Reichen Sie Ihren Quellcode zusammen mit einem kurzen Bericht (max. 2 Seiten) ein, der Ihre Implementierung erklärt und die Reflexionsfragen beantwortet.
+
+=== Bewertungskriterien
+
+* Korrekte Implementierung aller Aufgaben: 60%
+* Qualität und Effizienz des Codes: 20%
+* Reflexionsbericht: 20%
+
+== Hinweise und Tipps
+
+* Experimentieren Sie mit verschiedenen Embedding-Modellen, um die Qualität der Suche zu verbessern
+* Überlegen Sie, wie Sie die Dimensionalität der Embeddings auf die Suchgeschwindigkeit auswirkt
+* Beachten Sie, dass für größere Datenmengen effizientere Indexierungsverfahren nötig sein können (FAISS bietet hierzu verschiedene Optionen)
