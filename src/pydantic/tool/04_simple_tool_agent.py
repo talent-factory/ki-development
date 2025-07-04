@@ -12,7 +12,6 @@ from src.utils import load_environment  # noqa: E402
 # Lade .env Datei aus dem Projektstammverzeichnis
 load_environment()
 
-
 agent = Agent(
     model="claude-3-7-sonnet-latest",
     system_prompt="Fasse dich kurz und prägnant, antworte auf Deutsch in einem Satz."
@@ -21,6 +20,7 @@ agent = Agent(
 user_message = "Hallo!"
 result = agent.run_sync(user_message)
 print(result.output)
+
 
 # Diese einfache Möglichkeit ein Werkzeug (Tool) zu definieren ist nur eine der Spezialitäten
 # von PydanticAI.
@@ -34,6 +34,7 @@ def get_aktuelle_zeit(self):
     """Gib die aktuelle Zeit im Format '%H:%M:%S' zurück."""
     from datetime import datetime
     return datetime.now().strftime("%H:%M:%S")
+
 
 while True:
     user_message = input("> ")

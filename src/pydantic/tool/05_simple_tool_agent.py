@@ -15,15 +15,15 @@ from src.utils import load_environment  # noqa: E402
 # Lade .env Datei aus dem Projektstammverzeichnis
 load_environment()
 
-
 agent = Agent(
     model="claude-3-7-sonnet-latest",
-    system_prompt="Du bist ein ouTube Experte. Du suchst bestimmte Videos auf YouTube. Nutze die Tools, um die Videos zu finden."
+    system_prompt="Du bist ein YouTube Experte. Du suchst bestimmte Videos auf YouTube. Nutze die Tools, um die Videos zu finden."
 )
 
 user_message = "Hallo!"
 result = agent.run_sync(user_message)
 print(result.output)
+
 
 # Diese einfache Möglichkeit ein Werkzeug (Tool) zu definieren ist nur eine der Spezialitäten
 # von PydanticAI.
@@ -70,6 +70,7 @@ def youtube_suche(self, suchbegriff):
         videos.append(video)
 
     return videos
+
 
 while True:
     user_message = input("> ")

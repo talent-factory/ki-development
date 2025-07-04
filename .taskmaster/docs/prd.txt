@@ -1,0 +1,90 @@
+# Übersicht  
+Das AI Development Projekt ist eine Sammlung von Beispielen und Anwendungen, die verschiedene KI-Entwicklungskonzepte demonstrieren. Es dient als Lernplattform für fortgeschrittene KI-Technologien wie LangChain, Embeddings, Retrieval-Augmented Generation (RAG) und interaktive Streamlit-Anwendungen. Das Projekt richtet sich an Entwickler und Studierende, die praktische Erfahrungen mit modernen KI-Werkzeugen sammeln möchten.
+
+# Kernfunktionen  
+
+## LangChain-Integration
+- Implementierung von LangChain-Komponenten für verschiedene Anwendungsfälle
+- Demonstration von Chains, Agents und Tools für komplexe KI-Workflows
+- Beispiele für Prompt-Engineering und Prompt-Templates
+
+## Embeddings und Vektorsuche
+- Erstellung und Verwaltung von Embeddings für verschiedene Datentypen
+- Integration von Vektordatenbanken (z.B. FAISS, Chroma)
+- Ähnlichkeitssuche und semantische Vergleiche
+
+## Retrieval-Augmented Generation (RAG)
+- Implementierung von RAG-Pipelines für verschiedene Dokumenttypen
+- Demonstration von Dokumentenverarbeitung und Chunking-Strategien
+- Beispiele für Kontextmanagement und Relevanzoptimierung
+
+## Streamlit-Anwendungen
+- Interaktive Web-Interfaces für KI-Anwendungen
+- Visualisierung von KI-Ergebnissen und Prozessen
+- Benutzerfreundliche Demos für komplexe KI-Konzepte
+
+# Benutzererfahrung  
+
+## Benutzerprofile
+- Entwickler: Suchen nach praktischen Codebeispielen und Implementierungsstrategien
+- Studierende: Lernen KI-Konzepte durch interaktive Beispiele
+- KI-Enthusiasten: Experimentieren mit verschiedenen KI-Technologien
+
+## Hauptnutzungsabläufe
+- Ausführen von Beispielanwendungen über Streamlit
+- Anpassen von Beispielcode für eigene Projekte
+- Erlernen von Best Practices für KI-Entwicklung
+
+# Technische Architektur  
+
+## Systemkomponenten
+- Python-Skripte für verschiedene KI-Konzepte
+- Streamlit-Anwendungen für interaktive Demos
+- Utility-Funktionen für wiederverwendbare Komponenten
+- Dokumentation und Tutorials
+
+## Datenmodelle
+- Vektordatenbanken für Embeddings
+- Dokumentenspeicher für RAG-Anwendungen
+- Konfigurationsdateien für verschiedene Modelle und Dienste
+
+## APIs und Integrationen
+- Integration mit verschiedenen LLM-Anbietern (OpenAI, Anthropic, etc.)
+- Anbindung an Vektordatenbanken
+- Dokumentverarbeitungs-Pipelines
+
+## Infrastrukturanforderungen
+- Python-Umgebung mit Poetry für Dependency-Management
+- Lokale Speicherung für Vektordatenbanken und Dokumente
+- Optional: Anbindung an Cloud-Dienste für skalierbare Anwendungen
+
+# Entwicklungs-Roadmap  
+
+## MVP-Anforderungen
+- Grundlegende Beispiele für LangChain-Komponenten
+- Einfache Embedding-Erstellung und -Nutzung
+- Basis-RAG-Pipeline für Textdokumente
+- Streamlit-Demo-App für interaktive Beispiele
+
+## Zukünftige Erweiterungen
+- Erweiterte RAG-Techniken (Hybrid Search, Re-Ranking)
+- Multi-Modell-Integration (Text, Bilder, Audio)
+- Feinabstimmung und Evaluierung von RAG-Systemen
+- Erweiterte Streamlit-Anwendungen mit komplexeren Workflows
+
+# Logische Abhängigkeitskette
+- Grundlegende Utility-Funktionen und Hilfsbibliotheken
+- LangChain-Komponenten und -Integration
+- Embedding-Erstellung und Vektordatenbank-Integration
+- RAG-Pipeline-Implementierung
+- Streamlit-Anwendungen für alle Komponenten
+
+# Risiken und Maßnahmen  
+- Technische Herausforderungen: Komplexität der LLM-Integration und RAG-Pipelines
+- MVP-Definition: Fokus auf grundlegende Funktionalität mit klarem Lernwert
+- Ressourcenbeschränkungen: Optimierung für lokale Ausführung mit minimalen Anforderungen
+
+# Anhang  
+- Best Practices für Python-Codestruktur und -Dokumentation
+- Referenzen zu relevanten Forschungsarbeiten und Technologien
+- Tutorials für Einsteiger in die verschiedenen Technologien

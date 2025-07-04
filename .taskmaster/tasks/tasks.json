@@ -1,0 +1,221 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Setup Project Repository with Poetry",
+        "description": "Initialize the project repository with Poetry for dependency management and create the basic project structure.",
+        "details": "1. Create a new GitHub repository\n2. Initialize Poetry with `poetry init`\n3. Set up the following directory structure:\n   - `/src` - Main source code\n   - `/examples` - Example applications\n   - `/docs` - Documentation\n   - `/tests` - Unit and integration tests\n4. Create a README.md with project overview\n5. Add essential dependencies to pyproject.toml:\n   ```toml\n   [tool.poetry.dependencies]\n   python = \"^3.9\"\n   langchain = \"^0.0.267\"\n   streamlit = \"^1.26.0\"\n   faiss-cpu = \"^1.7.4\"\n   chromadb = \"^0.4.13\"\n   openai = \"^0.28.0\"\n   anthropic = \"^0.3.11\"\n   ```\n6. Create a .gitignore file with Python standard ignores\n7. Set up a virtual environment with `poetry install`",
+        "testStrategy": "Verify that Poetry correctly initializes the project and installs all dependencies. Check that the directory structure is created correctly and the virtual environment works properly.",
+        "priority": "high",
+        "dependencies": [],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 2,
+        "title": "Implement Utility Functions and Helper Libraries",
+        "description": "Create reusable utility functions and helper libraries that will be used across the project.",
+        "details": "Create a utilities module with the following components:\n\n1. Create `src/utils/llm_utils.py` with functions for:\n   - LLM provider selection and configuration\n   - API key management\n   - Rate limiting and error handling\n\n2. Create `src/utils/embedding_utils.py` with functions for:\n   - Text preprocessing for embeddings\n   - Batch processing for large datasets\n   - Embedding caching mechanisms\n\n3. Create `src/utils/document_utils.py` with functions for:\n   - Document loading from various formats (PDF, TXT, DOCX)\n   - Text chunking strategies (fixed size, semantic, etc.)\n   - Metadata extraction and management\n\n4. Create `src/utils/evaluation_utils.py` with metrics for:\n   - RAG pipeline evaluation\n   - Response quality assessment\n   - Retrieval precision/recall metrics\n\nImplement comprehensive error handling and logging throughout all utility functions.",
+        "testStrategy": "Create unit tests for each utility function to verify correct behavior. Test with various inputs including edge cases. Verify error handling works as expected. Create integration tests that use multiple utility functions together.",
+        "priority": "high",
+        "dependencies": [
+          1
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 3,
+        "title": "Implement Basic LangChain Components",
+        "description": "Create examples demonstrating basic LangChain components for various use cases.",
+        "details": "Implement the following LangChain examples in the `examples/langchain_basics` directory:\n\n1. Create `simple_chain.py` demonstrating:\n   - Sequential chains\n   - LLMChain with prompt templates\n   - SimpleSequentialChain example\n\n2. Create `prompt_engineering.py` demonstrating:\n   - Different prompt templates\n   - Few-shot learning examples\n   - Template variables and formatting\n\n3. Create `memory_examples.py` demonstrating:\n   - ConversationBufferMemory\n   - ConversationSummaryMemory\n   - ConversationBufferWindowMemory\n\n4. Create `tool_examples.py` demonstrating:\n   - Basic tool definitions\n   - Tool integration with chains\n   - Error handling in tools\n\nEach example should include detailed comments explaining the concepts and implementation details. Use the utility functions from Task 2 for LLM configuration.",
+        "testStrategy": "Run each example script to verify it works correctly. Create test cases with different inputs to ensure robust behavior. Document expected outputs and verify the examples produce them. Test with different LLM providers to ensure compatibility.",
+        "priority": "high",
+        "dependencies": [
+          2
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 4,
+        "title": "Implement Advanced LangChain Agents and Tools",
+        "description": "Create examples demonstrating advanced LangChain agents and tools for complex AI workflows.",
+        "details": "Implement the following advanced LangChain examples in the `examples/langchain_advanced` directory:\n\n1. Create `agent_examples.py` demonstrating:\n   - ReAct agent implementation\n   - Zero-shot agent implementation\n   - Structured tool chat agent\n\n2. Create `custom_tools.py` demonstrating:\n   - Creating custom tools with different return types\n   - Tool validation and error handling\n   - Chaining tools together\n\n3. Create `agent_executor.py` demonstrating:\n   - AgentExecutor configuration\n   - Handling agent execution errors\n   - Controlling agent behavior\n\n4. Create `multi_agent_system.py` demonstrating:\n   - Multiple agents working together\n   - Agent communication patterns\n   - Orchestrating complex workflows\n\nEach example should include detailed comments and documentation. Implement proper error handling and provide examples of both successful and error cases.",
+        "testStrategy": "Create test scenarios for each agent type with various inputs. Test error handling by providing invalid inputs. Measure performance metrics like completion time and token usage. Compare different agent approaches for the same task.",
+        "priority": "medium",
+        "dependencies": [
+          3
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 5,
+        "title": "Implement Embedding Creation and Management",
+        "description": "Create examples for generating and managing embeddings for different data types.",
+        "details": "Implement the following embedding examples in the `examples/embeddings` directory:\n\n1. Create `text_embeddings.py` demonstrating:\n   - Text preprocessing for embeddings\n   - Generating embeddings with different models\n   - Batching strategies for large texts\n\n2. Create `embedding_storage.py` demonstrating:\n   - Saving and loading embeddings\n   - Embedding metadata management\n   - Efficient storage formats\n\n3. Create `embedding_visualization.py` demonstrating:\n   - Dimensionality reduction (PCA, t-SNE, UMAP)\n   - Interactive embedding visualization\n   - Clustering of embeddings\n\n4. Create `multi_modal_embeddings.py` demonstrating (if applicable):\n   - Image embedding generation\n   - Text-image embedding alignment\n   - Cross-modal retrieval\n\nUse the utility functions from Task 2 for embedding processing. Implement caching mechanisms to avoid regenerating embeddings unnecessarily.",
+        "testStrategy": "Test embedding generation with various text inputs. Verify embedding dimensions are correct. Test storage and retrieval of embeddings. Measure embedding generation time and optimize where possible. Verify visualization tools work correctly.",
+        "priority": "high",
+        "dependencies": [
+          2
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 6,
+        "title": "Implement Vector Database Integration",
+        "description": "Create examples for integrating with vector databases like FAISS and Chroma.",
+        "details": "Implement the following vector database examples in the `examples/vector_databases` directory:\n\n1. Create `faiss_integration.py` demonstrating:\n   - FAISS index creation and configuration\n   - Adding, updating, and deleting vectors\n   - Similarity search with different metrics\n   - Index persistence and loading\n\n2. Create `chroma_integration.py` demonstrating:\n   - ChromaDB setup and configuration\n   - Document and metadata storage\n   - Filtering and advanced queries\n   - Collection management\n\n3. Create `vector_db_comparison.py` demonstrating:\n   - Performance comparison between databases\n   - Feature comparison\n   - Use case recommendations\n\n4. Create `hybrid_search.py` demonstrating:\n   - Combining vector search with keyword search\n   - Ranking and scoring mechanisms\n   - Optimizing search parameters\n\nImplement proper error handling and connection management. Include examples of both in-memory and persistent storage options.",
+        "testStrategy": "Test vector database operations with various dataset sizes. Measure query performance and optimize where needed. Test persistence by saving and loading databases. Compare search quality between different vector databases. Verify metadata filtering works correctly.",
+        "priority": "high",
+        "dependencies": [
+          5
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 7,
+        "title": "Implement Basic RAG Pipeline",
+        "description": "Create a basic Retrieval-Augmented Generation (RAG) pipeline for text documents.",
+        "details": "Implement a basic RAG pipeline in the `examples/rag_basic` directory:\n\n1. Create `document_processor.py` for:\n   - Loading documents from files (PDF, TXT, DOCX)\n   - Text extraction and cleaning\n   - Chunking strategies implementation\n   - Metadata extraction\n\n2. Create `retriever.py` for:\n   - Vector store setup (using FAISS or Chroma)\n   - Similarity search implementation\n   - Top-k retrieval with configurable parameters\n   - Metadata filtering options\n\n3. Create `generator.py` for:\n   - Context formatting for LLM\n   - Prompt template creation\n   - Response generation with LangChain\n   - Source attribution\n\n4. Create `rag_pipeline.py` to integrate all components:\n   - End-to-end pipeline implementation\n   - Configuration options\n   - Simple API for usage\n   - Example usage with sample documents\n\nUse the utility functions from previous tasks. Implement proper error handling for each stage of the pipeline.",
+        "testStrategy": "Test the pipeline with various document types and queries. Verify retrieval quality with different chunking strategies. Test with different LLMs to ensure compatibility. Measure end-to-end performance and optimize bottlenecks. Create a test suite with expected question-answer pairs.",
+        "priority": "high",
+        "dependencies": [
+          3,
+          6
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 8,
+        "title": "Implement Advanced RAG Techniques",
+        "description": "Create examples demonstrating advanced RAG techniques like hybrid search and re-ranking.",
+        "details": "Implement advanced RAG techniques in the `examples/rag_advanced` directory:\n\n1. Create `hybrid_retrieval.py` demonstrating:\n   - BM25 or sparse retrieval implementation\n   - Dense vector retrieval\n   - Hybrid retrieval combining both approaches\n   - Weighting and scoring mechanisms\n\n2. Create `reranking.py` demonstrating:\n   - Cross-encoder reranking\n   - Custom reranking functions\n   - Relevance scoring algorithms\n   - Integration with retrieval pipeline\n\n3. Create `query_transformation.py` demonstrating:\n   - Query expansion techniques\n   - Query decomposition for complex questions\n   - Hypothetical document embeddings\n   - Query routing to different retrievers\n\n4. Create `context_augmentation.py` demonstrating:\n   - Dynamic context window management\n   - Context relevance filtering\n   - Context ordering strategies\n   - Handling context overflow\n\nImplement comprehensive logging to track the performance of each technique. Create configuration options to enable/disable different features.",
+        "testStrategy": "Compare retrieval quality metrics (precision, recall, MRR) between basic and advanced techniques. Create benchmark datasets with ground truth relevance. Test with complex, multi-hop queries. Measure the impact of each technique on response quality and performance.",
+        "priority": "medium",
+        "dependencies": [
+          7
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 9,
+        "title": "Implement RAG Evaluation Framework",
+        "description": "Create a framework for evaluating and fine-tuning RAG systems.",
+        "details": "Implement a RAG evaluation framework in the `examples/rag_evaluation` directory:\n\n1. Create `retrieval_metrics.py` for:\n   - Precision, recall, and F1 calculation\n   - Mean Reciprocal Rank (MRR) implementation\n   - nDCG and other ranking metrics\n   - Retrieval latency measurement\n\n2. Create `generation_metrics.py` for:\n   - Answer relevance evaluation\n   - Factual consistency checking\n   - Hallucination detection\n   - Response completeness assessment\n\n3. Create `evaluation_datasets.py` for:\n   - Test dataset creation and management\n   - Ground truth annotation tools\n   - Dataset splitting and sampling\n   - Synthetic test case generation\n\n4. Create `rag_evaluator.py` to integrate all components:\n   - End-to-end evaluation pipeline\n   - Comparative evaluation of different RAG configurations\n   - Visualization of evaluation results\n   - Recommendations for improvement\n\nImplement both automatic metrics and tools for human evaluation. Create dashboards for visualizing evaluation results.",
+        "testStrategy": "Validate metrics implementation against known benchmarks. Test with diverse query types and document collections. Compare automatic metrics with human judgments. Verify that the evaluation framework can detect common RAG failure modes.",
+        "priority": "medium",
+        "dependencies": [
+          7,
+          8
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 10,
+        "title": "Implement Basic Streamlit Demo App",
+        "description": "Create a basic Streamlit application to demonstrate the core functionality of the project.",
+        "details": "Implement a basic Streamlit demo app in the `examples/streamlit_basic` directory:\n\n1. Create `app.py` with the following features:\n   - Simple UI with sidebar navigation\n   - LangChain basic examples section\n   - Embedding visualization section\n   - Simple RAG demo with document upload\n   - Configuration options for models and parameters\n\n2. Implement the following pages/sections:\n   - Home page with project overview and navigation\n   - LangChain demo with interactive prompt templates\n   - Embedding explorer with visualization tools\n   - RAG demo with document upload and querying\n   - About page with documentation links\n\n3. Create helper modules:\n   - `streamlit_utils.py` for common UI components\n   - `demo_data.py` for sample data and examples\n   - `session_state.py` for managing application state\n\n4. Add documentation:\n   - Usage instructions in the UI\n   - Code comments explaining implementation\n   - Requirements and setup guide\n\nEnsure the app is responsive and handles errors gracefully. Implement session state management to preserve user inputs.",
+        "testStrategy": "Test the Streamlit app with different browsers and screen sizes. Verify all interactive elements work correctly. Test error handling by providing invalid inputs. Get user feedback on UI/UX and improve accordingly.",
+        "priority": "high",
+        "dependencies": [
+          3,
+          5,
+          7
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 11,
+        "title": "Implement Advanced Streamlit Applications",
+        "description": "Create advanced Streamlit applications with complex workflows and visualizations.",
+        "details": "Implement advanced Streamlit applications in the `examples/streamlit_advanced` directory:\n\n1. Create `agent_playground.py` demonstrating:\n   - Interactive agent configuration\n   - Tool selection and customization\n   - Execution visualization\n   - Performance metrics display\n\n2. Create `rag_workbench.py` demonstrating:\n   - Document management interface\n   - Chunking strategy comparison\n   - Retrieval visualization\n   - Response evaluation tools\n\n3. Create `embedding_studio.py` demonstrating:\n   - Interactive embedding generation\n   - 3D visualization of embedding spaces\n   - Similarity exploration tools\n   - Clustering and analysis features\n\n4. Create `llm_comparison.py` demonstrating:\n   - Side-by-side LLM comparison\n   - Prompt template testing\n   - Response evaluation metrics\n   - Cost and performance tracking\n\nImplement advanced UI features like tabs, expandable sections, and custom components. Create a consistent design language across all applications.",
+        "testStrategy": "Conduct usability testing with target users. Test with large datasets to ensure performance. Verify all visualizations render correctly. Test application state management with complex workflows. Gather feedback on feature completeness and usability.",
+        "priority": "medium",
+        "dependencies": [
+          4,
+          8,
+          10
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 12,
+        "title": "Implement Multi-Modal RAG Support",
+        "description": "Extend the RAG pipeline to support multi-modal data (text, images, audio).",
+        "details": "Implement multi-modal RAG support in the `examples/multimodal_rag` directory:\n\n1. Create `image_processor.py` for:\n   - Image loading and preprocessing\n   - Image feature extraction\n   - Image embedding generation\n   - Image metadata management\n\n2. Create `audio_processor.py` for:\n   - Audio loading and preprocessing\n   - Speech-to-text conversion\n   - Audio feature extraction\n   - Audio embedding generation\n\n3. Create `multimodal_retriever.py` for:\n   - Cross-modal retrieval implementation\n   - Modal-specific retrieval strategies\n   - Unified retrieval interface\n   - Relevance scoring across modalities\n\n4. Create `multimodal_rag_pipeline.py` to integrate all components:\n   - End-to-end multi-modal RAG pipeline\n   - Configuration for different modalities\n   - Example usage with mixed-media documents\n   - Response generation with multi-modal context\n\nImplement proper handling of different media types and ensure compatibility with existing text-based components.",
+        "testStrategy": "Test with various combinations of media types. Verify cross-modal retrieval quality. Test with multi-modal queries (e.g., image + text). Measure performance impact of multi-modal processing. Create test cases with ground truth for different modalities.",
+        "priority": "low",
+        "dependencies": [
+          7,
+          8
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 13,
+        "title": "Create Comprehensive Documentation",
+        "description": "Create comprehensive documentation for the project including tutorials, API references, and best practices.",
+        "details": "Create comprehensive documentation in the `docs` directory:\n\n1. Create general documentation:\n   - `getting_started.md` with installation and setup instructions\n   - `project_overview.md` with architecture and component descriptions\n   - `contribution_guide.md` with guidelines for contributors\n   - `faq.md` with frequently asked questions\n\n2. Create tutorials:\n   - `langchain_tutorial.md` for LangChain components\n   - `embeddings_tutorial.md` for embedding creation and usage\n   - `rag_tutorial.md` for RAG pipeline implementation\n   - `streamlit_tutorial.md` for creating Streamlit apps\n\n3. Create API references:\n   - Document all utility functions with docstrings\n   - Generate API reference documentation\n   - Create usage examples for each module\n\n4. Create best practices guides:\n   - `prompt_engineering_best_practices.md`\n   - `rag_best_practices.md`\n   - `performance_optimization.md`\n   - `security_considerations.md`\n\nEnsure documentation is clear, concise, and includes code examples. Add diagrams where appropriate to illustrate concepts.",
+        "testStrategy": "Review documentation for clarity and completeness. Verify all code examples work as described. Have new users attempt to follow tutorials and gather feedback. Check for broken links and outdated information.",
+        "priority": "medium",
+        "dependencies": [
+          1,
+          2,
+          3,
+          5,
+          7,
+          10
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 14,
+        "title": "Implement Continuous Integration and Testing",
+        "description": "Set up continuous integration and comprehensive testing for the project.",
+        "details": "Implement CI/CD and testing infrastructure:\n\n1. Set up GitHub Actions workflow in `.github/workflows/main.yml`:\n   - Run tests on push and pull requests\n   - Check code formatting with Black and isort\n   - Run linting with flake8 or pylint\n   - Generate test coverage reports\n\n2. Create comprehensive tests in the `tests` directory:\n   - Unit tests for utility functions\n   - Integration tests for components\n   - End-to-end tests for pipelines\n   - Performance benchmarks\n\n3. Implement test utilities:\n   - Test fixtures and factories\n   - Mock LLM responses for deterministic testing\n   - Test data generation\n   - Performance measurement tools\n\n4. Create documentation for testing:\n   - Testing strategy document\n   - Guide for writing new tests\n   - CI/CD pipeline documentation\n\nUse pytest for test implementation. Aim for high test coverage of critical components.",
+        "testStrategy": "Verify CI pipeline runs successfully. Check that tests catch regressions when introduced. Measure and maintain test coverage. Ensure tests run in a reasonable time. Validate that mock components accurately represent real behavior.",
+        "priority": "medium",
+        "dependencies": [
+          1,
+          2
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 15,
+        "title": "Create Example Notebooks and Tutorials",
+        "description": "Create Jupyter notebooks and tutorials demonstrating the project's capabilities.",
+        "details": "Create example notebooks in the `notebooks` directory:\n\n1. Create introductory notebooks:\n   - `01_introduction.ipynb` with project overview\n   - `02_setup_guide.ipynb` with installation instructions\n   - `03_quickstart.ipynb` with basic usage examples\n\n2. Create component-specific notebooks:\n   - `langchain_examples.ipynb` demonstrating LangChain features\n   - `embedding_examples.ipynb` demonstrating embedding workflows\n   - `rag_examples.ipynb` demonstrating RAG pipelines\n   - `streamlit_examples.ipynb` demonstrating Streamlit integration\n\n3. Create advanced tutorials:\n   - `advanced_rag_techniques.ipynb` with advanced RAG implementations\n   - `agent_development.ipynb` with agent creation examples\n   - `evaluation_methods.ipynb` with evaluation techniques\n   - `performance_optimization.ipynb` with optimization strategies\n\n4. Create end-to-end application examples:\n   - `document_qa_system.ipynb` building a complete QA system\n   - `conversational_agent.ipynb` building a conversational agent\n   - `knowledge_base.ipynb` building a knowledge base system\n\nEnsure notebooks are well-documented with markdown explanations. Include both code and outputs. Make notebooks executable with minimal setup.",
+        "testStrategy": "Test notebooks in clean environments to ensure they run without errors. Verify all code cells execute correctly. Check that outputs match expectations. Have users with different experience levels review notebooks for clarity.",
+        "priority": "medium",
+        "dependencies": [
+          3,
+          5,
+          7,
+          10,
+          13
+        ],
+        "status": "pending",
+        "subtasks": []
+      }
+    ],
+    "metadata": {
+      "created": "2025-07-03T17:59:28.285Z",
+      "updated": "2025-07-03T17:59:28.285Z",
+      "description": "Tasks for master context"
+    }
+  }
+}
