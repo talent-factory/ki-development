@@ -1,5 +1,7 @@
 # [KI Professional – Fachrichtung Development](https://ibaw.ch/bildungsangebote/informatik/digital-collaboration-transformation/ki-professional-development/#rowno5)
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/talent-factory/ki-development)
+&nbsp;
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Daniel%20Senften-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/dsenften/)
 &nbsp;
 [![GitHub](https://img.shields.io/badge/GitHub-blue?logo=github&logoColor=white)](https://github.com/talent-factory/ki-development)
