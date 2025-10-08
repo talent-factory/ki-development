@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/daniel/GitRepository/**)",
+      "Bash(gh pr create:*)",
+      "Bash(git push:*)",
+      "Bash(glab mr create:*)",
+      "Bash(glab auth:*)",
+      "Read(//Users/daniel/.config/glab-cli/**)",
+      "Bash(glab config get:*)",
+      "Bash(glab api:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

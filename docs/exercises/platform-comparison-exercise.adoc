@@ -1,0 +1,154 @@
+=== Aufgabe: Vergleich von AI-Plattformen
+:imagesdir: ../images/
+
+==== Lernziele
+* Sie können verschiedene AI-Plattformen praktisch vergleichen
+* Sie verstehen die Stärken und Schwächen verschiedener Ansätze
+* Sie können eine fundierte Plattform-Auswahl für ein Projekt treffen
+
+==== Aufgabenstellung
+
+**Teil 1: Praktischer Test (60 Minuten)**
+
+Testen Sie mindestens **zwei** der folgenden Plattformen:
+
+1. **Flowise AI** (bereits behandelt)
+2. **Langflow** 
+3. **n8n** (https://n8n.io/)
+4. **Make AI** (https://make.com/) - kostenlose Testversion
+
+**Für jede Plattform:**
+1. Registrieren Sie sich (kostenlose Version)
+2. Erstellen Sie einen einfachen AI-Workflow:
+   - Text-zu-Text Transformation (z.B. Zusammenfassung)
+   - Oder: Einfacher Chatbot
+   - Oder: Text-Klassifikation
+
+**Teil 2: Vergleichsmatrix erstellen (30 Minuten)**
+
+Erstellen Sie eine Tabelle mit folgenden Bewertungskriterien (Skala 1-5):
+
+[cols="25,15,15,15,15,15"]
+|===
+| Kriterium | Flowise | Langflow | n8n | Make AI | Ihre Wahl
+
+| Einfachheit der Bedienung
+| 
+| 
+| 
+| 
+| 
+
+| Flexibilität/Anpassbarkeit
+| 
+| 
+| 
+| 
+| 
+
+| Verfügbare Integrationen
+| 
+| 
+| 
+| 
+| 
+
+| Community/Dokumentation
+| 
+| 
+| 
+| 
+| 
+
+| Kosten (kostenlose Features)
+| 
+| 
+| 
+| 
+| 
+
+| AI-spezifische Features
+| 
+| 
+| 
+| 
+| 
+
+| **Gesamtbewertung**
+| 
+| 
+| 
+| 
+| 
+|===
+
+**Teil 3: Empfehlung (15 Minuten)**
+
+Schreiben Sie eine kurze Empfehlung (200-300 Wörter):
+
+1. **Für Anfänger ohne Programmiererfahrung**: Welche Plattform empfehlen Sie?
+2. **Für fortgeschrittene Nutzer**: Welche Plattform bietet die beste Flexibilität?
+3. **Für Unternehmen**: Welche Plattform eignet sich am besten für professionelle Projekte?
+
+Begründen Sie Ihre Empfehlungen basierend auf Ihren praktischen Erfahrungen.
+
+==== Zusatzaufgabe (Optional)
+
+**Erstellen Sie einen komplexeren Workflow:**
+- Kombinieren Sie mehrere AI-Services (z.B. Text-Generierung + Sentiment-Analyse)
+- Integrieren Sie externe APIs oder Datenquellen
+- Dokumentieren Sie Herausforderungen und Lösungsansätze
+
+:tip-caption: Abgabe
+[TIP]
+====
+**Abzugeben:**
+
+1. **Screenshots** der erstellten Workflows in jeder getesteten Plattform
+2. **Ausgefüllte Vergleichsmatrix** (als Tabelle oder Screenshot)
+3. **Empfehlungstext** (200-300 Wörter)
+4. **Reflexion** (100-150 Wörter): Was haben Sie über No-Code/Low-Code AI-Entwicklung gelernt?
+
+**Format:** PDF-Dokument oder Markdown-Datei
+**Deadline:** Nächster Kurstermin
+====
+
+==== Hilfreiche Ressourcen
+
+**Flowise AI:**
+- Dokumentation: https://docs.flowiseai.com/
+- YouTube Tutorials: Bereits im Kurs behandelt
+
+**Langflow:**
+- Website: https://www.langflow.org/
+- GitHub: https://github.com/logspace-ai/langflow
+- Dokumentation: https://docs.langflow.org/
+
+**n8n:**
+- Website: https://n8n.io/
+- Dokumentation: https://docs.n8n.io/
+- Community: https://community.n8n.io/
+
+**Make AI:**
+- Website: https://make.com/
+- Academy: https://www.make.com/en/academy
+- Templates: https://www.make.com/en/templates
+
+==== Bewertungskriterien
+
+[cols="30,70"]
+|===
+| Kriterium | Beschreibung
+
+| **Vollständigkeit (40%)**
+| Alle Teile der Aufgabe bearbeitet, mindestens 2 Plattformen getestet
+
+| **Qualität der Analyse (30%)**
+| Durchdachte Bewertungen, nachvollziehbare Begründungen
+
+| **Praktische Umsetzung (20%)**
+| Funktionierende Workflows erstellt, Screenshots aussagekräftig
+
+| **Reflexion (10%)**
+| Persönliche Erkenntnisse und Lernfortschritt dokumentiert
+|===

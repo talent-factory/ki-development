@@ -1,9 +1,28 @@
 == Plattformen und Tools
 
 === Lernziele
+
 * Sie kennen wichtige Plattformen für KI-Entwicklung und -Deployment.
 * Sie können Replicate und verwandte Tools praktisch einsetzen.
 * Sie beurteilen die Bedeutung von Plattformen für den KI-Workflow.
+* Sie verstehen die Unterschiede zwischen verschiedenen No-Code/Low-Code AI-Plattformen.
+
+=== Überblick AI-Plattformen 2024/2025
+
+Neben den bereits behandelten Tools Flowise und Langflow gibt es weitere wichtige Plattformen:
+
+**No-Code/Low-Code AI-Plattformen:**
+
+* **n8n** - Sehr populäre Open-Source Automation-Plattform mit AI-Integration
+* **Make AI** (ehemals Integromat) - Kommerzielle Lösung für Workflow-Automation
+* **Zapier** - Marktführer für einfache Automatisierungen
+* **Microsoft Power Automate** - Enterprise-Lösung
+
+**Spezialisierte AI-Plattformen:**
+
+* **Replicate** - Model Hosting und Deployment (siehe unten)
+* **Hugging Face Spaces** - Community-basierte Model-Sharing-Plattform
+* **Gradio** - Schnelle UI-Erstellung für ML-Modelle
 
 :cog-github: https://github.com/replicate/cog
 :cog-home: https://cog.run/

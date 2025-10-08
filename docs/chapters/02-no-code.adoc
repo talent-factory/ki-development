@@ -67,18 +67,41 @@ Text-Splitter und Document Loader für PDFs und Texte. Dies ermöglicht die Entw
 neuartiger Use-Cases und spart Zeit und Entwickler-Ressourcen.
 
 
-== Unterschiede
+== Unterschiede und Vergleich (Stand 2024/2025)
 
-Flowise bietet die meisten Integrationen und zahlreiche Zusatz-Tools, wodurch es sich
-ideal zur Erstellung beliebiger GenAI-Anwendungs-Prototypen eignet. Namhafte Unternehmen
-wie AWS, Alibaba, Hitachi, ByteDance, Microsoft, InsightSoftware, Google und Accenture
-nutzen Flowise.
+=== Flowise AI vs. Langflow
 
-Langflow bietet weniger Integrationen, da es speziell für das Prototyping von
-{langchain}[Langchain]-Anwendungen konzipiert ist. Langchain ist ein beliebtes Framework zur
-Entwicklung von GenAI-Anwendungen. Langflow hat wahrscheinlich eine grössere Verbreitung
-bei vielen Nutzern, da Langchain häufig in den Online-Kursen von {deeplearning}[deeplearning.ai]
-verwendet wird, die von vielen LLM-Einsteigern besucht werden.
+**Flowise AI:**
+
+* ✅ Mehr Integrationen und Zusatz-Tools
+* ✅ Ideal für beliebige GenAI-Anwendungs-Prototypen
+* ✅ Namhafte Unternehmen nutzen es (AWS, Microsoft, Google, etc.)
+* ✅ Einfacherer Einstieg für Anfänger
+* ❌ Weniger flexibel bei komplexen Anpassungen
+
+**Langflow:**
+
+* ✅ Speziell für LangChain-Anwendungen optimiert
+* ✅ Grössere Verbreitung in der Entwickler-Community
+* ✅ Mehr Flexibilität für fortgeschrittene Nutzer
+* ✅ Python-basiert und model-agnostisch
+* ❌ Steilere Lernkurve
+
+=== Weitere wichtige Alternativen
+
+**n8n:**
+
+* Open-Source Automation-Plattform
+* Nicht nur AI, sondern allgemeine Workflow-Automation
+* Sehr grosse Community und viele Integrationen
+* Ideal für: Allgemeine Automatisierung mit AI-Komponenten
+
+**Make AI (ehemals Integromat):**
+
+* Kommerzielle No-Code Lösung
+* Einfache Bedienung, viele Templates
+* Kostenpflichtig, aber professioneller Support
+* Ideal für: Unternehmen mit Budget für kommerzielle Lösungen
 
 Wir werden Langchain zu einem späteren Zeitpunkt auch betrachten.
 
@@ -117,7 +140,7 @@ der Datenvorbereitung bis zur Bereitstellung von Modellen zu unterstützen.
     von Vorteil ist.
 
 5. *Skalierbarkeit*: Durch die Nutzung von Cloud-Infrastrukturen kann FlowiseAI
-    skalieren, um große Datenmengen und komplexe Modelle effizient zu verarbeiten.
+    skalieren, um grosse Datenmengen und komplexe Modelle effizient zu verarbeiten.
 
 [discrete]
 === Einsatzmöglichkeiten
