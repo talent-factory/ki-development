@@ -1,0 +1,69 @@
+# Gitpod-Konfiguration für AI Development Kurs
+image:
+  file: .gitpod.Dockerfile
+
+# Ports für verschiedene Services
+ports:
+  - port: 8501
+    name: Streamlit App
+    description: Streamlit Anwendungen
+    onOpen: notify
+    visibility: public
+  - port: 8000
+    name: Development Server
+    description: Allgemeiner Development Server
+    onOpen: ignore
+    visibility: private
+  - port: 3000
+    name: Frontend Server
+    description: Frontend Development Server
+    onOpen: ignore
+    visibility: private
+
+# Aufgaben die beim Start ausgeführt werden
+tasks:
+  - name: Setup Python Environment
+    init: |
+      echo "🚀 Installiere Python-Pakete für AI Development..."
+      pip install --upgrade pip
+      pip install streamlit openai anthropic python-dotenv
+      pip install langchain langchain-openai langchain-anthropic
+      pip install faiss-cpu chromadb
+      echo "✅ Python-Umgebung bereit!"
+    command: |
+      echo "🎉 AI Development Umgebung ist bereit!"
+      echo ""
+      echo "📚 Verfügbare Befehle:"
+      echo "  - streamlit run app.py    (Streamlit App starten)"
+      echo "  - python --version        (Python Version prüfen)"
+      echo "  - pip list               (Installierte Pakete)"
+      echo ""
+      echo "🔧 Nützliche Shortcuts:"
+      echo "  - Ctrl+Shift+P           (Command Palette)"
+      echo "  - Ctrl+`                 (Terminal öffnen)"
+      echo ""
+      echo "💡 Tipp: API-Schlüssel in .env Datei speichern!"
+
+# VS Code Extensions
+vscode:
+  extensions:
+    - ms-python.python
+    - ms-python.flake8
+    - ms-python.black-formatter
+    - ms-toolsai.jupyter
+    - ms-vscode.vscode-json
+    - redhat.vscode-yaml
+    - ms-vscode.live-server
+    - bradlc.vscode-tailwindcss
+    - esbenp.prettier-vscode
+
+# GitHub Integration
+github:
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: true
+    pullRequestsFromForks: false
+    addCheck: true
+    addComment: false
+    addBadge: true

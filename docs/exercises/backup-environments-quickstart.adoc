@@ -1,0 +1,104 @@
+= Quick-Start: Backup-Entwicklungsumgebungen
+:author: Daniel Senften
+:email: daniel.senften@talent-factory.ch
+:revnumber: 1.0
+:revdate: {localdate}
+:doctype: book
+include::../locale/attributes-de.adoc[]
+:toc: left
+:sectnums:
+:sectnumlevels: 2
+ifndef::imagesdir[:imagesdir: ../images]
+:source-highlighter: highlight.js
+:icons: font
+
+== 🚨 Technische Probleme? Kein Problem!
+
+Falls Ihre lokale Python-Installation nicht funktioniert, haben wir **zwei Backup-Lösungen** vorbereitet:
+
+== Option 1: GitHub Codespaces ⚡
+
+=== In 3 Schritten startklar:
+
+1. **Repository auf GitHub öffnen**
+2. **"Code" → "Codespaces" → "Create codespace"** klicken
+3. **2 Minuten warten** - fertig! 🎉
+
+=== API-Schlüssel hinzufügen:
+
+[source,bash]
+----
+# Terminal in Codespace öffnen
+echo "OPENAI_API_KEY=sk-..." > .env
+----
+
+=== App starten:
+
+[source,bash]
+----
+streamlit run app.py
+# Port 8501 öffnet sich automatisch
+----
+
+== Option 2: Gitpod 🚀
+
+=== Noch schneller:
+
+1. **URL ändern:** `gitpod.io/#` vor GitHub-URL setzen
+2. **Enter drücken** - startet automatisch
+3. **1 Minute warten** - fertig! ⚡
+
+=== Beispiel:
+[source,text]
+----
+Aus: https://github.com/username/ai-course-assistant
+Wird: https://gitpod.io/#https://github.com/username/ai-course-assistant
+----
+
+== 🆘 Notfall-Checkliste
+
+Falls gar nichts funktioniert:
+
+=== Schritt 1: Browser prüfen
+- [ ] **Chrome oder Firefox** verwenden
+- [ ] **Inkognito-Modus** testen
+- [ ] **Browser-Cache** leeren
+
+=== Schritt 2: Internet prüfen
+- [ ] **Stabile Verbindung** vorhanden?
+- [ ] **GitHub.com** erreichbar?
+- [ ] **VPN** deaktivieren
+
+=== Schritt 3: Account prüfen
+- [ ] **GitHub Account** funktioniert?
+- [ ] **Bei GitHub angemeldet**?
+- [ ] **Repository Zugriff** vorhanden?
+
+=== Schritt 4: Hilfe holen
+- [ ] **Nachbarn fragen** (Pair Programming)
+- [ ] **Kursleitung informieren**
+- [ ] **Demo-App verwenden:** https://ai-course-demo.streamlit.app/
+
+== 💡 Pro-Tipps
+
+=== Für GitHub Codespaces:
+* **VS Code Desktop** verwenden für bessere Performance
+* **Regelmässig committen** - Daten bleiben erhalten
+* **Ports Tab** beachten für Streamlit Apps
+
+=== Für Gitpod:
+* **Browser Extension** installieren für Ein-Klick-Start
+* **Environment Variables** im Dashboard setzen
+* **Prebuilds** nutzen für noch schnellere Starts
+
+== 🎯 Ziel erreicht!
+
+**Egal welche Option Sie wählen - Sie haben eine funktionierende Entwicklungsumgebung!**
+
+✅ Python installiert  
+✅ VS Code verfügbar  
+✅ Alle Pakete installiert  
+✅ Streamlit funktioniert  
+✅ Git konfiguriert  
+
+**Jetzt können Sie mit dem AI Kurs-Assistenten Tutorial fortfahren!** 🚀

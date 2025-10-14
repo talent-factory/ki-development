@@ -560,14 +560,22 @@ Falls lokale Installation nicht funktioniert:
    - Öffnen Sie Ihr Repository auf GitHub
    - Klicken Sie auf "Code" → "Codespaces" → "Create codespace"
    - Entwickeln Sie direkt im Browser
+   - **Detaillierte Anleitung:** `docs/exercises/backup-environments-quickstart.adoc`
 
-2. **Pair Programming:**
+2. **Gitpod verwenden:**
+   - Fügen Sie `gitpod.io/#` vor Ihre GitHub Repository URL
+   - Noch schneller als Codespaces
+   - **Detaillierte Anleitung:** `docs/backup-environments-guide.adoc`
+
+3. **Pair Programming:**
    - Arbeiten Sie mit einem Nachbarn zusammen
    - Teilen Sie sich einen funktionierenden Computer
 
-3. **Fertige Demo-App:**
+4. **Fertige Demo-App:**
    - Falls alles fehlschlägt: https://ai-course-demo.streamlit.app/
    - Analysieren Sie den Code auf GitHub
+
+**Wichtig:** Beide Cloud-Umgebungen sind bereits mit allen notwendigen Paketen vorkonfiguriert!
 
 == Erweiterungsideen
 
