@@ -31,7 +31,7 @@ Aktueller Stand: Abend 2, Lektion 3
 ```
 
 **Visuelle Elemente:**
-- Großer Fortschrittsbalken (blau gefüllt, grau leer)
+- Grosser Fortschrittsbalken (blau gefüllt, grau leer)
 - Zahlen prominent hervorheben
 - Icon für aktuellen Standort
 
@@ -85,13 +85,13 @@ Aktueller Stand: Abend 2, Lektion 3
 
 ## Slide 5: Lernpfad Visualisierung
 
-**Layout:** Nur Inhalt (für große Grafik)  
+**Layout:** Nur Inhalt (für grosse Grafik)  
 **Titel:** 🚀 Ihre Lernreise
 
 **Inhalt:** Mermaid-Diagramm als Bild einfügen
 - Exportieren Sie das Mermaid-Diagramm als PNG
 - Zentriert auf der Slide platzieren
-- Ausreichend groß für Lesbarkeit
+- Ausreichend gross für Lesbarkeit
 
 **Alternative:** Vereinfachte Version als PowerPoint-Shapes:
 ```
@@ -166,7 +166,7 @@ Nächster Meilenstein: RAG-System implementieren
 ```
 
 **Design:**
-- Große, motivierende Schrift
+- Grosse, motivierende Schrift
 - Fortschrittskreis (Donut-Chart)
 - Call-to-Action für nächste Schritte
 
@@ -177,12 +177,12 @@ Nächster Meilenstein: RAG-System implementieren
 - **Sekundär:** #F24236 (Orange/Rot)
 - **Akzent:** #A23B72 (Lila)
 - **Neutral:** #2F2F2F (Dunkelgrau)
-- **Hintergrund:** #FFFFFF (Weiß)
+- **Hintergrund:** #FFFFFF (Weiss)
 
 ### Typografie
 - **Überschriften:** Calibri Bold, 32-44pt
 - **Untertitel:** Calibri Semibold, 24-28pt
-- **Fließtext:** Calibri Regular, 18-20pt
+- **Fliesstext:** Calibri Regular, 18-20pt
 - **Hervorhebungen:** Calibri Bold, 18-20pt
 
 ### Icons & Symbole
@@ -191,8 +191,8 @@ Nächster Meilenstein: RAG-System implementieren
 - Fortschrittsbalken und -kreise für Visualisierung
 
 ### Layout-Prinzipien
-- **Weißraum:** Ausreichend Platz zwischen Elementen
-- **Hierarchie:** Klare visuelle Hierarchie durch Größe und Farbe
+- **Weissraum:** Ausreichend Platz zwischen Elementen
+- **Hierarchie:** Klare visuelle Hierarchie durch Grösse und Farbe
 - **Konsistenz:** Einheitliche Abstände und Ausrichtung
 - **Fokus:** Ein Hauptelement pro Slide
 

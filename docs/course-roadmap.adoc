@@ -23,6 +23,10 @@ ifndef::imagesdir[:imagesdir: images]
 == Lernpfad Visualisierung
 
 ```mermaid
+---
+config:
+  layout: elk
+---
 graph TD
     A[🎯 Start: AI-Neuling] --> B[Abend 1: Grundlagen & No-Code]
     B --> C[Abend 2: Python & Deployment]

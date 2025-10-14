@@ -20,115 +20,138 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 == Tagesplan (7 Tage)
 
-=== Tag 1 (Montag): Einstieg und Testen (45 Min)
+=== Tag 1 (Mittwoch): Einstieg und Testen (45 Min)
 
 **Aufgabe 1.1: AI Kurs-Assistent testen (30 Min)**
+
 - [ ] 10 verschiedene Fragen stellen
 - [ ] Antworten bewerten und dokumentieren
 - [ ] `test-ergebnisse.md` erstellen
 
 **Aufgabe 1.3: App teilen (15 Min)**
+
 - [ ] URL an Freunde/Familie senden
 - [ ] Um Feedback bitten
 
 **Warum heute?**
+
 - Einfacher Einstieg nach dem Kursabend
 - Gibt Zeit für Feedback-Sammlung über die Woche
 
-=== Tag 2 (Dienstag): LangChain Grundlagen (90 Min)
+=== Tag 2 (Donnerstag): LangChain Grundlagen (90 Min)
 
 **Aufgabe 2.1: Dokumentation lesen (60 Min)**
+
 - [ ] LangChain Introduction
 - [ ] LangChain Concepts
 - [ ] Chains Konzept
 - [ ] Leitfragen beantworten
 
 **Aufgabe 2.2: Konzept-Map erstellen (30 Min)**
+
 - [ ] Mindmap mit allen Begriffen
 - [ ] Definitionen und Beispiele hinzufügen
 
 **Warum heute?**
+
 - Aufbau von Grundwissen für die restliche Woche
 - Konzept-Map hilft beim Verständnis der anderen Aufgaben
 
-=== Tag 3 (Mittwoch): RAG verstehen (90 Min)
+=== Tag 3 (Freitag): RAG verstehen (90 Min)
 
 **Aufgabe 3.1: RAG-Theorie (45 Min)**
+
 - [ ] Video schauen
 - [ ] Zusätzliche Lektüre
 - [ ] Leitfragen beantworten
 
 **Aufgabe 3.2: RAG-Diagramm zeichnen (30 Min)**
+
 - [ ] Flussdiagramm des RAG-Prozesses
 - [ ] Alle Komponenten beschriften
 
 **Aufgabe 2.3: LangChain-Vergleich (15 Min)**
+
 - [ ] Tabelle erstellen: Aktueller Ansatz vs. LangChain
 
 **Warum heute?**
+
 - RAG ist das Hauptthema von Abend 3
 - Diagramm hilft beim visuellen Verständnis
 
-=== Tag 4 (Donnerstag): Praktische Anwendung (75 Min)
+=== Tag 4 (Samstag): Praktische Anwendung (75 Min)
 
 **Aufgabe 3.3: RAG-Anwendungsfall entwerfen (45 Min)**
+
 - [ ] Anwendungsfall für Ihren Beruf/Studium
 - [ ] Präsentation oder Dokument erstellen
 
 **Aufgabe 1.2: Wissensbasis erweitern (30 Min)**
+
 - [ ] `course_knowledge.py` erweitern
 - [ ] Neue Version deployen und testen
 
 **Warum heute?**
+
 - Verbindung zwischen Theorie und Praxis
 - Eigener Anwendungsfall macht RAG greifbarer
 
-=== Tag 5 (Freitag): Vektordatenbanken (60 Min)
+=== Tag 5 (Sonnatrg): Vektordatenbanken (60 Min)
 
 **Aufgabe 4.1: Konzepte verstehen (30 Min)**
+
 - [ ] Artikel über Vektordatenbanken lesen
 - [ ] Kurs-Material durchgehen
 
 **Aufgabe 4.2: Similarity-Experiment (30 Min)**
+
 - [ ] 10 Sätze auswählen
 - [ ] Online-Tool für Embeddings nutzen
 - [ ] Ergebnisse dokumentieren
 
 **Warum heute?**
+
 - Vektordatenbanken sind Grundlage für RAG
 - Experiment macht Embeddings verständlich
 
-=== Tag 6 (Samstag): Vertiefung und Coding (90 Min)
+=== Tag 6 (Montag): Vertiefung und Coding (90 Min)
 
 **Aufgabe 4.3: Vektordatenbank-Vergleich (30 Min)**
+
 - [ ] Vergleichstabelle erstellen
 - [ ] Vor- und Nachteile bewerten
 
 **Aufgabe 5.1: Embedding-Test (60 Min) [OPTIONAL]**
+
 - [ ] Python-Skript schreiben
 - [ ] Ähnlichkeiten berechnen
 - [ ] Ergebnisse analysieren
 
 **Warum heute?**
+
 - Mehr Zeit am Wochenende für Coding
 - Optional: Kann übersprungen werden bei Zeitmangel
 
-=== Tag 7 (Sonntag): Abschluss und Reflexion (45 Min)
+=== Tag 7 (Dienstag): Abschluss und Reflexion (45 Min)
 
 **Feedback sammeln (15 Min)**
+
 - [ ] Feedback von Freunden/Familie auswerten
 - [ ] `feedback.md` erstellen
 
 **Aufgabe 5.2: Mini-RAG Prototyp (30 Min) [OPTIONAL]**
+
 - [ ] Einfachen RAG-Prototyp versuchen
 - [ ] Oder: Reflexion über die Woche schreiben
 
 **README.md erstellen (15 Min)**
+
 - [ ] Reflexionsfragen beantworten
 - [ ] Ordner strukturieren
 - [ ] Abgabe vorbereiten
 
 **Warum heute?**
+
 - Reflexion festigt das Gelernte
 - Vorbereitung für Abend 3
 
@@ -137,21 +160,25 @@ ifndef::imagesdir[:imagesdir: ../images]
 === Intensiv-Plan (2 Tage, je 2 Stunden)
 
 **Tag 1 (4 Stunden):**
+
 - Aufgaben 1-3 komplett
 - Grundlagen verstehen und anwenden
 
 **Tag 2 (2 Stunden):**
+
 - Aufgaben 4-5
 - Vertiefung und Coding
 
 === Entspannt-Plan (14 Tage, je 15-20 Min)
 
 **Woche 1:**
+
 - Tag 1-2: Aufgabe 1 (AI Kurs-Assistent)
 - Tag 3-5: Aufgabe 2 (LangChain)
 - Tag 6-7: Aufgabe 3.1-3.2 (RAG Theorie)
 
 **Woche 2:**
+
 - Tag 8-10: Aufgabe 3.3 (RAG Anwendungsfall)
 - Tag 11-12: Aufgabe 4 (Vektordatenbanken)
 - Tag 13-14: Aufgabe 5 + Reflexion
@@ -168,27 +195,29 @@ ifndef::imagesdir[:imagesdir: ../images]
 
 === Should-Have (zusätzlich 1 Stunde)
 
-6. **Aufgabe 2.2:** Konzept-Map erstellen (20 Min)
-7. **Aufgabe 3.3:** RAG-Anwendungsfall entwerfen (30 Min)
-8. **Aufgabe 4.1:** Vektordatenbanken verstehen (10 Min)
+1. **Aufgabe 2.2:** Konzept-Map erstellen (20 Min)
+2. **Aufgabe 3.3:** RAG-Anwendungsfall entwerfen (30 Min)
+3. **Aufgabe 4.1:** Vektordatenbanken verstehen (10 Min)
 
 === Nice-to-Have (zusätzlich 1-2 Stunden)
 
-9. **Aufgabe 1.2:** Wissensbasis erweitern (30 Min)
-10. **Aufgabe 4.2-4.3:** Vektordatenbank-Experimente (45 Min)
-11. **Aufgabe 5:** Coding-Challenges (60 Min)
+1. **Aufgabe 1.2:** Wissensbasis erweitern (30 Min)
+2. **Aufgabe 4.2-4.3:** Vektordatenbank-Experimente (45 Min)
+3. **Aufgabe 5:** Coding-Challenges (60 Min)
 
 == Tipps für effizientes Arbeiten
 
 === Vorbereitung
 
 **Arbeitsplatz einrichten:**
+
 - [ ] Ruhiger Ort ohne Ablenkungen
 - [ ] Computer mit stabiler Internetverbindung
 - [ ] Notizblock für Ideen
 - [ ] Getränk und Snacks bereitstellen
 
 **Tools vorbereiten:**
+
 - [ ] AI Kurs-Assistent URL bookmarken
 - [ ] LangChain Dokumentation öffnen
 - [ ] Zeichentool (draw.io, Papier) bereithalten
@@ -197,16 +226,19 @@ ifndef::imagesdir[:imagesdir: ../images]
 === Während der Arbeit
 
 **Fokus-Techniken:**
+
 - **Pomodoro:** 25 Min arbeiten, 5 Min Pause
 - **Timeboxing:** Feste Zeit pro Aufgabe setzen
 - **Deep Work:** Handy stumm, E-Mails ignorieren
 
 **Notizen machen:**
+
 - Unklare Begriffe sofort notieren
 - Fragen für Abend 3 sammeln
 - Interessante Erkenntnisse festhalten
 
 **Bei Problemen:**
+
 - Nicht zu lange an einem Problem hängen bleiben
 - AI Kurs-Assistent um Hilfe fragen
 - Online-Ressourcen nutzen
@@ -215,11 +247,13 @@ ifndef::imagesdir[:imagesdir: ../images]
 === Motivation aufrechterhalten
 
 **Fortschritt sichtbar machen:**
+
 - [ ] Checklisten abhaken
 - [ ] Kleine Erfolge feiern
 - [ ] Zwischenergebnisse mit anderen teilen
 
 **Belohnungen einbauen:**
+
 - Nach jeder Aufgabe: 10 Min Pause
 - Nach jedem Tag: Lieblingsserie/Musik
 - Nach Abschluss: Besondere Belohnung
@@ -249,16 +283,19 @@ ifndef::imagesdir[:imagesdir: ../images]
 == Checkliste für jeden Tag
 
 **Vor dem Start (2 Min):**
+
 - [ ] Ziel für heute definieren
 - [ ] Timer stellen
 - [ ] Ablenkungen eliminieren
 
 **Während der Arbeit:**
+
 - [ ] Notizen machen
 - [ ] Fragen sammeln
 - [ ] Fortschritt dokumentieren
 
 **Nach dem Arbeiten (3 Min):**
+
 - [ ] Erreichte Ziele abhaken
 - [ ] Erkenntnisse notieren
 - [ ] Nächsten Tag planen
@@ -266,17 +303,20 @@ ifndef::imagesdir[:imagesdir: ../images]
 == Zusammenfassung
 
 **Erfolgsfaktoren:**
+
 ✅ **Regelmässigkeit** statt Marathon-Sessions  
 ✅ **Prioritäten** setzen bei Zeitmangel  
 ✅ **Verständnis** vor Perfektion  
 ✅ **Reflexion** nicht vergessen  
 
 **Bei Problemen:**
+
 🆘 AI Kurs-Assistent fragen  
 🆘 Kurs-Gruppe kontaktieren  
 🆘 Backup-Umgebungen nutzen  
 
 **Ziel:**
+
 🎯 Optimal vorbereitet für Abend 3  
 🎯 Solides Verständnis von LangChain und RAG  
 🎯 Praktische Erfahrung mit AI-Tools  
