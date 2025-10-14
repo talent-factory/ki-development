@@ -1,0 +1,151 @@
+= Kurs-Fortschritt: Wo stehen wir?
+:author: Daniel Senften
+:email: daniel.senften@talent-factory.ch
+:revnumber: 1.0
+:revdate: {localdate}
+:doctype: article
+include::../locale/attributes-de.adoc[]
+:source-highlighter: highlight.js
+:icons: font
+
+== 📍 Aktueller Stand
+
+[.big]
+**Abend 2, Lektion 3**  
+**7 von 24 Lektionen abgeschlossen (29%)**
+
+```
+Fortschritt: [████████░░░░░░░░░░░░░░░░░░░░] 29%
+```
+
+== 🎯 Lernpfad Übersicht
+
+[cols="1,2,1,1"]
+|===
+|Abend |Thema |Status |Fortschritt
+
+|**1**
+|Grundlagen & No-Code Tools
+|✅ Abgeschlossen
+|100%
+
+|**2**
+|Python Setup & Deployment
+|🔄 Aktuell
+|75%
+
+|**3**
+|LangChain & RAG
+|⏳ Nächster
+|0%
+
+|**4**
+|Fortgeschrittene Konzepte
+|⏳ Geplant
+|0%
+
+|**5**
+|Spezialisierung
+|⏳ Geplant
+|0%
+
+|**6**
+|Abschlussprojekte
+|⏳ Geplant
+|0%
+|===
+
+== 🏆 Was haben wir erreicht?
+
+=== ✅ Abend 1: Grundlagen
+- **AI-Verständnis** entwickelt
+- **Prompt Engineering** gelernt
+- **No-Code AI-Tools** beherrscht
+- **Erste AI-Anwendung** erstellt
+
+=== 🔄 Abend 2: Python & Deployment (heute)
+- **Python-Umgebung** eingerichtet ✅
+- **Git/GitHub** Grundlagen ✅
+- **AI Kurs-Assistent** deployment ✅
+- **Vektordatenbanken** Einführung 🔄
+
+== 🎯 Wo gehen wir hin?
+
+=== 📚 Diese Woche: Hausaufgaben
+- **LangChain** Grundlagen verstehen
+- **RAG** Konzepte lernen
+- **AI Kurs-Assistent** erweitern
+- **Vektordatenbanken** erkunden
+
+=== ⛓️ Nächster Abend: LangChain & RAG
+- **LangChain Framework** nutzen
+- **RAG-System** implementieren
+- **Erweiterte AI-Patterns** anwenden
+- **Production-Ready** Lösungen entwickeln
+
+== 🚀 Erfolgs-Meilensteine
+
+[cols="1,3,1"]
+|===
+|Meilenstein |Beschreibung |Status
+
+|**AI ChatBot**
+|Funktionierender Streamlit ChatBot deployed
+|🔄 Heute
+
+|**RAG-System**
+|Wissensdatenbank mit eigenen Daten
+|⏳ Abend 3
+
+|**AI-Agent**
+|Autonomer Agent mit Tool-Integration
+|⏳ Abend 4
+
+|**Branchen-Lösung**
+|Spezialisierte AI für Ihren Bereich
+|⏳ Abend 5
+
+|**Vollständige App**
+|Produktionsreife AI-Anwendung
+|⏳ Abend 6
+|===
+
+== 💡 Ihre Reise
+
+```
+🎯 Start: AI-Neuling
+    ↓
+✅ AI verstehen & No-Code Tools nutzen
+    ↓
+🔄 Python & Web-Deployment beherrschen
+    ↓
+⏳ LangChain & RAG implementieren
+    ↓
+⏳ Fortgeschrittene AI-Konzepte anwenden
+    ↓
+⏳ Spezialisierte Branchen-Lösungen entwickeln
+    ↓
+🏆 Ziel: Selbstständiger AI-Entwickler
+```
+
+== 🎉 Nächste Schritte
+
+**Heute Abend:**
+1. **Vektordatenbanken** verstehen
+2. **Hausaufgaben** erhalten
+3. **AI Kurs-Assistent** finalisieren
+
+**Diese Woche:**
+1. **LangChain** Dokumentation lesen
+2. **RAG** Konzepte verstehen
+3. **Eigenen Anwendungsfall** entwerfen
+
+**Nächster Abend:**
+1. **RAG-System** implementieren
+2. **LangChain** praktisch anwenden
+3. **Production-Ready** Lösung entwickeln
+
+---
+
+[.big.center]
+**🚀 Sie sind auf dem besten Weg zum AI-Entwickler!**

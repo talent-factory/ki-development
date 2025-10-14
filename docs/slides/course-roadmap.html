@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Development Kurs - Roadmap</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2F2F2F;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .progress-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #2E86AB, #A23B72);
+            width: 29%;
+            border-radius: 15px;
+            position: relative;
+            animation: fillProgress 2s ease-out;
+        }
+        
+        @keyframes fillProgress {
+            from { width: 0%; }
+            to { width: 29%; }
+        }
+        
+        .progress-text {
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .course-card.completed {
+            border-left: 5px solid #28a745;
+        }
+        
+        .course-card.current {
+            border-left: 5px solid #2E86AB;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e8f2ff 100%);
+        }
+        
+        .course-card.planned {
+            border-left: 5px solid #6c757d;
+            opacity: 0.7;
+        }
+        
+        .course-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .status-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        
+        .status-completed {
+            background: #d4edda;
+            color: #155724;
+        }
+        
+        .status-current {
+            background: #cce7ff;
+            color: #004085;
+        }
+        
+        .status-planned {
+            background: #e2e3e5;
+            color: #383d41;
+        }
+        
+        .lessons-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .lessons-list li {
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .lessons-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .milestone-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .milestone-timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .milestone-timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e0e0e0;
+        }
+        
+        .milestone-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .milestone-item::before {
+            content: '';
+            position: absolute;
+            left: -22px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #6c757d;
+        }
+        
+        .milestone-item.current::before {
+            background: #2E86AB;
+            box-shadow: 0 0 0 4px rgba(46, 134, 171, 0.3);
+        }
+        
+        .milestone-item.completed::before {
+            background: #28a745;
+        }
+        
+        .next-steps {
+            background: linear-gradient(135deg, #2E86AB, #A23B72);
+            color: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .next-steps h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        
+        .next-steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .next-step-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .emoji {
+            font-size: 2em;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .next-steps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 AI Development Kurs</h1>
+            <p>Roadmap & Fortschritt</p>
+        </div>
+        
+        <div class="progress-section">
+            <h2>📍 Wo stehen wir?</h2>
+            <p><strong>Aktueller Stand:</strong> Abend 2, Lektion 3</p>
+            <p><strong>Abgeschlossen:</strong> 7 von 24 Lektionen</p>
+            
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <div class="progress-text">29% abgeschlossen</div>
+        </div>
+        
+        <div class="course-grid">
+            <div class="course-card completed">
+                <div class="course-title">
+                    🌟 Abend 1: Grundlagen
+                    <span class="status-badge status-completed">✅ Abgeschlossen</span>
+                </div>
+                <ul class="lessons-list">
+                    <li>✅ AI Grundlagen & Überblick</li>
+                    <li>✅ Prompt Engineering Basics</li>
+                    <li>✅ No-Code AI Platforms</li>
+                    <li>✅ Plattform-Vergleich</li>
+                </ul>
+            </div>
+            
+            <div class="course-card current">
+                <div class="course-title">
+                    🐍 Abend 2: Python & Deployment
+                    <span class="status-badge status-current">🔄 Aktuell</span>
+                </div>
+                <ul class="lessons-list">
+                    <li>✅ Python-Entwicklungsumgebung</li>
+                    <li>✅ Git/GitHub Grundlagen</li>
+                    <li>✅ AI Kurs-Assistent mit Streamlit</li>
+                    <li>🔄 Vektordatenbanken Einführung</li>
+                </ul>
+            </div>
+            
+            <div class="course-card planned">
+                <div class="course-title">
+                    ⛓️ Abend 3: LangChain & RAG
+                    <span class="status-badge status-planned">⏳ Nächster</span>
+                </div>
+                <ul class="lessons-list">
+                    <li>⏳ LangChain Grundlagen</li>
+                    <li>⏳ RAG Implementation</li>
+                    <li>⏳ Erweiterte Chains</li>
+                    <li>⏳ Production-Ready RAG</li>
+                </ul>
+            </div>
+            
+            <div class="course-card planned">
+                <div class="course-title">
+                    🚀 Abend 4: Fortgeschritten
+                    <span class="status-badge status-planned">⏳ Geplant</span>
+                </div>
+                <ul class="lessons-list">
+                    <li>⏳ AI Agents & Tools</li>
+                    <li>⏳ Multimodale AI</li>
+                    <li>⏳ Fine-Tuning</li>
+                    <li>⏳ AI Ethics</li>
+                </ul>
+            </div>
+            
+            <div class="course-card planned">
+                <div class="course-title">
+                    🎯 Abend 5: Spezialisierung
+                    <span class="status-badge status-planned">⏳ Geplant</span>
+                </div>
+                <ul class="lessons-list">
+                    <li>⏳ Branchen-Lösungen</li>
+                    <li>⏳ Business Integration</li>
+                    <li>⏳ Performance Optimization</li>
+                    <li>⏳ Monitoring</li>
+                </ul>
+            </div>
+            
+            <div class="course-card planned">
+                <div class="course-title">
+                    🏆 Abend 6: Abschluss
+                    <span class="status-badge status-planned">⏳ Geplant</span>
+                </div>
+                <ul class="lessons-list">
+                    <li>⏳ Abschlussprojekt</li>
+                    <li>⏳ Code Review</li>
+                    <li>⏳ AI Trends</li>
+                    <li>⏳ Community</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="milestone-section">
+            <h2>🏆 Erfolgs-Meilensteine</h2>
+            <div class="milestone-timeline">
+                <div class="milestone-item completed">
+                    <h3>🎯 AI-Verständnis entwickelt</h3>
+                    <p>Grundlagen verstanden, erste No-Code Anwendung erstellt</p>
+                </div>
+                
+                <div class="milestone-item current">
+                    <h3>🤖 AI ChatBot deployed</h3>
+                    <p>Streamlit-Anwendung mit OpenAI/Anthropic API online</p>
+                </div>
+                
+                <div class="milestone-item">
+                    <h3>📚 RAG-System implementiert</h3>
+                    <p>Wissensdatenbank mit eigenen Daten integriert</p>
+                </div>
+                
+                <div class="milestone-item">
+                    <h3>🤖 AI-Agent mit Tools</h3>
+                    <p>Autonomer Agent mit externen Tool-Integration</p>
+                </div>
+                
+                <div class="milestone-item">
+                    <h3>🏢 Branchen-spezifische Lösung</h3>
+                    <p>Spezialisierte AI-Anwendung für Ihren Bereich</p>
+                </div>
+                
+                <div class="milestone-item">
+                    <h3>🏆 Vollständige AI-Anwendung</h3>
+                    <p>Produktionsreife Lösung mit Dokumentation</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="next-steps">
+            <h2>🎯 Nächste Schritte</h2>
+            <p>Wo gehen wir hin?</p>
+            
+            <div class="next-steps-grid">
+                <div class="next-step-card">
+                    <span class="emoji">📚</span>
+                    <h3>Heute Abend</h3>
+                    <p>Vektordatenbanken verstehen<br>
+                    Hausaufgaben erhalten<br>
+                    AI Kurs-Assistent finalisieren</p>
+                </div>
+                
+                <div class="next-step-card">
+                    <span class="emoji">🏠</span>
+                    <h3>Diese Woche</h3>
+                    <p>LangChain Dokumentation lesen<br>
+                    RAG Konzepte verstehen<br>
+                    Eigenen Anwendungsfall entwerfen</p>
+                </div>
+                
+                <div class="next-step-card">
+                    <span class="emoji">⛓️</span>
+                    <h3>Nächster Abend</h3>
+                    <p>RAG-System implementieren<br>
+                    LangChain praktisch anwenden<br>
+                    Production-Ready Lösung</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; font-size: 1.2em;">
+                <strong>🚀 Sie sind auf dem besten Weg zum AI-Entwickler!</strong>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Smooth scroll animation for progress bar
+        window.addEventListener('load', function() {
+            const progressFill = document.querySelector('.progress-fill');
+            progressFill.style.animation = 'fillProgress 2s ease-out';
+        });
+        
+        // Add hover effects to course cards
+        document.querySelectorAll('.course-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

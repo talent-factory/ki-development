@@ -1,0 +1,346 @@
+= AI Development Kurs - Roadmap & Übersicht
+:author: Daniel Senften
+:email: daniel.senften@talent-factory.ch
+:revnumber: 1.0
+:revdate: {localdate}
+:doctype: book
+include::locale/attributes-de.adoc[]
+:toc: left
+:sectnums:
+:sectnumlevels: 2
+ifndef::imagesdir[:imagesdir: images]
+:source-highlighter: highlight.js
+:icons: font
+
+== Kurs-Übersicht
+
+**Ziel:** Von AI-Neuling zum selbstständigen AI-Entwickler in 6 Abenden
+
+**Format:** 6 Abende × 4 Lektionen (50 Min + 10 Min Pause)  
+**Gesamtdauer:** 24 Lektionen = 20 Stunden Unterricht  
+**Zielgruppe:** Personen ohne Programmiererfahrung
+
+== Lernpfad Visualisierung
+
+```mermaid
+graph TD
+    A[🎯 Start: AI-Neuling] --> B[Abend 1: Grundlagen & No-Code]
+    B --> C[Abend 2: Python & Deployment]
+    C --> D[Abend 3: LangChain & RAG]
+    D --> E[Abend 4: Fortgeschrittene Konzepte]
+    E --> F[Abend 5: Spezialisierung]
+    F --> G[🏆 Ziel: AI-Entwickler]
+    
+    B --> B1[AI verstehen]
+    B --> B2[No-Code Tools]
+    B --> B3[Erste Projekte]
+    
+    C --> C1[Python Setup]
+    C --> C2[Git/GitHub]
+    C --> C3[Web Deployment]
+    C --> C4[Vektordatenbanken]
+    
+    D --> D1[LangChain Basics]
+    D --> D2[RAG implementieren]
+    D --> D3[Erweiterte Chains]
+    D --> D4[Production Ready]
+    
+    style A fill:#ff9999
+    style G fill:#99ff99
+    style B fill:#ffcc99
+    style C fill:#99ccff
+    style D fill:#cc99ff
+```
+
+== Detaillierte Roadmap
+
+=== 🌟 Abend 1: Grundlagen und No-Code Tools
+
+**Status:** ✅ Abgeschlossen  
+**Datum:** [Datum eintragen]
+
+[cols="1,3,2"]
+|===
+|Lektion |Inhalt |Lernziel
+
+|**1.1**
+|AI Grundlagen & Überblick
+|Verstehen was AI ist und kann
+
+|**1.2** 
+|Prompt Engineering Basics
+|Effektive AI-Kommunikation
+
+|**1.3**
+|No-Code AI Platforms (Flowise, Langflow)
+|Erste AI-Anwendungen ohne Code
+
+|**1.4**
+|Plattform-Vergleich & Projektplanung
+|Richtige Tools auswählen
+|===
+
+**Erfolgsmessung:** Jeder Student hat eine funktionierende No-Code AI-Anwendung erstellt
+
+---
+
+=== 🐍 Abend 2: Python Setup, Git und Deployment
+
+**Status:** 🔄 Aktuell  
+**Datum:** [Datum eintragen]
+
+[cols="1,3,2"]
+|===
+|Lektion |Inhalt |Lernziel
+
+|**2.1**
+|Python-Entwicklungsumgebung Setup
+|Lokale Entwicklung funktioniert
+
+|**2.2**
+|Git/GitHub Grundlagen
+|Versionskontrolle verstehen
+
+|**2.3**
+|AI Kurs-Assistent mit Streamlit
+|Web-Deployment beherrschen
+
+|**2.4**
+|Vektordatenbanken Einführung
+|Grundlagen für RAG verstehen
+|===
+
+**Hausaufgaben:** Umfangreiche Vorbereitung auf LangChain & RAG (3-4h)  
+**Erfolgsmessung:** Jeder Student hat einen deployed AI ChatBot
+
+---
+
+=== ⛓️ Abend 3: LangChain & RAG Implementation
+
+**Status:** ⏳ Geplant  
+**Datum:** [Datum eintragen]
+
+[cols="1,3,2"]
+|===
+|Lektion |Inhalt |Lernziel
+
+|**3.1**
+|LangChain Grundlagen & Chains
+|Framework verstehen
+
+|**3.2**
+|RAG (Retrieval Augmented Generation)
+|Wissensdatenbanken integrieren
+
+|**3.3**
+|Erweiterte LangChain Patterns
+|Komplexe AI-Workflows
+
+|**3.4**
+|Production-Ready RAG System
+|Skalierbare Lösung entwickeln
+|===
+
+**Hausaufgaben:** Eigenes RAG-System für Anwendungsfall entwickeln  
+**Erfolgsmessung:** Funktionierendes RAG-System mit eigenen Daten
+
+---
+
+=== 🚀 Abend 4: Fortgeschrittene AI-Konzepte
+
+**Status:** ⏳ Geplant  
+**Datum:** [Datum eintragen]
+
+[cols="1,3,2"]
+|===
+|Lektion |Inhalt |Lernziel
+
+|**4.1**
+|AI Agents & Tool Integration
+|Autonome AI-Systeme
+
+|**4.2**
+|Multimodale AI (Text, Bild, Audio)
+|Verschiedene Datentypen
+
+|**4.3**
+|Fine-Tuning & Custom Models
+|Spezialisierte AI-Modelle
+
+|**4.4**
+|AI Ethics & Responsible AI
+|Verantwortungsvolle Entwicklung
+|===
+
+**Hausaufgaben:** Multimodales AI-Projekt  
+**Erfolgsmessung:** AI-Agent mit Tool-Integration
+
+---
+
+=== 🎯 Abend 5: Spezialisierung & Branchen-Anwendungen
+
+**Status:** ⏳ Geplant  
+**Datum:** [Datum eintragen]
+
+[cols="1,3,2"]
+|===
+|Lektion |Inhalt |Lernziel
+
+|**5.1**
+|Branchen-spezifische AI-Lösungen
+|Praxisrelevante Anwendungen
+
+|**5.2**
+|AI in Business Processes
+|Workflow-Integration
+
+|**5.3**
+|Performance Optimization
+|Effiziente AI-Systeme
+
+|**5.4**
+|Monitoring & Maintenance
+|Produktive AI-Systeme betreiben
+|===
+
+**Hausaufgaben:** Branchenspezifisches AI-Projekt  
+**Erfolgsmessung:** Vollständige AI-Lösung für realen Anwendungsfall
+
+---
+
+=== 🏆 Abend 6: Abschlussprojekte & Zukunft
+
+**Status:** ⏳ Geplant  
+**Datum:** [Datum eintragen]
+
+[cols="1,3,2"]
+|===
+|Lektion |Inhalt |Lernziel
+
+|**6.1**
+|Abschlussprojekt Präsentationen
+|Gelerntes demonstrieren
+
+|**6.2**
+|Code Review & Best Practices
+|Qualität sicherstellen
+
+|**6.3**
+|AI Trends & Zukunftstechnologien
+|Weiterentwicklung planen
+
+|**6.4**
+|Netzwerk & Weiterbildung
+|Community aufbauen
+|===
+
+**Abschlussprojekt:** Vollständige AI-Anwendung mit Dokumentation  
+**Erfolgsmessung:** Präsentation einer produktionsreifen AI-Lösung
+
+== Fortschritts-Tracker
+
+=== Wo stehen wir? 📍
+
+**Aktueller Stand:** Abend 2, Lektion 3  
+**Abgeschlossen:** 7 von 24 Lektionen (29%)  
+**Verbleibend:** 17 Lektionen (71%)
+
+```
+Fortschritt: [████████░░░░░░░░░░░░░░░░░░░░] 29%
+
+✅ Abend 1: Grundlagen & No-Code (100%)
+🔄 Abend 2: Python & Deployment (75%)
+⏳ Abend 3: LangChain & RAG (0%)
+⏳ Abend 4: Fortgeschrittene Konzepte (0%)
+⏳ Abend 5: Spezialisierung (0%)
+⏳ Abend 6: Abschlussprojekte (0%)
+```
+
+=== Nächste Schritte 🎯
+
+**Heute:** Lektion 2.4 - Vektordatenbanken Einführung  
+**Diese Woche:** Hausaufgaben zur Vorbereitung auf LangChain  
+**Nächster Abend:** LangChain & RAG Implementation
+
+== Lernziele nach Abenden
+
+=== Nach Abend 1 ✅
+- [ ] Versteht AI-Grundlagen und Anwendungsmöglichkeiten
+- [ ] Kann effektive Prompts schreiben
+- [ ] Hat erste AI-Anwendung mit No-Code Tools erstellt
+- [ ] Kann verschiedene AI-Plattformen bewerten
+
+=== Nach Abend 2 🔄
+- [ ] Hat funktionierende Python-Entwicklungsumgebung
+- [ ] Versteht Git/GitHub Grundlagen
+- [ ] Kann Streamlit-Apps entwickeln und deployen
+- [ ] Versteht Vektordatenbanken-Konzepte
+
+=== Nach Abend 3 ⏳
+- [ ] Kann LangChain für AI-Workflows nutzen
+- [ ] Hat RAG-System implementiert
+- [ ] Versteht erweiterte AI-Patterns
+- [ ] Kann production-ready AI-Systeme entwickeln
+
+=== Nach Abend 4 ⏳
+- [ ] Kann AI-Agents mit Tools entwickeln
+- [ ] Arbeitet mit multimodalen AI-Systemen
+- [ ] Versteht Fine-Tuning Konzepte
+- [ ] Entwickelt verantwortungsvolle AI
+
+=== Nach Abend 5 ⏳
+- [ ] Kann branchenspezifische AI-Lösungen entwickeln
+- [ ] Integriert AI in Business-Prozesse
+- [ ] Optimiert AI-System Performance
+- [ ] Betreibt AI-Systeme produktiv
+
+=== Nach Abend 6 🏆
+- [ ] Hat vollständige AI-Anwendung entwickelt
+- [ ] Kann AI-Projekte professionell präsentieren
+- [ ] Kennt AI-Trends und Zukunftstechnologien
+- [ ] Ist Teil der AI-Entwickler Community
+
+== Erfolgs-Indikatoren
+
+=== Technische Meilensteine
+1. **Funktionierender AI ChatBot** (Abend 2)
+2. **RAG-System mit eigenen Daten** (Abend 3)
+3. **AI-Agent mit Tool-Integration** (Abend 4)
+4. **Branchenspezifische AI-Lösung** (Abend 5)
+5. **Vollständige AI-Anwendung** (Abend 6)
+
+=== Verständnis-Meilensteine
+1. **AI-Grundlagen verstanden** (Abend 1)
+2. **Entwicklungsworkflow beherrscht** (Abend 2)
+3. **Erweiterte AI-Frameworks genutzt** (Abend 3)
+4. **Komplexe AI-Konzepte angewendet** (Abend 4)
+5. **Produktive AI-Systeme entwickelt** (Abend 5)
+6. **AI-Experte geworden** (Abend 6)
+
+== Ressourcen & Unterstützung
+
+=== Während des Kurses
+- **AI Kurs-Assistent:** Fragen jederzeit stellen
+- **Backup-Umgebungen:** GitHub Codespaces & Gitpod
+- **Kurs-Gruppe:** Austausch mit anderen Teilnehmern
+- **Office Hours:** Individuelle Unterstützung
+
+=== Nach dem Kurs
+- **Alumni-Netzwerk:** Kontakt zu ehemaligen Teilnehmern
+- **Weiterbildungs-Empfehlungen:** Spezialisierungsmöglichkeiten
+- **Projekt-Mentoring:** Unterstützung bei eigenen Projekten
+- **Update-Sessions:** Neue AI-Entwicklungen
+
+== Anpassungen & Flexibilität
+
+**Diese Roadmap ist flexibel und wird basierend auf:**
+- Lernfortschritt der Gruppe
+- Feedback der Teilnehmer
+- Neue AI-Entwicklungen
+- Praktische Erfahrungen
+
+**regelmässig angepasst und aktualisiert.**
+
+---
+
+**🎯 Ziel:** Am Ende des Kurses sind Sie in der Lage, eigenständig AI-Anwendungen zu entwickeln, zu deployen und produktiv zu betreiben!**
