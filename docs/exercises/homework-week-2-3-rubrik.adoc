@@ -1,0 +1,266 @@
+= Bewertungsrubrik: Hausaufgaben Woche 2-3
+:author: Daniel Senften
+:email: daniel.senften@talent-factory.ch
+:revnumber: 1.0
+:revdate: {localdate}
+:doctype: book
+include::../locale/attributes-de.adoc[]
+:toc: left
+:sectnums:
+:sectnumlevels: 2
+ifndef::imagesdir[:imagesdir: ../images]
+:source-highlighter: highlight.js
+:icons: font
+
+== Überblick
+
+Diese Rubrik hilft bei der **schnellen und fairen Bewertung** der Hausaufgaben. 
+
+**Zeitaufwand pro Student:** ca. 10-15 Minuten  
+**Bewertungsskala:** 1-4 Punkte pro Kriterium  
+**Gesamtpunkte:** 20 Punkte möglich
+
+== Bewertungsskala
+
+[cols="1,1,4"]
+|===
+|Punkte |Niveau |Beschreibung
+
+|**4**
+|Exzellent
+|Übertrifft Erwartungen, zeigt tiefes Verständnis, kreative Ansätze
+
+|**3**
+|Gut
+|Erfüllt alle Anforderungen, zeigt solides Verständnis
+
+|**2**
+|Befriedigend
+|Erfüllt grundlegende Anforderungen, einige Lücken
+
+|**1**
+|Ungenügend
+|Unvollständig oder zeigt mangelndes Verständnis
+|===
+
+== Kriterium 1: Vollständigkeit (5 Punkte)
+
+=== Checkliste
+
+**Aufgabe 1 - AI Kurs-Assistent:**
+- [ ] Test-Ergebnisse dokumentiert (test-ergebnisse.md)
+- [ ] Wissensbasis erweitert (course_knowledge.py)
+- [ ] Feedback gesammelt (feedback.md)
+- [ ] App-URL funktioniert
+
+**Aufgabe 2 - LangChain:**
+- [ ] Konzept-Map erstellt
+- [ ] Vergleichstabelle vorhanden
+- [ ] Reflexion zu LangChain vs. direkter Ansatz
+
+**Aufgabe 3 - RAG:**
+- [ ] RAG-Diagramm gezeichnet
+- [ ] Anwendungsfall entworfen
+- [ ] Alle Leitfragen beantwortet
+
+**Aufgabe 4 - Vektordatenbanken:**
+- [ ] Similarity-Experiment durchgeführt
+- [ ] Vektordatenbank-Vergleich erstellt
+
+**Aufgabe 5 - Coding (optional):**
+- [ ] Embedding-Test implementiert
+- [ ] Mini-RAG Prototyp versucht
+
+=== Bewertung
+
+|**4 Punkte:** Alle Hauptaufgaben (1-4) vollständig + Coding-Challenge
+|**3 Punkte:** Alle Hauptaufgaben (1-4) vollständig
+|**2 Punkte:** 3 von 4 Hauptaufgaben vollständig
+|**1 Punkt:** Weniger als 3 Aufgaben vollständig
+
+== Kriterium 2: Verständnis der Konzepte (5 Punkte)
+
+=== Bewertungsfragen
+
+**LangChain-Verständnis:**
+- Kann der Student erklären, was LangChain ist?
+- Versteht er die Vorteile gegenüber direkter API-Nutzung?
+- Sind die Konzepte (Chains, Memory, etc.) richtig erklärt?
+
+**RAG-Verständnis:**
+- Ist der RAG-Prozess korrekt dargestellt?
+- Versteht der Student den Zweck von Embeddings?
+- Ist der Anwendungsfall realistisch und durchdacht?
+
+**Vektordatenbanken:**
+- Versteht der Student semantische Ähnlichkeit?
+- Sind die Datenbankvergleiche sachlich korrekt?
+- Zeigen die Experimente Verständnis?
+
+=== Bewertung
+
+|**4 Punkte:** Tiefes Verständnis, kann Konzepte erklären und verknüpfen
+|**3 Punkte:** Solides Verständnis aller Hauptkonzepte
+|**2 Punkte:** Grundverständnis, einige Unklarheiten
+|**1 Punkt:** Oberflächliches oder fehlerhaftes Verständnis
+
+== Kriterium 3: Praktische Umsetzung (5 Punkte)
+
+=== Bewertungsfragen
+
+**AI Kurs-Assistent:**
+- Funktioniert die erweiterte App?
+- Sind die Tests systematisch durchgeführt?
+- Ist das gesammelte Feedback aussagekräftig?
+
+**Diagramme und Visualisierungen:**
+- Sind die Diagramme klar und verständlich?
+- Zeigen sie die richtigen Zusammenhänge?
+- Ist die Darstellung professionell?
+
+**Code (falls vorhanden):**
+- Läuft der Code ohne Fehler?
+- Ist er dokumentiert und verständlich?
+- Zeigt er praktisches Verständnis?
+
+=== Bewertung
+
+|**4 Punkte:** Alles funktioniert einwandfrei, professionelle Umsetzung
+|**3 Punkte:** Gute praktische Umsetzung, kleinere Mängel
+|**2 Punkte:** Grundlegende Umsetzung, einige Probleme
+|**1 Punkt:** Viele technische Probleme oder unvollständige Umsetzung
+
+== Kriterium 4: Reflexion und Eigenständigkeit (5 Punkte)
+
+=== Bewertungsfragen
+
+**README.md Reflexion:**
+- Sind die Reflexionsfragen durchdacht beantwortet?
+- Zeigt der Student eigene Erkenntnisse?
+- Kann er Verbindungen zu seinem Beruf/Studium herstellen?
+
+**Eigenständige Gedanken:**
+- Geht der Student über die Mindestanforderungen hinaus?
+- Zeigt er kreative Ansätze oder eigene Ideen?
+- Stellt er weiterführende Fragen?
+
+**Kritisches Denken:**
+- Erkennt der Student Limitationen der Technologien?
+- Kann er Vor- und Nachteile abwägen?
+- Zeigt er realistische Einschätzungen?
+
+=== Bewertung
+
+|**4 Punkte:** Exzellente Reflexion, kreative Ansätze, kritisches Denken
+|**3 Punkte:** Gute Reflexion, eigene Gedanken erkennbar
+|**2 Punkte:** Oberflächliche Reflexion, wenig eigene Gedanken
+|**1 Punkt:** Keine oder sehr schwache Reflexion
+
+== Schnell-Bewertung (5 Minuten pro Student)
+
+=== Schritt 1: Überblick (1 Minute)
+- [ ] Ordnerstruktur vollständig?
+- [ ] README.md vorhanden?
+- [ ] Alle Hauptdateien da?
+
+=== Schritt 2: Stichproben (3 Minuten)
+- [ ] Eine Aufgabe detailliert prüfen
+- [ ] RAG-Diagramm anschauen
+- [ ] Reflexion in README.md lesen
+- [ ] AI Kurs-Assistent testen (falls URL verfügbar)
+
+=== Schritt 3: Bewertung (1 Minute)
+- [ ] Punkte pro Kriterium vergeben
+- [ ] Kurzes schriftliches Feedback (2-3 Sätze)
+- [ ] Verbesserungsvorschläge notieren
+
+== Feedback-Template
+
+```
+**Bewertung Hausaufgaben Woche 2-3**
+
+Student: [Name]
+Gesamtpunkte: [X]/20
+
+**Stärken:**
+- [Was war besonders gut?]
+- [Welche Aufgaben waren exzellent gelöst?]
+
+**Verbesserungspotential:**
+- [Was könnte besser sein?]
+- [Welche Konzepte sollten nochmals vertieft werden?]
+
+**Vorbereitung Abend 3:**
+- [Ist der Student gut vorbereitet?]
+- [Welche Themen sollten wir nochmals aufgreifen?]
+
+**Individuelle Notizen:**
+- [Besondere Beobachtungen]
+- [Fragen für das Gespräch]
+```
+
+== Häufige Probleme und Lösungen
+
+=== Problem: Student hat wenig Zeit gehabt
+
+**Bewertung:** Fokus auf Qualität statt Quantität
+- Wurden die wichtigsten Aufgaben (1-3) gemacht?
+- Zeigt das Vorhandene gutes Verständnis?
+- Ist die Reflexion ehrlich und selbstkritisch?
+
+=== Problem: Technische Schwierigkeiten
+
+**Bewertung:** Verständnis wichtiger als Technik
+- Hat der Student die Konzepte verstanden?
+- Wurden alternative Lösungen gesucht?
+- Ist die Dokumentation der Probleme hilfreich?
+
+=== Problem: Überforderung mit Coding-Challenge
+
+**Bewertung:** Coding ist optional
+- Hauptaufgaben 1-4 sind wichtiger
+- Versuch zählt mehr als perfekte Lösung
+- Reflexion über Schwierigkeiten ist wertvoll
+
+== Vorbereitung für Abend 3
+
+=== Basierend auf Hausaufgaben anpassen
+
+**Wenn viele Studenten Probleme mit RAG haben:**
+- Mehr Zeit für RAG-Grundlagen einplanen
+- Einfacheres Beispiel wählen
+- Schritt-für-Schritt Erklärung
+
+**Wenn LangChain unklar ist:**
+- Live-Demo der Konzepte
+- Vergleich mit bekanntem Code zeigen
+- Mehr interaktive Übungen
+
+**Wenn Coding-Challenge gut lief:**
+- Fortgeschrittenere Beispiele zeigen
+- Studenten ihre Lösungen präsentieren lassen
+- Peer-Learning fördern
+
+=== Individuelle Betreuung
+
+**Studenten mit Problemen:**
+- Kurzes Einzelgespräch vor Abend 3
+- Zusätzliche Ressourcen bereitstellen
+- Pair-Programming anbieten
+
+**Fortgeschrittene Studenten:**
+- Zusätzliche Herausforderungen
+- Mentor-Rolle für andere
+- Erweiterte Projekte vorschlagen
+
+== Zusammenfassung
+
+**Diese Rubrik ermöglicht:**
+✅ Schnelle und faire Bewertung  
+✅ Konstruktives Feedback  
+✅ Anpassung des Unterrichts  
+✅ Individuelle Förderung  
+
+**Zeitaufwand:** 10-15 Minuten pro Student  
+**Fokus:** Verständnis vor Perfektion  
+**Ziel:** Optimale Vorbereitung auf Abend 3
