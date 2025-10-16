@@ -60,21 +60,25 @@ Wird: https://gitpod.io/#https://github.com/username/ai-course-assistant
 Falls gar nichts funktioniert:
 
 === Schritt 1: Browser prüfen
+
 - [ ] **Chrome oder Firefox** verwenden
 - [ ] **Inkognito-Modus** testen
 - [ ] **Browser-Cache** leeren
 
 === Schritt 2: Internet prüfen
+
 - [ ] **Stabile Verbindung** vorhanden?
 - [ ] **GitHub.com** erreichbar?
 - [ ] **VPN** deaktivieren
 
 === Schritt 3: Account prüfen
+
 - [ ] **GitHub Account** funktioniert?
 - [ ] **Bei GitHub angemeldet**?
 - [ ] **Repository Zugriff** vorhanden?
 
 === Schritt 4: Hilfe holen
+
 - [ ] **Nachbarn fragen** (Pair Programming)
 - [ ] **Kursleitung informieren**
 - [ ] **Demo-App verwenden:** https://ai-course-demo.streamlit.app/
@@ -82,23 +86,91 @@ Falls gar nichts funktioniert:
 == 💡 Pro-Tipps
 
 === Für GitHub Codespaces:
+
 * **VS Code Desktop** verwenden für bessere Performance
 * **Regelmässig committen** - Daten bleiben erhalten
 * **Ports Tab** beachten für Streamlit Apps
 
 === Für Gitpod:
+
 * **Browser Extension** installieren für Ein-Klick-Start
 * **Environment Variables** im Dashboard setzen
 * **Prebuilds** nutzen für noch schnellere Starts
+
+== 📝 Git-Workflow für Code-Änderungen
+
+=== Wichtig: Eigenen Branch erstellen!
+
+Die Branches `main` und `develop` sind **geschützt** und können nicht direkt bearbeitet werden.
+
+**Best Practice:** Erstellen Sie für Ihre Änderungen einen eigenen Feature-Branch.
+
+=== Schritt-für-Schritt Anleitung:
+
+**1. Eigenen Branch erstellen:**
+[source,bash]
+----
+# Beschreibenden Namen wählen (z.B. feature/mein-name oder exercise/aufgabe-1)
+git checkout -b feature/ihr-name
+----
+
+**2. Änderungen vornehmen und committen:**
+[source,bash]
+----
+# Dateien zur Staging Area hinzufügen
+git add .
+
+# Commit mit aussagekräftiger Message
+git commit -m "feat: Beschreibung der Änderung"
+----
+
+**3. Branch pushen:**
+[source,bash]
+----
+# Beim ersten Push
+git push -u origin feature/ihr-name
+
+# Bei weiteren Commits
+git push
+----
+
+=== 🔒 Branch-Namenskonventionen
+
+Verwenden Sie aussagekräftige Präfixe:
+
+* `feature/ihr-name` - Für neue Features oder Übungen
+* `exercise/aufgabe-nr` - Für spezifische Kursaufgaben
+* `fix/beschreibung` - Für Bugfixes
+* `experiment/thema` - Für Experimente
+
+=== ⚠️ Wichtige Hinweise
+
+* **Niemals direkt auf `main` oder `develop` pushen** - Diese Branches sind geschützt
+* **Regelmässig committen** - So gehen keine Änderungen verloren
+* **Aussagekräftige Commit-Messages** - Folgen Sie dem Format: `type: Beschreibung`
+* **Eigene Branches** - Jeder Studierende arbeitet auf seinem eigenen Branch
+
+=== 💾 Änderungen sichern
+
+Ihre Arbeit bleibt in Codespaces/Gitpod erhalten, solange:
+
+* Sie **regelmässig committen**
+* Sie **auf Ihren eigenen Branch pushen**
+* Der Workspace **nicht gelöscht** wird
+
+[TIP]
+====
+**Tipp:** Committen Sie nach jeder abgeschlossenen Teilaufgabe, nicht erst am Ende!
+====
 
 == 🎯 Ziel erreicht!
 
 **Egal welche Option Sie wählen - Sie haben eine funktionierende Entwicklungsumgebung!**
 
-✅ Python installiert  
-✅ VS Code verfügbar  
-✅ Alle Pakete installiert  
-✅ Streamlit funktioniert  
-✅ Git konfiguriert  
+- ✅ Python installiert  
+- ✅ VS Code verfügbar  
+- ✅ Alle Pakete installiert  
+- ✅ Streamlit funktioniert  
+- ✅ Git konfiguriert  
 
 **Jetzt können Sie mit dem AI Kurs-Assistenten Tutorial fortfahren!** 🚀

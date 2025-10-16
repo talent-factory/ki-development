@@ -8,7 +8,18 @@
       "Bash(glab auth:*)",
       "Read(//Users/daniel/.config/glab-cli/**)",
       "Bash(glab config get:*)",
-      "Bash(glab api:*)"
+      "Bash(glab api:*)",
+      "Bash(gh repo view:*)",
+      "Bash(gh api:*)",
+      "Bash(repos/talent-factory/ki-development/branches/main/protection )",
+      "Bash(repos/talent-factory/ki-development/branches/develop/protection )",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git log:*)",
+      "Bash(git reset:*)",
+      "Bash(git fetch:*)",
+      "Bash(git pull:*)",
+      "Bash(git stash:*)"
     ],
     "deny": [],
     "ask": []
