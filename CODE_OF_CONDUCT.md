@@ -34,7 +34,7 @@ Dieser Code of Conduct gilt sowohl innerhalb von Projekträumen als auch in öff
 
 ## Durchsetzung
 
-Fälle von missbräuchlichem, belästigendem oder anderweitig inakzeptablem Verhalten können dem Projektteam unter [INSERT EMAIL] gemeldet werden. Alle Beschwerden werden geprüft und untersucht und führen zu einer Reaktion, die als notwendig und angemessen für die Umstände erachtet wird. Das Projektteam ist verpflichtet, Vertraulichkeit in Bezug auf den Melder eines Vorfalls zu wahren.
+Fälle von missbräuchlichem, belästigendem oder anderweitig inakzeptablem Verhalten können dem Projektteam unter [daniel.senften@talent-factory.ch](mailto:daniel.senften@talent-factory.ch) gemeldet werden. Alle Beschwerden werden geprüft und untersucht und führen zu einer Reaktion, die als notwendig und angemessen für die Umstände erachtet wird. Das Projektteam ist verpflichtet, Vertraulichkeit in Bezug auf den Melder eines Vorfalls zu wahren.
 
 ## Attribution
 

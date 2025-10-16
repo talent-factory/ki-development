@@ -34,7 +34,7 @@ Die Sicherheit unseres Projekts ist uns sehr wichtig. Wenn Sie eine Sicherheitsl
 
 3. **Kontakt**:
    - GitHub Security Advisory (bevorzugt)
-   - E-Mail: [SECURITY-EMAIL-HIER-EINFÜGEN]
+   - E-Mail: [daniel.senften@talent-factory.ch](mailto:daniel.senften@talent-factory.ch)
 
 ### Was Sie erwarten können:
 
@@ -148,7 +148,7 @@ Bei der Verwendung externer APIs (OpenAI, Anthropic, etc.):
 Für sicherheitsrelevante Fragen:
 
 - GitHub Security Advisory: https://github.com/talent-factory/ki-development/security/advisories
-- E-Mail: [SECURITY-EMAIL-HIER-EINFÜGEN]
+- E-Mail: [daniel.senften@talent-factory.ch](mailto:daniel.senften@talent-factory.ch)
 - Issues (für nicht-sicherheitskritische Themen): https://github.com/talent-factory/ki-development/issues
 
 ## Richtlinie für Responsible Disclosure
