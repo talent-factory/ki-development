@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Frage stellen
+    url: https://github.com/talent-factory/ki-development/discussions
+    about: Für allgemeine Fragen nutzen Sie bitte GitHub Discussions
+  - name: Sicherheitsproblem melden
+    url: https://github.com/talent-factory/ki-development/security/advisories/new
+    about: Für Sicherheitsprobleme nutzen Sie bitte das Security Advisory System
+  - name: Kurs-Website
+    url: https://ibaw.ch/bildungsangebote/informatik/digital-collaboration-transformation/ki-professional-development/
+    about: Weitere Informationen zum KI Professional Kurs

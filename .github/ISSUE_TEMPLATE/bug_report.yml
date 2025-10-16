@@ -1,0 +1,105 @@
+name: Bug Report
+description: Melden Sie einen Fehler im Projekt
+title: "[BUG]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Danke, dass Sie einen Fehler melden! Bitte füllen Sie das folgende Formular so detailliert wie möglich aus.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Beschreibung des Fehlers
+      description: Eine klare und präzise Beschreibung des Fehlers
+      placeholder: Was ist passiert?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Schritte zur Reproduktion
+      description: Schritte zur Reproduktion des Verhaltens
+      placeholder: |
+        1. Gehe zu '...'
+        2. Klicke auf '...'
+        3. Scrolle runter zu '...'
+        4. Siehe Fehler
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Erwartetes Verhalten
+      description: Was sollte stattdessen passieren?
+      placeholder: Beschreiben Sie das erwartete Verhalten
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Tatsächliches Verhalten
+      description: Was ist tatsächlich passiert?
+      placeholder: Beschreiben Sie das tatsächliche Verhalten
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Falls zutreffend, fügen Sie Screenshots hinzu
+      placeholder: Ziehen Sie Bilder hierher oder fügen Sie Links ein
+
+  - type: dropdown
+    id: python-version
+    attributes:
+      label: Python-Version
+      description: Welche Python-Version verwenden Sie?
+      options:
+        - Python 3.10
+        - Python 3.11
+        - Python 3.12
+        - Python 3.13
+        - Andere (bitte in zusätzlichen Informationen angeben)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Betriebssystem
+      description: Welches Betriebssystem verwenden Sie?
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - Andere (bitte in zusätzlichen Informationen angeben)
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Zusätzliche Informationen
+      description: Weitere relevante Informationen
+      placeholder: |
+        - Verwendete Dependencies und Versionen
+        - Fehlermeldungen
+        - Log-Ausgaben
+        - Andere relevante Details
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: Mit dem Einreichen dieses Issues bestätigen Sie folgendes
+      options:
+        - label: Ich habe die [Contributing Guidelines](https://github.com/talent-factory/ki-development/blob/develop/CONTRIBUTING.md) gelesen
+          required: true
+        - label: Ich habe geprüft, dass dieses Issue nicht bereits existiert
+          required: true

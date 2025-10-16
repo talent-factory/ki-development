@@ -5,6 +5,10 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Daniel%20Senften-blue?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/dsenften/)
 &nbsp;
 [![GitHub](https://img.shields.io/badge/GitHub-blue?logo=github&logoColor=white)](https://github.com/talent-factory/ki-development)
+&nbsp;
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+&nbsp;
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 KI-Anwendungen entwickeln, ohne nur eine Zeile Code zu schreiben? Ja, das ist möglich. Erfahren Sie, wie Sie KI-gesteuerte Apps mit No-Code-Tools erstellen und entwickeln Sie dabei ein umfangreiches Verständnis der dahinter liegenden maschinellen Lernprinzipien – damit Sie diese erfolgreich für Ihre Projekte umsetzen können.
 
@@ -113,3 +117,39 @@ Am Ende dieses Lerngangs …
 - Verständnis der Systemarchitektur von LangChain basierten Apps
 - Nutzung von Low-Code-Frameworks wie FlowiseAI und Langflow
 - Praxistransfer und Erstellung eigener Anwendungen, darunter Q&A für eigene Daten, Chatbots, Agents und API-Interaktionen
+
+## 🤝 Beiträge
+
+Wir freuen uns über Beiträge! Bitte lesen Sie unsere [Contributing Guidelines](CONTRIBUTING.md) und [Code of Conduct](CODE_OF_CONDUCT.md) bevor Sie einen Pull Request erstellen.
+
+### Wie Sie beitragen können
+
+- 🐛 Fehler melden über [Issues](https://github.com/talent-factory/ki-development/issues)
+- 💡 Neue Features vorschlagen
+- 📖 Dokumentation verbessern
+- 🧪 Beispiele und Tutorials hinzufügen
+- 🔧 Code-Verbesserungen einreichen
+
+Siehe [CONTRIBUTING.md](CONTRIBUTING.md) für detaillierte Informationen.
+
+## 📄 Lizenz
+
+Dieses Projekt ist unter der [MIT-Lizenz](LICENSE) lizenziert. Sie dürfen den Code frei verwenden, modifizieren und verteilen.
+
+## 🔒 Sicherheit
+
+Sicherheit ist uns wichtig. Wenn Sie eine Sicherheitslücke entdecken, lesen Sie bitte unsere [Sicherheitsrichtlinie](SECURITY.md) für Informationen zur verantwortungsvollen Meldung.
+
+## 📞 Kontakt
+
+- **LinkedIn**: [Daniel Senften](https://www.linkedin.com/in/dsenften/)
+- **GitHub Issues**: [Problem melden](https://github.com/talent-factory/ki-development/issues)
+- **Kurs-Website**: [IBAW KI Professional](https://ibaw.ch/bildungsangebote/informatik/digital-collaboration-transformation/ki-professional-development/)
+
+## 🙏 Danksagungen
+
+Vielen Dank an alle [Contributors](https://github.com/talent-factory/ki-development/graphs/contributors), die zu diesem Projekt beigetragen haben!
+
+---
+
+**Hinweis**: Dieses Repository wird aktiv für Bildungszwecke verwendet. Fragen und Diskussionen sind willkommen!

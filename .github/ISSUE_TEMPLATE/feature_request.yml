@@ -1,0 +1,78 @@
+name: Feature Request
+description: Schlagen Sie eine neue Funktionalität vor
+title: "[FEATURE]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Danke für Ihren Feature-Vorschlag! Bitte beschreiben Sie Ihre Idee so detailliert wie möglich.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problembeschreibung
+      description: Gibt es ein Problem, das diese Funktion lösen würde?
+      placeholder: Ich bin frustriert, wenn...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Vorgeschlagene Lösung
+      description: Beschreiben Sie die gewünschte Lösung
+      placeholder: Ich würde gerne haben, dass...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternativen
+      description: Haben Sie alternative Lösungen in Betracht gezogen?
+      placeholder: Eine Alternative wäre...
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Zusätzlicher Kontext
+      description: Weitere relevante Informationen oder Screenshots
+      placeholder: |
+        - Beispiele aus anderen Projekten
+        - Mockups oder Diagramme
+        - Use Cases
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priorität
+      description: Wie wichtig ist dieses Feature für Sie?
+      options:
+        - Niedrig (Nice to have)
+        - Mittel (Würde helfen)
+        - Hoch (Wichtig für meinen Use Case)
+        - Kritisch (Blocker für Nutzung)
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Beitrag
+      description: Möchten Sie bei der Implementierung helfen?
+      options:
+        - label: Ich bin bereit, an dieser Funktion mitzuarbeiten
+        - label: Ich kann Tests für diese Funktion schreiben
+        - label: Ich kann Dokumentation für diese Funktion schreiben
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: Mit dem Einreichen dieses Issues bestätigen Sie folgendes
+      options:
+        - label: Ich habe die [Contributing Guidelines](https://github.com/talent-factory/ki-development/blob/develop/CONTRIBUTING.md) gelesen
+          required: true
+        - label: Ich habe geprüft, dass dieses Feature nicht bereits vorgeschlagen wurde
+          required: true
