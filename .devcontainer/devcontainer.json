@@ -52,7 +52,7 @@
     }
   },
 
-  "postCreateCommand": "pip install --upgrade pip && pip install streamlit openai anthropic python-dotenv langchain langchain-openai langchain-anthropic faiss-cpu chromadb",
+  "postCreateCommand": "pip install --upgrade pip && pip install uv && uv add streamlit openai anthropic python-dotenv langchain langchain-openai langchain-anthropic faiss-cpu chromadb",
 
   "remoteUser": "vscode",
 
