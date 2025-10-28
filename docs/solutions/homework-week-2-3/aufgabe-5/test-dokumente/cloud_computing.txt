@@ -1,0 +1,157 @@
+Cloud Computing
+
+Cloud Computing bezeichnet die Bereitstellung von IT-Ressourcen über das Internet. Anstatt eigene Hardware und Software zu besitzen und zu warten, können Unternehmen diese Ressourcen von Cloud-Anbietern mieten.
+
+Service-Modelle:
+
+1. Infrastructure as a Service (IaaS)
+Bereitstellung von virtuellen Maschinen, Speicher und Netzwerk-Ressourcen. Kunden haben Kontrolle über Betriebssysteme, Anwendungen und Middleware.
+
+Beispiele:
+- Amazon EC2 (Elastic Compute Cloud)
+- Microsoft Azure Virtual Machines
+- Google Compute Engine
+
+2. Platform as a Service (PaaS)
+Bereitstellung einer Entwicklungsplattform mit Tools und Services für die Anwendungsentwicklung. Entwickler können sich auf die Anwendungslogik konzentrieren.
+
+Beispiele:
+- Heroku
+- Google App Engine
+- Microsoft Azure App Service
+
+3. Software as a Service (SaaS)
+Bereitstellung von fertigen Anwendungen über das Internet. Benutzer greifen über Webbrowser auf die Software zu.
+
+Beispiele:
+- Microsoft Office 365
+- Google Workspace
+- Salesforce
+- Dropbox
+
+Deployment-Modelle:
+
+1. Public Cloud
+Ressourcen werden von einem Cloud-Anbieter bereitgestellt und über das Internet zugänglich gemacht.
+
+2. Private Cloud
+Cloud-Infrastruktur wird exklusiv für eine Organisation betrieben.
+
+3. Hybrid Cloud
+Kombination aus Public und Private Cloud, die Daten und Anwendungen austauschen können.
+
+4. Multi-Cloud
+Verwendung von Services mehrerer Cloud-Anbieter.
+
+Vorteile von Cloud Computing:
+
+1. Kosteneffizienz
+- Reduzierte Investitionskosten für Hardware und IT-Infrastruktur
+- Pay-as-you-use Modell
+- Keine Wartungskosten für Hardware
+
+2. Skalierbarkeit
+- Ressourcen können je nach Bedarf schnell hoch- oder herunterskaliert werden
+- Elastische Kapazitäten
+- Automatische Skalierung möglich
+
+3. Flexibilität
+- Zugriff auf Ressourcen von überall und zu jeder Zeit
+- Verschiedene Geräte unterstützt
+- Schnelle Bereitstellung neuer Services
+
+4. Automatische Updates
+- Software und Sicherheitsupdates werden automatisch vom Anbieter durchgeführt
+- Immer aktuelle Versionen
+- Reduzierter Administrationsaufwand
+
+5. Disaster Recovery
+- Integrierte Backup- und Wiederherstellungslösungen
+- Geografisch verteilte Datenzentren
+- Hohe Verfügbarkeit
+
+6. Collaboration
+- Verbesserte Zusammenarbeit durch gemeinsamen Zugriff auf Daten
+- Real-time Collaboration Tools
+- Zentrale Datenverwaltung
+
+Hauptanbieter:
+
+Amazon Web Services (AWS):
+- Marktführer im Cloud Computing
+- Umfangreiches Service-Portfolio
+- Globale Infrastruktur
+
+Microsoft Azure:
+- Starke Integration mit Microsoft-Produkten
+- Hybrid Cloud Fokus
+- Enterprise-orientiert
+
+Google Cloud Platform (GCP):
+- Stärken in Machine Learning und Analytics
+- Kubernetes-native Services
+- Innovative Technologien
+
+Weitere Anbieter:
+- IBM Cloud
+- Oracle Cloud
+- Alibaba Cloud
+- DigitalOcean
+
+Cloud-Sicherheit:
+
+Herausforderungen:
+- Datenschutz und Compliance
+- Shared Responsibility Model
+- Netzwerksicherheit
+- Identity and Access Management
+
+Sicherheitsmaßnahmen:
+- Verschlüsselung von Daten in Transit und at Rest
+- Multi-Factor Authentication
+- Regular Security Audits
+- Compliance Zertifizierungen
+
+Cloud-native Technologien:
+
+Containerisierung:
+- Docker: Container-Plattform
+- Kubernetes: Container-Orchestrierung
+- Microservices Architecture
+
+Serverless Computing:
+- AWS Lambda
+- Azure Functions
+- Google Cloud Functions
+
+DevOps und CI/CD:
+- Infrastructure as Code
+- Automated Deployment Pipelines
+- Monitoring and Logging
+
+Herausforderungen:
+
+1. Vendor Lock-in
+Abhängigkeit von einem spezifischen Cloud-Anbieter
+
+2. Internetabhängigkeit
+Zuverlässige Internetverbindung erforderlich
+
+3. Sicherheitsbedenken
+Datenschutz und Compliance-Anforderungen
+
+4. Kosten-Management
+Unerwartete Kosten bei unsachgemäßer Nutzung
+
+5. Performance
+Latenz bei internetbasierten Services
+
+Zukunftstrends:
+
+- Edge Computing: Verarbeitung näher am Endbenutzer
+- Serverless Architecture: Event-driven Computing
+- AI/ML Services: Integrierte KI-Capabilities
+- Quantum Computing: Quantencomputer in der Cloud
+- Sustainability: Grüne Cloud-Technologien
+
+Cloud Computing hat die Art und Weise, wie Unternehmen IT-Ressourcen nutzen, revolutioniert und ermöglicht es Organisationen jeder Größe, auf Enterprise-Level-Technologien zuzugreifen.

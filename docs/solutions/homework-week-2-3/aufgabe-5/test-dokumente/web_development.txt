@@ -1,0 +1,220 @@
+Webentwicklung Grundlagen
+
+Webentwicklung umfasst die Erstellung und Wartung von Websites und Webanwendungen. Sie gliedert sich in verschiedene Bereiche und erfordert ein Verständnis für verschiedene Technologien und Konzepte.
+
+Frontend-Entwicklung:
+Das Frontend ist der Teil einer Website, den Benutzer sehen und mit dem sie interagieren.
+
+Kern-Technologien:
+
+1. HTML (HyperText Markup Language)
+HTML strukturiert den Inhalt einer Webseite und definiert die semantische Bedeutung der Elemente.
+
+Grundlegende HTML-Elemente:
+- <html>: Root-Element
+- <head>: Metadaten
+- <body>: Sichtbarer Inhalt
+- <h1>-<h6>: Überschriften
+- <p>: Absätze
+- <div>: Container
+- <span>: Inline-Container
+- <a>: Links
+- <img>: Bilder
+- <form>: Formulare
+
+2. CSS (Cascading Style Sheets)
+CSS definiert das Aussehen und Layout der Webseite.
+
+CSS-Konzepte:
+- Selektoren: Auswahl von HTML-Elementen
+- Properties: Styling-Eigenschaften
+- Box Model: Margin, Border, Padding, Content
+- Flexbox: Flexible Layouts
+- Grid: Zweidimensionale Layouts
+- Responsive Design: Anpassung an verschiedene Bildschirmgrößen
+
+3. JavaScript
+JavaScript fügt Interaktivität und dynamische Funktionen hinzu.
+
+JavaScript-Grundlagen:
+- Variablen und Datentypen
+- Funktionen
+- DOM-Manipulation
+- Event Handling
+- Asynchrone Programmierung (Promises, async/await)
+- ES6+ Features
+
+Frontend-Frameworks und Libraries:
+
+React:
+- Komponentenbasierte Architektur
+- Virtual DOM
+- JSX Syntax
+- State Management
+
+Vue.js:
+- Progressive Framework
+- Template-basierte Syntax
+- Reactive Data Binding
+- Component System
+
+Angular:
+- Full-Featured Framework
+- TypeScript-basiert
+- Dependency Injection
+- Two-way Data Binding
+
+Backend-Entwicklung:
+Das Backend verarbeitet Daten und Geschäftslogik im Hintergrund.
+
+Backend-Technologien:
+
+Programmiersprachen:
+- Python: Django, Flask, FastAPI
+- JavaScript/Node.js: Express.js, Nest.js
+- Java: Spring Boot
+- PHP: Laravel, Symfony
+- C#: ASP.NET Core
+- Ruby: Ruby on Rails
+- Go: Gin, Echo
+
+Datenbanken:
+
+Relationale Datenbanken:
+- MySQL: Weit verbreitet, Open Source
+- PostgreSQL: Erweiterte Features, ACID-konform
+- SQLite: Leichtgewichtig, dateibasiert
+- Microsoft SQL Server: Enterprise-Lösung
+
+NoSQL-Datenbanken:
+- MongoDB: Dokumentenbasiert
+- Redis: In-Memory Key-Value Store
+- Cassandra: Spaltenorientiert
+- Neo4j: Graph-Datenbank
+
+Server und Hosting:
+- Apache HTTP Server
+- Nginx
+- Cloud-Plattformen (AWS, Azure, GCP)
+- Container (Docker, Kubernetes)
+
+Full-Stack-Entwicklung:
+Full-Stack-Entwickler arbeiten sowohl im Frontend als auch im Backend.
+
+Beliebte Full-Stack-Kombinationen:
+- MEAN: MongoDB, Express.js, Angular, Node.js
+- MERN: MongoDB, Express.js, React, Node.js
+- LAMP: Linux, Apache, MySQL, PHP
+- Django + React
+- Ruby on Rails + Vue.js
+
+Moderne Entwicklungsansätze:
+
+1. Responsive Design
+Websites passen sich verschiedenen Bildschirmgrößen an.
+
+Techniken:
+- Media Queries
+- Flexible Grid Systems
+- Flexible Images
+- Mobile-First Approach
+
+2. Progressive Web Apps (PWAs)
+Webanwendungen mit app-ähnlichen Funktionen.
+
+PWA-Features:
+- Service Workers
+- Web App Manifest
+- Offline-Funktionalität
+- Push-Notifications
+
+3. Single Page Applications (SPAs)
+Dynamische Webanwendungen, die ohne Seitenneuladen funktionieren.
+
+SPA-Vorteile:
+- Bessere User Experience
+- Schnellere Navigation
+- Reduzierte Server-Last
+
+4. Jamstack
+JavaScript, APIs, und Markup für moderne Webentwicklung.
+
+Jamstack-Vorteile:
+- Bessere Performance
+- Höhere Sicherheit
+- Skalierbarkeit
+- Developer Experience
+
+Entwicklungstools und Workflow:
+
+Versionskontrolle:
+- Git: Distributed Version Control
+- GitHub/GitLab: Code-Hosting und Collaboration
+- Branching Strategies
+
+Build-Tools:
+- Webpack: Module Bundler
+- Vite: Fast Build Tool
+- Parcel: Zero-Configuration Build Tool
+- Rollup: ES Module Bundler
+
+Package Manager:
+- npm: Node Package Manager
+- Yarn: Alternative zu npm
+- pnpm: Performant npm
+
+Code-Qualität:
+- ESLint: JavaScript Linting
+- Prettier: Code Formatting
+- TypeScript: Static Type Checking
+- Testing Frameworks (Jest, Cypress)
+
+DevOps und Deployment:
+
+CI/CD:
+- GitHub Actions
+- GitLab CI/CD
+- Jenkins
+- Travis CI
+
+Containerisierung:
+- Docker: Container-Plattform
+- Docker Compose: Multi-Container Applications
+
+Cloud-Deployment:
+- Vercel: Frontend-fokussiert
+- Netlify: Jamstack-Hosting
+- Heroku: Platform as a Service
+- AWS/Azure/GCP: Cloud-Plattformen
+
+Web-Performance:
+
+Optimierungstechniken:
+- Code Splitting
+- Lazy Loading
+- Image Optimization
+- Caching Strategies
+- Content Delivery Networks (CDN)
+
+Performance-Metriken:
+- First Contentful Paint (FCP)
+- Largest Contentful Paint (LCP)
+- Cumulative Layout Shift (CLS)
+- First Input Delay (FID)
+
+Sicherheit:
+
+Web-Sicherheit:
+- HTTPS/SSL
+- Cross-Site Scripting (XSS) Prevention
+- SQL Injection Prevention
+- Cross-Site Request Forgery (CSRF) Protection
+- Content Security Policy (CSP)
+
+Authentifizierung:
+- JWT (JSON Web Tokens)
+- OAuth 2.0
+- Session-based Authentication
+- Multi-Factor Authentication
+
+Webentwicklung ist ein sich schnell entwickelndes Feld mit kontinuierlichen Innovationen in Technologien, Tools und Best Practices.

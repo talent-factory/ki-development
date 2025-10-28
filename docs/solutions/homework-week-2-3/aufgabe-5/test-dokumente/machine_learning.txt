@@ -1,0 +1,90 @@
+Machine Learning Grundlagen
+
+Machine Learning ist ein Teilbereich der Künstlichen Intelligenz (KI), der es Computern ermöglicht, aus Daten zu lernen und Vorhersagen zu treffen, ohne explizit programmiert zu werden.
+
+Haupttypen des Machine Learning:
+
+1. Supervised Learning (Überwachtes Lernen)
+Bei diesem Ansatz wird das Modell mit gelabelten Daten trainiert. Das bedeutet, dass sowohl die Eingabedaten als auch die gewünschten Ausgaben bekannt sind. Beispiele sind Klassifikation und Regression.
+
+Klassifikation: Vorhersage von Kategorien (z.B. E-Mail-Spam-Erkennung)
+Regression: Vorhersage von kontinuierlichen Werten (z.B. Hauspreise)
+
+2. Unsupervised Learning (Unüberwachtes Lernen)
+Hier arbeitet das Modell mit ungelabelten Daten und versucht, Muster und Strukturen in den Daten zu entdecken. Beispiele sind Clustering und Dimensionsreduktion.
+
+Clustering: Gruppierung ähnlicher Datenpunkte (z.B. Kundensegmentierung)
+Dimensionsreduktion: Vereinfachung komplexer Daten (z.B. PCA)
+
+3. Reinforcement Learning (Verstärkendes Lernen)
+Das Modell lernt durch Interaktion mit einer Umgebung und erhält Belohnungen oder Strafen für seine Aktionen. Beispiele sind Spielstrategien und Robotersteuerung.
+
+Wichtige Algorithmen:
+
+Supervised Learning:
+- Lineare Regression
+- Logistische Regression
+- Decision Trees
+- Random Forest
+- Support Vector Machines (SVM)
+- Neural Networks
+
+Unsupervised Learning:
+- K-Means Clustering
+- Hierarchical Clustering
+- Principal Component Analysis (PCA)
+- DBSCAN
+
+Reinforcement Learning:
+- Q-Learning
+- Deep Q-Networks (DQN)
+- Policy Gradient Methods
+
+Anwendungen von Machine Learning:
+- Bilderkennung und Computer Vision
+- Natürliche Sprachverarbeitung (NLP)
+- Empfehlungssysteme (Netflix, Amazon)
+- Medizinische Diagnose
+- Autonome Fahrzeuge
+- Finanzanalyse und Fraud Detection
+- Suchmaschinen-Algorithmen
+
+Der Machine Learning Workflow:
+
+1. Problemdefinition
+Klare Definition des zu lösenden Problems und der Ziele.
+
+2. Datensammlung
+Beschaffung relevanter und qualitativ hochwertiger Daten.
+
+3. Datenvorverarbeitung
+Bereinigung, Transformation und Aufbereitung der Daten.
+
+4. Feature Engineering
+Auswahl und Erstellung relevanter Merkmale für das Modell.
+
+5. Modellauswahl
+Wahl des geeigneten Algorithmus basierend auf dem Problem.
+
+6. Training
+Das Modell lernt aus den Trainingsdaten.
+
+7. Evaluation
+Bewertung der Modellleistung mit Testdaten.
+
+8. Deployment
+Einsatz des Modells in der Produktionsumgebung.
+
+9. Monitoring
+Überwachung der Modellleistung im laufenden Betrieb.
+
+Herausforderungen im Machine Learning:
+
+- Overfitting: Das Modell lernt die Trainingsdaten zu spezifisch
+- Underfitting: Das Modell ist zu einfach für die Komplexität der Daten
+- Bias in Daten: Verzerrungen in den Trainingsdaten
+- Interpretierbarkeit: Verständnis der Modellentscheidungen
+- Skalierbarkeit: Umgang mit großen Datenmengen
+- Datenqualität: Umgang mit fehlenden oder fehlerhaften Daten
+
+Machine Learning ist ein sich schnell entwickelndes Feld mit enormem Potenzial zur Lösung komplexer Probleme in verschiedenen Branchen.

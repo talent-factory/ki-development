@@ -1,0 +1,213 @@
+Datenbanken Grundlagen
+
+Datenbanken sind strukturierte Sammlungen von Daten, die elektronisch gespeichert und verwaltet werden. Sie ermöglichen es, große Mengen an Informationen effizient zu organisieren, zu speichern und abzurufen.
+
+Grundlegende Konzepte:
+
+1. Datenbank (Database)
+Eine organisierte Sammlung von strukturierten Informationen oder Daten.
+
+2. Datenbankmanagementsystem (DBMS)
+Software, die die Erstellung, Verwaltung und Nutzung von Datenbanken ermöglicht.
+
+3. Tabelle
+Grundlegende Struktur zur Datenspeicherung, bestehend aus Zeilen und Spalten.
+
+4. Datensatz (Record/Row)
+Eine einzelne Zeile in einer Tabelle, die zusammengehörige Informationen enthält.
+
+5. Feld (Field/Column)
+Eine einzelne Spalte in einer Tabelle, die einen bestimmten Datentyp speichert.
+
+6. Primärschlüssel (Primary Key)
+Ein eindeutiger Identifikator für jeden Datensatz in einer Tabelle.
+
+7. Fremdschlüssel (Foreign Key)
+Ein Feld, das auf den Primärschlüssel einer anderen Tabelle verweist.
+
+Arten von Datenbanken:
+
+Relationale Datenbanken (SQL):
+
+Eigenschaften:
+- Strukturierte Daten in Tabellen
+- ACID-Eigenschaften (Atomicity, Consistency, Isolation, Durability)
+- SQL (Structured Query Language) für Abfragen
+- Normalisierung zur Vermeidung von Redundanzen
+
+Beliebte relationale DBMS:
+- MySQL: Open Source, weit verbreitet
+- PostgreSQL: Erweiterte Features, ACID-konform
+- SQLite: Leichtgewichtig, dateibasiert
+- Oracle Database: Enterprise-Lösung
+- Microsoft SQL Server: Windows-integriert
+- MariaDB: MySQL-Fork
+
+NoSQL-Datenbanken:
+
+1. Dokumentenbasierte Datenbanken
+Speichern Daten als Dokumente (meist JSON-ähnlich).
+
+Beispiele:
+- MongoDB: Flexible Schema, skalierbar
+- CouchDB: HTTP-basierte API
+- Amazon DynamoDB: Managed NoSQL Service
+
+2. Key-Value Stores
+Einfache Schlüssel-Wert-Paare.
+
+Beispiele:
+- Redis: In-Memory, sehr schnell
+- Amazon DynamoDB: Managed Service
+- Riak: Verteilte Architektur
+
+3. Spaltenorientierte Datenbanken
+Daten werden spaltenweise statt zeilenweise gespeichert.
+
+Beispiele:
+- Cassandra: Hochskalierbar, verteilte Architektur
+- HBase: Hadoop-basiert
+- Amazon Redshift: Data Warehouse
+
+4. Graph-Datenbanken
+Speichern Daten als Knoten und Kanten.
+
+Beispiele:
+- Neo4j: Führende Graph-Datenbank
+- Amazon Neptune: Managed Graph Service
+- ArangoDB: Multi-Model Database
+
+SQL Grundlagen:
+
+Datentypen:
+- INTEGER: Ganze Zahlen
+- VARCHAR: Variable Zeichenketten
+- TEXT: Längere Texte
+- DATE: Datum
+- TIMESTAMP: Datum und Zeit
+- BOOLEAN: Wahr/Falsch-Werte
+- DECIMAL: Dezimalzahlen
+
+Grundlegende SQL-Befehle:
+
+DDL (Data Definition Language):
+- CREATE TABLE: Tabelle erstellen
+- ALTER TABLE: Tabelle ändern
+- DROP TABLE: Tabelle löschen
+
+DML (Data Manipulation Language):
+- INSERT: Daten einfügen
+- UPDATE: Daten aktualisieren
+- DELETE: Daten löschen
+
+DQL (Data Query Language):
+- SELECT: Daten abfragen
+- WHERE: Bedingungen
+- JOIN: Tabellen verknüpfen
+- GROUP BY: Gruppierung
+- ORDER BY: Sortierung
+
+Datenbankdesign:
+
+Normalisierung:
+Prozess zur Strukturierung einer Datenbank zur Minimierung von Redundanz.
+
+Normalformen:
+- 1NF: Atomare Werte, keine wiederholenden Gruppen
+- 2NF: 1NF + keine partiellen Abhängigkeiten
+- 3NF: 2NF + keine transitiven Abhängigkeiten
+
+Entity-Relationship-Modell (ER-Modell):
+- Entitäten: Objekte oder Konzepte
+- Attribute: Eigenschaften von Entitäten
+- Beziehungen: Verbindungen zwischen Entitäten
+
+Beziehungstypen:
+- 1:1 (Eins-zu-Eins)
+- 1:n (Eins-zu-Viele)
+- n:m (Viele-zu-Viele)
+
+Datenbankperformance:
+
+Indizierung:
+- Primärindex: Automatisch für Primärschlüssel
+- Sekundärindex: Zusätzliche Indizes für häufige Abfragen
+- Composite Index: Index über mehrere Spalten
+
+Query-Optimierung:
+- Explain Plans analysieren
+- Effiziente WHERE-Klauseln
+- Vermeidung von SELECT *
+- Verwendung von LIMIT
+
+Caching:
+- Query Result Caching
+- Connection Pooling
+- In-Memory Caching (Redis, Memcached)
+
+Datenbanksicherheit:
+
+Authentifizierung und Autorisierung:
+- Benutzerkonten und Rollen
+- Granulare Berechtigungen
+- Prinzip der minimalen Berechtigung
+
+Datenschutz:
+- Verschlüsselung at Rest
+- Verschlüsselung in Transit
+- Anonymisierung und Pseudonymisierung
+
+Backup und Recovery:
+- Regelmäßige Backups
+- Point-in-Time Recovery
+- Disaster Recovery Pläne
+
+Moderne Datenbanktrends:
+
+Cloud-Datenbanken:
+- Database as a Service (DBaaS)
+- Serverless Databases
+- Multi-Cloud Strategien
+
+NewSQL:
+Kombination aus SQL-Kompatibilität und NoSQL-Skalierbarkeit.
+
+Beispiele:
+- Google Spanner
+- CockroachDB
+- VoltDB
+
+In-Memory Databases:
+- SAP HANA
+- Redis
+- Apache Ignite
+
+Time-Series Databases:
+Spezialisiert auf zeitbasierte Daten.
+
+Beispiele:
+- InfluxDB
+- TimescaleDB
+- Amazon Timestream
+
+Datenbank-Entwicklungstools:
+
+Administration:
+- phpMyAdmin (MySQL)
+- pgAdmin (PostgreSQL)
+- MongoDB Compass
+- DBeaver (Universal)
+
+ORM (Object-Relational Mapping):
+- SQLAlchemy (Python)
+- Hibernate (Java)
+- Entity Framework (.NET)
+- Sequelize (Node.js)
+
+Migration Tools:
+- Flyway
+- Liquibase
+- Django Migrations
+- Rails Migrations
+
+Datenbanken sind ein fundamentaler Bestandteil moderner Anwendungen und erfordern sorgfältige Planung und Design für optimale Performance und Skalierbarkeit.
