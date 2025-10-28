@@ -1,19 +1,19 @@
-**Tag 3: Grundlagen LLM-basierter Applikationen (Präsenzunterricht, 8 Stunden)**
+**Tag 3: Grundlagen LLM-basierter Applikationen (Präsenzunterricht, 4 Lektionen)**
 
 *Folien:*
-1. **Möglichkeiten und Grenzen von LLM (2 Stunden)**
+1. **Möglichkeiten und Grenzen von LLM (1 Lektion)**
    - Überblick über LLM
    - Einsatzmöglichkeiten und Grenzen
 
-2. **Lokale und Cloud-basierte Sprachmodelle (2 Stunden)**
+2. **Lokale und Cloud-basierte Sprachmodelle (1 Lektion)**
    - Vorstellung verschiedener Sprachmodelle
    - Praktische Anwendung
 
-3. **Anwendungsgesteuerte Kommunikation mit Sprachmodellen (2 Stunden)**
+3. **Anwendungsgesteuerte Kommunikation mit Sprachmodellen (1 Lektion)**
    - Interaktion mit Sprachmodellen
    - Anwendungsbeispiele
 
-4. **Fine-Tuning und Embedding (2 Stunden)**
+4. **Fine-Tuning und Embedding (1 Lektion)**
    - Feinabstimmung von Modellen
    - Einbettung in Anwendungen
 

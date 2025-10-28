@@ -7,6 +7,7 @@ Dieses Skript demonstriert:
 2. Berechnung von Ähnlichkeiten
 3. Visualisierung der Ergebnisse
 
+Installation: uv pip install -r requirements.txt
 Autor: Musterlösung für AI Development Kurs
 """
 

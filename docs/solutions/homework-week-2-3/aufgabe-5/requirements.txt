@@ -1,5 +1,5 @@
 # Requirements für Aufgabe 5: Coding Challenge
-# Installiere mit: pip install -r requirements.txt
+# Installiere mit: uv pip install -r requirements.txt
 
 # Embedding-Modelle
 sentence-transformers>=2.2.0

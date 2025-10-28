@@ -113,6 +113,7 @@ IDEs und Editoren:
 - Vim/Emacs: Terminal-basierte Editoren
 
 Package Management:
+- uv: Ultraschneller Python Package Manager (empfohlen)
 - pip: Standard Package Installer
 - conda: Anaconda Package Manager
 - poetry: Moderne Dependency Management

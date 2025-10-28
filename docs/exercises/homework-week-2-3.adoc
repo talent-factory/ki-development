@@ -18,14 +18,14 @@ Diese Hausaufgaben bereiten Sie optimal auf **Abend 3: LangChain & RAG** vor. Si
 
 **Ziel:** Verstehen Sie die Grundlagen von LangChain und RAG, bevor wir sie gemeinsam implementieren.
 
-== Aufgabe 1: AI Kurs-Assistent erweitern (⭐⭐⭐)
+== Aufgabe: AI Kurs-Assistent erweitern (⭐⭐⭐)
 
 === Lernziel
 Experimentieren Sie mit Ihrem deployed AI Kurs-Assistenten und verstehen Sie, wie AI-Anwendungen funktionieren.
 
 === Aufgaben
 
-==== 1.1 Funktionstest (30 Minuten)
+==== Funktionstest (30 Minuten)
 
 Testen Sie Ihren AI Kurs-Assistenten ausführlich:
 
@@ -53,7 +53,7 @@ Erstellen Sie eine Datei `test-ergebnisse.md` mit:
 - Den Antworten des Assistenten
 - Ihrer Bewertung (gut/schlecht/verbesserungswürdig)
 
-==== 1.2 Wissensbasis erweitern (45 Minuten)
+==== Wissensbasis erweitern (45 Minuten)
 
 Erweitern Sie die Wissensbasis in `course_knowledge.py`:
 
@@ -93,7 +93,7 @@ PERSONAL_NOTES = """
 - [ ] Deployen Sie die erweiterte Version
 - [ ] Testen Sie neue Fragen basierend auf Ihren Ergänzungen
 
-==== 1.3 App-URL teilen (15 Minuten)
+==== App-URL teilen (15 Minuten)
 
 **Teilen Sie Ihre App:**
 
@@ -109,12 +109,12 @@ Erstellen Sie `feedback.md` mit:
 - Was funktionierte gut/schlecht?
 - Verbesserungsvorschläge
 
-== Aufgabe 2: LangChain Grundlagen verstehen (⭐⭐)
+== Aufgabe: LangChain Grundlagen verstehen (⭐⭐)
 
 === Lernziel
 Verstehen Sie die Konzepte von LangChain, bevor wir sie praktisch anwenden.
 
-=== 2.1 Dokumentation lesen (60 Minuten)
+=== Dokumentation lesen (60 Minuten)
 
 **Pflichtlektüre:**
 
@@ -134,7 +134,7 @@ Verstehen Sie die Konzepte von LangChain, bevor wir sie praktisch anwenden.
 - [ ] Welche Komponenten hat LangChain?
 - [ ] Wie unterscheidet sich LangChain von direkter API-Nutzung?
 
-=== 2.2 Konzept-Map erstellen (30 Minuten)
+=== Konzept-Map erstellen (30 Minuten)
 
 Erstellen Sie eine **Konzept-Map** (Mindmap) mit folgenden Begriffen:
 
@@ -161,7 +161,7 @@ Erstellen Sie eine **Konzept-Map** (Mindmap) mit folgenden Begriffen:
 - Digital: draw.io, Miro, oder Excalidraw
 - Analog: Papier und Stift (dann fotografieren)
 
-=== 2.3 Vergleich erstellen (30 Minuten)
+=== Vergleich erstellen (30 Minuten)
 
 Erstellen Sie eine Tabelle: **"Unser AI Kurs-Assistent vs. LangChain-Ansatz"**
 
@@ -195,12 +195,12 @@ Erstellen Sie eine Tabelle: **"Unser AI Kurs-Assistent vs. LangChain-Ansatz"**
 - Wann würden Sie LangChain verwenden?
 - Wann ist der direkte Ansatz besser?
 
-== Aufgabe 3: RAG (Retrieval Augmented Generation) verstehen (⭐⭐⭐)
+== Aufgabe: RAG (Retrieval Augmented Generation) verstehen (⭐⭐⭐)
 
 === Lernziel
 Verstehen Sie das RAG-Konzept und seine Anwendung in AI-Systemen.
 
-=== 3.1 RAG-Theorie (45 Minuten)
+=== RAG-Theorie (45 Minuten)
 
 **Video schauen:**
 "What is Retrieval Augmented Generation (RAG)?" von IBM Technology
@@ -219,7 +219,7 @@ https://www.youtube.com/watch?v=T-D1OfcDW1M
 - [ ] Was ist eine Vektordatenbank?
 - [ ] Welche Vorteile hat RAG gegenüber Fine-Tuning?
 
-=== 3.2 RAG-Diagramm zeichnen (30 Minuten)
+=== RAG-Diagramm zeichnen (30 Minuten)
 
 Zeichnen Sie ein **Flussdiagramm** des RAG-Prozesses:
 
@@ -236,7 +236,7 @@ Zeichnen Sie ein **Flussdiagramm** des RAG-Prozesses:
 
 **Beschriften Sie jeden Schritt** mit 1-2 Sätzen Erklärung.
 
-=== 3.3 RAG-Anwendungsfall entwerfen (45 Minuten)
+=== RAG-Anwendungsfall entwerfen (45 Minuten)
 
 **Entwerfen Sie einen RAG-Anwendungsfall** für Ihren Beruf/Studium:
 
@@ -258,12 +258,12 @@ Zeichnen Sie ein **Flussdiagramm** des RAG-Prozesses:
 
 **Format:** Erstellen Sie eine Präsentation (3-5 Folien) oder ein Dokument
 
-== Aufgabe 4: Vektordatenbanken erkunden (⭐⭐)
+== Aufgabe: Vektordatenbanken erkunden (⭐⭐)
 
 === Lernziel
 Verstehen Sie, wie Vektordatenbanken funktionieren und warum sie für AI wichtig sind.
 
-=== 4.1 Konzepte verstehen (30 Minuten)
+=== Konzepte verstehen (30 Minuten)
 
 **Lesen Sie:**
 
@@ -277,7 +277,7 @@ Verstehen Sie, wie Vektordatenbanken funktionieren und warum sie für AI wichtig
 - [ ] Was bedeutet "semantische Ähnlichkeit"?
 - [ ] Welche Vektordatenbanken gibt es?
 
-=== 4.2 Similarity-Experiment (45 Minuten)
+=== Similarity-Experiment (45 Minuten)
 
 **Führen Sie ein einfaches Experiment durch:**
 
@@ -298,7 +298,7 @@ Verstehen Sie, wie Vektordatenbanken funktionieren und warum sie für AI wichtig
 
 **Dokumentieren Sie Ihre Erkenntnisse** in `similarity-experiment.md`
 
-=== 4.3 Vektordatenbank-Vergleich (30 Minuten)
+=== Vektordatenbank-Vergleich (30 Minuten)
 
 Erstellen Sie eine **Vergleichstabelle** der wichtigsten Vektordatenbanken:
 
@@ -337,12 +337,12 @@ Erstellen Sie eine **Vergleichstabelle** der wichtigsten Vektordatenbanken:
 |High-Performance
 |===
 
-== Aufgabe 5: Coding-Challenge (⭐⭐⭐⭐)
+== Aufgabe: Coding-Challenge (⭐⭐⭐⭐)
 
 === Lernziel
 Wenden Sie Ihr Wissen praktisch an und bereiten Sie sich auf die Implementierung vor.
 
-=== 5.1 Einfacher Embedding-Test (60 Minuten)
+=== Einfacher Embedding-Test (60 Minuten)
 
 **Erstellen Sie ein Python-Skript** `embedding_test.py`:
 
@@ -374,7 +374,7 @@ texts = [
 - Haustier-Texte sind sich ähnlich
 - AI-Text steht für sich
 
-=== 5.2 Mini-RAG Prototyp (90 Minuten)
+=== Mini-RAG Prototyp (90 Minuten)
 
 **Erstellen Sie einen einfachen RAG-Prototyp** `mini_rag.py`:
 

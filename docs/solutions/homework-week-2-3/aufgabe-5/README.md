@@ -41,8 +41,20 @@ Diese Musterlösung implementiert zwei praktische Python-Skripte, die die Grundl
 
 ### 1. Dependencies installieren
 
+**Wichtig:** Stelle sicher, dass du im Projekt-Root-Verzeichnis bist!
+
 ```bash
-pip install -r requirements.txt
+# Navigiere zum Projekt-Root
+cd /path/to/ai-development
+
+# Installiere Dependencies mit uv
+uv pip install -r docs/solutions/homework-week-2-3/aufgabe-5/requirements.txt
+
+# Falls uv nicht funktioniert, verwende pip mit virtual environment
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# oder: venv\Scripts\activate  # Windows
+pip install -r docs/solutions/homework-week-2-3/aufgabe-5/requirements.txt
 ```
 
 ### 2. API-Schlüssel konfigurieren (optional)
@@ -60,7 +72,15 @@ echo "OPENAI_API_KEY=your_openai_api_key_here" > .env
 
 ### Embedding Test ausführen
 
+**Option A: Mit uv run (empfohlen)**
 ```bash
+# Aus dem Projektverzeichnis (ai-development)
+uv run docs/solutions/homework-week-2-3/aufgabe-5/embedding_test.py
+```
+
+**Option B: Direkt mit Python (aus dem Aufgaben-Verzeichnis)**
+```bash
+cd docs/solutions/homework-week-2-3/aufgabe-5
 python embedding_test.py
 ```
 
@@ -84,7 +104,15 @@ Hunde (Tiere)        ↔ Katzen (Tiere)        = 0.681
 
 ### Mini-RAG System ausführen
 
+**Option A: Mit uv run (empfohlen)**
 ```bash
+# Aus dem Projektverzeichnis (ai-development)
+uv run docs/solutions/homework-week-2-3/aufgabe-5/mini_rag.py
+```
+
+**Option B: Direkt mit Python (aus dem Aufgaben-Verzeichnis)**
+```bash
+cd docs/solutions/homework-week-2-3/aufgabe-5
 python mini_rag.py
 ```
 
@@ -192,7 +220,14 @@ Top-K Chunks → Kontext + Frage → LLM → Antwort
 
 **1. ModuleNotFoundError:**
 ```bash
-pip install -r requirements.txt
+# WICHTIG: Aus dem Projektverzeichnis (ai-development) ausführen!
+cd /path/to/ai-development
+
+# Dependencies installieren
+uv pip install -r docs/solutions/homework-week-2-3/aufgabe-5/requirements.txt
+
+# Falls uv Probleme macht, verwende pip als Fallback
+pip install -r docs/solutions/homework-week-2-3/aufgabe-5/requirements.txt
 ```
 
 **2. OpenAI API Fehler:**
@@ -200,7 +235,7 @@ pip install -r requirements.txt
 - Skript funktioniert auch ohne OpenAI
 
 **3. Keine Visualisierung:**
-- Installiere matplotlib: `pip install matplotlib`
+- Installiere matplotlib: `uv pip install matplotlib`
 - Für Headless-Server: `export MPLBACKEND=Agg`
 
 **4. Langsame Performance:**

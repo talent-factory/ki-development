@@ -9,6 +9,7 @@ Dieses Skript implementiert einen grundlegenden RAG-Workflow:
 4. Ähnlichste Chunks finden (Retrieval)
 5. Kontext + Frage an LLM senden (Generation)
 
+Installation: uv pip install -r requirements.txt
 Autor: Musterlösung für AI Development Kurs
 """
 
