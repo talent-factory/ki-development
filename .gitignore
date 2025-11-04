@@ -191,4 +191,7 @@ node_modules/
 
 # Task files
 # tasks.json
-# tasks/ 
+# tasks/
+
+# Claude Code local settings
+.claude/settings.local.json
