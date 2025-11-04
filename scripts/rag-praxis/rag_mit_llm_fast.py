@@ -1,21 +1,27 @@
 """
-RAG mit echtem LLM: Vollständiges Retrieval Augmented Generation
-Ausführung: uv run scripts/rag-praxis/rag_mit_llm.py
+Schnelles RAG mit echten LLMs - OpenAI/Anthropic Integration
+Ausführung: uv run scripts/rag-praxis/rag_mit_llm_fast.py
 
 Dieses Skript zeigt:
-- Integration von Mini-RAG mit echten LLMs
-- OpenAI und Anthropic API Integration
-- Qualitätsvergleich: Nur Retrieval vs. echtes RAG
-- Praktische Anwendung mit verschiedenen Modellen
+- Sofortige RAG-Integration mit echten LLMs
+- OpenAI und Anthropic API Vergleich
+- Qualitätsvergleich: Retrieval vs. echtes RAG
+- Praktische Anwendung ohne Wartezeiten
 """
 
 import os
-from sentence_transformers import SentenceTransformer
-import faiss
 import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
 import time
 
-# Optional: LLM Integrationen (nur wenn API-Keys verfügbar)
+# .env Datei laden
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    print("💡 Hinweis: python-dotenv nicht installiert")
+
+# LLM Integrationen
 try:
     import openai
     OPENAI_AVAILABLE = True
@@ -28,25 +34,19 @@ try:
 except ImportError:
     ANTHROPIC_AVAILABLE = False
 
-class RAGMitLLM:
+class FastRAGWithLLM:
     def __init__(self):
-        print("🚀 RAG mit LLM System startet...")
-        print("=" * 50)
-        
-        # Sentence Transformer für Embeddings
-        print("📥 Lade Embedding-Modell...")
-        self.model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
+        print("🚀 Schnelles RAG mit LLM System startet...")
+        print("=" * 60)
         
         # LLM Clients initialisieren
         self.openai_client = None
         self.anthropic_client = None
-        
         self._setup_llm_clients()
         
         # RAG Komponenten
         self.documents = []
         self.embeddings = None
-        self.index = None
         
         print("✅ RAG-System bereit")
     
@@ -76,42 +76,80 @@ class RAGMitLLM:
         if not self.openai_client and not self.anthropic_client:
             print("💡 Hinweis: Ohne API-Keys läuft nur die Retrieval-Demo")
     
+    def _get_embeddings(self, texts):
+        """Embeddings mit OpenAI erstellen (oder Fallback)"""
+        if not self.openai_client:
+            return self._simple_embeddings(texts)
+        
+        try:
+            response = self.openai_client.embeddings.create(
+                model="text-embedding-ada-002",
+                input=texts
+            )
+            
+            embeddings = []
+            for item in response.data:
+                embeddings.append(item.embedding)
+            
+            return np.array(embeddings)
+        
+        except Exception as e:
+            print(f"❌ OpenAI Embeddings Fehler: {e}")
+            return self._simple_embeddings(texts)
+    
+    def _simple_embeddings(self, texts):
+        """Einfache Bag-of-Words Embeddings als Fallback"""
+        if hasattr(self, '_vocabulary'):
+            word_list = self._vocabulary
+        else:
+            all_texts = self.documents + texts if hasattr(self, 'documents') else texts
+            all_words = set()
+            for text in all_texts:
+                words = text.lower().split()
+                all_words.update(words)
+            word_list = sorted(list(all_words))
+            self._vocabulary = word_list
+        
+        embeddings = []
+        for text in texts:
+            words = text.lower().split()
+            vector = [1 if word in words else 0 for word in word_list]
+            embeddings.append(vector)
+        
+        return np.array(embeddings)
+    
     def add_documents(self, docs):
         """Dokumente zur Wissensbasis hinzufügen"""
         print(f"\n📚 Füge {len(docs)} Dokumente hinzu...")
         
+        start_time = time.time()
         self.documents.extend(docs)
         
         # Embeddings erstellen
-        all_embeddings = self.model.encode(self.documents, show_progress_bar=True)
-        self.embeddings = np.array(all_embeddings)
+        print("🔄 Erstelle Embeddings...")
+        self.embeddings = self._get_embeddings(self.documents)
         
-        # FAISS Index
-        dimension = self.embeddings.shape[1]
-        self.index = faiss.IndexFlatL2(dimension)
-        self.index.add(self.embeddings.astype('float32'))
-        
-        print(f"✅ {len(self.documents)} Dokumente indexiert")
+        elapsed_time = time.time() - start_time
+        print(f"✅ {len(self.documents)} Dokumente indexiert in {elapsed_time:.2f}s")
+        print(f"   Embedding-Dimension: {self.embeddings.shape}")
     
     def search(self, query, k=3):
         """Relevante Dokumente finden"""
-        if self.index is None:
+        if self.embeddings is None:
             return []
         
-        query_embedding = self.model.encode([query])
-        distances, indices = self.index.search(
-            query_embedding.astype('float32'), k
-        )
+        query_embedding = self._get_embeddings([query])
+        similarities = cosine_similarity(query_embedding, self.embeddings)[0]
+        top_indices = np.argsort(similarities)[::-1][:k]
         
         results = []
-        for i, (distance, idx) in enumerate(zip(distances[0], indices[0])):
-            if idx < len(self.documents):
-                similarity = 1 / (1 + distance)
-                results.append({
-                    'document': self.documents[idx],
-                    'similarity': similarity,
-                    'rank': i + 1
-                })
+        for i, idx in enumerate(top_indices):
+            similarity = similarities[idx]
+            results.append({
+                'document': self.documents[idx],
+                'similarity': similarity,
+                'rank': i + 1
+            })
         
         return results
     
@@ -181,14 +219,16 @@ Antwort:"""
         context = ""
         for doc in relevant_docs:
             print(f"  📄 Rang {doc['rank']} (Ähnlichkeit: {doc['similarity']:.3f})")
-            print(f"     {doc['document'][:100]}...")
+            doc_preview = doc['document'][:80]
+            if len(doc['document']) > 80:
+                doc_preview += "..."
+            print(f"     {doc_preview}")
             context += doc['document'] + "\n\n"
         
         # 2. Generation Phase
-        print(f"\n🤖 GENERATION PHASE:")
+        print("\n🤖 GENERATION PHASE:")
         
         if not use_llm:
-            # Nur Retrieval (wie Mini-RAG)
             print("   Modus: Nur Retrieval (kein LLM)")
             return f"Relevante Informationen gefunden:\n\n{context}"
         
@@ -204,56 +244,49 @@ Antwort:"""
         
         return answer
     
-    def compare_approaches(self, question):
-        """Vergleiche verschiedene Ansätze für dieselbe Frage"""
-        print("\n" + "🔬 VERGLEICHSANALYSE".center(80, "="))
+    def compare_llms(self, question):
+        """Vergleiche OpenAI vs. Anthropic für dieselbe Frage"""
+        print("\n" + "🔬 LLM-VERGLEICH".center(80, "="))
         print(f"Frage: {question}")
         
-        approaches = [
-            ("Nur Retrieval", False, None),
-            ("RAG + OpenAI", True, "openai"),
-            ("RAG + Anthropic", True, "anthropic")
-        ]
+        providers = []
+        if self.openai_client:
+            providers.append(("OpenAI GPT-3.5", "openai"))
+        if self.anthropic_client:
+            providers.append(("Anthropic Claude", "anthropic"))
         
-        for name, use_llm, provider in approaches:
+        if not providers:
+            print("❌ Keine LLMs verfügbar für Vergleich")
+            return
+        
+        for name, provider in providers:
             print(f"\n📊 {name}:")
-            print("-" * 40)
+            print("-" * 50)
             
             start_time = time.time()
-            answer = self.answer_question(question, use_llm, provider)
+            answer = self.answer_question(question, True, provider)
             elapsed = time.time() - start_time
             
-            print(f"⏱️  Zeit: {elapsed:.2f}s")
-            print(f"📝 Antwort: {answer[:200]}...")
+            print(f"\n⏱️  Zeit: {elapsed:.2f}s")
+            print(f"📝 Antwort: {answer}")
             
-            if len(approaches) > 1:
-                input("\n⏸️  Enter für nächsten Ansatz...")
+            if len(providers) > 1:
+                input("\n⏸️  Enter für nächsten LLM...")
 
 def main():
     # System initialisieren
-    rag = RAGMitLLM()
+    rag = FastRAGWithLLM()
     
-    # Erweiterte Wissensbasis
+    # Kompakte Wissensbasis für schnelle Demo
     documents = [
-        "Python ist eine interpretierte, objektorientierte Programmiersprache mit dynamischer Semantik. Sie wurde 1991 von Guido van Rossum entwickelt und ist bekannt für ihre einfache, lesbare Syntax.",
-        
-        "Machine Learning ist ein Teilbereich der künstlichen Intelligenz, der Algorithmen verwendet, um Muster in Daten zu erkennen und Vorhersagen zu treffen, ohne explizit programmiert zu werden.",
-        
-        "RAG (Retrieval Augmented Generation) ist eine Technik, die Large Language Models mit externen Wissensquellen verbindet, um aktuellere und präzisere Antworten zu generieren.",
-        
-        "Vector Databases wie FAISS, Pinecone und Weaviate sind speziell für die Speicherung und Suche von hochdimensionalen Vektoren optimiert, die in ML-Anwendungen verwendet werden.",
-        
-        "OpenAI entwickelt fortschrittliche AI-Systeme wie GPT-4, DALL-E und Codex. Das Unternehmen wurde 2015 gegründet und hat seinen Sitz in San Francisco.",
-        
-        "Anthropic wurde 2021 von ehemaligen OpenAI-Mitarbeitern gegründet und entwickelt Claude, einen AI-Assistenten, der auf Constitutional AI basiert.",
-        
-        "LangChain ist ein Framework für die Entwicklung von Anwendungen mit Large Language Models. Es bietet Tools für Chains, Agents, Memory und Integration mit verschiedenen Datenquellen.",
-        
-        "Embeddings sind numerische Repräsentationen von Text, Bildern oder anderen Daten in einem hochdimensionalen Vektorraum, die semantische Ähnlichkeiten erfassen.",
-        
-        "FAISS (Facebook AI Similarity Search) ist eine Open-Source-Bibliothek für effiziente Ähnlichkeitssuche und Clustering von dichten Vektoren, entwickelt von Meta AI.",
-        
-        "Streamlit ist ein Python-Framework für die schnelle Erstellung von Web-Apps für Data Science und Machine Learning, ohne Frontend-Kenntnisse zu benötigen."
+        "Python ist eine vielseitige Programmiersprache für Webentwicklung, Datenanalyse und KI. Entwickelt von Guido van Rossum 1991.",
+        "Machine Learning ermöglicht Computern das Lernen aus Daten ohne explizite Programmierung. Teilbereich der künstlichen Intelligenz.",
+        "RAG kombiniert Informationsabruf mit Textgenerierung für bessere AI-Antworten. Löst Problem veralteter Trainingsdaten.",
+        "Vector Stores wie FAISS und Pinecone speichern Embeddings für schnelle Ähnlichkeitssuche in ML-Anwendungen.",
+        "OpenAI entwickelt GPT-4, DALL-E und Codex. Gegründet 2015 in San Francisco, führend in AI-Forschung.",
+        "Anthropic wurde 2021 von Ex-OpenAI-Mitarbeitern gegründet. Entwickelt Claude AI-Assistenten mit Constitutional AI.",
+        "LangChain ist ein Framework für LLM-Anwendungen mit Tools für Chains, Agents und Datenintegration.",
+        "Embeddings sind numerische Repräsentationen von Text in hochdimensionalen Vektorräumen für semantische Ähnlichkeit."
     ]
     
     # Dokumente hinzufügen
@@ -263,42 +296,29 @@ def main():
     questions = [
         "Was ist der Unterschied zwischen OpenAI und Anthropic?",
         "Wie funktioniert RAG?",
-        "Welche Vorteile hat Python für Machine Learning?",
-        "Was sind die besten Vector Databases?"
+        "Welche Vorteile hat Python für Machine Learning?"
     ]
     
-    print("\n" + "🧪 EINZELTESTS".center(80, "="))
+    print("\n" + "🧪 SCHNELLE TESTS".center(80, "="))
     
-    # Teste jede Frage mit verfügbaren LLMs
-    for question in questions:
-        print(f"\n🎯 Test: {question}")
-        
-        # Versuche verschiedene Ansätze
-        if rag.openai_client:
-            answer = rag.answer_question(question, True, "openai")
-            print(f"\n✅ OpenAI Antwort:\n{answer}")
-        
-        if rag.anthropic_client:
-            answer = rag.answer_question(question, True, "anthropic")
-            print(f"\n✅ Anthropic Antwort:\n{answer}")
-        
-        if not rag.openai_client and not rag.anthropic_client:
-            answer = rag.answer_question(question, False)
-            print(f"\n📄 Retrieval-Only:\n{answer}")
-        
-        input("\n⏸️  Enter für nächste Frage...")
+    # Teste erste Frage mit verfügbaren LLMs
+    test_question = questions[0]
     
-    # Vergleichsanalyse
     if rag.openai_client or rag.anthropic_client:
-        print("\n" + "🔬 VERGLEICHSANALYSE".center(80, "="))
-        rag.compare_approaches("Erkläre mir RAG in einfachen Worten")
+        # LLM-Vergleich
+        rag.compare_llms(test_question)
+    else:
+        # Nur Retrieval
+        print(f"\n🎯 Test (nur Retrieval): {test_question}")
+        answer = rag.answer_question(test_question, False)
+        print(f"\n📄 Retrieval-Only Antwort:\n{answer}")
     
     print("\n" + "=" * 80)
-    print("✅ RAG mit LLM Demo abgeschlossen!")
+    print("✅ Schnelles RAG mit LLM Demo abgeschlossen!")
     print("\n💡 Erkenntnisse:")
     print("   • RAG + LLM liefert natürlichere Antworten als nur Retrieval")
-    print("   • Verschiedene LLMs haben unterschiedliche Stärken")
-    print("   • Der Kontext aus der Retrieval-Phase ist entscheidend")
+    print("   • OpenAI und Anthropic haben unterschiedliche Antwort-Stile")
+    print("   • Sofortige Performance dank API-basierter Embeddings")
     print("   • RAG löst das Problem veralteter Trainingsdaten")
 
 if __name__ == "__main__":
