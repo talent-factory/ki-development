@@ -1,0 +1,19 @@
+# RAG Praxis - Abhängigkeiten (Schnelle Version)
+# Installation: uv pip install -r scripts/rag-praxis/requirements.txt
+
+# Core Libraries
+scikit-learn>=1.3.0
+numpy>=1.24.0
+python-dotenv>=1.0.0
+
+# API Integrationen (empfohlen für Live-Demo)
+openai>=1.0.0              # OpenAI Embeddings & LLM
+anthropic>=0.7.0           # Anthropic Claude
+
+# Optional: Lokale Modelle (langsamer, für Hausaufgaben)
+# sentence-transformers>=2.2.2
+# faiss-cpu>=1.7.4
+
+# Optional: Erweiterte Funktionen
+# pypdf>=3.0.0              # PDF-Verarbeitung
+# streamlit>=1.28.0         # Web-Interface
