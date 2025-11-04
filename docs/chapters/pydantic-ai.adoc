@@ -1,6 +1,6 @@
 = Erste Schritte mit PydanticAI
 :author: Daniel Senften
-:email: daniel.senften@talent-factory.ch
+:email: daniel.senften@talent-factory.ch.ch
 :revnumber: 1.0
 :revdate: {localdate}
 :doctype: book
@@ -13,8 +13,8 @@ ifndef::imagesdir[:imagesdir: ../images]
 :icons: font
 :title-page:
 :pdf-theme: themes/pdf-theme.yml
+:title-page-background-image: image:title-image.png[top=0%, align=left, width=20%]
 :pdf-page-size: A4
-:docinfo: shared
 
 PydanticAI ist eine leistungsstarke Bibliothek, die die Stärken von Pydantic mit modernen KI-Modellen verbindet. Sie ermöglicht es Entwicklern, strukturierte Daten aus LLM-Antworten (Large Language Models) zu extrahieren und zu validieren. In diesem Leitfaden werden wir die Grundlagen von PydanticAI kennenlernen und praktische Anwendungsfälle erkunden.
 

@@ -1,4 +1,20 @@
 = Embeddings
+:author: Daniel Senften
+:email: daniel.senften@talent-factory.ch.ch
+:revnumber: 1.0
+:revdate: {localdate}
+:doctype: book
+include::../locale/attributes-de.adoc[]
+:toc: left
+:sectnums:
+:sectnumlevels: 2
+ifndef::imagesdir[:imagesdir: ../images]
+:source-highlighter: highlight.js
+:icons: font
+:title-page:
+:pdf-theme: themes/pdf-theme.yml
+:title-page-background-image: image:title-image.png[top=0%, align=left, width=20%]
+:pdf-page-size: A4
 
 == Lernziele
 

@@ -1,0 +1,635 @@
+=== RAG in der Praxis: Von der Theorie zur Implementierung
+:author: Daniel Senften
+:email: daniel.senften@talent-factory.ch.ch
+:revnumber: 1.0
+:revdate: {localdate}
+:doctype: book
+include::../locale/attributes-de.adoc[]
+:toc: left
+:sectnums:
+:sectnumlevels: 2
+ifndef::imagesdir[:imagesdir: ../images]
+:source-highlighter: highlight.js
+:icons: font
+:title-page:
+:pdf-theme: themes/pdf-theme.yml
+:title-page-background-image: image:title-image.png[top=0%, align=left, width=20%]
+:pdf-page-size: A4
+
+==== Lernziele
+* Sie verstehen die praktischen Schritte zur RAG-Implementierung
+* Sie können ein funktionsfähiges Mini-RAG-System erstellen
+* Sie erkennen Anwendungsmöglichkeiten von RAG in Ihrem Arbeitsbereich
+* Sie können Embeddings erstellen und deren Ähnlichkeit berechnen
+
+include::../locale/attributes-de.adoc[]
+:imagesdir: images/
+
+==== Was ist RAG? - Kurze Wiederholung
+
+*Retrieval Augmented Generation (RAG)* kombiniert zwei Ansätze:
+
+1. **Retrieval** (Abrufen): Relevante Informationen aus einer Wissensbasis finden
+2. **Generation** (Generieren): Diese Informationen nutzen, um bessere Antworten zu erstellen
+
+.RAG-Prozess im Überblick
+----
+Benutzeranfrage → Embedding → Ähnlichkeitssuche → Relevante Dokumente → LLM + Kontext → Antwort
+----
+
+==== Warum RAG verwenden?
+
+**Probleme herkömmlicher LLMs:**
+
+* Wissen ist auf Trainingsdaten beschränkt (Stichtag)
+* Keine aktuellen Informationen
+* Halluzinationen bei unbekannten Fakten
+* Keine firmenspezifischen Informationen
+
+**RAG löst diese Probleme:**
+
+* ✅ Aktuelle Informationen durch externe Quellen
+* ✅ Firmenspezifisches Wissen integrierbar
+* ✅ Nachvollziehbare Quellen
+* ✅ Reduzierte Halluzinationen
+
+==== Embeddings verstehen
+
+===== Was sind Embeddings?
+
+Embeddings sind **numerische Repräsentationen von Text** in einem hochdimensionalen Raum.
+
+.Beispiel: Ähnlichkeit von Wörtern
+----
+"König"     → [0.2, 0.8, 0.1, ...]
+"Königin"   → [0.3, 0.7, 0.2, ...]  ← Ähnlich zu "König"
+"Auto"      → [0.9, 0.1, 0.8, ...]  ← Unähnlich zu "König"
+----
+
+===== Ähnlichkeit berechnen
+
+Die **Cosinus-Ähnlichkeit** misst, wie ähnlich zwei Embeddings sind:
+
+* Wert zwischen -1 und 1
+* 1 = identisch
+* 0 = keine Ähnlichkeit
+* -1 = gegensätzlich
+
+==== Praktische Übung 1: Embeddings testen
+
+**Option A: Mit OpenAI (empfohlen für Live-Demo)**
+
+Erstellen Sie eine Datei `embedding_test_simple.py`:
+
+[source, python]
+----
+"""
+Schneller Embedding-Test mit OpenAI
+Ausführung: uv run scripts/rag-praxis/embedding_test_simple.py
+"""
+
+import os
+import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
+
+# .env Datei laden
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    print("💡 Hinweis: python-dotenv nicht installiert")
+
+try:
+    import openai
+    OPENAI_AVAILABLE = True
+except ImportError:
+    OPENAI_AVAILABLE = False
+
+def get_openai_embeddings(texts):
+    """Embeddings mit OpenAI API erstellen"""
+    if not OPENAI_AVAILABLE:
+        print("❌ OpenAI nicht installiert")
+        return None
+
+    api_key = os.getenv('OPENAI_API_KEY')
+    if not api_key:
+        print("❌ OPENAI_API_KEY nicht gesetzt")
+        return None
+
+    try:
+        client = openai.OpenAI()
+        response = client.embeddings.create(
+            model="text-embedding-ada-002",
+            input=texts
+        )
+
+        embeddings = []
+        for item in response.data:
+            embeddings.append(item.embedding)
+
+        return np.array(embeddings)
+
+    except Exception as e:
+        print(f"❌ OpenAI Fehler: {e}")
+        return None
+
+def main():
+    print("🚀 Schneller Embedding-Test startet...")
+    print("=" * 50)
+
+    # Test-Texte
+    texte = [
+        "Der König regiert das Land",
+        "Die Königin herrscht über das Reich",
+        "Das Auto fährt schnell",
+        "Künstliche Intelligenz verändert die Welt",
+        "Machine Learning ist ein Teilbereich der KI",
+        "Python ist eine Programmiersprache",
+        "JavaScript wird für Webentwicklung verwendet"
+    ]
+
+    print(f"📊 Teste {len(texte)} Texte...")
+
+    # Embeddings erstellen
+    embeddings = get_openai_embeddings(texte)
+
+    if embeddings is None:
+        print("⚠️  OpenAI nicht verfügbar")
+        return
+
+    print(f"📈 Embedding-Dimension: {embeddings.shape}")
+
+    # Ähnlichkeitsmatrix
+    similarity_matrix = cosine_similarity(embeddings)
+
+    print("\n🎯 Interessante Ähnlichkeiten:")
+    print("=" * 60)
+
+    # Interessante Paare zeigen
+    pairs = [
+        (0, 1, "König vs Königin"),
+        (3, 4, "KI vs Machine Learning"),
+        (5, 6, "Python vs JavaScript"),
+        (0, 2, "König vs Auto (sollte niedrig sein)")
+    ]
+
+    for i, j, beschreibung in pairs:
+        similarity = similarity_matrix[i][j]
+        emoji = "🔥" if similarity > 0.7 else "👍" if similarity > 0.4 else "🤔" if similarity > 0.2 else "❌"
+
+        print(f"\n{emoji} {beschreibung}")
+        print(f"   Ähnlichkeit: {similarity:.3f}")
+        print(f"   '{texte[i]}'")
+        print(f"   '{texte[j]}'")
+
+if __name__ == "__main__":
+    main()
+----
+
+===== Erwartete Ausgabe
+
+```
+🚀 Schneller Embedding-Test startet...
+==================================================
+📊 Teste 7 Texte...
+✅ OpenAI Embeddings erstellt
+📈 Embedding-Dimension: (7, 1536)
+
+🎯 Interessante Ähnlichkeiten:
+============================================================
+
+🔥 König vs Königin
+   Ähnlichkeit: 0.895
+   'Der König regiert das Land'
+   'Die Königin herrscht über das Reich'
+
+🔥 KI vs Machine Learning
+   Ähnlichkeit: 0.834
+   'Künstliche Intelligenz verändert die Welt'
+   'Machine Learning ist ein Teilbereich der KI'
+
+❌ König vs Auto (sollte niedrig sein)
+   Ähnlichkeit: 0.234
+   'Der König regiert das Land'
+   'Das Auto fährt schnell'
+```
+
+==== Vector Stores: Effiziente Suche
+
+===== Was sind Vector Stores?
+
+Vector Stores sind **spezialisierte Datenbanken** für Embeddings:
+
+* Speichern Millionen von Vektoren effizient
+* Ermöglichen schnelle Ähnlichkeitssuche
+* Skalieren mit der Datenmenge
+
+===== Beliebte Vector Stores
+
+[cols="1,2,1,2"]
+|===
+|Name |Beschreibung |Typ |Anwendung
+
+|FAISS
+|Facebook AI Similarity Search
+|Lokal
+|Prototyping, kleine Projekte
+
+|ChromaDB  
+|Open-Source Vector Database
+|Lokal/Cloud
+|Entwicklung, mittlere Projekte
+
+|Pinecone
+|Managed Vector Database
+|Cloud
+|Produktion, große Projekte
+
+|Weaviate
+|Open-Source mit GraphQL
+|Self-hosted
+|Komplexe Anwendungen
+|===
+
+==== Praktische Übung 2: Schnelles RAG System
+
+Erstellen Sie eine Datei `mini_rag_fast.py`:
+
+[source, python]
+----
+"""
+Schnelles Mini-RAG System mit OpenAI
+Ausführung: uv run scripts/rag-praxis/mini_rag_fast.py
+"""
+
+import os
+import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
+import time
+
+# .env Datei laden
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    print("💡 Hinweis: python-dotenv nicht installiert")
+
+try:
+    import openai
+    OPENAI_AVAILABLE = True
+except ImportError:
+    OPENAI_AVAILABLE = False
+
+class FastRAG:
+    def __init__(self):
+        print("🚀 Schnelles RAG-System startet...")
+        print("=" * 50)
+
+        # OpenAI Client setup
+        self.client = None
+        self._setup_openai()
+
+        # RAG Komponenten
+        self.documents = []
+        self.embeddings = None
+        print("✅ RAG-System bereit")
+
+    def _setup_openai(self):
+        """OpenAI Client einrichten"""
+        if not OPENAI_AVAILABLE:
+            print("❌ OpenAI nicht installiert")
+            return
+
+        api_key = os.getenv('OPENAI_API_KEY')
+        if not api_key:
+            print("❌ OPENAI_API_KEY nicht in .env gefunden")
+            return
+
+        try:
+            self.client = openai.OpenAI()
+            print("✅ OpenAI Client bereit")
+        except Exception as e:
+            print(f"❌ OpenAI Setup Fehler: {e}")
+
+    def _get_embeddings(self, texts):
+        """Embeddings mit OpenAI erstellen"""
+        if not self.client:
+            return self._simple_embeddings(texts)
+
+        try:
+            response = self.client.embeddings.create(
+                model="text-embedding-ada-002",
+                input=texts
+            )
+
+            embeddings = []
+            for item in response.data:
+                embeddings.append(item.embedding)
+
+            return np.array(embeddings)
+
+        except Exception as e:
+            print(f"❌ OpenAI Fehler: {e}")
+            return self._simple_embeddings(texts)
+
+    def add_documents(self, docs):
+        """Dokumente zur Wissensbasis hinzufügen"""
+        print(f"\n📚 Füge {len(docs)} Dokumente hinzu...")
+
+        start_time = time.time()
+        self.documents.extend(docs)
+
+        # Embeddings erstellen
+        print("🔄 Erstelle Embeddings...")
+        self.embeddings = self._get_embeddings(self.documents)
+
+        elapsed_time = time.time() - start_time
+        print(f"✅ {len(self.documents)} Dokumente indexiert in {elapsed_time:.2f}s")
+        print(f"   Embedding-Dimension: {self.embeddings.shape}")
+
+    def search(self, query, k=3):
+        """Ähnlichste Dokumente finden"""
+        if self.embeddings is None:
+            print("❌ Keine Dokumente in der Wissensbasis!")
+            return []
+
+        print(f"\n🔍 Suche nach: '{query}'")
+
+        # Query Embedding erstellen
+        query_embedding = self._get_embeddings([query])
+
+        # Ähnlichkeit berechnen
+        similarities = cosine_similarity(query_embedding, self.embeddings)[0]
+
+        # Top-k Ergebnisse
+        top_indices = np.argsort(similarities)[::-1][:k]
+
+        results = []
+        for i, idx in enumerate(top_indices):
+            similarity = similarities[idx]
+            results.append({
+                'document': self.documents[idx],
+                'similarity': similarity,
+                'rank': i + 1
+            })
+
+        return results
+
+    def answer_question(self, question, use_llm=True):
+        """Frage mit RAG beantworten"""
+        print("\n" + "=" * 80)
+        print(f"❓ FRAGE: {question}")
+        print("=" * 80)
+
+        # 1. Retrieval Phase
+        print("\n🔍 RETRIEVAL-PHASE:")
+        relevant_docs = self.search(question, k=3)
+
+        if not relevant_docs:
+            return "❌ Keine relevanten Dokumente gefunden."
+
+        # Kontext zusammenstellen
+        context = ""
+        for doc in relevant_docs:
+            print(f"  📄 Rang {doc['rank']} (Ähnlichkeit: {doc['similarity']:.3f})")
+            doc_preview = doc['document'][:100]
+            if len(doc['document']) > 100:
+                doc_preview += "..."
+            print(f"     {doc_preview}")
+            context += doc['document'] + "\n\n"
+
+        # 2. Generation Phase
+        print(f"\n🤖 GENERATION-PHASE:")
+
+        if not use_llm or not self.client:
+            print("   Modus: Nur Retrieval")
+            return f"Relevante Informationen:\n\n{context}"
+
+        # Mit OpenAI LLM generieren
+        print("   Modus: RAG mit OpenAI")
+        return self._generate_answer(question, context)
+
+    def _generate_answer(self, question, context):
+        """Antwort mit OpenAI generieren"""
+        prompt = f"""Basierend auf dem folgenden Kontext, beantworte die Frage präzise und hilfreich.
+
+Kontext:
+{context}
+
+Frage: {question}
+
+Antwort:"""
+
+        try:
+            response = self.client.chat.completions.create(
+                model="gpt-3.5-turbo",
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=300,
+                temperature=0.7
+            )
+            return response.choices[0].message.content
+
+        except Exception as e:
+            return f"❌ OpenAI Generation Fehler: {e}\n\nFallback - Relevanter Kontext:\n{context}"
+
+def main():
+    # RAG System initialisieren
+    rag = FastRAG()
+
+    # Kompakte Wissensbasis für schnelle Demo
+    documents = [
+        "Python ist eine vielseitige Programmiersprache für Webentwicklung, Datenanalyse und KI.",
+        "Machine Learning ermöglicht Computern das Lernen aus Daten ohne explizite Programmierung.",
+        "RAG kombiniert Informationsabruf mit Textgenerierung für bessere AI-Antworten.",
+        "Vector Stores wie FAISS und Pinecone speichern Embeddings für schnelle Suche.",
+        "LangChain ist ein Framework für LLM-basierte Anwendungen mit Tools und Chains.",
+        "OpenAI bietet APIs für GPT-Modelle und Embeddings wie text-embedding-ada-002.",
+        "Streamlit ermöglicht schnelle Web-Apps für Data Science ohne Frontend-Kenntnisse.",
+        "Embeddings wandeln Text in numerische Vektoren für semantische Ähnlichkeit um."
+    ]
+
+    # Dokumente hinzufügen
+    rag.add_documents(documents)
+
+    # Test-Fragen
+    questions = [
+        "Was ist Python?",
+        "Wie funktioniert RAG?",
+        "Was sind Embeddings?"
+    ]
+
+    print("\n" + "🧪 AUTOMATISCHE TESTS".center(80, "="))
+
+    for i, question in enumerate(questions, 1):
+        print(f"\n🎯 TEST {i}/{len(questions)}")
+
+        # Teste sowohl Retrieval-only als auch mit LLM
+        answer = rag.answer_question(question, use_llm=True)
+        print(f"Ergebnis: {answer}")
+
+        if i < len(questions):
+            input("\n⏸️  Enter für nächsten Test...")
+
+if __name__ == "__main__":
+    main()
+----
+
+===== Erwartete Ausgabe
+
+```
+🚀 Schnelles RAG-System startet...
+==================================================
+✅ OpenAI Client bereit
+✅ RAG-System bereit
+
+📚 Füge 8 Dokumente hinzu...
+🔄 Erstelle Embeddings...
+✅ 8 Dokumente indexiert in 1.43s
+   Embedding-Dimension: (8, 1536)
+
+==============================🧪 AUTOMATISCHE TESTS==============================
+
+🎯 TEST 1/3
+
+================================================================================
+❓ FRAGE: Was ist Python?
+================================================================================
+
+🔍 RETRIEVAL-PHASE:
+
+🔍 Suche nach: 'Was ist Python?'
+  📄 Rang 1 (Ähnlichkeit: 0.895)
+     Python ist eine vielseitige Programmiersprache für Webentwicklung, Datenanalyse und KI.
+  📄 Rang 2 (Ähnlichkeit: 0.792)
+     Streamlit ermöglicht schnelle Web-Apps für Data Science ohne Frontend-Kenntnisse.
+
+🤖 GENERATION-PHASE:
+   Modus: RAG mit OpenAI
+Ergebnis: Python ist eine vielseitige Programmiersprache, die für verschiedene
+Anwendungsbereiche wie Webentwicklung, Datenanalyse und künstliche Intelligenz
+verwendet wird.
+```
+
+==== Übung 3: Erweiterte RAG-Features
+
+===== Aufgabe
+Erweitern Sie das schnelle RAG System:
+
+1. **Eigene Texte hinzufügen**: Verwenden Sie Texte aus Ihrem Arbeitsbereich
+2. **Verschiedene LLM-Modelle**: Testen Sie OpenAI vs. Anthropic
+3. **Interaktive Fragen**: Implementieren Sie einen Chat-Modus
+
+===== Starter-Code für Anthropic Integration
+
+[source, python]
+----
+import anthropic
+
+def generate_with_anthropic(self, question, context):
+    """Antwort mit Anthropic Claude generieren"""
+    client = anthropic.Anthropic()
+
+    prompt = f"""Basierend auf dem folgenden Kontext, beantworte die Frage präzise.
+
+Kontext:
+{context}
+
+Frage: {question}
+
+Antwort:"""
+
+    response = client.messages.create(
+        model="claude-3-haiku-20240307",
+        max_tokens=300,
+        messages=[{"role": "user", "content": prompt}]
+    )
+
+    return response.content[0].text
+----
+
+==== Von Mini-RAG zu echtem RAG
+
+===== Integration mit LLMs
+
+Um aus unserem Mini-RAG ein echtes RAG-System zu machen, ersetzen wir die einfache Kontextausgabe durch einen LLM-Aufruf:
+
+[source, python]
+----
+import openai
+
+def generate_answer(question, context):
+    """LLM-basierte Antwortgenerierung"""
+    prompt = f"""
+    Basierend auf folgendem Kontext, beantworte die Frage:
+    
+    Kontext:
+    {context}
+    
+    Frage: {question}
+    
+    Antwort:
+    """
+    
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": prompt}],
+        max_tokens=200
+    )
+    
+    return response.choices[0].message.content
+----
+
+==== Anwendungsfälle für RAG
+
+===== Typische Einsatzgebiete
+
+[cols="2,3,2"]
+|===
+|Bereich |Anwendung |Nutzen
+
+|**Kundenservice**
+|FAQ-Chatbot mit aktueller Produktdokumentation
+|24/7 Support, konsistente Antworten
+
+|**Interne Dokumentation**  
+|Mitarbeiter-Assistent für Firmenrichtlinien
+|Schneller Zugriff, weniger Nachfragen
+
+|**Forschung**
+|Wissenschaftliche Paper durchsuchen
+|Relevante Studien finden, Literaturrecherche
+
+|**Rechtswesen**
+|Gesetze und Urteile durchsuchen
+|Präzedenzfälle finden, Rechtsberatung
+
+|**E-Learning**
+|Personalisierte Lernassistenten
+|Adaptive Inhalte, individuelle Hilfe
+|===
+
+===== Reflexionsfragen
+
+1. **Welche Dokumente** in Ihrem Arbeitsbereich könnten von RAG profitieren?
+2. **Welche Fragen** stellen Ihre Kollegen/Kunden häufig?
+3. **Wie aktuell** müssen die Informationen sein?
+4. **Wie groß** ist Ihre Wissensbasis?
+
+==== Zusammenfassung
+
+**Was Sie heute gelernt haben:**
+
+- ✅ **RAG-Konzept**: Retrieval + Generation für bessere AI-Antworten  
+- ✅ **Embeddings**: Text in numerische Vektoren umwandeln  
+- ✅ **Vector Stores**: Effiziente Speicherung und Suche  
+- ✅ **Mini-RAG**: Praktische Implementierung von Grund auf  
+- ✅ **Anwendungsfälle**: Wo RAG in der Praxis eingesetzt wird  
+
+**Nächste Schritte:**
+
+1. 🔧 **Experimentieren**: Testen Sie das Mini-RAG mit Ihren eigenen Texten
+2. 📚 **Erweitern**: Fügen Sie PDF-Support und besseres Chunking hinzu  
+3. 🤖 **Integrieren**: Verbinden Sie mit OpenAI/Anthropic für echte Antworten
+4. 🚀 **Anwenden**: Identifizieren Sie einen konkreten Anwendungsfall in Ihrem Bereich
+
+**RAG ist der Schlüssel, um LLMs mit aktuellem, spezifischem Wissen zu erweitern!** 🎯
