@@ -1,0 +1,1 @@
+/Users/daniel/GitRepository/dotfiles/agents/_shared/commands/skills/templates/multi-file-skill-template.md
