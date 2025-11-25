@@ -26,27 +26,32 @@ ping google.com
 
 ## 🚀 **Installation Schritt-für-Schritt**
 
-### **1. GitHub Copilot CLI**
+### **1. GitHub CLI (Copilot-Alternative)**
 
 #### Installation:
 ```bash
-npm install -g @github/copilot
+# GitHub CLI installieren (falls noch nicht vorhanden)
+# macOS: brew install gh
+# Windows: winget install GitHub.cli
+# Linux: siehe https://github.com/cli/cli#installation
 ```
 
 #### Setup:
 ```bash
-# GitHub CLI authentifizieren (falls noch nicht geschehen)
+# GitHub CLI authentifizieren
 gh auth login
 
-# Copilot authentifizieren
-gh copilot auth
+# Copilot-Berechtigung aktivieren (optional)
+gh auth refresh -s copilot
 ```
 
 #### Test:
 ```bash
-gh copilot --version
-gh copilot suggest "create a Python virtual environment"
+gh --version
+gh repo list --limit 3
 ```
+
+**Hinweis:** GitHub Copilot CLI hat derzeit Authentifizierungsprobleme. Wir nutzen GitHub CLI als stabile Alternative.
 
 #### ✅ **Erfolgskriterium:**
 - [ ] Version wird angezeigt
@@ -179,7 +184,7 @@ Lösung: sudo npm install -g (nur als letzter Ausweg)
 ```bash
 # Versions-Check
 echo "=== CLI Tools Versions ==="
-gh copilot --version 2>/dev/null && echo "✅ GitHub Copilot" || echo "❌ GitHub Copilot"
+gh --version 2>/dev/null && echo "✅ GitHub CLI" || echo "❌ GitHub CLI"
 claude --version 2>/dev/null && echo "✅ Claude Code" || echo "❌ Claude Code"
 gemini --version 2>/dev/null && echo "✅ Gemini CLI" || echo "❌ Gemini CLI"
 auggie --version 2>/dev/null && echo "✅ Augment Code" || echo "❌ Augment Code"
@@ -188,7 +193,7 @@ auggie --version 2>/dev/null && echo "✅ Augment Code" || echo "❌ Augment Cod
 ### **Funktionalitäts-Test:**
 ```bash
 # Schneller Funktionstest
-gh copilot suggest "hello world in Python" | head -5
+gh repo list --limit 3  # GitHub CLI Test
 claude "Say hello" | head -3
 gemini chat "Hi there" | head -3
 auggie status | head -3

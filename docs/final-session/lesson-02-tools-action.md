@@ -17,18 +17,18 @@ Nach dieser Lektion können die Teilnehmenden:
 19:00-19:20  Live-Coding mit allen 4 Tools
 ```
 
-#### **GitHub Copilot CLI - Code-Suggestions (5 Min)**
+#### **GitHub CLI - Repository Management (5 Min)**
 ```bash
-# Praktische Szenarien
-gh copilot suggest "deploy a Python app to AWS Lambda"
-gh copilot suggest "create a Docker container for a React app"
-gh copilot explain "git rebase -i HEAD~3"
+# Praktische GitHub-Workflows
+gh repo create my-project --public
+gh issue list
+gh pr list
 
 # Live-Übung für Teilnehmende
-gh copilot suggest "setup CI/CD pipeline for Python project"
+gh repo clone talent-factory/ai-development
 ```
 
-**Pädagogischer Fokus:** Zeigen, wie Copilot komplexe DevOps-Aufgaben vereinfacht.
+**Pädagogischer Fokus:** Zeigen, wie GitHub CLI Repository-Management vereinfacht.
 
 #### **Claude Code - Konversationelle Entwicklung (5 Min)**
 ```bash
@@ -81,7 +81,7 @@ git commit -m "fix stuff"  # ❌ Schlecht
 
 # Mit AI-Unterstützung
 /commit "Implement user authentication with JWT tokens"  # ✅ Besser
-gh copilot suggest "write a good commit message for authentication feature"
+claude "write a good commit message for authentication feature"
 ```
 
 **Live-Demo:** Dozent zeigt schlechte vs. gute Commit Messages.
@@ -106,7 +106,7 @@ Closes #123"
 ```bash
 # Code-Analyse vor Commit
 claude "Review this code for security issues"
-gh copilot explain "What does this function do?"
+claude "What does this function do?"
 ```
 
 ### 🔧 **Phase 3: Integration in Entwicklungsworkflows (10 Min)**
@@ -120,14 +120,14 @@ gh copilot explain "What does this function do?"
 |---------|-------------|------------|---------------|
 | **Commit Message** | 2-3 Min denken | `/commit` 30 Sek | 80% |
 | **PR Description** | 5-10 Min schreiben | `/create-pr` 2 Min | 70% |
-| **Code Erklärung** | Dokumentation suchen | `gh copilot explain` | 90% |
-| **Deployment** | Docs lesen | `gh copilot suggest` | 60% |
+| **Code Erklärung** | Dokumentation suchen | `claude explain` | 90% |
+| **Repository Setup** | Manual setup | `gh repo create` | 60% |
 
 #### **Integration Best Practices (5 Min)**
 ```bash
 # Täglicher Workflow mit AI
 1. claude "Plan today's development tasks"
-2. gh copilot suggest "setup development environment"
+2. gh repo create my-project --public
 3. # Entwicklung mit AI-Unterstützung
 4. /commit "Descriptive commit message"
 5. /create-pr "Detailed PR description"
@@ -142,7 +142,7 @@ gh copilot explain "What does this function do?"
 Aufgabe: Erstellt einen kleinen Python-Script mit AI-Hilfe
 1. claude "Create a Python script that reads CSV and creates a chart"
 2. Implementiert den Code
-3. gh copilot suggest "add error handling to Python script"
+3. claude "add error handling to Python script"
 4. /commit "Add data visualization script with error handling"
 ```
 

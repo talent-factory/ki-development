@@ -4,26 +4,31 @@
 **Ziel:** Installation und Grundverständnis moderner AI-CLI Tools
 
 ## 🎯 **Lernziele**
+
 Nach dieser Lektion können die Teilnehmenden:
+
 - Die wichtigsten AI-CLI Tools benennen und deren Zweck erklären
-- Alle essentiellen CLI-Tools erfolgreich installieren
+- Alle essenziellen CLI-Tools erfolgreich installieren
 - Erste einfache Commands ausführen
 - Den Unterschied zwischen verschiedenen AI-CLI Ansätzen verstehen
 
 ## ⏰ **Zeitplan (50 Min)**
 
 ### 📚 **Phase 1: Aktivierung & Überblick (10 Min)**
-```
+
+```text
 18:00-18:05  Begrüssung & Rückblick RAG-Abend
 18:05-18:10  Moderne AI-CLI Landschaft Überblick
 ```
 
 **Aktivierung Vorwissen:**
+
 - "Was haben wir letzten Abend mit RAG erreicht?"
 - "Welche AI-Tools nutzt ihr bereits täglich?"
 - "Was würde euch bei der täglichen Entwicklung am meisten helfen?"
 
 **Überblick AI-CLI Evolution:**
+
 ```mermaid
 graph LR
     A[Traditionelle CLI] --> B[Git CLI]
@@ -36,26 +41,48 @@ graph LR
 ```
 
 ### 🚀 **Phase 2: Essential CLI-Tools Installation (25 Min)**
-```
+
+```text
 18:10-18:35  Live-Installation aller Tools
 ```
 
-#### **Tool 1: GitHub Copilot CLI (5 Min)**
+#### **Voraussetzung: Node.js Installation (2 Min)**
+
+> **ℹ️ Wichtig:** Alle folgenden Tools benötigen Node.js und npm. Falls noch nicht installiert, bitte zuerst herunterladen und installieren.
+
 ```bash
-# Installation
-npm install -g @github/copilot
-
-# Authentifizierung
-gh auth login
-gh copilot auth
-
-# Erster Test
-gh copilot suggest "create a Python virtual environment"
+# Version prüfen
+node --version
+npm --version
 ```
 
-**Pädagogischer Hinweis:** Jeder Teilnehmende führt Installation parallel durch, Dozent wartet auf alle.
+**[Node.js herunterladen](https://nodejs.org/)** (LTS-Version empfohlen)
+
+
+#### **Tool 1: GitHub Copilot CLI (5 Min)**
+
+```bash
+# Installation (GitHub CLI mit Copilot - stabilere Alternative)
+# Voraussetzung: GitHub CLI installiert
+gh --version
+
+# GitHub CLI authentifizieren
+gh auth login
+
+# GitHub Copilot für CLI aktivieren (falls verfügbar)
+gh auth refresh -s copilot
+
+# Alternative: Direkt GitHub Copilot in VS Code/Editor nutzen
+# Erster Test mit GitHub CLI
+gh repo list --limit 3
+```
+
+**Pädagogischer Hinweis:** Falls GitHub Copilot CLI Probleme macht, fokussieren wir auf die anderen 3 Tools.
+
+**Troubleshooting:** Bei Authentifizierungsproblemen → GitHub Copilot direkt in VS Code nutzen.
 
 #### **Tool 2: Claude Code CLI (5 Min)**
+
 ```bash
 # Installation
 npm install -g @anthropic-ai/claude-code
@@ -69,6 +96,7 @@ claude "Hello, can you help me with Python?"
 ```
 
 #### **Tool 3: Gemini CLI (5 Min)**
+
 ```bash
 # Installation
 npm install -g @google/gemini-cli
@@ -81,6 +109,7 @@ gemini chat "What is the difference between Python and JavaScript?"
 ```
 
 #### **Tool 4: Augment Code CLI (5 Min)**
+
 ```bash
 # Installation
 npm install -g @augmentcode/auggie
@@ -94,12 +123,14 @@ auggie status
 ```
 
 #### **Troubleshooting & Hilfe (5 Min)**
+
 - Häufige Installationsprobleme lösen
 - API-Key Konfiguration überprüfen
 - Netzwerk-/Proxy-Probleme beheben
 
 ### 🎯 **Phase 3: dotfiles & Slash Commands Einführung (15 Min)**
-```
+
+```text
 18:35-18:50  dotfiles Installation + erste Commands
 ```
 
@@ -117,6 +148,7 @@ ls ~/.claude/commands/
 ```
 
 #### **Erste Slash Commands testen (7 Min)**
+
 ```bash
 # In Claude Code
 /commit "Add new feature for user authentication"
@@ -129,16 +161,18 @@ ls ~/.claude/commands/
 ## 🎓 **Lernzielkontrolle**
 
 ### ✅ **Erfolgskriterien**
+
 - [ ] Alle 4 CLI-Tools erfolgreich installiert
 - [ ] Mindestens ein Test-Command pro Tool ausgeführt
 - [ ] dotfiles Repository geklont und installiert
 - [ ] Mindestens 2 Slash Commands getestet
 
 ### 🔍 **Schnelle Überprüfung**
+
 ```bash
 # Alle Tools verfügbar?
-gh copilot --version
-claude --version  
+gh --version                  # GitHub CLI (als Copilot-Alternative)
+claude --version
 gemini --version
 auggie --version
 
@@ -147,11 +181,13 @@ ls ~/.claude/commands/
 ```
 
 ## 💡 **Reflexionsfragen**
+
 1. "Welches Tool hat euch am meisten überrascht?"
 2. "Wo seht ihr das grösste Potenzial für euren Arbeitsalltag?"
 3. "Welche Herausforderungen sind bei der Installation aufgetreten?"
 
 ## 🔗 **Übergang zu Lektion 2**
+
 "Jetzt haben wir alle Tools installiert. In der nächsten Lektion sehen wir sie in Aktion und lernen, wie sie unseren Entwicklungsworkflow revolutionieren können!"
 
 ---

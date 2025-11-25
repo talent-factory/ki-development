@@ -15,26 +15,29 @@
 
 ## 🎯 **Detaillierter Vergleich**
 
-### **GitHub Copilot CLI**
+### **GitHub CLI (Copilot-Alternative)**
 ```bash
-npm install -g @github/copilot
+# Installation je nach System:
+# macOS: brew install gh
+# Windows: winget install GitHub.cli
 ```
 
 #### ✅ **Stärken:**
-- **Git-Integration:** Nahtlose GitHub-Workflows
-- **Code-Suggestions:** Hochqualitative Code-Vorschläge
-- **DevOps-Fokus:** Exzellent für Deployment/CI-CD
-- **Community:** Grosse Entwickler-Community
+- **Repository-Management:** Schnelle Repo-Erstellung
+- **Issue/PR-Workflows:** Direkter GitHub-Zugriff
+- **Stabile Authentifizierung:** Zuverlässige Integration
+- **Kostenlos:** Keine monatlichen Gebühren
 
 #### ❌ **Schwächen:**
-- **Kostenpflichtig:** $10/Monat pro Entwickler
-- **GitHub-Lock-in:** Optimiert für GitHub-Ecosystem
-- **Begrenzte Konversation:** Weniger interaktiv
+- **Keine AI-Features:** Klassische CLI ohne AI
+- **GitHub-Lock-in:** Nur für GitHub-Repositories
+- **Begrenzte Automation:** Weniger intelligente Suggestions
 
 #### 🎯 **Beste Anwendung:**
 ```bash
-gh copilot suggest "deploy Python app to AWS Lambda"
-gh copilot explain "git rebase -i HEAD~3"
+gh repo create my-project --public
+gh issue list
+gh pr create --title "Feature"
 ```
 
 ---
@@ -161,13 +164,13 @@ auggie analyze codebase
 ### **Optimal-Setup für Entwickler:**
 ```bash
 # Basis-Setup (alle installieren)
-npm install -g @github/copilot
+brew install gh  # oder entsprechend für Windows/Linux
 npm install -g @anthropic-ai/claude-code
 npm install -g @google/gemini-cli
 npm install -g @augmentcode/auggie
 
 # Täglicher Workflow
-1. GitHub Copilot für Git/DevOps
+1. GitHub CLI für Repository-Management
 2. Claude Code für Code-Refactoring
 3. Gemini für Dokumentation
 4. Augment Code für Team-Workflows
@@ -178,9 +181,9 @@ npm install -g @augmentcode/auggie
 # Kostenlose Basis
 npm install -g @google/gemini-cli
 npm install -g @anthropic-ai/claude-code  # Free Tier
+brew install gh  # GitHub CLI kostenlos
 
-# Bei Bedarf erweitern
-npm install -g @github/copilot  # Wenn GitHub-heavy
+# Fokus auf kostenlose Tools
 ```
 
 **💡 Tipp:** Startet mit Claude Code + Gemini, erweitert je nach Bedarf!
